@@ -115,3 +115,5 @@ if (attack == AT_TAUNT)
         charms_ui_alpha = 0;
     }
   }
+  
+  
