@@ -43,8 +43,6 @@ equipped_charm_1 = "";
 equipped_charm_2 = "";
 equipped_charm_3 = "";
 
-equipped_charm_1_cost = 1;
-
 charm_selector_x = -100;
 charm_selector_y = -100;
 
@@ -57,16 +55,6 @@ strength_color = c_white;
 heart_color = c_white;
 sporeshroom_color = c_white;
 dashmaster_color = c_white;
-
-//Charms cost value
-stalwart_cost = 2;
-soulcatcher_cost = 1;
-shamanstone_cost = 1;
-grubsong_cost =  1;
-strength_cost = 1;
-heart_cost = 2;
-sporeshroom_cost = 1;
-dashmaster_cost = 1;
 
 //Overcharmed
 overcharmed = false;

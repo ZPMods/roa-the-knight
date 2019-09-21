@@ -180,7 +180,7 @@ if (is_equipping_charms == true)
     draw_sprite_ext(sprite_get(equipped_charm_1 + "_16"), 0, x + 82 + charms_facing_direction + overcharm_shaking_1_x, y - 148 + overcharm_shaking_1_y, 1, 1, 0, c_white, charms_ui_alpha);
   }
 
-  if (equipped_charm_1 != "" && equipped_charm_1_cost = 1)
+  if (equipped_charm_1 != "")
   {
     //Deuxième notch, si le coût de Charm 1 est 1
     draw_sprite_ext(sprite_get("charm_notch_on"), 0, x + 122 + charms_facing_direction, y - 148, 1, 1, 0, c_white, charms_ui_alpha);
@@ -243,21 +243,13 @@ if (is_equipping_charms == true)
     }
   }
 
-  if (jump_pressed || attack_pressed || special_pressed)
+  if (jump_pressed || attack_pressed)
   {
     //Équiper Charm 1
     if (equipped_charm_1 == "" && equip_cooldown = false)
     {
       equipped_charm_1 = selected_charm;
       equip_cooldown = true;
-      if (equipped_charm_1 == "stalwart" || equipped_charm_1 == "heart")
-      {
-        equipped_charm_1_cost = 2;
-      }
-      else
-      {
-        equipped_charm_1_cost = 1;
-      }
     }
 
     //Équiper Charm 2
@@ -265,24 +257,13 @@ if (is_equipping_charms == true)
     {
       equipped_charm_2 = selected_charm;
       equip_cooldown = true;
-
-      if (equipped_charm_1_cost = 2)
-      {
-        overcharmed = true;
-      }
-
-      if (equipped_charm_2 == "stalwart" || equipped_charm_2 == "heart")
-      {
-        overcharmed = true;
-      }
     }
 
     //Équiper Charm 3
-    if (equipped_charm_3 == "" && equipped_charm_2 != "" && selected_charm != equipped_charm_1 && selected_charm != equipped_charm_2 && equip_cooldown = false && overcharmed = false)
+    if (equipped_charm_3 == "" && equipped_charm_2 != "" && selected_charm != equipped_charm_1 && selected_charm != equipped_charm_2 && equip_cooldown = false)
     {
       equipped_charm_3 = selected_charm;
       equip_cooldown = true;
-
       overcharmed = true;
     }
 
@@ -294,11 +275,6 @@ if (is_equipping_charms == true)
       equipped_charm_3 = "";
       equip_cooldown = true;
       overcharmed = false;
-
-      if (equipped_charm_1 == "stalwart" || equipped_charm_1 == "heart")
-      {
-        equipped_charm_1_cost = 2;
-      }
     }
 
     //Déséquiper Charm 2
