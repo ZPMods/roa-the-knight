@@ -103,11 +103,15 @@ if (attack == AT_DSPECIAL){
     can_move = false
 }
 
+//Taunt
 if (attack == AT_TAUNT)
   {
+    is_equipping_charms = true;
+
     if (window >= 2  && window_timer >= 10 && shield_pressed)
     {
         set_state(PS_IDLE);
-        
+        is_equipping_charms = false;
+        charms_ui_alpha = 0;
     }
   }

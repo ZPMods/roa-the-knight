@@ -1,8 +1,3 @@
-hurtbox_spr = asset_get("ex_guy_hurt_box");
-crouchbox_spr = asset_get("ex_guy_crouch_box");
-air_hurtbox_spr = -1;
-hitstun_hurtbox_spr = -1;
-
 //----------------------------------------------------------
 //Custom Variables
 //----------------------------------------------------------
@@ -33,23 +28,67 @@ soulmeter_animation_timer = 0;
 //Notches number
 notches_avaible = 2;
 
-//Selected Charm
-selected_charm1 = "";
-selected_charm2 = "";
+//Equipping CHARMS
+is_equipping_charms = false;
+
+equip_cooldown = false;
+equip_cooldown_timer = 0;
+
+charms_ui_alpha = 0;
+charms_facing_direction = 0;
+
+selected_charm = "stalwart";
+
+equipped_charm_1 = "";
+equipped_charm_2 = "";
+equipped_charm_3 = "";
+
+equipped_charm_1_cost = 1;
+
+charm_selector_x = -100;
+charm_selector_y = -100;
+
+//Charms color
+stalwart_color = c_white;
+soulcatcher_color = c_white;
+shamanstone_color = c_white;
+grubsong_color =  c_white;
+strength_color = c_white;
+heart_color = c_white;
+sporeshroom_color = c_white;
+dashmaster_color = c_white;
 
 //Charms cost value
 stalwart_cost = 2;
 soulcatcher_cost = 1;
 shamanstone_cost = 1;
 grubsong_cost =  1;
-unbreakablestrenght_cost = 1;
-unbreakableheart_cost = 2;
+strength_cost = 1;
+heart_cost = 2;
 sporeshroom_cost = 1;
 dashmaster_cost = 1;
 
 //Overcharmed
 overcharmed = false;
+
+overcharm_shaking_1_x = 0;
+overcharm_shaking_1_y = 0;
+
+overcharm_shaking_2_x = 0;
+overcharm_shaking_2_y = 0;
+
+overcharm_shaking_3_x = 0;
+overcharm_shaking_3_y = 0;
+overcharm_shaking_timer = 0;
+
 //----------------------------------------------------------
+
+//Common Variables
+
+hurtbox_spr = asset_get("ex_guy_hurt_box");
+crouchbox_spr = asset_get("ex_guy_crouch_box");
+air_hurtbox_spr = -1;
+hitstun_hurtbox_spr = -1;
 
 char_height = 52;
 idle_anim_speed = .1;
@@ -66,7 +105,7 @@ initial_dash_speed = 8;
 dash_speed = 6;
 dash_turn_time = 10;
 dash_turn_accel = 1.5;
-dash_stop_time = 4;
+dash_stop_time = 7;
 dash_stop_percent = .35; //the value to multiply your hsp by when going into idle from dash or dashstop
 ground_friction = .5;
 moonwalk_accel = 1.4;
@@ -79,7 +118,7 @@ leave_ground_max = 7; //the maximum hsp you can have when you go from grounded t
 max_jump_hsp = 5; //the maximum hsp you can have when jumping from the ground
 air_max_speed = 5; //the maximum hsp you can accelerate to when in a normal aerial state
 jump_change = 3; //maximum hsp when double jumping. If already going faster, it will not slow you down
-air_accel = .3;
+air_accel = .5;
 prat_fall_accel = .85; //multiplier of air_accel while in pratfall
 air_friction = .02;
 max_djumps = 1;
@@ -87,11 +126,11 @@ double_jump_time = 45; //the number of frames to play the djump animation. Can't
 walljump_hsp = 7;
 walljump_vsp = 11;
 walljump_time = 32;
-max_fall = 10; //maximum fall speed without fastfalling
-fast_fall = 16; //fast fall speed
+max_fall = 9; //maximum fall speed without fastfalling
+fast_fall = 13; //fast fall speed
 gravity_speed = .65;
 hitstun_grav = .5;
-knockback_adj = 1.0; //the multiplier to KB dealt to you. 1 = default, >1 = lighter, <1 = heavier
+knockback_adj = 1.1; //the multiplier to KB dealt to you. 1 = default, >1 = lighter, <1 = heavier
 
 land_time = 4; //normal landing frames
 prat_land_time = 3;

@@ -5,8 +5,8 @@ sprite_change_offset("walk", 82, 128);
 sprite_change_offset("walkturn", 82, 128);
 sprite_change_offset("dash", 82, 128);
 sprite_change_offset("dashstart", 82, 128);
-sprite_change_offset("dashstop", 32, 62);
-sprite_change_offset("dashturn", 32, 62);
+sprite_change_offset("dashstop", 82, 128);
+sprite_change_offset("dashturn", 82, 128);
 
 sprite_change_offset("jumpstart", 82, 128);
 sprite_change_offset("jump", 82, 128);
