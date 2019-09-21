@@ -5,6 +5,7 @@ draw_debug_text( temp_x+150, temp_y-30, selected_charm);
 draw_debug_text( temp_x+150, temp_y-50, equipped_charm_1);
 draw_debug_text( temp_x+150, temp_y-70, equipped_charm_2);
 draw_debug_text( temp_x+150, temp_y-90, equipped_charm_3);
+draw_debug_text( temp_x+150, temp_y-110, string(knockback_adj));
 
 //Affiche le nombre de Soul Points sur le HUD
 draw_debug_text( temp_x+150, temp_y-14, "Soul : " + string( soul_points ));

@@ -3,6 +3,7 @@ if (my_hitboxID.attack == AT_JAB || my_hitboxID.attack == AT_DATTACK || my_hitbo
 {
   if (soul_points < 100)
   {
+      
     soul_points += my_hitboxID.damage;
     
     if (soul_points > 100)

@@ -1,4 +1,5 @@
 //update
+
 if(equipped_charm_1 = "dashmaster" || equipped_charm_2 = "dashmaster" || equipped_charm_3 = "dashmaster")
 {
     walk_speed = 6;
@@ -35,4 +36,27 @@ else
     air_max_speed = 5;
     air_accel = .5;
 }
-  
+
+if(equipped_charm_1 = "stalwart" || equipped_charm_2 = "stalwart" || equipped_charm_3 = "stalwart")
+{
+    air_dodge_speed = 9;
+    
+    roll_forward_max = 10; //roll speed
+    roll_backward_max = 10;
+}
+else
+{
+    air_dodge_speed = 7.5;
+    
+    roll_forward_max = 9; //roll speed
+    roll_backward_max = 9;
+}
+
+if(equipped_charm_1 = "heart" || equipped_charm_2 = "heart" || equipped_charm_3 = "heart")
+{
+    knockback_adj = 0.9;
+}
+else
+{
+   knockback_adj = 1.1;
+}

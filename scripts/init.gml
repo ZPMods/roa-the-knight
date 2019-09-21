@@ -43,8 +43,6 @@ equipped_charm_1 = "";
 equipped_charm_2 = "";
 equipped_charm_3 = "";
 
-equipped_charm_1_cost = 1;
-
 charm_selector_x = -100;
 charm_selector_y = -100;
 
@@ -58,16 +56,6 @@ heart_color = c_white;
 sporeshroom_color = c_white;
 dashmaster_color = c_white;
 
-//Charms cost value
-stalwart_cost = 1;
-soulcatcher_cost = 1;
-shamanstone_cost = 1;
-grubsong_cost =  1;
-strength_cost = 1;
-heart_cost = 1;
-sporeshroom_cost = 1;
-dashmaster_cost = 1;
-
 //Overcharmed
 overcharmed = false;
 
@@ -79,6 +67,7 @@ overcharm_shaking_2_y = 0;
 
 overcharm_shaking_3_x = 0;
 overcharm_shaking_3_y = 0;
+
 overcharm_shaking_timer = 0;
 
 //----------------------------------------------------------
@@ -96,9 +85,6 @@ crouch_anim_speed = .1;
 walk_anim_speed = .125;
 dash_anim_speed = 0.35;
 pratfall_anim_speed = .25;
-
-
-
 
 walk_speed = 4;
 walk_accel = 0.2;
@@ -187,7 +173,3 @@ air_dodge_sound = asset_get("sfx_quick_dodge");
 //visual offsets for when you're in Ranno's bubble
 bubble_x = 0;
 bubble_y = 8;
-
-
-//Effets Charmes
-
