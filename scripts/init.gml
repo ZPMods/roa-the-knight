@@ -5,6 +5,9 @@ hitstun_hurtbox_spr = -1;
 
 //----------------------------------------------------------
 //Custom Variables
+//----------------------------------------------------------
+
+//SOUL
 
 //Soul points, Boosted Attacks
 soul_points = 0;
@@ -23,6 +26,29 @@ soulmeter_animation_frame = 1;
 soulmeter_animation_framelength = 10;
 soulmeter_animation_timer = 0;
 
+//----------------------------------------------------------
+
+//CHARMS
+
+//Notches number
+notches_avaible = 2;
+
+//Selected Charm
+selected_charm1 = "";
+selected_charm2 = "";
+
+//Charms cost value
+stalwart_cost = 2;
+soulcatcher_cost = 1;
+shamanstone_cost = 1;
+grubsong_cost =  1;
+unbreakablestrenght_cost = 1;
+unbreakableheart_cost = 2;
+sporeshroom_cost = 1;
+dashmaster_cost = 1;
+
+//Overcharmed
+overcharmed = false;
 //----------------------------------------------------------
 
 char_height = 52;

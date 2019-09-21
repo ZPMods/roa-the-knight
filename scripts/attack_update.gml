@@ -108,5 +108,6 @@ if (attack == AT_TAUNT)
     if (window >= 2  && window_timer >= 10 && shield_pressed)
     {
         set_state(PS_IDLE);
+        
     }
   }
