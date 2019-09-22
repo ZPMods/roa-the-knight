@@ -26,18 +26,24 @@ if (soulmeter_animation_timer == soulmeter_animation_framelength)
   }
 }
 
+//Affichage de l'overcharm
+if (overcharmed == true)
+{
+    draw_sprite_ext(sprite_get("overcharm_8"), 0, temp_x + 50, temp_y - 26, 1, 1, 0, c_white, 1);
+}
+
 //Affichage des charms équipés
 if (equipped_charm_1 != "")
 {
-  draw_sprite(sprite_get(equipped_charm_1 + "_8"), 0, temp_x + 56, temp_y - 22);
+  draw_sprite(sprite_get(equipped_charm_1 + "_8"), 0, temp_x + 60 + overcharm_shaking_1_x, temp_y - 22 + overcharm_shaking_1_y);
 }
 
 if (equipped_charm_2 != "")
 {
-  draw_sprite(sprite_get(equipped_charm_2 + "_8"), 0, temp_x + 78, temp_y - 22);
+  draw_sprite(sprite_get(equipped_charm_2 + "_8"), 0, temp_x + 82  + overcharm_shaking_2_x, temp_y - 22 + overcharm_shaking_2_y);
 }
 
 if (equipped_charm_3 != "")
 {
-  draw_sprite(sprite_get(equipped_charm_3 + "_8"), 0, temp_x + 100, temp_y - 22);
+  draw_sprite(sprite_get(equipped_charm_3 + "_8"), 0, temp_x + 104 + overcharm_shaking_3_x, temp_y - 22 + overcharm_shaking_3_y);
 }

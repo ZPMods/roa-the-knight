@@ -157,14 +157,7 @@ if (is_equipping_charms == true)
   //Affichage de l'overcharm
   if (overcharmed == true)
   {
-    if (equipped_charm_3 == "")
-    {
-      draw_sprite_ext(sprite_get("overcharm2_16"), 0, x + 82 + charms_facing_direction, y - 138, 1, 1, 0, c_white, charms_ui_alpha - 0.3);
-    }
-    else
-    {
       draw_sprite_ext(sprite_get("overcharm3_16"), 0, x + 82 + charms_facing_direction, y - 138, 1, 1, 0, c_white, charms_ui_alpha - 0.3);
-    }
   }
 
   //Affichage des notches/charms équipés
