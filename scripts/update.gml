@@ -14,7 +14,7 @@ if(equipped_charm_1 = "dashmaster" || equipped_charm_2 = "dashmaster" || equippe
     dash_stop_percent = .35; //the value to multiply your hsp by when going into idle from dash or dashstop
     ground_friction = .5;
     moonwalk_accel = 1.4;
-    
+
     air_max_speed = 6;
     air_accel = .55;
 }
@@ -32,7 +32,7 @@ else
     dash_stop_percent = .35; //the value to multiply your hsp by when going into idle from dash or dashstop
     ground_friction = .5;
     moonwalk_accel = 1.4;
-        
+
     air_max_speed = 5;
     air_accel = .5;
 }
@@ -40,16 +40,25 @@ else
 if(equipped_charm_1 = "stalwart" || equipped_charm_2 = "stalwart" || equipped_charm_3 = "stalwart")
 {
     air_dodge_speed = 9;
-    
+
     roll_forward_max = 10; //roll speed
     roll_backward_max = 10;
 }
 else
 {
     air_dodge_speed = 7.5;
-    
+
     roll_forward_max = 9; //roll speed
     roll_backward_max = 9;
+}
+
+if(equipped_charm_1 = "soulcatcher" || equipped_charm_2 = "soulcatcher" || equipped_charm_3 = "soulcatcher")
+{
+    soulcatcher_multiplier = 1.3;
+}
+else
+{
+   soulcatcher_multiplier = 1;
 }
 
 if(equipped_charm_1 = "heart" || equipped_charm_2 = "heart" || equipped_charm_3 = "heart")

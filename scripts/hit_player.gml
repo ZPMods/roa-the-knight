@@ -3,9 +3,9 @@ if (my_hitboxID.attack == AT_JAB || my_hitboxID.attack == AT_DATTACK || my_hitbo
 {
   if (soul_points < 100)
   {
-      
-    soul_points += my_hitboxID.damage;
-    
+
+    soul_points += round((my_hitboxID.damage * soulcatcher_multiplier));
+
     if (soul_points > 100)
     {
       soul_points = 100;

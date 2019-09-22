@@ -70,6 +70,9 @@ overcharm_shaking_3_y = 0;
 
 overcharm_shaking_timer = 0;
 
+//Charms Variables
+soulcatcher_multiplier = 1;
+
 //----------------------------------------------------------
 
 //Common Variables
