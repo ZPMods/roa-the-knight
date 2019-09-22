@@ -17,6 +17,8 @@ if(equipped_charm_1 = "dashmaster" || equipped_charm_2 = "dashmaster" || equippe
 
     air_max_speed = 6;
     air_accel = .55;
+    
+    knockback_adj = 1.3;
 }
 else
 {
@@ -35,6 +37,8 @@ else
 
     air_max_speed = 5;
     air_accel = .5;
+    
+    knockback_adj = 1.1;
 }
 
 if(equipped_charm_1 = "stalwart" || equipped_charm_2 = "stalwart" || equipped_charm_3 = "stalwart")
@@ -63,9 +67,14 @@ else
 
 if(equipped_charm_1 = "heart" || equipped_charm_2 = "heart" || equipped_charm_3 = "heart")
 {
+    if(equipped_charm_1 = "dashmaster" || equipped_charm_2 = "dashmaster" || equipped_charm_3 = "dashmaster")
+    {
+        knockback_adj = 1;
+    }
     knockback_adj = 0.9;
 }
 else
 {
    knockback_adj = 1.1;
 }
+//
