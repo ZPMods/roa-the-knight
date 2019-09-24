@@ -2,6 +2,8 @@
 //Custom Variables
 //----------------------------------------------------------
 
+has_dair_hit = false;
+
 //SOUL
 
 //Soul points, Boosted Attacks
@@ -176,5 +178,3 @@ air_dodge_sound = asset_get("sfx_quick_dodge");
 //visual offsets for when you're in Ranno's bubble
 bubble_x = 0;
 bubble_y = 8;
-
-

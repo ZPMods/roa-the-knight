@@ -113,9 +113,17 @@ if (attack == AT_TAUNT)
     }
   }
 
+//Reset du pogo du dair
+if (attack == AT_DAIR && window == 3)
+{
+  if (has_dair_hit == true)
+  {
+    window = 4;
+    has_dair_hit = false;
+  }
 
-
-    
-
-
-
+  if (window_timer == 12)
+  {
+  set_state(PS_IDLE);
+  }
+}
