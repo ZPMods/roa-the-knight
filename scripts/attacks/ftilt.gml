@@ -1,6 +1,7 @@
 set_attack_value(AT_FTILT, AG_SPRITE, sprite_get("ftilt"));
 set_attack_value(AT_FTILT, AG_NUM_WINDOWS, 3);
 set_attack_value(AT_FTILT, AG_HURTBOX_SPRITE, sprite_get("ftilt_hurt"));
+set_window_value(AT_FTILT, 1, AG_WINDOW_SFX, asset_get("sfx_swipe_weak2"));
 
 set_window_value(AT_FTILT, 1, AG_WINDOW_TYPE, 1);
 set_window_value(AT_FTILT, 1, AG_WINDOW_LENGTH, 13);
@@ -31,10 +32,11 @@ set_hitbox_value(AT_FTILT, 1, HG_HEIGHT, 72);
 set_hitbox_value(AT_FTILT, 1, HG_SHAPE, 0);
 set_hitbox_value(AT_FTILT, 1, HG_PRIORITY, 2);
 set_hitbox_value(AT_FTILT, 1, HG_DAMAGE, 8);
-set_hitbox_value(AT_FTILT, 1, HG_ANGLE, 20);
+set_hitbox_value(AT_FTILT, 1, HG_ANGLE, 30);
 set_hitbox_value(AT_FTILT, 1, HG_BASE_KNOCKBACK, 8);
 set_hitbox_value(AT_FTILT, 1, HG_KNOCKBACK_SCALING, .45);
 set_hitbox_value(AT_FTILT, 1, HG_BASE_HITPAUSE, 8);
 set_hitbox_value(AT_FTILT, 1, HG_HITPAUSE_SCALING, .8);
 set_hitbox_value(AT_FTILT, 1, HG_VISUAL_EFFECT_X_OFFSET, 16);
 set_hitbox_value(AT_FTILT, 1, HG_EXTRA_CAMERA_SHAKE, 2);
+set_hitbox_value(AT_FTILT, 1, HG_HIT_SFX, asset_get("sfx_blow_weak2"));
