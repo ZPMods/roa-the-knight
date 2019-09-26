@@ -7,7 +7,7 @@ has_dair_hit = false;
 //SOUL
 
 //Soul points, Boosted Attacks
-soul_points = 0;
+soul_points = 100;
 
 SP_nspecial = 20;
 SP_fspecial = 20;
