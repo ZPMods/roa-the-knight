@@ -9,10 +9,10 @@ has_dair_hit = false;
 //Soul points, Boosted Attacks
 soul_points = 100;
 
-SP_nspecial = 20;
-SP_fspecial = 20;
-SP_dspecial = 20;
-SP_uspecial = 20;
+SP_nspecial = 25;
+SP_fspecial = 25;
+SP_dspecial = 25;
+SP_uspecial = 25;
 
 charged_time = 0;
 required_charge_time = 10;

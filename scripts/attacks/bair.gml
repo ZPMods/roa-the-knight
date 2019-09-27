@@ -30,10 +30,10 @@ set_hitbox_value(AT_BAIR, 1, HG_PARENT_HITBOX, 1);
 set_hitbox_value(AT_BAIR, 1, HG_HITBOX_TYPE, 1);
 set_hitbox_value(AT_BAIR, 1, HG_WINDOW, 2);
 set_hitbox_value(AT_BAIR, 1, HG_LIFETIME, 2);
-set_hitbox_value(AT_BAIR, 1, HG_HITBOX_X, -24); // Position de la hitbox en X
-set_hitbox_value(AT_BAIR, 1, HG_HITBOX_Y, -50); // Position de la hitbox en Y
-set_hitbox_value(AT_BAIR, 1, HG_WIDTH, 82); // Largeur de la hitbox
-set_hitbox_value(AT_BAIR, 1, HG_HEIGHT, 120); // Hauteur de la hitbox
+set_hitbox_value(AT_BAIR, 1, HG_HITBOX_X, -26); // Position de la hitbox en X
+set_hitbox_value(AT_BAIR, 1, HG_HITBOX_Y, -38); // Position de la hitbox en Y
+set_hitbox_value(AT_BAIR, 1, HG_WIDTH, 85); // Largeur de la hitbox
+set_hitbox_value(AT_BAIR, 1, HG_HEIGHT, 90); // Hauteur de la hitbox
 set_hitbox_value(AT_BAIR, 1, HG_PRIORITY, 2);
 set_hitbox_value(AT_BAIR, 1, HG_DAMAGE, 14);
 set_hitbox_value(AT_BAIR, 1, HG_ANGLE, 45);
