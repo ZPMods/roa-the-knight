@@ -49,4 +49,4 @@ sprite_change_offset("plat", 64, 94);
 sprite_change_offset("nspecial_proj", 64, 94);
 
 
-set_victory_theme( sound_get( "music_win_knight"));
+set_victory_theme( sound_get( "knightvictory_2"));
