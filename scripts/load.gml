@@ -47,3 +47,6 @@ sprite_change_offset("taunt", 66, 126);
 sprite_change_offset("plat", 64, 94);
 
 sprite_change_offset("nspecial_proj", 64, 94);
+
+
+set_victory_theme( sound_get( "music_win_knight"));
