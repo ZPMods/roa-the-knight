@@ -1,3 +1,6 @@
+sprite_change_offset("_hurtbox_standing", 82, 128);
+sprite_change_offset("_hurtbox_crouching", 82, 128);
+
 sprite_change_offset("idle", 82, 128);
 sprite_change_offset("hurt", 32, 62);
 sprite_change_offset("crouch", 82, 128);

@@ -79,8 +79,8 @@ soulcatcher_multiplier = 1;
 
 //Common Variables
 
-hurtbox_spr = asset_get("ex_guy_hurt_box");
-crouchbox_spr = asset_get("ex_guy_crouch_box");
+hurtbox_spr = sprite_get("_hurtbox_standing");
+crouchbox_spr = sprite_get("_hurtbox_crouching");
 air_hurtbox_spr = -1;
 hitstun_hurtbox_spr = -1;
 
