@@ -128,3 +128,10 @@ if (attack == AT_DAIR && window == 3)
   set_state(PS_IDLE);
   }
 }
+// Custom Sounds
+if (attack == AT_BAIR){
+    if (window == 2 && window_timer == 1)
+    {
+        sound_play( sound_get("knight_bair"));
+    }
+}
