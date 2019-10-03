@@ -139,7 +139,7 @@ if (is_equipping_charms == true)
   //draw_sprite_ext(sprite_get("charm_infobox"), 0, x + 120 + charms_facing_direction, y - 94, 1, 1, 0, c_white, charms_ui_alpha);
 
   //Affichage du nom
-  draw_sprite_ext(sprite_get(selected_charm + "_name"), 0, x - 241 + charms_facing_direction, y - 192, 1, 1, 0, c_white, charms_ui_alpha);
+  draw_sprite_ext(sprite_get(selected_charm + "_name"), 0, x - 369 + charms_facing_direction, y - 232, 1, 1, 0, c_white, charms_ui_alpha);
 
   //Affichage de la light
   draw_sprite_ext(sprite_get("charm_light"), 0, charm_selector_x, charm_selector_y, 1, 1, 0, c_white, charms_ui_alpha);
@@ -160,7 +160,7 @@ if (is_equipping_charms == true)
   //Affichage de l'overcharm
   if (overcharmed == true)
   {
-      draw_sprite_ext(sprite_get("overcharm3_16"), 0, x + 82 + charms_facing_direction, y - 138, 1, 1, 0, c_white, charms_ui_alpha - 0.3);
+      draw_sprite_ext(sprite_get("overcharm3_16"), 0, x + 82 + charms_facing_direction, y - 128, 1, 1, 0, c_white, charms_ui_alpha - 0.3);
   }
 
   //Affichage des notches/charms équipés
