@@ -136,7 +136,10 @@ if (is_equipping_charms == true)
   draw_sprite_ext(sprite_get("charm_wheel"), 0, x - 82 + charms_facing_direction, y - 128, 1, 1, 0, c_white, charms_ui_alpha);
 
   //Affichage de la box
-  draw_sprite_ext(sprite_get("charm_infobox"), 0, x + 120 + charms_facing_direction, y - 94, 1, 1, 0, c_white, charms_ui_alpha);
+  //draw_sprite_ext(sprite_get("charm_infobox"), 0, x + 120 + charms_facing_direction, y - 94, 1, 1, 0, c_white, charms_ui_alpha);
+
+  //Affichage du nom
+  draw_sprite_ext(sprite_get(selected_charm + "_name"), 0, x - 241 + charms_facing_direction, y - 192, 1, 1, 0, c_white, charms_ui_alpha);
 
   //Affichage de la light
   draw_sprite_ext(sprite_get("charm_light"), 0, charm_selector_x, charm_selector_y, 1, 1, 0, c_white, charms_ui_alpha);
@@ -164,31 +167,31 @@ if (is_equipping_charms == true)
   if (equipped_charm_1 == "")
   {
     //Notches vides
-    draw_sprite_ext(sprite_get("charm_notch_on"), 0, x + 82 + charms_facing_direction, y - 148, 1, 1, 0, c_white, charms_ui_alpha);
-    draw_sprite_ext(sprite_get("charm_notch_off"), 0, x + 122 + charms_facing_direction, y - 148, 1, 1, 0, c_white, charms_ui_alpha);
+    draw_sprite_ext(sprite_get("charm_notch_on"), 0, x + 82 + charms_facing_direction, y - 138, 1, 1, 0, c_white, charms_ui_alpha);
+    draw_sprite_ext(sprite_get("charm_notch_off"), 0, x + 122 + charms_facing_direction, y - 138, 1, 1, 0, c_white, charms_ui_alpha);
   }
   else
   {
     //Charm 1
-    draw_sprite_ext(sprite_get(equipped_charm_1 + "_16"), 0, x + 82 + charms_facing_direction + overcharm_shaking_1_x, y - 148 + overcharm_shaking_1_y, 1, 1, 0, c_white, charms_ui_alpha);
+    draw_sprite_ext(sprite_get(equipped_charm_1 + "_16"), 0, x + 82 + charms_facing_direction + overcharm_shaking_1_x, y - 138 + overcharm_shaking_1_y, 1, 1, 0, c_white, charms_ui_alpha);
   }
 
   if (equipped_charm_1 != "")
   {
     //Deuxième notch, si le coût de Charm 1 est 1
-    draw_sprite_ext(sprite_get("charm_notch_on"), 0, x + 122 + charms_facing_direction, y - 148, 1, 1, 0, c_white, charms_ui_alpha);
+    draw_sprite_ext(sprite_get("charm_notch_on"), 0, x + 122 + charms_facing_direction, y - 138, 1, 1, 0, c_white, charms_ui_alpha);
   }
 
   if (equipped_charm_2 != "")
   {
     //Charm 2
-    draw_sprite_ext(sprite_get(equipped_charm_2 + "_16"), 0, x + 122 + charms_facing_direction + overcharm_shaking_2_x, y - 148 + overcharm_shaking_2_y, 1, 1, 0, c_white, charms_ui_alpha);
+    draw_sprite_ext(sprite_get(equipped_charm_2 + "_16"), 0, x + 122 + charms_facing_direction + overcharm_shaking_2_x, y - 138 + overcharm_shaking_2_y, 1, 1, 0, c_white, charms_ui_alpha);
   }
 
   if (equipped_charm_3 != "")
   {
     //Charm 3
-    draw_sprite_ext(sprite_get(equipped_charm_3 + "_16"), 0, x + 162 + charms_facing_direction + overcharm_shaking_3_x, y - 148 + overcharm_shaking_3_y, 1, 1, 0, c_white, charms_ui_alpha);
+    draw_sprite_ext(sprite_get(equipped_charm_3 + "_16"), 0, x + 162 + charms_facing_direction + overcharm_shaking_3_x, y - 138 + overcharm_shaking_3_y, 1, 1, 0, c_white, charms_ui_alpha);
   }
 
   //Sélection des charms
