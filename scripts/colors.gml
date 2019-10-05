@@ -1,3 +1,5 @@
+set_num_palettes( 7 );
+
 //DEFAULT COLOR (R,G,B)
 set_color_profile_slot(0, 0, 167, 195, 217); //Helmet - White/Blue
 set_color_profile_slot(0, 1, 84, 87, 138); //Cape - Purple
@@ -46,3 +48,10 @@ set_color_profile_slot(5, 1, 200, 220, 220); //Cape - White
 set_color_profile_slot(5, 2, 200, 220, 220); //Nail - Grey
 set_color_profile_slot(5, 3, 24, 23, 33); //Body - Grey
 set_color_profile_slot(5, 4, 15, 15, 30); //Eyes - Grey Black
+
+// Trans Right
+set_color_profile_slot(6, 0, 255, 255, 255); 
+set_color_profile_slot(6, 1, 211, 129, 189); 
+set_color_profile_slot(6, 2, 67, 174, 216); 
+set_color_profile_slot(6, 3, 40, 40, 40);
+set_color_profile_slot(6, 4, 15, 15, 30); 

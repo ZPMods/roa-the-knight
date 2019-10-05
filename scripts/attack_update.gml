@@ -91,14 +91,24 @@ if (attack == AT_FSPECIAL){
     can_fast_fall = false;
 }
 
-
-
-if (attack == AT_DSPECIAL){
-    if (window == 2){
-        can_jump = true;
+// Down Special de ses morts
+if (attack == AT_DSPECIAL)
+    {
+    if (free) {
+        attack = AT_DSPECIAL_2;
+    } 
+    else {
+        attack = AT_DSPECIAL;
+        window = 3;
     }
-    can_fast_fall = false;
-    can_move = false
+}
+if (attack == AT_DSPECIAL_2){
+    if (free){
+        
+    }
+    else{
+        window = 3;
+    }
 }
 
 //Taunt
@@ -113,7 +123,7 @@ if (attack == AT_TAUNT)
         charms_ui_alpha = 0;
     }
   }
-
+  
 //Reset du pogo du dair
 if (attack == AT_DAIR && window == 3)
 {
