@@ -27,6 +27,16 @@ if (my_hitboxID.attack == AT_JAB || my_hitboxID.attack == AT_DATTACK || my_hitbo
     }
 }
 
+//Shaman Stone
+if(my_hitboxID.attack == AT_USPECIAL || my_hitboxID.attack == AT_USPECIAL_2  || my_hitboxID.attack == AT_DPSPECIAL  || my_hitboxID.attack == AT_DSPECIAL_2 ||  my_hitboxID.attack == AT_FSPECIAL ||  my_hitboxID.attack == AT_FSPECIAL_2 )
+{
+    
+    if(equipped_charm1 = "grubsong" || equipped_charm2 = "shaman" || equipped_charm3 = "shaman")
+    {
+         take_damage(hit_player_obj.player,1,round(my_hitboxID.damage*50));
+    }
+}
+
 //Pogo du dair
 if (my_hitboxID.attack == AT_DAIR && window == 2)
 {

@@ -140,3 +140,46 @@ if (attack == AT_DSPECIAL && window == 1)
         attack = AT_DSPECIAL;
     }
 }
+if (attack == AT_DSPECIAL_2 && window <= 3)
+{
+    if(free = false)
+    {
+        window = 4;
+    }
+    
+}
+
+// Down Special Boosted
+if (attack == AT_DSPECIAL && soul_points >= SP_dspecial)
+{
+    if (window == 1)
+  {
+    if (special_down)
+    {
+      charged_time += 1;
+
+      if (charged_time == required_charge_time)
+      {
+        window = 1;
+        window_timer = 0;
+        attack = AT_DSPECIAL_3;
+        soul_points -= SP_dspecial;
+      }
+
+      if(attack == AT_DSPECIAL_3 && window == 1)
+      {
+          if(free == true){
+              attack = AT_DSPECIAL_4;
+          }
+          else{
+              attack = AT_DSPECIAL_3;
+          }
+      }
+      window =1;
+    }
+    else
+    {
+      window = 2;
+    }
+  }
+}
