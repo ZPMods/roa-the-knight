@@ -1,4 +1,4 @@
-set_num_palettes( 7 );
+set_num_palettes( 9 );
 
 //DEFAULT COLOR (R,G,B)
 set_color_profile_slot(0, 0, 167, 195, 217); //Helmet - White/Blue
@@ -49,9 +49,24 @@ set_color_profile_slot(5, 2, 200, 220, 220); //Nail - Grey
 set_color_profile_slot(5, 3, 24, 23, 33); //Body - Grey
 set_color_profile_slot(5, 4, 15, 15, 30); //Eyes - Grey Black
 
+//Seer
+set_color_profile_slot(6, 0, 212, 207, 203); // Helmet
+set_color_profile_slot(6, 1, 102, 153, 102); // Cape
+set_color_profile_slot(6, 2, 191, 173, 179); // Nail
+set_color_profile_slot(6, 3, 133, 122, 110); // Body
+set_color_profile_slot(6, 4, 15, 15, 30); // Eyes- White
+
+//Godseeker
+set_color_profile_slot(7, 0, 212, 207, 203); // Helmet
+set_color_profile_slot(7, 1, 239, 195, 165); // Cape
+set_color_profile_slot(7, 2, 96, 96, 101); // Nail
+set_color_profile_slot(7, 3, 66, 66, 71); // Body
+set_color_profile_slot(7, 4, 15, 15, 30); // Eyes- White
+
+
 // Trans Right
-set_color_profile_slot(6, 0, 255, 255, 255); 
-set_color_profile_slot(6, 1, 211, 129, 189); 
-set_color_profile_slot(6, 2, 67, 174, 216); 
-set_color_profile_slot(6, 3, 40, 40, 40);
-set_color_profile_slot(6, 4, 15, 15, 30); 
+set_color_profile_slot(8, 0, 255, 255, 255); 
+set_color_profile_slot(8, 1, 211, 129, 189); 
+set_color_profile_slot(8, 2, 67, 174, 216); 
+set_color_profile_slot(8, 3, 40, 40, 40);
+set_color_profile_slot(8, 4, 15, 15, 30); 
