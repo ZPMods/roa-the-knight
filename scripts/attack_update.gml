@@ -91,25 +91,7 @@ if (attack == AT_FSPECIAL){
     can_fast_fall = false;
 }
 
-// Down Special de ses morts
-if (attack == AT_DSPECIAL)
-    {
-    if (free) {
-        attack = AT_DSPECIAL_2;
-    } 
-    else {
-        attack = AT_DSPECIAL;
-        window = 3;
-    }
-}
-if (attack == AT_DSPECIAL_2){
-    if (free){
-        
-    }
-    else{
-        window = 3;
-    }
-}
+
 
 //Taunt
 if (attack == AT_TAUNT)
@@ -124,6 +106,8 @@ if (attack == AT_TAUNT)
     }
   }
   
+
+
 //Reset du pogo du dair
 if (attack == AT_DAIR && window == 3)
 {
@@ -143,5 +127,16 @@ if (attack == AT_BAIR){
     if (window == 2 && window_timer == 1)
     {
         sound_play( sound_get("knight_bair"));
+    }
+}
+
+// Down Special
+if (attack == AT_DSPECIAL && window == 1)
+{
+    if(free == true){
+        attack = AT_DSPECIAL_2;
+    }
+    else{
+        attack = AT_DSPECIAL;
     }
 }
