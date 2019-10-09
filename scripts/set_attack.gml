@@ -1,9 +1,9 @@
-//Reset le timer des boosted
-if (attack == AT_NSPECIAL || AT_FSPECIAL || AT_DSPECIAL || AT_USPECIAL)
-{
-  charged_time = 0;
-}
+//Reset les valeurs
+charged_time = 0;
+has_dspecial_air_hit = false;
+has_dair_hit = false;
 
+//Reset le cooldown d'équipement des charms
 if (attack == AT_TAUNT)
 {
   equip_cooldown = false;

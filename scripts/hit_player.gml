@@ -3,7 +3,7 @@ if (my_hitboxID.attack == AT_JAB || my_hitboxID.attack == AT_DATTACK || my_hitbo
 {
   if (soul_points < 100)
   {
-    
+
     soul_points += round((my_hitboxID.damage * soulcatcher_multiplier));
 
     if (soul_points > 100)
@@ -20,7 +20,7 @@ if (my_hitboxID.attack == AT_JAB || my_hitboxID.attack == AT_DATTACK || my_hitbo
     {
         take_damage(hit_player_obj.player,1,round(my_hitboxID.damage*0.2));
     }
-    
+
      if(equipped_charm_1 == "heart" || equipped_charm_2 == "heart" || equipped_charm_3 == "heart")
     {
         take_damage(hit_player_obj.player,1,round(my_hitboxID.damage*-0.1));
@@ -30,7 +30,7 @@ if (my_hitboxID.attack == AT_JAB || my_hitboxID.attack == AT_DATTACK || my_hitbo
 //Shaman Stone
 if(my_hitboxID.attack == AT_DSPECIAL || my_hitboxID.attack == AT_DSPECIAL_2 || my_hitboxID.attack == AT_USPECIAL_2 || my_hitboxID.attack == AT_NSPECIAL || my_hitboxID.attack == AT_FSPECIAL_2)
 {
-    
+
     if(equipped_charm_1 == "shamanstone" || equipped_charm_2 == "shamanstone" || equipped_charm_3 == "shamanstone")
     {
         take_damage(hit_player_obj.player,1,round(my_hitboxID.damage*0.2));
@@ -41,4 +41,18 @@ if(my_hitboxID.attack == AT_DSPECIAL || my_hitboxID.attack == AT_DSPECIAL_2 || m
 if (my_hitboxID.attack == AT_DAIR && window == 2)
 {
   has_dair_hit = true;
+}
+
+//Down Special Aerial Hitbox
+if(my_hitboxID.attack == AT_DSPECIAL && window == 5)
+{
+  has_dspecial_air_hit = true;
+  window = 7;
+  window_timer = 0;
+}
+
+//Down Special Boosted Drag Down
+if(my_hitboxID.attack == AT_DSPECIAL_2 && window == 4)
+{
+  hit_player_obj.should_make_shockwave = false;
 }
