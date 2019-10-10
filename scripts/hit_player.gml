@@ -54,5 +54,8 @@ if(my_hitboxID.attack == AT_DSPECIAL && window == 5)
 //Down Special Boosted Drag Down
 if(my_hitboxID.attack == AT_DSPECIAL_2 && window == 4)
 {
-  hit_player_obj.should_make_shockwave = false;
+  if (y < 750)
+    hit_player_obj.should_make_shockwave = false;
+  else
+    hit_player_obj.should_make_shockwave = true;
 }

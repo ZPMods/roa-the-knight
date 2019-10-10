@@ -2,6 +2,8 @@
 //Custom Variables
 //----------------------------------------------------------
 
+//ATTACKS
+
 has_dair_hit = false;
 has_dspecial_air_hit = false;
 
@@ -23,8 +25,6 @@ is_charged = false;
 soulmeter_animation_frame = 1;
 soulmeter_animation_framelength = 10;
 soulmeter_animation_timer = 0;
-
-//----------------------------------------------------------
 
 //CHARMS
 
@@ -75,6 +75,25 @@ overcharm_shaking_timer = 0;
 
 //Charms Variables
 soulcatcher_multiplier = 1;
+
+//ANIMATIONS
+
+//Airdodge Trail
+airdodge_trail_1_x = 0;
+airdodge_trail_1_y = 0;
+airdodge_trail_1_alpha = 1;
+airdodge_trail_1_show = false;
+
+airdodge_trail_2_x = 0;
+airdodge_trail_2_y = 0;
+airdodge_trail_2_alpha = 1;
+airdodge_trail_2_show = false;
+
+airdodge_trail_3_x = 0;
+airdodge_trail_3_y = 0;
+airdodge_trail_3_alpha = 1;
+airdodge_trail_3_show = false;
+
 
 //----------------------------------------------------------
 
@@ -155,7 +174,7 @@ techroll_speed = 10;
 
 //airdodge animation frames
 air_dodge_startup_frames = 1;
-air_dodge_active_frames = 2;
+air_dodge_active_frames = 3;
 air_dodge_recovery_frames = 3;
 air_dodge_speed = 7.5;
 

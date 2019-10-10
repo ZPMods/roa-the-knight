@@ -25,6 +25,9 @@ sprite_change_offset("parry", 32, 62);
 sprite_change_offset("roll_forward", 32, 62);
 sprite_change_offset("roll_backward", 32, 62);
 sprite_change_offset("airdodge", 82, 128);
+sprite_change_offset("airdodge_trail_1", 82, 128);
+sprite_change_offset("airdodge_trail_2", 82, 128);
+sprite_change_offset("airdodge_trail_3", 82, 128);
 sprite_change_offset("waveland", 82, 128);
 sprite_change_offset("tech", 32, 62);
 

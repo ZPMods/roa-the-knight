@@ -49,7 +49,7 @@ set_color_profile_slot(5, 2, 200, 220, 220); //Nail - Grey
 set_color_profile_slot(5, 3, 24, 23, 33); //Body - Grey
 set_color_profile_slot(5, 4, 15, 15, 30); //Eyes - Grey Black
 
-//Seer
+//Thistlewind
 set_color_profile_slot(6, 0, 212, 207, 203); // Helmet
 set_color_profile_slot(6, 1, 102, 153, 102); // Cape
 set_color_profile_slot(6, 2, 191, 173, 179); // Nail
@@ -64,9 +64,9 @@ set_color_profile_slot(7, 3, 66, 66, 71); // Body
 set_color_profile_slot(7, 4, 15, 15, 30); // Eyes- White
 
 
-// Trans Right
-set_color_profile_slot(8, 0, 255, 255, 255); 
-set_color_profile_slot(8, 1, 211, 129, 189); 
-set_color_profile_slot(8, 2, 67, 174, 216); 
+//Trans Rights
+set_color_profile_slot(8, 0, 232, 181, 182);
+set_color_profile_slot(8, 1, 211, 129, 189);
+set_color_profile_slot(8, 2, 67, 174, 216);
 set_color_profile_slot(8, 3, 40, 40, 40);
-set_color_profile_slot(8, 4, 15, 15, 30); 
+set_color_profile_slot(8, 4, 15, 15, 30);
