@@ -37,6 +37,9 @@ if(my_hitboxID.attack == AT_DSPECIAL || my_hitboxID.attack == AT_DSPECIAL_2 || m
     }
 }
 
+// Neutral Special Boosted
+if(AT_)
+
 //Pogo du dair
 if (my_hitboxID.attack == AT_DAIR && window == 2)
 {
