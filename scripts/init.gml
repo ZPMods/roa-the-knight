@@ -14,7 +14,7 @@ soul_points = 100;
 
 SP_nspecial = 25;
 SP_fspecial = 25;
-SP_dspecial = 1;
+SP_dspecial = 25;
 SP_uspecial = 25;
 
 charged_time = 0;
