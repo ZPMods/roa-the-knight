@@ -96,6 +96,42 @@ if (attack == AT_DSPECIAL && soul_points < SP_dspecial && window == 1)
   window = 2;
 }
 
+// NEUTRAL SPECIAL DU CUL
+if (attack == AT_NSPECIAL && soul_points >= SP_nspecial)
+{
+  if (window == 1)
+  {
+    if (special_down)
+    {
+      charged_time += 1;
+
+      if (charged_time == required_charge_time)
+      {
+        window = 1;
+        window_timer = 0;
+        attack = AT_NSPECIAL_2;
+        soul_points -= SP_nspecial;
+      }
+
+      window = 1;
+    }
+    else
+    {
+      window = 2;
+      window_timer = 0;
+    }
+  }
+}
+if (attack == AT_NSPECIAL && soul_points < SP_nspecial && window == 1)
+{
+  window = 2;
+  window_timer = 0;
+}
+
+if (attack == AT_NSPECIAL)
+{
+    move_cooldown[AT_NSPECIAL] = 25;
+}
 //--------------------------------------------------------
 //------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 //DOWN SPECIAL MECHANICS ---------------------------------
@@ -154,15 +190,6 @@ if (attack == AT_NSPECIAL || attack == AT_FSPECIAL || attack == AT_DSPECIAL || a
     trigger_b_reverse();
 }
 
-if (attack == AT_NSPECIAL)
-{
-    if (window == 3){
-        if (special_pressed){
-            window = 1;
-            window_timer = 0;
-        }
-    }
-}
 
 //Taunt
 if (attack == AT_TAUNT)
