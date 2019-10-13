@@ -30,17 +30,17 @@
 if(equipped_charm_1 = "dashmaster" || equipped_charm_2 = "dashmaster" || equipped_charm_3 = "dashmaster")
 {
     // BONUS
-    walk_speed = walk_speed + 2;
+    walk_speed = walk_speed + 1.5;
     walk_accel = walk_accel + 0.1;
     walk_turn_time = walk_turn_time - 1;
-    initial_dash_speed = initial_dash_speed + 2;
-    dash_speed = dash_speed + 2;
+    initial_dash_speed = initial_dash_speed + 1.5;
+    dash_speed = dash_speed + 1;
 
     air_max_speed = air_max_speed + 1;
     air_accel = air_accel + 0.05;
 
     //MALUS
-    knockback_adj = knockback_adj + 0.2;
+    knockback_adj = knockback_adj + 0.3;
 }
 else
 {
@@ -89,12 +89,18 @@ else
 if(equipped_charm_1 = "heart" || equipped_charm_2 = "heart" || equipped_charm_3 = "heart")
 {
     // BONUS
-    knockback_adj = knockback_adj - 0.3;
+    knockback_adj = knockback_adj - 0.4;
 
     // MALUS dans hit_player
 }
 else
 {
+}
+
+// OVERCHARM
+if (overchamed == true)
+{
+    knockback_adj = knockback_adj + 0.3;
 }
 //
 
@@ -104,3 +110,4 @@ if (!free)
 {
   move_cooldown[AT_DSPECIAL] = 0;
 }
+

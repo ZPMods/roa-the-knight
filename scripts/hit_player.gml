@@ -18,12 +18,12 @@ if (my_hitboxID.attack == AT_JAB || my_hitboxID.attack == AT_DATTACK || my_hitbo
 {
     if(equipped_charm_1 == "strength" || equipped_charm_2 == "strength" || equipped_charm_3 == "strength")
     {
-        take_damage(hit_player_obj.player,1,round(my_hitboxID.damage*0.2));
+        take_damage(hit_player_obj.player,1,round(my_hitboxID.damage*0.3));
     }
 
      if(equipped_charm_1 == "heart" || equipped_charm_2 == "heart" || equipped_charm_3 == "heart")
     {
-        take_damage(hit_player_obj.player,1,round(my_hitboxID.damage*-0.1));
+        take_damage(hit_player_obj.player,1,round(my_hitboxID.damage*-0.2));
     }
 }
 

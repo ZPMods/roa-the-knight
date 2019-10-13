@@ -12,4 +12,4 @@ uses_shader = true;
 
 //Custom Variables
 timer = 0;
-timer_boom = 30;
+timer_boom = 25;

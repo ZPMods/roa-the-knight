@@ -16,7 +16,7 @@ has_dspecial_air_hit = false;
 //SOUL
 
 //Soul points, Boosted Attacks
-soul_points = 100;
+soul_points = 0;
 
 SP_nspecial = 25;
 SP_fspecial = 25;

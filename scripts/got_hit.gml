@@ -14,5 +14,10 @@ if (soul_points > 100)
 
 if(equipped_charm_1 = "strength" || equipped_charm_2 = "strength" || equipped_charm_3 = "strength")
     {
-        take_damage(player,hit_player,round(enemy_hitboxID.damage*0.1));
+        take_damage(player,hit_player,round(enemy_hitboxID.damage*0.3));
     }
+    
+if (overcharmed == true)
+{
+    take_damage(player,hit_player,round(enemy_hitboxID.damage*0.4));
+}
