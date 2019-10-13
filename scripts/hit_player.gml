@@ -37,9 +37,6 @@ if(my_hitboxID.attack == AT_DSPECIAL || my_hitboxID.attack == AT_DSPECIAL_2 || m
     }
 }
 
-// Neutral Special Boosted
-if(AT_)
-
 //Pogo du dair
 if (my_hitboxID.attack == AT_DAIR && window == 2)
 {
@@ -55,10 +52,24 @@ if(my_hitboxID.attack == AT_DSPECIAL && window == 5)
 }
 
 //Down Special Boosted Drag Down
-if(my_hitboxID.attack == AT_DSPECIAL_2 && window == 4)
+if (my_hitboxID.attack == AT_DSPECIAL_2 && window == 4)
 {
   if (y < 750)
     hit_player_obj.should_make_shockwave = false;
   else
     hit_player_obj.should_make_shockwave = true;
+}
+
+//Neutral Special Boosted
+if (my_hitboxID.attack == AT_NSPECIAL_2)
+{
+     //Empecher l'effet violet dégueulasse
+     if (my_hitboxID.hbox_num == 1)
+     {
+          //hit_player_obj.should_make_shockwave = false;
+
+          if (!shade_soul_first_hit)
+               shade_soul_hit = true;
+     }
+
 }

@@ -1,10 +1,15 @@
 //article1_init
+sprite_index = sprite_get("nspecial_boosted_proj");
 
-init = 0;
-sprite_index = sprite_get("nspecial_proj");
-
-state = 0;
-state_timer = 0;
-can_be_grounded = true;
+//Properties Variables
+hsp = 10;
+vsp = 0;
+free = true;
+can_be_grounded = false;
 ignores_walls = false;
-free = false;
+spr_dir = 1;
+uses_shader = true;
+
+//Custom Variables
+timer = 0;
+timer_boom = 30;

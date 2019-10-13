@@ -5,8 +5,8 @@ draw_debug_text( temp_x+150, temp_y-10, selected_charm);
 draw_debug_text( temp_x+150, temp_y-30, equipped_charm_1);
 draw_debug_text( temp_x+150, temp_y-50, equipped_charm_2);
 draw_debug_text( temp_x+150, temp_y-70, equipped_charm_3);
-draw_debug_text( temp_x+250, temp_y-10, string(x));
-draw_debug_text( temp_x+280, temp_y-10, string(y));
+draw_debug_text( temp_x+250, temp_y-10, string(shade_soul_x));
+draw_debug_text( temp_x+280, temp_y-10, string(shade_soul_y));
 draw_debug_text( temp_x+250, temp_y-30, string(window));
 draw_debug_text( temp_x+250, temp_y-50, string(window_timer));
 

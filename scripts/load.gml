@@ -56,6 +56,7 @@ sprite_change_offset("taunt", 66, 126);
 sprite_change_offset("plat", 64, 94);
 
 sprite_change_offset("nspecial_proj", 64, 94);
+sprite_change_offset("nspecial_boosted_proj", 64, 94);
 
 
 set_victory_theme( sound_get( "knightvictory_2_but_loud"));

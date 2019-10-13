@@ -96,7 +96,7 @@ if (attack == AT_DSPECIAL && soul_points < SP_dspecial && window == 1)
   window = 2;
 }
 
-// NEUTRAL SPECIAL DU CUL
+//Neutral Special Boosted
 if (attack == AT_NSPECIAL && soul_points >= SP_nspecial)
 {
   if (window == 1)
@@ -131,6 +131,10 @@ if (attack == AT_NSPECIAL && soul_points < SP_nspecial && window == 1)
 if (attack == AT_NSPECIAL)
 {
     move_cooldown[AT_NSPECIAL] = 25;
+}
+if (attack == AT_NSPECIAL_2)
+{
+    move_cooldown[AT_NSPECIAL] = 200;
 }
 //--------------------------------------------------------
 //------------------------------------------------------------------------------------------------------------------------------------------------------------------------
@@ -182,6 +186,19 @@ if (attack == AT_DSPECIAL_2 && !free && window == 4)
   window_timer = 0;
 }
 
+//NEUTRAL SPECIAL BOOSTED MECHANICS -------------------------
+
+//Faire spawn l'article
+if (attack == AT_NSPECIAL_2 && window == 2 && window_timer == 1)
+{
+     shade_soul_hit = false;
+     shade_soul_first_hit = false;
+
+     var shade_soul = instance_create(x, y - 10, "obj_article1");
+     shade_soul.spr_dir = spr_dir;
+     shade_soul.hsp *= spr_dir;
+}
+
 //--------------------------------------------------------
 
 //B - Reversals
@@ -203,8 +220,6 @@ if (attack == AT_TAUNT)
       charms_ui_alpha = 0;
   }
 }
-
-
 
 //Reset du pogo du dair
 if (attack == AT_DAIR && window == 3)
