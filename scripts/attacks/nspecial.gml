@@ -12,21 +12,34 @@ set_window_value(AT_NSPECIAL, 1, AG_WINDOW_ANIM_FRAMES, 3);
 set_window_value(AT_NSPECIAL, 1, AG_WINDOW_HAS_SFX, 1);
 set_window_value(AT_NSPECIAL, 1, AG_WINDOW_SFX_FRAME, 4);
 
+
 set_window_value(AT_NSPECIAL, 2, AG_WINDOW_TYPE, 1);
 set_window_value(AT_NSPECIAL, 2, AG_WINDOW_LENGTH, 15);
 set_window_value(AT_NSPECIAL, 2, AG_WINDOW_ANIM_FRAMES, 3);
 set_window_value(AT_NSPECIAL, 2, AG_WINDOW_HAS_SFX, 1);
 set_window_value(AT_NSPECIAL, 2, AG_WINDOW_SFX_FRAME, 4);
+set_window_value(AT_NSPECIAL, 2, AG_WINDOW_HSPEED, -2);
+set_window_value(AT_NSPECIAL, 2, AG_WINDOW_VSPEED, 0);
+set_window_value(AT_NSPECIAL, 2, AG_WINDOW_HSPEED_TYPE, 1);
+set_window_value(AT_NSPECIAL, 2, AG_WINDOW_VSPEED_TYPE, 1);
 
 set_window_value(AT_NSPECIAL, 3, AG_WINDOW_TYPE, 1);
 set_window_value(AT_NSPECIAL, 3, AG_WINDOW_LENGTH, 4);
 set_window_value(AT_NSPECIAL, 3, AG_WINDOW_ANIM_FRAMES, 1);
 set_window_value(AT_NSPECIAL, 3, AG_WINDOW_ANIM_FRAME_START, 3);
+set_window_value(AT_NSPECIAL, 3, AG_WINDOW_HSPEED, 0);
+set_window_value(AT_NSPECIAL, 3, AG_WINDOW_VSPEED, 0);
+set_window_value(AT_NSPECIAL, 3, AG_WINDOW_HSPEED_TYPE, 1);
+set_window_value(AT_NSPECIAL, 3, AG_WINDOW_VSPEED_TYPE, 1);
 
 set_window_value(AT_NSPECIAL, 4, AG_WINDOW_TYPE, 1);
 set_window_value(AT_NSPECIAL, 4, AG_WINDOW_LENGTH, 12);
 set_window_value(AT_NSPECIAL, 4, AG_WINDOW_ANIM_FRAMES, 2);
 set_window_value(AT_NSPECIAL, 4, AG_WINDOW_ANIM_FRAME_START, 4);
+set_window_value(AT_NSPECIAL, 4, AG_WINDOW_HSPEED, 0);
+set_window_value(AT_NSPECIAL, 4, AG_WINDOW_VSPEED, 0);
+set_window_value(AT_NSPECIAL, 4, AG_WINDOW_HSPEED_TYPE, 1);
+set_window_value(AT_NSPECIAL, 4, AG_WINDOW_VSPEED_TYPE, 1);
 
 set_num_hitboxes(AT_NSPECIAL, 1);
 
@@ -48,4 +61,4 @@ set_hitbox_value(AT_NSPECIAL, 1, HG_VISUAL_EFFECT_Y_OFFSET, -16);
 set_hitbox_value(AT_NSPECIAL, 1, HG_PROJECTILE_SPRITE, sprite_get("nspecial_proj"));
 set_hitbox_value(AT_NSPECIAL, 1, HG_PROJECTILE_MASK, sprite_get("nspecial_proj"));
 set_hitbox_value(AT_NSPECIAL, 1, HG_PROJECTILE_ANIM_SPEED, .2);
-set_hitbox_value(AT_NSPECIAL, 1, HG_PROJECTILE_HSPEED, 12);
+set_hitbox_value(AT_NSPECIAL, 1, HG_PROJECTILE_HSPEED, 10);

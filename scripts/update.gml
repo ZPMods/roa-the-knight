@@ -26,6 +26,8 @@
 
 // Soul Variable
     soulcatcher_multiplier = 1;
+    
+
 
 if(equipped_charm_1 = "dashmaster" || equipped_charm_2 = "dashmaster" || equipped_charm_3 = "dashmaster")
 {
@@ -41,10 +43,6 @@ if(equipped_charm_1 = "dashmaster" || equipped_charm_2 = "dashmaster" || equippe
 
     //MALUS
     knockback_adj = knockback_adj + 0.3;
-}
-else
-{
-
 }
 
 if(equipped_charm_1 = "stalwart" || equipped_charm_2 = "stalwart" || equipped_charm_3 = "stalwart")
@@ -63,9 +61,7 @@ if(equipped_charm_1 = "stalwart" || equipped_charm_2 = "stalwart" || equipped_ch
     dash_speed = dash_speed - 1;
 
 }
-else
-{
-}
+
 
 if(equipped_charm_1 = "soulcatcher" || equipped_charm_2 = "soulcatcher" || equipped_charm_3 = "soulcatcher")
 {
@@ -82,9 +78,8 @@ if(equipped_charm_1 = "grubsong" || equipped_charm_2 = "grubsong" || equipped_ch
 
     // MALUS
 }
-else
-{
-}
+
+
 
 if(equipped_charm_1 = "heart" || equipped_charm_2 = "heart" || equipped_charm_3 = "heart")
 {
@@ -93,21 +88,21 @@ if(equipped_charm_1 = "heart" || equipped_charm_2 = "heart" || equipped_charm_3 
 
     // MALUS dans hit_player
 }
-else
-{
-}
+
 
 // OVERCHARM
-if (overchamed == true)
+if (overcharmed = true)
 {
     knockback_adj = knockback_adj + 0.3;
 }
-//
 
 //Moves cooldown
 //Down Special
 if (!free)
 {
   move_cooldown[AT_DSPECIAL] = 0;
+}else{
+    if(state == PS_IDLE_AIR && attack == AT_TAUNT){
+        is_equipping_charms = false;
+    }
 }
-

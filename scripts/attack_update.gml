@@ -32,6 +32,13 @@ if (attack == AT_FSPECIAL && soul_points < SP_fspecial && window == 1)
   window = 2;
 }
 
+if (attack == AT_FSPECIAL || attack == AT_FSPECIAL_2)
+{
+    move_cooldown[AT_FSPECIAL] = 25;
+    move_cooldown[AT_FSPECIAL_2] = 22;
+}
+
+
 //UpSpecial Boosted
 if (attack == AT_USPECIAL && soul_points >= SP_uspecial)
 {
@@ -134,7 +141,7 @@ if (attack == AT_NSPECIAL)
 }
 if (attack == AT_NSPECIAL_2)
 {
-    move_cooldown[AT_NSPECIAL] = 200;
+    move_cooldown[AT_NSPECIAL] = 25;
 }
 //--------------------------------------------------------
 //------------------------------------------------------------------------------------------------------------------------------------------------------------------------
@@ -220,6 +227,7 @@ if (attack == AT_TAUNT)
       charms_ui_alpha = 0;
   }
 }
+
 
 //Reset du pogo du dair
 if (attack == AT_DAIR && window == 3)
