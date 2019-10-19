@@ -218,14 +218,19 @@ if (attack == AT_NSPECIAL || attack == AT_FSPECIAL || attack == AT_DSPECIAL || a
 //Taunt
 if (attack == AT_TAUNT)
 {
-  is_equipping_charms = true;
+     is_equipping_charms = true;
 
-  if (window >= 2  && window_timer >= 10 && shield_pressed)
-  {
-      set_state(PS_IDLE);
-      is_equipping_charms = false;
-      charms_ui_alpha = 0;
-  }
+     if (window >= 2 && window_timer >= 10 && shield_pressed)
+     {
+          set_state(PS_IDLE);
+          is_equipping_charms = false;
+          charms_ui_alpha = 0;
+     }
+
+     if (free)
+     {
+          set_state(PS_IDLE);
+     }
 }
 
 
