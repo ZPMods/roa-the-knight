@@ -256,3 +256,7 @@ if (attack == AT_BAIR){
         sound_play( sound_get("knight_bair"));
     }
 }
+
+
+
+

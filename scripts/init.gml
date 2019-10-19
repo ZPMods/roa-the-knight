@@ -8,6 +8,12 @@ shade_soul_first_hit = false;
 shade_soul_x = 0;
 shade_soul_y = 0;
 
+// Kirby
+kirbyability = 16;
+kirb_used = 0;
+
+
+
 //ATTACKS
 
 has_dair_hit = false;
