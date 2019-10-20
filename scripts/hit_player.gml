@@ -66,7 +66,7 @@ if (my_hitboxID.attack == AT_NSPECIAL_2)
      //Empecher l'effet violet dégueulasse
      if (my_hitboxID.hbox_num == 1)
      {
-          //hit_player_obj.should_make_shockwave = false;
+         hit_player_obj.should_make_shockwave = false;
 
           if (!shade_soul_first_hit)
                shade_soul_hit = true;

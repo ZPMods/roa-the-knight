@@ -4,6 +4,8 @@ set_attack_value(AT_FSPECIAL_2, AG_NUM_WINDOWS, 3);
 set_attack_value(AT_FSPECIAL_2, AG_HAS_LANDING_LAG, 4);
 set_attack_value(AT_FSPECIAL_2, AG_AIR_SPRITE, sprite_get("fspecial_boosted"));
 set_attack_value(AT_FSPECIAL_2, AG_HURTBOX_SPRITE, sprite_get("fspecial_hurt"));
+set_attack_value(AT_FSPECIAL_2, AG_OFF_LEDGE, 1);
+
 
 set_window_value(AT_FSPECIAL_2, 1, AG_WINDOW_TYPE, 1);
 set_window_value(AT_FSPECIAL_2, 1, AG_WINDOW_LENGTH, 4);

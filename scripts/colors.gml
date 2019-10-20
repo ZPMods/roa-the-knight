@@ -1,4 +1,4 @@
-set_num_palettes( 9 );
+set_num_palettes( 10 );
 
 //DEFAULT COLOR (R,G,B)
 set_color_profile_slot(0, 0, 167, 195, 217); //Helmet - White/Blue
@@ -70,3 +70,10 @@ set_color_profile_slot(8, 1, 211, 129, 189);
 set_color_profile_slot(8, 2, 67, 174, 216);
 set_color_profile_slot(8, 3, 40, 40, 40);
 set_color_profile_slot(8, 4, 15, 15, 30);
+
+//Rainbow
+set_color_profile_slot(9, 0, 167, 195, 217); //Helmet - White/Blue
+set_color_profile_slot(9, 1, 84, 87, 138); //Cape - Purple
+set_color_profile_slot(9, 2, 110, 106, 131); //Nail - Grey
+set_color_profile_slot(9, 3, 24, 23, 33); //Body - Dark Grey/Blue
+set_color_profile_slot(9, 4, 15, 15, 30); //Eyes - Blue Black

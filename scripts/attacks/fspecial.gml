@@ -4,6 +4,7 @@ set_attack_value(AT_FSPECIAL, AG_NUM_WINDOWS, 4);
 set_attack_value(AT_FSPECIAL, AG_HAS_LANDING_LAG, 4);
 set_attack_value(AT_FSPECIAL, AG_AIR_SPRITE, sprite_get("fspecial"));
 set_attack_value(AT_FSPECIAL, AG_HURTBOX_SPRITE, sprite_get("fspecial_hurt"));
+set_attack_value(AT_FSPECIAL, AG_OFF_LEDGE, 1);
 
 //Window de charge boosted
 set_window_value(AT_FSPECIAL, 1, AG_WINDOW_TYPE, 9);
