@@ -249,14 +249,12 @@ if (attack == AT_DAIR && window == 3)
   }
 }
 
-// Custom Sounds
-if (attack == AT_BAIR){
-    if (window == 2 && window_timer == 1)
-    {
-        sound_play( sound_get("knight_bair"));
-    }
+//Empêcher le fastfall pendant certaines attaques
+if (attack == AT_NSPECIAL || attack == AT_NSPECIAL_2 || attack == AT_FSPECIAL || attack == AT_FSPECIAL_2 || attack == AT_DSPECIAL || attack == AT_DSPECIAL_2 || attack == AT_USPECIAL || attack == AT_USPECIAL_2)
+{
+     can_fast_fall = false;
 }
-
-
-
-
+else
+{
+     can_fast_fall = true;
+}
