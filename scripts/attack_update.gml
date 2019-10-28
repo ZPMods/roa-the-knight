@@ -71,6 +71,21 @@ if (attack == AT_USPECIAL && soul_points < SP_uspecial && window == 1)
   window = 2;
 }
 
+if (attack == AT_USPECIAL)
+{
+    if(window <= 3)
+    {
+        can_wall_jump = true;
+    }
+}
+if (attack == AT_USPECIAL_2)
+{
+    if(window <= 2)
+    {
+        can_wall_jump = true;
+    }
+}
+
 // Down Special Boosted
 if (attack == AT_DSPECIAL && soul_points >= SP_dspecial)
 {
