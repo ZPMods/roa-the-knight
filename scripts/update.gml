@@ -1,10 +1,10 @@
 // EUPEUDEÏTEUH
 // Walking Variables
-    walk_speed = 4;
-    walk_accel = 0.2;
-    walk_turn_time = 6;
-    initial_dash_speed = 8;
-    dash_speed = 6;
+    walk_speed = 3;
+    walk_accel = 0.1;
+    walk_turn_time = 5;
+    initial_dash_speed = 7;
+    dash_speed = 5.5;
     dash_turn_time = 10;
     dash_turn_accel = 1.5;
     dash_stop_time = 7;
@@ -12,8 +12,8 @@
     ground_friction = .5;
     moonwalk_accel = 1.4;
 
-    air_max_speed = 5;
-    air_accel = .5;
+    air_max_speed = 4;
+    air_accel = .4;
 
 // Dodge / Air Dodge Variables
     air_dodge_speed = 7.5;
@@ -32,11 +32,11 @@
 if(equipped_charm_1 = "dashmaster" || equipped_charm_2 = "dashmaster" || equipped_charm_3 = "dashmaster")
 {
     // BONUS
-    walk_speed = walk_speed + 1.5;
-    walk_accel = walk_accel + 0.1;
+    walk_speed = walk_speed + 1;
+    walk_accel = walk_accel + 0.2;
     walk_turn_time = walk_turn_time - 1;
-    initial_dash_speed = initial_dash_speed + 1.5;
-    dash_speed = dash_speed + 1;
+    initial_dash_speed = initial_dash_speed + 0.75;
+    dash_speed = dash_speed + 0.6;
 
     air_max_speed = air_max_speed + 1;
     air_accel = air_accel + 0.05;
@@ -66,7 +66,7 @@ if(equipped_charm_1 = "stalwart" || equipped_charm_2 = "stalwart" || equipped_ch
 if(equipped_charm_1 = "soulcatcher" || equipped_charm_2 = "soulcatcher" || equipped_charm_3 = "soulcatcher")
 {
     // BONUS
-    soulcatcher_multiplier = soulcatcher_multiplier + 0.3;
+    soulcatcher_multiplier = soulcatcher_multiplier + 0.4;
 
     // MALUS
 }
@@ -84,7 +84,7 @@ if(equipped_charm_1 = "grubsong" || equipped_charm_2 = "grubsong" || equipped_ch
 if(equipped_charm_1 = "heart" || equipped_charm_2 = "heart" || equipped_charm_3 = "heart")
 {
     // BONUS
-    knockback_adj = knockback_adj - 0.4;
+    knockback_adj = knockback_adj - 0.5;
 
     // MALUS dans hit_player
 }
@@ -101,13 +101,16 @@ if (overcharmed = true)
 if (!free)
 {
   move_cooldown[AT_DSPECIAL] = 0;
-}else{
-    if(state == PS_IDLE_AIR && attack == AT_TAUNT){
-        is_equipping_charms = false;
-    }
 }
 
-//MAGIC COLOUR CODE
+//New check for a state other than attack cancelling
+if(((state != PS_ATTACK_GROUND && state_cat == SC_GROUND_COMMITTED) || state_cat == SC_GROUND_NEUTRAL || state_cat == SC_AIR_NEUTRAL || state_cat == SC_AIR_COMMITTED) && attack == AT_TAUNT){
+    is_equipping_charms = false;
+}
+
+//----------------------------------------------------------
+//Rainbow
+//----------------------------------------------------------
 if get_player_color(player) = 9 {
 	hue+=1 if hue>255 hue-=255;
 	//make hue shift every step + loop around

@@ -227,6 +227,147 @@ if (is_equipping_charms == true)
   {
     selected_charm = "dashmaster";
   }
+//----------------------------------------------------------
+//CStick Charms
+//----------------------------------------------------------
+
+
+if (up_stick_down && !right_stick_down && !left_stick_down) //Stalwart Quick Equip
+{
+    if(equipped_charm_1 == "")
+    {
+        equipped_charm_1 = "stalwart";
+    }
+    if(equipped_charm_1 != "" &&equipped_charm_2 == "" && equipped_charm_1 != "stalwart")
+    {
+        equipped_charm_2 = "stalwart";
+    }
+    if(equipped_charm_1 != "" && equipped_charm_2 != "" && equipped_charm_3 == "" && equipped_charm_1 != "stalwart" && equipped_charm_2 != "stalwart")
+    {
+        equipped_charm_3 = "stalwart";
+        overcharmed = true;
+    }
+    
+}
+
+if (up_stick_down && right_stick_down) //Soulcatcher Quick Equip
+{
+    if(equipped_charm_1 == "")
+    {
+        equipped_charm_1 = "soulcatcher";
+    }
+    if(equipped_charm_1 != "" &&equipped_charm_2 == "" && equipped_charm_1 != "soulcatcher")
+    {
+        equipped_charm_2 = "soulcatcher";
+    }
+    if(equipped_charm_1 != "" && equipped_charm_2 != "" && equipped_charm_3 == "" && equipped_charm_1 != "soulcatcher" && equipped_charm_2 != "soulcatcher")
+    {
+        equipped_charm_3 = "soulcatcher";
+        overcharmed = true;
+    }
+}
+
+if (right_stick_down && !up_stick_down && !left_stick_down) //Shamanstone Quick Equip
+{
+    if(equipped_charm_1 == "")
+    {
+        equipped_charm_1 = "shamanstone";
+    }
+    if(equipped_charm_1 != "" &&equipped_charm_2 == "" && equipped_charm_1 != "shamanstone")
+    {
+        equipped_charm_2 = "shamanstone";
+    }
+    if(equipped_charm_1 != "" && equipped_charm_2 != "" && equipped_charm_3 == "" && equipped_charm_1 != "shamanstone" && equipped_charm_2 != "shamanstone")
+    {
+        equipped_charm_3 = "shamanstone";
+        overcharmed = true;
+    }
+}
+
+if (down_stick_down && right_stick_down) //Grubsong Quick Equip
+{
+    if(equipped_charm_1 == "")
+    {
+        equipped_charm_1 = "grubsong";
+    }
+    if(equipped_charm_1 != "" &&equipped_charm_2 == "" && equipped_charm_1 != "grubsong")
+    {
+        equipped_charm_2 = "grubsong";
+    }
+    if(equipped_charm_1 != "" && equipped_charm_2 != "" && equipped_charm_3 == "" && equipped_charm_1 != "grubsong" && equipped_charm_2 != "grubsong")
+    {
+        equipped_charm_3 = "grubsong";
+        overcharmed = true;
+    }
+}
+
+if (down_stick_down && !right_stick_down && !left_stick_down) //Strength Quick Equip
+{
+    if(equipped_charm_1 == "")
+    {
+        equipped_charm_1 = "strength";
+    }
+    if(equipped_charm_1 != "" &&equipped_charm_2 == "" && equipped_charm_1 != "strength")
+    {
+        equipped_charm_2 = "strength";
+    }
+    if(equipped_charm_1 != "" && equipped_charm_2 != "" && equipped_charm_3 == "" && equipped_charm_1 != "strength" && equipped_charm_2 != "strength")
+    {
+        equipped_charm_3 = "strength";
+        overcharmed = true;
+    }
+}
+
+if (down_stick_down && left_stick_down) //Heart Quick Equip
+{
+    if(equipped_charm_1 == "")
+    {
+        equipped_charm_1 = "heart";
+    }
+    if(equipped_charm_1 != "" &&equipped_charm_2 == "" && equipped_charm_1 != "heart")
+    {
+        equipped_charm_2 = "heart";
+    }
+    if(equipped_charm_1 != "" && equipped_charm_2 != "" && equipped_charm_3 == "" && equipped_charm_1 != "heart" && equipped_charm_2 != "heart")
+    {
+        equipped_charm_3 = "heart";
+        overcharmed = true;
+    }
+}
+
+if (left_stick_down && !up_stick_down && !down_stick_down) //Sporeshroom Quick Equip
+{
+    if(equipped_charm_1 == "")
+    {
+        equipped_charm_1 = "sporeshroom";
+    }
+    if(equipped_charm_1 != "" &&equipped_charm_2 == "" && equipped_charm_1 != "sporeshroom")
+    {
+        equipped_charm_2 = "sporeshroom";
+    }
+    if(equipped_charm_1 != "" && equipped_charm_2 != "" && equipped_charm_3 == "" && equipped_charm_1 != "sporeshroom" && equipped_charm_2 != "sporeshroom")
+    {
+        equipped_charm_3 = "sporeshroom";
+        overcharmed = true;
+    }
+}
+
+if (up_stick_down && left_stick_down) //Dashmaster Quick Equip
+{
+    if(equipped_charm_1 == "")
+    {
+        equipped_charm_1 = "dashmaster";
+    }
+    if(equipped_charm_1 != "" &&equipped_charm_2 == "" && equipped_charm_1 != "dashmaster")
+    {
+        equipped_charm_2 = "dashmaster";
+    }
+    if(equipped_charm_1 != "" && equipped_charm_2 != "" && equipped_charm_3 == "" && equipped_charm_1 != "dashmaster" && equipped_charm_2 != "dashmaster")
+    {
+        equipped_charm_3 = "dashmaster";
+        overcharmed = true;
+    }
+}
 
   //Equipement des charms
   if (equip_cooldown = true)
@@ -238,7 +379,13 @@ if (is_equipping_charms == true)
       equip_cooldown_timer = 0;
     }
   }
-
+  if(special_pressed)
+  {
+     equipped_charm_1 = "";
+     equipped_charm_2 = "";
+     equipped_charm_3 = "";
+     overcharmed = false;
+  }
   if (jump_pressed || attack_pressed)
   {
     //Équiper Charm 1

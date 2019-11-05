@@ -70,10 +70,9 @@ if (attack == AT_USPECIAL && soul_points < SP_uspecial && window == 1)
 {
   window = 2;
 }
-
 if (attack == AT_USPECIAL)
 {
-    if(window <= 3)
+    if (window <= 3)
     {
         can_wall_jump = true;
     }
@@ -85,7 +84,6 @@ if (attack == AT_USPECIAL_2)
         can_wall_jump = true;
     }
 }
-
 // Down Special Boosted
 if (attack == AT_DSPECIAL && soul_points >= SP_dspecial)
 {
@@ -235,18 +233,21 @@ if (attack == AT_TAUNT)
 {
      is_equipping_charms = true;
 
-     if (window >= 2 && window_timer >= 10 && shield_pressed)
+     if (window >= 2 && window_timer >= 10 && (shield_pressed || taunt_pressed))
      {
         set_state(PS_LAND);
         is_equipping_charms = false;
+        clear_button_buffer(PC_SHIELD_PRESSED);
+        clear_button_buffer(PC_TAUNT_PRESSED);
         charms_ui_alpha = 0;
+        
      }
 
-     if (free)
-     {
-          set_state(PS_IDLE);
-     }
+    
+}else{//New check for non taunt attack as it doesn't forget last attack
+    is_equipping_charms = false;
 }
+
 
 
 //Reset du pogo du dair
@@ -264,12 +265,14 @@ if (attack == AT_DAIR && window == 3)
   }
 }
 
-//Empêcher le fastfall pendant certaines attaques
-if (attack == AT_NSPECIAL || attack == AT_NSPECIAL_2 || attack == AT_FSPECIAL || attack == AT_FSPECIAL_2 || attack == AT_DSPECIAL || attack == AT_DSPECIAL_2 || attack == AT_USPECIAL || attack == AT_USPECIAL_2)
-{
-     can_fast_fall = false;
-}
-else
-{
-     can_fast_fall = true;
-}
+// Custom Sounds
+/*if (attack == AT_BAIR){
+    if (window == 2 && window_timer == 1)
+    {
+        sound_play( sound_get("knight_bair"));
+    }
+}*/
+
+
+
+

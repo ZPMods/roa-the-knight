@@ -1,6 +1,7 @@
 //----------------------------------------------------------
 //Custom Variables
 //----------------------------------------------------------
+swallowed = 1;
 
 shade_soul_hit = false;
 shade_soul_first_hit = false;
@@ -123,12 +124,12 @@ walk_anim_speed = .125;
 dash_anim_speed = 0.35;
 pratfall_anim_speed = .25;
 
-walk_speed = 4;
-walk_accel = 0.2;
-walk_turn_time = 6;
+walk_speed = 3;
+walk_accel = 0.1;
+walk_turn_time = 5;
 initial_dash_time = 10;
-initial_dash_speed = 8;
-dash_speed = 6;
+initial_dash_speed = 7;
+dash_speed = 5.5;
 dash_turn_time = 10;
 dash_turn_accel = 1.5;
 dash_stop_time = 7;
@@ -142,9 +143,9 @@ short_hop_speed = 8;
 djump_speed = 13;
 leave_ground_max = 7; //the maximum hsp you can have when you go from grounded to aerial without jumping
 max_jump_hsp = 5; //the maximum hsp you can have when jumping from the ground
-air_max_speed = 5; //the maximum hsp you can accelerate to when in a normal aerial state
+air_max_speed = 4; //the maximum hsp you can accelerate to when in a normal aerial state
 jump_change = 3; //maximum hsp when double jumping. If already going faster, it will not slow you down
-air_accel = .5;
+air_accel = .4;
 prat_fall_accel = .85; //multiplier of air_accel while in pratfall
 air_friction = .02;
 max_djumps = 1;
