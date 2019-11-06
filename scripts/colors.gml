@@ -1,4 +1,4 @@
-set_num_palettes( 10 );
+set_num_palettes(6);
 
 //DEFAULT COLOR (R,G,B)
 set_color_profile_slot(0, 0, 167, 195, 217); //Helmet - White/Blue
@@ -49,7 +49,7 @@ set_color_profile_slot(5, 2, 200, 220, 220); //Nail - Grey
 set_color_profile_slot(5, 3, 24, 23, 33); //Body - Grey
 set_color_profile_slot(5, 4, 15, 15, 30); //Eyes - Grey Black
 
-//Thistlewind
+/* //Thistlewind
 set_color_profile_slot(6, 0, 212, 207, 203); // Helmet
 set_color_profile_slot(6, 1, 102, 153, 102); // Cape
 set_color_profile_slot(6, 2, 191, 173, 179); // Nail
@@ -63,7 +63,6 @@ set_color_profile_slot(7, 2, 96, 96, 101); // Nail
 set_color_profile_slot(7, 3, 66, 66, 71); // Body
 set_color_profile_slot(7, 4, 15, 15, 30); // Eyes- White
 
-
 //Trans Rights
 set_color_profile_slot(8, 0, 232, 181, 182);
 set_color_profile_slot(8, 1, 211, 129, 189);
@@ -76,4 +75,4 @@ set_color_profile_slot(9, 0, 167, 195, 217); //Helmet - White/Blue
 set_color_profile_slot(9, 1, 84, 87, 138); //Cape - Purple
 set_color_profile_slot(9, 2, 110, 106, 131); //Nail - Grey
 set_color_profile_slot(9, 3, 24, 23, 33); //Body - Dark Grey/Blue
-set_color_profile_slot(9, 4, 15, 15, 30); //Eyes - Blue Black
+set_color_profile_slot(9, 4, 15, 15, 30); //Eyes - Blue Black */
