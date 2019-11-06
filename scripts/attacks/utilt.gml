@@ -7,6 +7,7 @@ set_window_value(AT_UTILT, 1, AG_WINDOW_LENGTH, 8);
 set_window_value(AT_UTILT, 1, AG_WINDOW_ANIM_FRAMES, 1);
 set_window_value(AT_UTILT, 1, AG_WINDOW_HAS_SFX, 1);
 set_window_value(AT_UTILT, 1, AG_WINDOW_SFX, asset_get("sfx_swipe_weak2"));
+
 set_window_value(AT_UTILT, 1, AG_WINDOW_SFX_FRAME, 6);
 
 set_window_value(AT_UTILT, 2, AG_WINDOW_TYPE, 1);

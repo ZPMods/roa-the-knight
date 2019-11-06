@@ -6,7 +6,7 @@ set_window_value(AT_DTILT, 1, AG_WINDOW_TYPE, 1);
 set_window_value(AT_DTILT, 1, AG_WINDOW_LENGTH, 8);
 set_window_value(AT_DTILT, 1, AG_WINDOW_ANIM_FRAMES, 1);
 set_window_value(AT_DTILT, 1, AG_WINDOW_HAS_SFX, 1);
-set_window_value(AT_DTILT, 1, AG_WINDOW_SFX, sound_get("knight_dtilt"));
+set_window_value(AT_DTILT, 1, AG_WINDOW_SFX, sound_get("knight_tilt_down"));
 set_window_value(AT_DTILT, 1, AG_WINDOW_SFX_FRAME, 5);
 
 set_window_value(AT_DTILT, 2, AG_WINDOW_TYPE, 1);
