@@ -157,6 +157,12 @@ if (is_equipping_charms == true)
   //Affichage du sélecteur
   draw_sprite_ext(sprite_get("charm_selector"), 0, charm_selector_x, charm_selector_y, 1, 1, 0, c_white, charms_ui_alpha);
 
+  //Affichage des aides
+  draw_sprite_ext(sprite_get("equip"), 0, x + 115, y - 80, 1, 1, 0, c_white, charms_ui_alpha);
+  draw_sprite_ext(sprite_get("unequip"), 0, x + 115, y - 60, 1, 1, 0, c_white, charms_ui_alpha);
+  draw_sprite_ext(sprite_get("quit"), 0, x + 115, y - 20, 1, 1, 0, c_white, charms_ui_alpha);
+  draw_sprite_ext(sprite_get("quick_equip"), 0, x + 115, y, 1, 1, 0, c_white, charms_ui_alpha);
+
   //Affichage de l'overcharm
   if (overcharmed == true)
   {
