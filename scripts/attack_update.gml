@@ -240,12 +240,13 @@ if (attack == AT_TAUNT)
         clear_button_buffer(PC_SHIELD_PRESSED);
         clear_button_buffer(PC_TAUNT_PRESSED);
         charms_ui_alpha = 0;
-        
-     }
 
-    
-}else{//New check for non taunt attack as it doesn't forget last attack
-    is_equipping_charms = false;
+     }
+}
+else
+{
+     //New check for non taunt attack as it doesn't forget last attack
+     is_equipping_charms = false;
 }
 
 
@@ -265,14 +266,8 @@ if (attack == AT_DAIR && window == 3)
   }
 }
 
-// Custom Sounds
-/*if (attack == AT_BAIR){
-    if (window == 2 && window_timer == 1)
-    {
-        sound_play( sound_get("knight_bair"));
-    }
-}*/
-
-
-
-
+//Reset buffer jab
+if (attack = AT_JAB && window == 1)
+{
+     clear_button_buffer(PC_ATTACK_PRESSED);
+}
