@@ -21,7 +21,7 @@ sprite_change_offset("pratfall", 32, 62);
 sprite_change_offset("land", 82, 128);
 sprite_change_offset("landinglag", 82, 128);
 
-sprite_change_offset("parry", 32, 62);
+sprite_change_offset("parry", 82, 128);
 sprite_change_offset("roll_forward", 32, 62);
 sprite_change_offset("roll_backward", 32, 62);
 sprite_change_offset("airdodge", 82, 128);
