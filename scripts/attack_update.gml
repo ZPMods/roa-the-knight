@@ -222,7 +222,7 @@ if (attack == AT_NSPECIAL_2 && window == 2 && window_timer == 1)
      shade_soul_hit = false;
      shade_soul_first_hit = false;
 
-     var shade_soul = instance_create(x, y - 10, "obj_article1");
+     var shade_soul = instance_create(x, y + 10, "obj_article1");
      shade_soul.spr_dir = spr_dir;
      shade_soul.hsp *= spr_dir;
 }
@@ -257,6 +257,9 @@ if (equipped_charm_1 = "sporeshroom" || equipped_charm_2 = "sporeshroom" || equi
     }*/
 }
 
+//--------------------------------------------------------
+//------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+//DIVERS ---------------------------------
 
 //B - Reversals
 if (attack == AT_NSPECIAL || attack == AT_FSPECIAL || attack == AT_DSPECIAL || attack == AT_USPECIAL)
@@ -316,7 +319,14 @@ if (attack = AT_JAB && window == 1)
     }
 }*/
 
-if (attack == AT_USPECIAL || attack == AT_USPECIAL2 || attack == AT_NSPECIAL || attack == AT_NSPECIAL2 || attack == AT_FSPECIAL || attack == AT_FSPECIAL2 || attack == AT_DSPECIAL || attack == AT_DSPECIAL2)
+//Pas de fastfall pendant les attaques
+if (attack == AT_USPECIAL || attack == AT_USPECIAL_2 || attack == AT_NSPECIAL || attack == AT_NSPECIAL_2 || attack == AT_FSPECIAL || attack == AT_FSPECIAL_2 || attack == AT_DSPECIAL || attack == AT_DSPECIAL_2)
 {
      can_fast_fall = false;
+}
+
+//NTS Effect
+if (attack == AT_NSPECIAL_2 && window == 3 && window_timer == 9)
+{
+     nts_effect_show = true;
 }

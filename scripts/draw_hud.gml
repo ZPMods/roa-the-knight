@@ -9,6 +9,7 @@ draw_debug_text( temp_x+250, temp_y-10, string(shade_soul_x));
 draw_debug_text( temp_x+280, temp_y-10, string(shade_soul_y));
 draw_debug_text( temp_x+250, temp_y-30, string(window));
 draw_debug_text( temp_x+250, temp_y-50, string(window_timer));
+draw_debug_text( temp_x+250, temp_y-70, string(nts_effect_show));
 
 
 //Affiche le nombre de Soul Points sur le HUD
