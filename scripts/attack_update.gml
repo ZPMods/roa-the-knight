@@ -15,8 +15,6 @@ if (attack == AT_FSPECIAL && soul_points >= SP_fspecial)
         window_timer = 0;
         attack = AT_FSPECIAL_2;
         soul_points -= SP_fspecial;
-
-        nts_effect_show = true;
       }
 
       window = 1;
@@ -56,8 +54,6 @@ if (attack == AT_USPECIAL && soul_points >= SP_uspecial)
         window_timer = 0;
         attack = AT_USPECIAL_2;
         soul_points -= SP_uspecial;
-
-        nts_effect_show = true;
       }
 
       window = 1;
@@ -103,8 +99,6 @@ if (attack == AT_DSPECIAL && soul_points >= SP_dspecial)
         window_timer = 0;
         attack = AT_DSPECIAL_2;
         soul_points -= SP_dspecial;
-
-        nts_effect_show = true;
       }
 
       window = 1;
@@ -137,8 +131,6 @@ if (attack == AT_NSPECIAL && soul_points >= SP_nspecial)
         window_timer = 0;
         attack = AT_NSPECIAL_2;
         soul_points -= SP_nspecial;
-
-        nts_effect_show = true;
       }
 
       window = 1;
@@ -229,6 +221,35 @@ if (attack == AT_NSPECIAL_2 && window == 2 && window_timer == 1)
 
 //--------------------------------------------------------
 
+//SPORE SHROOM MECHANICS ---------------------------------
+
+//Article Spawn
+if (equipped_charm_1 = "sporeshroom" || equipped_charm_2 = "sporeshroom" || equipped_charm_3 = "sporeshroom")
+{
+    if(attack == AT_NSPECIAL || attack == AT_NSPECIAL_2)
+    {
+        shape_special = 1;
+
+         var shade_soul = instance_create(x, y - 10, "obj_article2");
+         shade_soul.spr_dir = spr_dir;
+        shade_soul.hsp *= spr_dir;
+}
+   /* }
+    if(attack == AT_DSPECIAL || attack == AT_DSPECIAL_2)
+    {
+        
+    }
+    if(attack == AT_USPECIAL || attack == AT_USPECIAL_2)
+    {
+        
+    }
+    if(attack == AT_FSPECIAL || attack == AT_FSPECIAL_2)
+    {
+        
+    }*/
+}
+
+
 //B - Reversals
 if (attack == AT_NSPECIAL || attack == AT_FSPECIAL || attack == AT_DSPECIAL || attack == AT_USPECIAL)
 {
@@ -248,13 +269,12 @@ if (attack == AT_TAUNT)
         clear_button_buffer(PC_SHIELD_PRESSED);
         clear_button_buffer(PC_TAUNT_PRESSED);
         charms_ui_alpha = 0;
-
+        
      }
-}
-else
-{
-     //New check for non taunt attack as it doesn't forget last attack
-     is_equipping_charms = false;
+
+    
+}else{//New check for non taunt attack as it doesn't forget last attack
+    is_equipping_charms = false;
 }
 
 
@@ -280,7 +300,14 @@ if (attack = AT_JAB && window == 1)
      clear_button_buffer(PC_ATTACK_PRESSED);
 }
 
-if (attack == AT_USPECIAL || attack == AT_USPECIAL2 || attack == AT_NSPECIAL || attack == AT_NSPECIAL2 || attack == AT_FSPECIAL || attack == AT_FSPECIAL2 || attack == AT_DSPECIAL || attack == AT_DSPECIAL2)
-{
-     can_fast_fall = false;
-}
+// Custom Sounds
+/*if (attack == AT_BAIR){
+    if (window == 2 && window_timer == 1)
+    {
+        sound_play( sound_get("knight_bair"));
+    }
+}*/
+
+
+
+
