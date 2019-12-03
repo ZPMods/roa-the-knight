@@ -253,7 +253,7 @@ if (up_stick_down && !right_stick_down && !left_stick_down) //Stalwart Quick Equ
         equipped_charm_3 = "stalwart";
         overcharmed = true;
     }
-    
+
 }
 
 if (up_stick_down && right_stick_down) //Soulcatcher Quick Equip
@@ -443,4 +443,37 @@ if (up_stick_down && left_stick_down) //Dashmaster Quick Equip
       overcharmed = false;
     }
   }
+}
+
+//----------------------------------------------------------
+//Normal to Shade Effect
+//----------------------------------------------------------
+
+if (nts_effect_show == true)
+{
+     if (nts_effect_freeze == false)
+     {
+          nts_effect_x = x - 82;
+          nts_effect_y = y - 128;
+          nts_effect_freeze = true;
+     }
+
+     shader_start();
+     draw_sprite_part(sprite_get("nts_effect"), 0, ((nts_effect_animation_frame*160) - 160), 0, 160, 160, nts_effect_x, nts_effect_y);
+     shader_end();
+
+     nts_effect_animation_timer += 1;
+
+     if (nts_effect_animation_timer >= nts_effect_animation_framelength)
+     {
+          nts_effect_animation_frame += 1;
+          nts_effect_animation_timer = 0;
+
+          if (nts_effect_animation_frame > 7)
+          {
+               nts_effect_animation_frame = 1;
+               nts_effect_show = false;
+               nts_effect_freeze = false;
+          }
+     }
 }

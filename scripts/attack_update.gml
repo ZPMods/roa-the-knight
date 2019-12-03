@@ -15,6 +15,8 @@ if (attack == AT_FSPECIAL && soul_points >= SP_fspecial)
         window_timer = 0;
         attack = AT_FSPECIAL_2;
         soul_points -= SP_fspecial;
+
+        nts_effect_show = true;
       }
 
       window = 1;
@@ -54,6 +56,8 @@ if (attack == AT_USPECIAL && soul_points >= SP_uspecial)
         window_timer = 0;
         attack = AT_USPECIAL_2;
         soul_points -= SP_uspecial;
+
+        nts_effect_show = true;
       }
 
       window = 1;
@@ -99,6 +103,8 @@ if (attack == AT_DSPECIAL && soul_points >= SP_dspecial)
         window_timer = 0;
         attack = AT_DSPECIAL_2;
         soul_points -= SP_dspecial;
+
+        nts_effect_show = true;
       }
 
       window = 1;
@@ -131,6 +137,8 @@ if (attack == AT_NSPECIAL && soul_points >= SP_nspecial)
         window_timer = 0;
         attack = AT_NSPECIAL_2;
         soul_points -= SP_nspecial;
+
+        nts_effect_show = true;
       }
 
       window = 1;
@@ -270,4 +278,9 @@ if (attack == AT_DAIR && window == 3)
 if (attack = AT_JAB && window == 1)
 {
      clear_button_buffer(PC_ATTACK_PRESSED);
+}
+
+if (attack == AT_USPECIAL || attack == AT_USPECIAL2 || attack == AT_NSPECIAL || attack == AT_NSPECIAL2 || attack == AT_FSPECIAL || attack == AT_FSPECIAL2 || attack == AT_DSPECIAL || attack == AT_DSPECIAL2)
+{
+     can_fast_fall = false;
 }

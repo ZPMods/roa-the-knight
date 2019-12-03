@@ -1,29 +1,31 @@
 //Airdodge Trail
 if (state == PS_AIR_DODGE && window == 1)
 {
-  if (window_timer == 0)
-  {
-    airdodge_trail_1_x = x;
-    airdodge_trail_1_y = y;
-    airdodge_trail_1_alpha = 1;
-    airdodge_trail_1_show = true;
-  }
+     if (window_timer == 0)
+     {
+          nts_effect_show = true;
 
-  if (window_timer == 4)
-  {
-    airdodge_trail_2_x = x;
-    airdodge_trail_2_y = y;
-    airdodge_trail_2_alpha = 1;
-    airdodge_trail_2_show = true;
-  }
+          airdodge_trail_1_x = x;
+          airdodge_trail_1_y = y;
+          airdodge_trail_1_alpha = 1;
+          airdodge_trail_1_show = true;
+     }
 
-  if (window_timer == 8)
-  {
-    airdodge_trail_3_x = x;
-    airdodge_trail_3_y = y;
-    airdodge_trail_3_alpha = 1;
-    airdodge_trail_3_show = true;
-  }
+     if (window_timer == 4)
+     {
+          airdodge_trail_2_x = x;
+          airdodge_trail_2_y = y;
+          airdodge_trail_2_alpha = 1;
+          airdodge_trail_2_show = true;
+     }
+
+     if (window_timer == 8)
+     {
+          airdodge_trail_3_x = x;
+          airdodge_trail_3_y = y;
+          airdodge_trail_3_alpha = 1;
+          airdodge_trail_3_show = true;
+     }
 }
 //Trail 1
 if (airdodge_trail_1_show)

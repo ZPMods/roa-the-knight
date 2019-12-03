@@ -26,7 +26,7 @@
 
 // Soul Variable
     soulcatcher_multiplier = 1;
-    
+
 
 
 if(equipped_charm_1 = "dashmaster" || equipped_charm_2 = "dashmaster" || equipped_charm_3 = "dashmaster")
@@ -119,7 +119,7 @@ if get_player_color(player) = 9 {
 	//make a gamemaker color variable using kirby's default color (body)
 	hue2=(color_get_hue(color_rgb)+hue) mod 255;
 	//shift that colour by Hue, make sure it also loops
-	color_hsv=make_color_hsv(hue2,color_get_saturation(color_rgb),color_get_value(color_rgb)); 
+	color_hsv=make_color_hsv(hue2,color_get_saturation(color_rgb),color_get_value(color_rgb));
 	//make a gamemaker color variable using the new hue
 	set_color_profile_slot(9,0,color_get_red(color_hsv),color_get_green(color_hsv),color_get_blue(color_hsv));
 	//set the new color using rgb values from the gamemaker color
@@ -129,41 +129,41 @@ if get_player_color(player) = 9 {
 	//make a gamemaker color variable using kirby's default color (feet)
 	hue3=(color_get_hue(color_rgb)+hue) mod 255;
 	//kirby's feet keep the same hue as his skin
-	color_hsv=make_color_hsv(hue3,color_get_saturation(color_rgb),color_get_value(color_rgb)); 
+	color_hsv=make_color_hsv(hue3,color_get_saturation(color_rgb),color_get_value(color_rgb));
 	//make a gamemaker color variable using the new hue
 	set_color_profile_slot(9,1,color_get_red(color_hsv),color_get_green(color_hsv),color_get_blue(color_hsv));
 	//set the new color using rgb values from the gamemaker color
-	
+
 	color_rgb=make_color_rgb(110, 106, 131);
 	//make a gamemaker color variable using kirby's default color (feet)
 	hue4=(color_get_hue(color_rgb)+hue) mod 255;
 	//kirby's feet keep the same hue as his skin
-	color_hsv=make_color_hsv(hue4,color_get_saturation(color_rgb),color_get_value(color_rgb)); 
+	color_hsv=make_color_hsv(hue4,color_get_saturation(color_rgb),color_get_value(color_rgb));
 	//make a gamemaker color variable using the new hue
 	set_color_profile_slot(9,2,color_get_red(color_hsv),color_get_green(color_hsv),color_get_blue(color_hsv));
 	//set the new color using rgb values from the gamemaker color
-	
+
 	color_rgb=make_color_rgb(24, 23, 33);
 	//make a gamemaker color variable using kirby's default color (feet)
 	hue5=(color_get_hue(color_rgb)+hue) mod 255;
 	//kirby's feet keep the same hue as his skin
-	color_hsv=make_color_hsv(hue5,color_get_saturation(color_rgb),color_get_value(color_rgb)); 
+	color_hsv=make_color_hsv(hue5,color_get_saturation(color_rgb),color_get_value(color_rgb));
 	//make a gamemaker color variable using the new hue
 	set_color_profile_slot(9,3,color_get_red(color_hsv),color_get_green(color_hsv),color_get_blue(color_hsv));
 	//set the new color using rgb values from the gamemaker color
-	
+
 	color_rgb=make_color_rgb( 15, 15, 30);
 	//make a gamemaker color variable using kirby's default color (feet)
 	hue6=(color_get_hue(color_rgb)+hue) mod 255;
 	//kirby's feet keep the same hue as his skin
-	color_hsv=make_color_hsv(hue6,color_get_saturation(color_rgb),color_get_value(color_rgb)); 
+	color_hsv=make_color_hsv(hue6,color_get_saturation(color_rgb),color_get_value(color_rgb));
 	//make a gamemaker color variable using the new hue
 	set_color_profile_slot(9,4,color_get_red(color_hsv),color_get_green(color_hsv),color_get_blue(color_hsv));
 	//set the new color using rgb values from the gamemaker color
 	}
 
 
-init_shader();		
+init_shader();
 
 
 //----------------------------------------------------------
@@ -171,15 +171,15 @@ init_shader();
 //----------------------------------------------------------
 
 if swallowed{
-    
+
     swallowed = 0;
     kirby_used = 0;
-    
+
     var ability_spr = sprite_get("nspecial");
     var ability_air_spr = sprite_get("nspecial");
     var hurtbox_spr = sprite_get("nspecial_hurt");
     var ability_proj_spr = sprite_get("nspecial_proj");
-    
+
     with enemykirby{
     set_attack_value(AT_EXTRA_3, AG_CATEGORY, 2);
     set_attack_value(AT_EXTRA_3, AG_SPRITE,ability_spr);
@@ -239,28 +239,32 @@ if swallowed{
     set_hitbox_value(AT_EXTRA_3, 1, HG_PROJECTILE_ANIM_SPEED, .2);
     set_hitbox_value(AT_EXTRA_3, 1, HG_PROJECTILE_HSPEED, 10);
     }
-    
+
 }
 
 //Cooldown Kirby NSpecial
 
 
 /*if enemykirby != undefined // If Kirby is in a match & swallowed
-{ 
-      
+{
+
    with oPlayer //Check All Players
-   { 
+   {
        if (attack == AT_EXTRA_3)
        {
            if(window == 3 && window_timer == 1){
                move_cooldown[AT_EXTRA_3];
            }
        }
-   }   
-}     
+   }
+}
 */
-//----------------------------------------------------------
-//----------------------------------------------------------
 
+//--------------------------------------------------------
+//------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+//NTS EFFECT ---------------------------------------------
 
-
+if (state == PS_AIR_DODGE && window == 2 && window_timer == 9)
+{
+     nts_effect_show = true;
+}

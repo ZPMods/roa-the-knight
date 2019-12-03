@@ -22,7 +22,7 @@ soulmeter_animation_timer += 1;
 if (soulmeter_animation_timer == soulmeter_animation_framelength)
 {
   soulmeter_animation_frame += 1;
-  soulmeter_animation_timer = 0
+  soulmeter_animation_timer = 0;
 
   if (soulmeter_animation_frame > 8)
   {

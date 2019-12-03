@@ -39,6 +39,15 @@ soulmeter_animation_frame = 1;
 soulmeter_animation_framelength = 10;
 soulmeter_animation_timer = 0;
 
+//nts_effect animation
+nts_effect_show = false;
+nts_effect_freeze = false;
+nts_effect_x = 0;
+nts_effect_y = 0;
+nts_effect_animation_frame = 1;
+nts_effect_animation_framelength = 2;
+nts_effect_animation_timer = 0;
+
 //CHARMS
 
 //Notches number
