@@ -15,6 +15,8 @@ if (attack == AT_FSPECIAL && soul_points >= SP_fspecial)
         window_timer = 0;
         attack = AT_FSPECIAL_2;
         soul_points -= SP_fspecial;
+
+        nts_effect_show = true;
       }
 
       window = 1;
@@ -54,6 +56,8 @@ if (attack == AT_USPECIAL && soul_points >= SP_uspecial)
         window_timer = 0;
         attack = AT_USPECIAL_2;
         soul_points -= SP_uspecial;
+
+        nts_effect_show = true;
       }
 
       window = 1;
@@ -99,6 +103,8 @@ if (attack == AT_DSPECIAL && soul_points >= SP_dspecial)
         window_timer = 0;
         attack = AT_DSPECIAL_2;
         soul_points -= SP_dspecial;
+
+        nts_effect_show = true;
       }
 
       window = 1;
@@ -131,6 +137,8 @@ if (attack == AT_NSPECIAL && soul_points >= SP_nspecial)
         window_timer = 0;
         attack = AT_NSPECIAL_2;
         soul_points -= SP_nspecial;
+
+        nts_effect_show = true;
       }
 
       window = 1;
@@ -237,15 +245,15 @@ if (equipped_charm_1 = "sporeshroom" || equipped_charm_2 = "sporeshroom" || equi
    /* }
     if(attack == AT_DSPECIAL || attack == AT_DSPECIAL_2)
     {
-        
+
     }
     if(attack == AT_USPECIAL || attack == AT_USPECIAL_2)
     {
-        
+
     }
     if(attack == AT_FSPECIAL || attack == AT_FSPECIAL_2)
     {
-        
+
     }*/
 }
 
@@ -269,10 +277,10 @@ if (attack == AT_TAUNT)
         clear_button_buffer(PC_SHIELD_PRESSED);
         clear_button_buffer(PC_TAUNT_PRESSED);
         charms_ui_alpha = 0;
-        
+
      }
 
-    
+
 }else{//New check for non taunt attack as it doesn't forget last attack
     is_equipping_charms = false;
 }
@@ -308,6 +316,7 @@ if (attack = AT_JAB && window == 1)
     }
 }*/
 
-
-
-
+if (attack == AT_USPECIAL || attack == AT_USPECIAL2 || attack == AT_NSPECIAL || attack == AT_NSPECIAL2 || attack == AT_FSPECIAL || attack == AT_FSPECIAL2 || attack == AT_DSPECIAL || attack == AT_DSPECIAL2)
+{
+     can_fast_fall = false;
+}
