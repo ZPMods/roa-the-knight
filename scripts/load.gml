@@ -57,7 +57,15 @@ sprite_change_offset("taunt", 66, 126);
 sprite_change_offset("plat", 64, 94);
 
 sprite_change_offset("nspecial_proj", 64, 56);
-sprite_change_offset("nspecial_boosted_proj", 64, 56);
-
+sprite_change_offset("nspecial_boosted_proj_1", 64, 56);
+sprite_change_offset("nspecial_boosted_proj_2", 64, 56);
+sprite_change_offset("nspecial_boosted_proj_3", 64, 56);
+sprite_change_offset("nspecial_boosted_proj_4", 64, 56);
+sprite_change_offset("nspecial_boosted_proj_5", 64, 56);
+sprite_change_offset("nspecial_boosted_proj_6", 64, 56);
+sprite_change_offset("nspecial_boosted_proj_7", 64, 56);
+sprite_change_offset("nspecial_boosted_proj_8", 64, 56);
+sprite_change_offset("nspecial_boosted_proj_9", 64, 56);
+sprite_change_offset("nspecial_boosted_proj_10", 64, 56);
 
 set_victory_theme( sound_get("knightvictory_2_but_loud"));
