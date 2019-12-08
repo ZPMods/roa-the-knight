@@ -311,14 +311,6 @@ if (attack = AT_JAB && window == 1)
      clear_button_buffer(PC_ATTACK_PRESSED);
 }
 
-// Custom Sounds
-/*if (attack == AT_BAIR){
-    if (window == 2 && window_timer == 1)
-    {
-        sound_play( sound_get("knight_bair"));
-    }
-}*/
-
 //Pas de fastfall pendant les attaques
 if (attack == AT_USPECIAL || attack == AT_USPECIAL_2 || attack == AT_NSPECIAL || attack == AT_NSPECIAL_2 || attack == AT_FSPECIAL || attack == AT_FSPECIAL_2 || attack == AT_DSPECIAL || attack == AT_DSPECIAL_2)
 {
@@ -329,4 +321,19 @@ if (attack == AT_USPECIAL || attack == AT_USPECIAL_2 || attack == AT_NSPECIAL ||
 if (attack == AT_NSPECIAL_2 && window == 3 && window_timer == 9)
 {
      nts_effect_show = true;
+}
+
+//STRONG MOVEMENT
+if((attack == AT_FSTRONG && window == 1)|| (attack == AT_DSTRONG && window == 1))
+{
+    if (joy_pad_idle == false)
+    {
+        hsp = lengthdir_x(0.4, joy_dir);
+    }
+}
+
+//UP SPECIAL CANCEL
+if(my_hitboxID.attack == AT_FSPECIAL_2)
+{
+    can_jump = true;
 }

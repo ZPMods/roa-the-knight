@@ -11,6 +11,7 @@ set_window_value(AT_NSPECIAL_2, 1, AG_WINDOW_TYPE, 1);
 set_window_value(AT_NSPECIAL_2, 1, AG_WINDOW_LENGTH, 10);
 set_window_value(AT_NSPECIAL_2, 1, AG_WINDOW_ANIM_FRAMES, 4);
 set_window_value(AT_NSPECIAL_2, 1, AG_WINDOW_HAS_SFX, 1);
+set_window_value(AT_NSPECIAL_2, 1, AG_WINDOW_SFX, sound_get("knight_special_neutral_boosted"));
 set_window_value(AT_NSPECIAL_2, 1, AG_WINDOW_SFX_FRAME, 4);
 set_window_value(AT_NSPECIAL_2, 1, AG_WINDOW_HSPEED_TYPE, 1);
 set_window_value(AT_NSPECIAL_2, 1, AG_WINDOW_VSPEED_TYPE, 1);

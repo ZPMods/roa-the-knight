@@ -152,7 +152,7 @@ if get_player_color(player) = 9 {
 	set_color_profile_slot(9,3,color_get_red(color_hsv),color_get_green(color_hsv),color_get_blue(color_hsv));
 	//set the new color using rgb values from the gamemaker color
 
-	color_rgb=make_color_rgb( 15, 15, 30);
+	color_rgb=make_color_rgb(173, 3, 91);
 	//make a gamemaker color variable using kirby's default color (feet)
 	hue6=(color_get_hue(color_rgb)+hue) mod 255;
 	//kirby's feet keep the same hue as his skin
@@ -268,3 +268,4 @@ if (state == PS_AIR_DODGE && window == 2 && window_timer == 9)
 {
      nts_effect_show = true;
 }
+
