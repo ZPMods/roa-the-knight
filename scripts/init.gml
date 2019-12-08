@@ -48,6 +48,26 @@ nts_effect_animation_frame = 1;
 nts_effect_animation_framelength = 2;
 nts_effect_animation_timer = 0;
 
+//nspecial_effect animation
+nspecial_effect_show = false;
+nspecial_effect_freeze = false;
+nspecial_effect_x = 0;
+nspecial_effect_y = 0;
+nspecial_effect_animation_frame = 1;
+nspecial_effect_animation_framelength = 2;
+nspecial_effect_animation_timer = 0;
+nspecial_effect_dir = "right";
+
+//nspecial_boosted_effect animation
+nspecial_boosted_effect_show = false;
+nspecial_boosted_effect_freeze = false;
+nspecial_boosted_effect_x = 0;
+nspecial_boosted_effect_y = 0;
+nspecial_boosted_effect_animation_frame = 1;
+nspecial_boosted_effect_animation_framelength = 2;
+nspecial_boosted_effect_animation_timer = 0;
+nspecial_boosted_effect_dir = "right";
+
 //CHARMS
 
 //Notches number

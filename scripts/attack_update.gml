@@ -323,6 +323,18 @@ if (attack == AT_NSPECIAL_2 && window == 3 && window_timer == 9)
      nts_effect_show = true;
 }
 
+//NEUTRAL SPECIAL EFFECT
+if (attack == AT_NSPECIAL && window == 2 && window_timer == 8)
+{
+     nspecial_effect_show = true;
+}
+
+if (attack == AT_NSPECIAL_2 && window == 1 && window_timer == 8)
+{
+     nspecial_boosted_effect_show = true;
+}
+
+
 //STRONG MOVEMENT
 if((attack == AT_FSTRONG && window == 1)|| (attack == AT_DSTRONG && window == 1))
 {
@@ -332,8 +344,12 @@ if((attack == AT_FSTRONG && window == 1)|| (attack == AT_DSTRONG && window == 1)
     }
 }
 
-//UP SPECIAL CANCEL
-if(my_hitboxID.attack == AT_FSPECIAL_2)
+//FORWARD SPECIAL CANCEL
+if(my_hitboxID.attack == AT_FSPECIAL_2 && hitstop > 0)
 {
     can_jump = true;
+    if (jump_pressed)
+    {
+       hsp = 1 * spr_dir;
+    }
 }
