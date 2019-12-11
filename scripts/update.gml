@@ -1,4 +1,4 @@
-// EUPEUDEÏTEUH
+// EUPEUDEÏTEUHs
 
 //Trummel code
 if trummelcodecneeded{
@@ -64,6 +64,7 @@ if trummelcodecneeded{
 
 
 }
+
 // Walking Variables
     walk_speed = 3;
     walk_accel = 0.1;
@@ -352,4 +353,11 @@ if (practice)
     {
        soul_points = 100;
     }
+}
+
+//SHADE SOUL ---------------------------------------------
+if (shade_soul_first_hit)
+{
+     shade_soul_player_hit.x = lerp(shade_soul_player_hit.x, shade_soul_x, 0.3);
+     shade_soul_player_hit.y = lerp(shade_soul_player_hit.y, shade_soul_y, 0.3);
 }

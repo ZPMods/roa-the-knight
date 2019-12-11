@@ -64,12 +64,17 @@ if (my_hitboxID.attack == AT_DSPECIAL_2 && window == 4)
 if (my_hitboxID.attack == AT_NSPECIAL_2)
 {
      //Empecher l'effet violet dégueulasse
+     if (my_hitboxID.hbox_num == 3)
+     {
+          shade_soul_player_hit = hit_player_obj;
+          shade_soul_hit = true;
+     }
+
      if (my_hitboxID.hbox_num == 1)
      {
-         hit_player_obj.should_make_shockwave = false;
-
-          if (!shade_soul_first_hit)
-               shade_soul_hit = true;
+          hit_player_obj.should_make_shockwave = false;
+          /* hit_player_obj.x = shade_soul_x;
+          hit_player_obj.y = shade_soul_y; */
      }
 
 }

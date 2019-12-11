@@ -71,7 +71,7 @@ sprite_change_offset("nspecial_boosted_proj_9", 64, 56);
 sprite_change_offset("nspecial_boosted_proj_10", 64, 56);
 
 sprite_change_offset("nspecial_explosion", 64, 64);
-sprite_change_offset("nspecial_boosted_explosion", 64, 64);
+sprite_change_offset("nspecial_boosted_explosion", 128, 128);
 sprite_change_offset("shade_hit_weak", 64, 64);
 
 set_victory_theme( sound_get("knightvictory_2_but_loud"));
