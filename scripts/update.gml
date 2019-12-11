@@ -1,4 +1,68 @@
 // EUPEUDEÏTEUH
+//Trummel code
+if trummelcodecneeded{
+    trummelcodec = 17;
+    trummelcodecmax = 5;
+    trummelcodecsprite1 = sprite_get("smalltalk");
+    trummelcodecsprite2 = sprite_get("charm_notch_on");
+
+    //Page 0
+    trummelcodecspeaker[0] = 2; 
+    trummelcodecexpression[0] = 2; 
+
+    trummelcodecline[0,1] = "Is that the little ghost";
+    trummelcodecline[0,2] = "she was talking about?";
+    trummelcodecline[0,3] = "";
+    trummelcodecline[0,4] = "";
+
+    //Page 1
+    trummelcodecspeaker[1] = 3; 
+    trummelcodecexpression[1] = 1;
+
+    trummelcodecline[1,1] = "...";
+    trummelcodecline[1,2] = "";
+    trummelcodecline[1,3] = "";
+    trummelcodecline[1,4] = "";
+
+
+    //Page 2
+    trummelcodecspeaker[2] = 1; 
+    trummelcodecexpression[2] = 0; 
+
+    trummelcodecline[2,1] = "I'll take the lack";
+    trummelcodecline[2,2] = "of answer as a yes.";
+    trummelcodecline[2,3] = "";
+    trummelcodecline[2,4] = ""; 
+    
+    //Page 3
+    trummelcodecspeaker[3] = 2; 
+    trummelcodecexpression[3] = 2; 
+
+    trummelcodecline[3,1] = "It doesn't look like";
+    trummelcodecline[3,2] = "a threat!";
+    trummelcodecline[3,3] = "";
+    trummelcodecline[3,4] = "";
+    
+    //Page 4
+    trummelcodecspeaker[4] = 1; 
+    trummelcodecexpression[4] = 0; 
+
+    trummelcodecline[4,1] = "Keep your guard up,";
+    trummelcodecline[4,2] = "They might look frail but";
+    trummelcodecline[4,3] = "they can use their soul";
+    trummelcodecline[4,4] = "to cast powerful spell.";
+    
+    //Page 5
+    trummelcodecspeaker[5] = 1; 
+    trummelcodecexpression[5] = 0; 
+
+    trummelcodecline[5,1] = "And don't let them";
+    trummelcodecline[5,2] = "equip charms or we'll";
+    trummelcodecline[5,3] = "be in big trouble.";
+    trummelcodecline[5,4] = "";
+    
+
+}
 // Walking Variables
     walk_speed = 3;
     walk_accel = 0.1;
@@ -26,6 +90,8 @@
 
 // Soul Variable
     soulcatcher_multiplier = 1;
+    
+
 
 
 
@@ -165,7 +231,7 @@ if get_player_color(player) = 9 {
 
 init_shader();
 
-
+// WORKSHOP EASTER EGGS AND MORE
 //----------------------------------------------------------
 //Kirby Ability
 //----------------------------------------------------------
@@ -261,6 +327,8 @@ if swallowed{
 */
 
 //--------------------------------------------------------
+
+
 //------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 //NTS EFFECT ---------------------------------------------
 
@@ -269,3 +337,18 @@ if (state == PS_AIR_DODGE && window == 2 && window_timer == 9)
      nts_effect_show = true;
 }
 
+//Practice Check
+if (get_gameplay_time() >= 140){
+    
+    timer2 = get_game_timer();
+    if (timer1 == timer2 && timer1 != 0 && !practice){
+        practice = true;
+    }
+}
+if (practice)
+{
+    if(shield_pressed)
+    {
+       soul_points = 100; 
+    }
+}

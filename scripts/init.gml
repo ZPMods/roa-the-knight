@@ -13,7 +13,9 @@ shade_soul_y = 0;
 kirbyability = 16;
 kirb_used = 0;
 
-
+// Trummel
+trummelcodecneeded = false;
+trummelcodec_id = noone;
 
 //ATTACKS
 
@@ -243,3 +245,8 @@ bubble_y = 8;
 
 //colors
 hue = 0;
+
+//Practice mode
+practice = false;               //Whether you're in Practice Mode or not.
+timer1 = get_game_timer();      //The initial game timer.
+timer2 = 0;                     //The game timer after a couple seconds pass.

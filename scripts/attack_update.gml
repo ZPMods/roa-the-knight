@@ -293,10 +293,14 @@ if (attack == AT_TAUNT)
 //Reset du pogo du dair
 if (attack == AT_DAIR && window == 3)
 {
-  if (has_dair_hit == true)
+  if (has_dair_hit == true && !down_down)
   {
     window = 4;
     has_dair_hit = false;
+  }
+  else
+  {
+      window = 5;
   }
 
   if (window_timer == 12)
@@ -353,3 +357,5 @@ if(my_hitboxID.attack == AT_FSPECIAL_2 && hitstop > 0)
        hsp = 1 * spr_dir;
     }
 }
+
+
