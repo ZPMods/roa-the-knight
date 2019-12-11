@@ -1,4 +1,5 @@
 // EUPEUDEÏTEUH
+
 //Trummel code
 if trummelcodecneeded{
     trummelcodec = 17;
@@ -7,8 +8,8 @@ if trummelcodecneeded{
     trummelcodecsprite2 = sprite_get("charm_notch_on");
 
     //Page 0
-    trummelcodecspeaker[0] = 2; 
-    trummelcodecexpression[0] = 2; 
+    trummelcodecspeaker[0] = 2;
+    trummelcodecexpression[0] = 2;
 
     trummelcodecline[0,1] = "Is that the little ghost";
     trummelcodecline[0,2] = "she was talking about?";
@@ -16,7 +17,7 @@ if trummelcodecneeded{
     trummelcodecline[0,4] = "";
 
     //Page 1
-    trummelcodecspeaker[1] = 3; 
+    trummelcodecspeaker[1] = 3;
     trummelcodecexpression[1] = 1;
 
     trummelcodecline[1,1] = "...";
@@ -26,41 +27,41 @@ if trummelcodecneeded{
 
 
     //Page 2
-    trummelcodecspeaker[2] = 1; 
-    trummelcodecexpression[2] = 0; 
+    trummelcodecspeaker[2] = 1;
+    trummelcodecexpression[2] = 0;
 
     trummelcodecline[2,1] = "I'll take the lack";
     trummelcodecline[2,2] = "of answer as a yes.";
     trummelcodecline[2,3] = "";
-    trummelcodecline[2,4] = ""; 
-    
+    trummelcodecline[2,4] = "";
+
     //Page 3
-    trummelcodecspeaker[3] = 2; 
-    trummelcodecexpression[3] = 2; 
+    trummelcodecspeaker[3] = 2;
+    trummelcodecexpression[3] = 2;
 
     trummelcodecline[3,1] = "It doesn't look like";
     trummelcodecline[3,2] = "a threat!";
     trummelcodecline[3,3] = "";
     trummelcodecline[3,4] = "";
-    
+
     //Page 4
-    trummelcodecspeaker[4] = 1; 
-    trummelcodecexpression[4] = 0; 
+    trummelcodecspeaker[4] = 1;
+    trummelcodecexpression[4] = 0;
 
     trummelcodecline[4,1] = "Keep your guard up,";
     trummelcodecline[4,2] = "They might look frail but";
     trummelcodecline[4,3] = "they can use their soul";
     trummelcodecline[4,4] = "to cast powerful spell.";
-    
+
     //Page 5
-    trummelcodecspeaker[5] = 1; 
-    trummelcodecexpression[5] = 0; 
+    trummelcodecspeaker[5] = 1;
+    trummelcodecexpression[5] = 0;
 
     trummelcodecline[5,1] = "And don't let them";
     trummelcodecline[5,2] = "equip charms or we'll";
     trummelcodecline[5,3] = "be in big trouble.";
     trummelcodecline[5,4] = "";
-    
+
 
 }
 // Walking Variables
@@ -90,7 +91,7 @@ if trummelcodecneeded{
 
 // Soul Variable
     soulcatcher_multiplier = 1;
-    
+
 
 
 
@@ -339,7 +340,7 @@ if (state == PS_AIR_DODGE && window == 2 && window_timer == 9)
 
 //Practice Check
 if (get_gameplay_time() >= 140){
-    
+
     timer2 = get_game_timer();
     if (timer1 == timer2 && timer1 != 0 && !practice){
         practice = true;
@@ -349,6 +350,6 @@ if (practice)
 {
     if(shield_pressed)
     {
-       soul_points = 100; 
+       soul_points = 100;
     }
 }

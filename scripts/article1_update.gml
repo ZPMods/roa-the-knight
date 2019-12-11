@@ -10,10 +10,6 @@ if (x < 0 || hit_wall)
      timer_boom = 0;
 }
 
-
-var hitbox_drag;
-var hitbox_boom;
-
 if (timer % 4 == 0 && !hit_wall && timer_boom > 1)
 {
      create_hitbox(AT_NSPECIAL_2, 1, x+25 * spr_dir, y-25);

@@ -55,6 +55,7 @@ set_hitbox_value(AT_NSPECIAL_2, 1, HG_HITSTUN_MULTIPLIER, 0.5);
 set_hitbox_value(AT_NSPECIAL_2, 1, HG_PROJECTILE_SPRITE, asset_get("empty_sprite"));
 set_hitbox_value(AT_NSPECIAL_2, 1, HG_PROJECTILE_MASK, -1);
 set_hitbox_value(AT_NSPECIAL_2, 1, HG_PROJECTILE_WALL_BEHAVIOR, 0);
+set_hitbox_value(AT_NSPECIAL_2, 1, HG_VISUAL_EFFECT, shade_hit_weak);
 
 //Hitbox Boom
 set_hitbox_value(AT_NSPECIAL_2, 2, HG_PARENT_HITBOX, 2);
@@ -72,3 +73,4 @@ set_hitbox_value(AT_NSPECIAL_2, 2, HG_ANGLE, 55);
 set_hitbox_value(AT_NSPECIAL_2, 2, HG_PROJECTILE_SPRITE, asset_get("empty_sprite"));
 set_hitbox_value(AT_NSPECIAL_2, 2, HG_PROJECTILE_MASK, -1);
 set_hitbox_value(AT_NSPECIAL_2, 2, HG_PROJECTILE_WALL_BEHAVIOR, 0);
+set_hitbox_value(AT_NSPECIAL_2, 2, HG_VISUAL_EFFECT, nspecial_boosted_explosion);

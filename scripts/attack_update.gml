@@ -290,23 +290,31 @@ if (attack == AT_TAUNT)
 
 
 
-//Reset du pogo du dair
-if (attack == AT_DAIR && window == 3)
+//Pogo dair
+if (attack == AT_DAIR)
 {
-  if (has_dair_hit == true && !down_down)
-  {
-    window = 4;
-    has_dair_hit = false;
-  }
-  else
-  {
-      window = 5;
-  }
+     if (window == 1)
+     {
+          pogo = 0;
+     }
 
-  if (window_timer == 12)
-  {
-  set_state(PS_IDLE);
-  }
+     if (has_hit)
+     {
+          pogo = 10;
+     }
+
+     if (down_hard_pressed)
+     {
+          pogo = 0;
+     }
+
+     if (window == 3 && window_timer == 1)
+     {
+          if (pogo > 0)
+          {
+               vsp = - pogo;
+          }
+     }
 }
 
 //Reset buffer jab
@@ -349,7 +357,7 @@ if((attack == AT_FSTRONG && window == 1)|| (attack == AT_DSTRONG && window == 1)
 }
 
 //FORWARD SPECIAL CANCEL
-if(my_hitboxID.attack == AT_FSPECIAL_2 && hitstop > 0)
+if(my_hitboxID.attack == AT_FSPECIAL_2 && hitpause)
 {
     can_jump = true;
     if (jump_pressed)
@@ -357,5 +365,3 @@ if(my_hitboxID.attack == AT_FSPECIAL_2 && hitstop > 0)
        hsp = 1 * spr_dir;
     }
 }
-
-

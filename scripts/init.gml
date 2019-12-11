@@ -3,11 +3,12 @@
 //----------------------------------------------------------
 swallowed = 1;
 
+//Shade Soul
 shade_soul_hit = false;
 shade_soul_first_hit = false;
-
 shade_soul_x = 0;
 shade_soul_y = 0;
+shade_soul_player_hit = 0;
 
 // Kirby
 kirbyability = 16;
@@ -18,7 +19,6 @@ trummelcodecneeded = false;
 trummelcodec_id = noone;
 
 //ATTACKS
-
 has_dair_hit = false;
 has_dspecial_air_hit = false;
 
@@ -35,40 +35,6 @@ SP_uspecial = 25;
 charged_time = 0;
 required_charge_time = 10;
 is_charged = false;
-
-//Soul Meter animation
-soulmeter_animation_frame = 1;
-soulmeter_animation_framelength = 10;
-soulmeter_animation_timer = 0;
-
-//nts_effect animation
-nts_effect_show = false;
-nts_effect_freeze = false;
-nts_effect_x = 0;
-nts_effect_y = 0;
-nts_effect_animation_frame = 1;
-nts_effect_animation_framelength = 2;
-nts_effect_animation_timer = 0;
-
-//nspecial_effect animation
-nspecial_effect_show = false;
-nspecial_effect_freeze = false;
-nspecial_effect_x = 0;
-nspecial_effect_y = 0;
-nspecial_effect_animation_frame = 1;
-nspecial_effect_animation_framelength = 2;
-nspecial_effect_animation_timer = 0;
-nspecial_effect_dir = "right";
-
-//nspecial_boosted_effect animation
-nspecial_boosted_effect_show = false;
-nspecial_boosted_effect_freeze = false;
-nspecial_boosted_effect_x = 0;
-nspecial_boosted_effect_y = 0;
-nspecial_boosted_effect_animation_frame = 1;
-nspecial_boosted_effect_animation_framelength = 2;
-nspecial_boosted_effect_animation_timer = 0;
-nspecial_boosted_effect_dir = "right";
 
 //CHARMS
 
@@ -138,6 +104,45 @@ airdodge_trail_3_y = 0;
 airdodge_trail_3_alpha = 1;
 airdodge_trail_3_show = false;
 
+//Soul Meter animation
+soulmeter_animation_frame = 1;
+soulmeter_animation_framelength = 10;
+soulmeter_animation_timer = 0;
+
+//nts_effect animation
+nts_effect_show = false;
+nts_effect_freeze = false;
+nts_effect_x = 0;
+nts_effect_y = 0;
+nts_effect_animation_frame = 1;
+nts_effect_animation_framelength = 2;
+nts_effect_animation_timer = 0;
+
+//nspecial_effect animation
+nspecial_effect_show = false;
+nspecial_effect_freeze = false;
+nspecial_effect_x = 0;
+nspecial_effect_y = 0;
+nspecial_effect_animation_frame = 1;
+nspecial_effect_animation_framelength = 2;
+nspecial_effect_animation_timer = 0;
+nspecial_effect_dir = "right";
+
+//nspecial_boosted_effect animation
+nspecial_boosted_effect_show = false;
+nspecial_boosted_effect_freeze = false;
+nspecial_boosted_effect_x = 0;
+nspecial_boosted_effect_y = 0;
+nspecial_boosted_effect_animation_frame = 1;
+nspecial_boosted_effect_animation_framelength = 2;
+nspecial_boosted_effect_animation_timer = 0;
+nspecial_boosted_effect_dir = "right";
+
+//HIT EFFECTS
+
+nspecial_explosion = hit_fx_create(sprite_get("nspecial_explosion"), 30);
+nspecial_boosted_explosion = hit_fx_create(sprite_get("nspecial_boosted_explosion"), 30);
+shade_hit_weak = hit_fx_create(sprite_get("shade_hit_weak"), 20);
 
 //----------------------------------------------------------
 
