@@ -234,27 +234,87 @@ if (attack == AT_NSPECIAL_2 && window == 2 && window_timer == 1)
 //Article Spawn
 if (equipped_charm_1 = "sporeshroom" || equipped_charm_2 = "sporeshroom" || equipped_charm_3 = "sporeshroom")
 {
-    if(attack == AT_NSPECIAL || attack == AT_NSPECIAL_2)
+   /* if(attack == AT_NSPECIAL)
     {
-        shape_special = 1;
-
-         var shade_soul = instance_create(x, y - 10, "obj_article2");
-         shade_soul.spr_dir = spr_dir;
-        shade_soul.hsp *= spr_dir;
-}
-   /* }
-    if(attack == AT_DSPECIAL || attack == AT_DSPECIAL_2)
-    {
-
-    }
-    if(attack == AT_USPECIAL || attack == AT_USPECIAL_2)
-    {
-
-    }
-    if(attack == AT_FSPECIAL || attack == AT_FSPECIAL_2)
-    {
-
+        
+        timer_spore++
+        if(timer_spore % 6 == 0)
+        {
+            var spore_shroom = instance_create(proj_x, proj_y, "obj_article2");
+        }
+        
     }*/
+    if(attack == AT_NSPECIAL_2)
+    {
+        timer_spore++
+        if(timer_spore % 6 == 0)
+        {
+            var spore_shroom = instance_create(shade_soul_x, shade_soul_y - 35, "obj_article2");
+        }
+        
+    }
+    //SPORE SHROOM DPSPECIAL SETUP
+    if(attack == AT_DSPECIAL && window > 4 && window < 6)
+    {
+        timer_spore++
+        
+        if(timer_spore % 4 == 0)
+        {
+            var spore_shroom = instance_create(x, y, "obj_article2");
+        }
+    }
+    if(attack == AT_DSPECIAL && window == 6)
+    {
+        timer_spore++
+        if(timer_spore % 5 == 0)
+        {
+            var spore_shroom = instance_create(x + 40 , y, "obj_article2");
+            var spore_shroom = instance_create(x - 40 , y, "obj_article2");
+            var spore_shroom = instance_create(x + 40 , y - 40, "obj_article2");
+            var spore_shroom = instance_create(x - 40 , y - 40, "obj_article2");
+        }
+
+    }
+    //SPORE SHROOM UPSPECIAL SETUP
+    if(attack == AT_USPECIAL && window > 2)
+    {
+        timer_spore++
+        
+        if(timer_spore % 6 == 0)
+        {
+            var spore_shroom = instance_create(x, y, "obj_article2");
+        }
+    }
+    if(attack == AT_USPECIAL_2 && window > 1)
+    {
+        timer_spore++
+        
+        if(timer_spore % 6 == 0)
+        {
+            var spore_shroom = instance_create(x, y, "obj_article2");
+        }
+    }
+    
+    //SPORE SHROOM FPSPECIAL SETUP
+    if(attack == AT_FSPECIAL  && window = 3) 
+    {
+        timer_spore++
+        
+        if(timer_spore % 2 == 0)
+        {
+            var spore_shroom = instance_create(x, y, "obj_article2");
+        }
+    }
+
+    if(attack == AT_FSPECIAL_2  && window = 2) 
+    {
+        timer_spore++
+        
+        if(timer_spore % 2 == 0)
+        {
+            var spore_shroom = instance_create(x, y, "obj_article2");
+        }
+    }
 }
 
 //--------------------------------------------------------
