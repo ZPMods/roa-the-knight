@@ -104,6 +104,48 @@ airdodge_trail_3_y = 0;
 airdodge_trail_3_alpha = 1;
 airdodge_trail_3_show = false;
 
+//Roll Backward Trail
+rollbackward_trail_1_x = 0;
+rollbackward_trail_1_y = 0;
+rollbackward_trail_1_alpha = 1;
+rollbackward_trail_1_show = false;
+
+rollbackward_trail_2_x = 0;
+rollbackward_trail_2_y = 0;
+rollbackward_trail_2_alpha = 1;
+rollbackward_trail_show = false;
+
+rollbackward_trail_3_x = 0;
+rollbackward_trail_3_y = 0;
+rollbackward_trail_3_alpha = 1;
+rollbackward_trail_3_show = false;
+
+rollbackward_trail_4_x = 0;
+rollbackward_trail_4_y = 0;
+rollbackward_trail_4_alpha = 1;
+rollbackward_trail_4_show = false;
+
+//Roll Forward Trail
+rollforward_trail_1_x = 0;
+rollforward_trail_1_y = 0;
+rollforward_trail_1_alpha = 1;
+rollforward_trail_1_show = false;
+
+rollforward_trail_2_x = 0;
+rollforward_trail_2_y = 0;
+rollforward_trail_2_alpha = 1;
+rollforward_trail_show = false;
+
+rollforward_trail_3_x = 0;
+rollforward_trail_3_y = 0;
+rollforward_trail_3_alpha = 1;
+rollforward_trail_3_show = false;
+
+rollforward_trail_4_x = 0;
+rollforward_trail_4_y = 0;
+rollforward_trail_4_alpha = 1;
+rollforward_trail_4_show = false;
+
 //Soul Meter animation
 soulmeter_animation_frame = 1;
 soulmeter_animation_framelength = 10;
@@ -207,7 +249,7 @@ crouch_active_frames = 1;
 crouch_recovery_frames = 1;
 
 //parry animation frames
-dodge_startup_frames = 1;
+dodge_startup_frames = 2;
 dodge_active_frames = 1;
 dodge_recovery_frames = 3;
 

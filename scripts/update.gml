@@ -339,6 +339,12 @@ if (state == PS_AIR_DODGE && window == 2 && window_timer == 9)
      nts_effect_show = true;
 }
 
+if ((state == PS_ROLL_FORWARD || state == PS_TECH_FORWARD || state == PS_ROLL_BACKWARD || state == PS_TECH_BACKWARD) && window == 2 && window_timer == 9)
+{
+     nts_effect_show = true;
+}
+
+
 //Practice Check
 if (get_gameplay_time() >= 140){
 

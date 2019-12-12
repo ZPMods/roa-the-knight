@@ -24,8 +24,16 @@ sprite_change_offset("land", 82, 128);
 sprite_change_offset("landinglag", 82, 128);
 
 sprite_change_offset("parry", 82, 128);
-sprite_change_offset("roll_forward", 32, 62);
-sprite_change_offset("roll_backward", 32, 62);
+sprite_change_offset("roll_forward", 82, 128);
+sprite_change_offset("rollforward_trail_1", 82, 128);
+sprite_change_offset("rollforward_trail_2", 82, 128);
+sprite_change_offset("rollforward_trail_3", 82, 128);
+sprite_change_offset("rollforward_trail_4", 82, 128);
+sprite_change_offset("roll_backward", 82, 128);
+sprite_change_offset("rollbackward_trail_1", 82, 128);
+sprite_change_offset("rollbackward_trail_2", 82, 128);
+sprite_change_offset("rollbackward_trail_3", 82, 128);
+sprite_change_offset("rollbackward_trail_4", 82, 128);
 sprite_change_offset("airdodge", 82, 128);
 sprite_change_offset("airdodge_trail_1", 82, 128);
 sprite_change_offset("airdodge_trail_2", 82, 128);
