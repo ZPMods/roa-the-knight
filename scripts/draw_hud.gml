@@ -1,4 +1,4 @@
-/* draw_debug_text( temp_x+150, temp_y-30, string( soulmeter_animation_timer ));
+ /* draw_debug_text( temp_x+150, temp_y-30, string( soulmeter_animation_timer ));
 draw_debug_text( temp_x+150, temp_y-50, string( soulmeter_animation_framelength ));
 draw_debug_text( temp_x+150, temp_y-70, string( soulmeter_animation_frame ));
 draw_debug_text( temp_x+150, temp_y-10, selected_charm);
@@ -7,10 +7,10 @@ draw_debug_text( temp_x+150, temp_y-50, equipped_charm_2);
 draw_debug_text( temp_x+150, temp_y-70, equipped_charm_3);
 draw_debug_text( temp_x+250, temp_y-10, string(shade_soul_x));
 draw_debug_text( temp_x+280, temp_y-10, string(shade_soul_y));
+draw_debug_text( temp_x+250, temp_y-70, string(nspecial_effect_show)); */
+
 draw_debug_text( temp_x+250, temp_y-30, string(window));
 draw_debug_text( temp_x+250, temp_y-50, string(window_timer));
-draw_debug_text( temp_x+250, temp_y-70, string(nspecial_effect_show));*/
-
 
 //Affiche le nombre de Soul Points sur le HUD
 //draw_debug_text( temp_x+150, temp_y-14, "Soul : " + string( soul_points ));
@@ -60,7 +60,7 @@ ab_hud_y = temp_y;
 //this is for the outdated warning message
 if ("depNotice" not in self) depNotice = 0;
 if (abyssEnabled && (menuActive || timerActive)) abyssDraw();
-#define abyssDraw 
+#define abyssDraw
 /// abyssDraw()
 /// draws text and images the player recieved from the abyss buddy.
 if ("abyss_drawArray" in self && ds_list_valid(abyss_drawArray))  {

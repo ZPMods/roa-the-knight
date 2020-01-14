@@ -344,6 +344,11 @@ if ((state == PS_ROLL_FORWARD || state == PS_TECH_FORWARD || state == PS_ROLL_BA
      nts_effect_show = true;
 }
 
+if (state == PS_TECH_GROUND && window_timer == 0)
+{
+     nts_effect_show = true;
+}
+
 
 //Practice Check
 if (get_gameplay_time() >= 140){
@@ -370,10 +375,10 @@ if (shade_soul_first_hit)
 
 
 // RUNES
-if abyssEnabled { 
+if abyssEnabled {
 	#region // LEVEL ONE RUNES
-	
-	#region // RUNE A 
+
+	#region // RUNE A
 	if runeA {
 
 	} else {
@@ -382,7 +387,7 @@ if abyssEnabled {
 
 	}
 	#endregion
-	#region // RUNE B 
+	#region // RUNE B
 	if runeB {
 
 	} else {
@@ -391,7 +396,7 @@ if abyssEnabled {
 
 	}
 	#endregion
-	#region // RUNE C 
+	#region // RUNE C
 	if runeC {
 		SP_nspecial = 0;
 		SP_fspecial = 20;
@@ -404,27 +409,27 @@ if abyssEnabled {
 		SP_uspecial = 25;
 	}
 	#endregion
-	#region // RUNE D 
+	#region // RUNE D
 	if runeD {
 		set_hitbox_value(AT_USPECIAL_2, 7, HG_EFFECT, 1);
-		
+
 		set_hitbox_value(AT_FSPECIAL_2, 1, HG_EFFECT, 1);
-		
+
 		set_hitbox_value(AT_NSPECIAL_2, 2, HG_EFFECT, 1);
 		set_hitbox_value(AT_NSPECIAL, 1, HG_EFFECT, 1);
-		
+
 		set_hitbox_value(AT_DSPECIAL, 2, HG_EFFECT, 1);
 		set_hitbox_value(AT_DSPECIAL, 1, HG_EFFECT, 1);
 		set_hitbox_value(AT_DSPECIAL_2, 2, HG_EFFECT, 1);
-		
-		
+
+
 	} else {
 		//default attributes. this part is optional but you should have it for compatibility with
 		//the random rune mode.
 
 	}
 	#endregion
-	#region // RUNE E 
+	#region // RUNE E
 	if runeE {
 
 	} else {
@@ -433,7 +438,7 @@ if abyssEnabled {
 
 	}
 	#endregion
-	#region // RUNE F 
+	#region // RUNE F
 	if runeF {
 
 	} else {
@@ -442,11 +447,11 @@ if abyssEnabled {
 
 	}
 	#endregion
-	
+
 	#endregion
-	
+
 	#region // LEVEL TWO RUNES
-	#region // RUNE G 
+	#region // RUNE G
 	if runeG {
 
 	} else {
@@ -455,7 +460,7 @@ if abyssEnabled {
 
 	}
 	#endregion
-	#region // RUNE H 
+	#region // RUNE H
 	if runeH {
 		set_window_value(AT_USPECIAL, 3, AG_WINDOW_VSPEED, -20);
 	} else {
@@ -465,25 +470,25 @@ if abyssEnabled {
 
 	}
 	#endregion
-	#region // RUNE I 
+	#region // RUNE I
 	if runeI {
 		set_window_value(AT_USPECIAL_2, 3, AG_WINDOW_TYPE, 0);
 	} else {
 		set_window_value(AT_USPECIAL_2, 3, AG_WINDOW_TYPE, 7);
 	}
 	#endregion
-	#region // RUNE J 
+	#region // RUNE J
 	if runeJ {
 		max_djumps = 2;
 	} else {
-		
+
 		max_djumps = 1;
 		//default attributes. this part is optional but you should have it for compatibility with
 		//the random rune mode.
 
 	}
 	#endregion
-	#region // RUNE K 
+	#region // RUNE K
 	if runeK {
 
 	} else {
@@ -492,13 +497,13 @@ if abyssEnabled {
 
 	}
 	#endregion
-	
+
 	#endregion
-	
+
 	#region // LEVEL THREE RUNES
-	#region // RUNE L 
+	#region // RUNE L
 	if runeL {
-		
+
 
 	} else {
 		//default attributes. this part is optional but you should have it for compatibility with
@@ -506,7 +511,7 @@ if abyssEnabled {
 
 	}
 	#endregion
-	#region // RUNE M 
+	#region // RUNE M
 	if runeM {
 		SP_nspecial = 0;
 		SP_fspecial = 0;
@@ -523,9 +528,9 @@ if abyssEnabled {
 
 	}
 	#endregion
-	#region // RUNE N 
+	#region // RUNE N
 	if runeN {
-		
+
 		wave_land_adj = 2.45;
 
 	} else {
@@ -535,7 +540,7 @@ if abyssEnabled {
 
 	}
 	#endregion
-	#region // RUNE O 
+	#region // RUNE O
 	if runeO {
 		if(PS_STATE == PS_AIR_DODGE)
 		{
@@ -547,6 +552,6 @@ if abyssEnabled {
 
 	}
 	#endregion
-	
+
 	#endregion
 }
