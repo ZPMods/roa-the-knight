@@ -12,7 +12,7 @@ if (my_hitboxID.attack == AT_JAB || my_hitboxID.attack == AT_DATTACK || my_hitbo
     }
   }
 }
-
+/*
 //Strength Charm
 if (my_hitboxID.attack == AT_JAB || my_hitboxID.attack == AT_DATTACK || my_hitboxID.attack == AT_FTILT || my_hitboxID.attack == AT_DTILT || my_hitboxID.attack == AT_UTILT || my_hitboxID.attack == AT_FSTRONG || my_hitboxID.attack == AT_DSTRONG || my_hitboxID.attack == AT_FAIR || my_hitboxID.attack == AT_BAIR || my_hitboxID.attack == AT_DAIR || my_hitboxID.attack == AT_UAIR || my_hitboxID.attack == AT_NAIR)
 {
@@ -36,7 +36,7 @@ if(my_hitboxID.attack == AT_DSPECIAL || my_hitboxID.attack == AT_DSPECIAL_2 || m
         take_damage(hit_player_obj.player,1,round(my_hitboxID.damage*0.2));
     }
 }
-
+*/
 //Pogo du dair
 if (my_hitboxID.attack == AT_DAIR && window == 2)
 {

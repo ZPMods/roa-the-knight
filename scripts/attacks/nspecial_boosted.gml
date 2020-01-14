@@ -68,6 +68,7 @@ set_hitbox_value(AT_NSPECIAL_2, 2, HG_KNOCKBACK_SCALING, 0.7);
 set_hitbox_value(AT_NSPECIAL_2, 2, HG_BASE_HITPAUSE, 20);
 set_hitbox_value(AT_NSPECIAL_2, 2, HG_HIT_SFX, asset_get("sfx_boss_fireball"));
 set_hitbox_value(AT_NSPECIAL_2, 2, HG_ANGLE, 55);
+set_hitbox_value(AT_NSPECIAL_2, 2, HG_EFFECT, 0);
 set_hitbox_value(AT_NSPECIAL_2, 2, HG_PROJECTILE_SPRITE, asset_get("empty_sprite"));
 set_hitbox_value(AT_NSPECIAL_2, 2, HG_PROJECTILE_MASK, -1);
 set_hitbox_value(AT_NSPECIAL_2, 2, HG_PROJECTILE_WALL_BEHAVIOR, 0);

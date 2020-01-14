@@ -96,7 +96,7 @@ if trummelcodecneeded{
 
 
 
-
+/*
 if(equipped_charm_1 = "dashmaster" || equipped_charm_2 = "dashmaster" || equipped_charm_3 = "dashmaster")
 {
     // BONUS
@@ -163,7 +163,7 @@ if (overcharmed = true)
 {
     knockback_adj = knockback_adj + 0.3;
 }
-
+*/
 //Moves cooldown
 //Down Special
 if (!free)
@@ -366,4 +366,187 @@ if (shade_soul_first_hit)
 {
      shade_soul_player_hit.x = lerp(shade_soul_player_hit.x, shade_soul_x, 0.3);
      shade_soul_player_hit.y = lerp(shade_soul_player_hit.y, shade_soul_y, 0.3);
+}
+
+
+// RUNES
+if abyssEnabled { 
+	#region // LEVEL ONE RUNES
+	
+	#region // RUNE A 
+	if runeA {
+
+	} else {
+		//default attributes. this part is optional but you should have it for compatibility with
+		//the random rune mode.
+
+	}
+	#endregion
+	#region // RUNE B 
+	if runeB {
+
+	} else {
+		//default attributes. this part is optional but you should have it for compatibility with
+		//the random rune mode.
+
+	}
+	#endregion
+	#region // RUNE C 
+	if runeC {
+		SP_nspecial = 0;
+		SP_fspecial = 20;
+		SP_dspecial = 20;
+		SP_uspecial = 20;
+	} else {
+		SP_nspecial = 25;
+		SP_fspecial = 25;
+		SP_dspecial = 25;
+		SP_uspecial = 25;
+	}
+	#endregion
+	#region // RUNE D 
+	if runeD {
+		set_hitbox_value(AT_USPECIAL_2, 7, HG_EFFECT, 1);
+		
+		set_hitbox_value(AT_FSPECIAL_2, 1, HG_EFFECT, 1);
+		
+		set_hitbox_value(AT_NSPECIAL_2, 2, HG_EFFECT, 1);
+		set_hitbox_value(AT_NSPECIAL, 1, HG_EFFECT, 1);
+		
+		set_hitbox_value(AT_DSPECIAL, 2, HG_EFFECT, 1);
+		set_hitbox_value(AT_DSPECIAL, 1, HG_EFFECT, 1);
+		set_hitbox_value(AT_DSPECIAL_2, 2, HG_EFFECT, 1);
+		
+		
+	} else {
+		//default attributes. this part is optional but you should have it for compatibility with
+		//the random rune mode.
+
+	}
+	#endregion
+	#region // RUNE E 
+	if runeE {
+
+	} else {
+		//default attributes. this part is optional but you should have it for compatibility with
+		//the random rune mode.
+
+	}
+	#endregion
+	#region // RUNE F 
+	if runeF {
+
+	} else {
+		//default attributes. this part is optional but you should have it for compatibility with
+		//the random rune mode.
+
+	}
+	#endregion
+	
+	#endregion
+	
+	#region // LEVEL TWO RUNES
+	#region // RUNE G 
+	if runeG {
+
+	} else {
+		//default attributes. this part is optional but you should have it for compatibility with
+		//the random rune mode.
+
+	}
+	#endregion
+	#region // RUNE H 
+	if runeH {
+		set_window_value(AT_USPECIAL, 3, AG_WINDOW_VSPEED, -20);
+	} else {
+		set_window_value(AT_USPECIAL, 3, AG_WINDOW_VSPEED, -14);
+		//default attributes. this part is optional but you should have it for compatibility with
+		//the random rune mode.
+
+	}
+	#endregion
+	#region // RUNE I 
+	if runeI {
+		set_window_value(AT_USPECIAL_2, 3, AG_WINDOW_TYPE, 0);
+	} else {
+		set_window_value(AT_USPECIAL_2, 3, AG_WINDOW_TYPE, 7);
+	}
+	#endregion
+	#region // RUNE J 
+	if runeJ {
+		max_djumps = 2;
+	} else {
+		
+		max_djumps = 1;
+		//default attributes. this part is optional but you should have it for compatibility with
+		//the random rune mode.
+
+	}
+	#endregion
+	#region // RUNE K 
+	if runeK {
+
+	} else {
+		//default attributes. this part is optional but you should have it for compatibility with
+		//the random rune mode.
+
+	}
+	#endregion
+	
+	#endregion
+	
+	#region // LEVEL THREE RUNES
+	#region // RUNE L 
+	if runeL {
+		
+
+	} else {
+		//default attributes. this part is optional but you should have it for compatibility with
+		//the random rune mode.
+
+	}
+	#endregion
+	#region // RUNE M 
+	if runeM {
+		SP_nspecial = 0;
+		SP_fspecial = 0;
+		SP_dspecial = 0;
+		SP_uspecial = 0;
+
+	} else {
+		SP_nspecial = 25;
+		SP_fspecial = 25;
+		SP_dspecial = 25;
+		SP_uspecial = 25;
+		//default attributes. this part is optional but you should have it for compatibility with
+		//the random rune mode.
+
+	}
+	#endregion
+	#region // RUNE N 
+	if runeN {
+		
+		wave_land_adj = 2.45;
+
+	} else {
+		//default attributes. this part is optional but you should have it for compatibility with
+		//the random rune mode.
+		wave_land_adj = 1.45;
+
+	}
+	#endregion
+	#region // RUNE O 
+	if runeO {
+		if(PS_STATE == PS_AIR_DODGE)
+		{
+			can_attack = true;
+		}
+	} else {
+		//default attributes. this part is optional but you should have it for compatibility with
+		//the random rune mode.
+
+	}
+	#endregion
+	
+	#endregion
 }

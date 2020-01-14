@@ -49,7 +49,7 @@ set_hitbox_value(AT_FSPECIAL_2, 1, HG_DAMAGE, 6);
 set_hitbox_value(AT_FSPECIAL_2, 1, HG_ANGLE, 40);
 set_hitbox_value(AT_FSPECIAL_2, 1, HG_BASE_KNOCKBACK, 8);
 set_hitbox_value(AT_FSPECIAL_2, 1, HG_KNOCKBACK_SCALING, .3);
-set_hitbox_value(AT_FSPECIAL_2, 1, HG_EFFECT, 6);
+set_hitbox_value(AT_FSPECIAL_2, 1, HG_EFFECT, 0);
 set_hitbox_value(AT_FSPECIAL_2, 1, HG_BASE_HITPAUSE, 7);
 set_hitbox_value(AT_FSPECIAL_2, 1, HG_HITPAUSE_SCALING, 0.4);
 set_hitbox_value(AT_FSPECIAL_2, 1, HG_HIT_SFX, asset_get("sfx_absa_singlezap2"));

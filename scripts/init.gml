@@ -1,3 +1,40 @@
+//this var makes f5 not break the buddy if developing with more than one
+//workshop character or buddy in the match
+//abyss_devmode = true;
+//
+abyssEnabled = false;
+enum runes {A = 1,B = 2,C = 3,D = 4,E = 5,F = 6,G = 7,H = 8,I = 9,J = 10,K = 11,L = 12,M = 13,N = 14,O = 15}
+ab_hud_x = 0;
+ab_hud_y = 0;
+
+//abyssMods[1 to 15] = [type, description];
+//types are: -1 - disabled
+// 0 - object mod: Modifies a static object left behind after an attack.
+// 1 - ranged mod: Modifies a projectile attack.
+// 2 - hit mod: Modifies a direct physical interaction with an opponent.
+// 3 - ability boost: Powers up a character attribute or action.
+abyssMods = array_create(16,[-1,"Not Implemented."]);
+//example rune definition:
+//abyssMods[@ runes.A] = [3,"Ground speed is faster."];
+//abyssMods[@ runes.B] = [3,"Ground speed is faster."];
+abyssMods[@ runes.C] = [3,"Boosted Special cost 10 less soul."];
+abyssMods[@ runes.D] = [3,"Special Moves burn the enemy."];
+//abyssMods[@ runes.E] = [3,"Ground speed is faster."];
+//abyssMods[@ runes.F] = [3,"Ground speed is faster."];
+
+//abyssMods[@ runes.G] = [3,"Ground speed is faster."];
+abyssMods[@ runes.H] = [3,"Up Special cover more distance."];
+abyssMods[@ runes.I] = [3,"Up Special Boosted doesn't put you in pratfall."];
+abyssMods[@ runes.J] = [3,"Second Double Jump."];
+//abyssMods[@ runes.K] = [3,"Ground speed is faster."];
+
+abyssMods[@ runes.L] = [2,"Charm Wheel babyyyy!"];
+abyssMods[@ runes.M] = [3,"Special Boosted cost no soul"];
+abyssMods[@ runes.N] = [3,"WAVEDAAAASH!"];
+abyssMods[@ runes.O] = [3,"Ground speed is faster."];
+
+//abyss init code over
+
 //----------------------------------------------------------
 //Custom Variables
 //----------------------------------------------------------
@@ -35,7 +72,7 @@ SP_uspecial = 25;
 charged_time = 0;
 required_charge_time = 10;
 is_charged = false;
-
+/*
 //CHARMS
 
 //Notches number
@@ -85,7 +122,7 @@ overcharm_shaking_timer = 0;
 
 //Charms Variables
 soulcatcher_multiplier = 1;
-
+*/
 //ANIMATIONS
 
 //Airdodge Trail
@@ -113,7 +150,7 @@ rollbackward_trail_1_show = false;
 rollbackward_trail_2_x = 0;
 rollbackward_trail_2_y = 0;
 rollbackward_trail_2_alpha = 1;
-rollbackward_trail_show = false;
+rollbackward_trail_2_show = false;
 
 rollbackward_trail_3_x = 0;
 rollbackward_trail_3_y = 0;
@@ -134,7 +171,7 @@ rollforward_trail_1_show = false;
 rollforward_trail_2_x = 0;
 rollforward_trail_2_y = 0;
 rollforward_trail_2_alpha = 1;
-rollforward_trail_show = false;
+rollforward_trail_2_show = false;
 
 rollforward_trail_3_x = 0;
 rollforward_trail_3_y = 0;
@@ -224,7 +261,7 @@ max_jump_hsp = 5; //the maximum hsp you can have when jumping from the ground
 air_max_speed = 4; //the maximum hsp you can accelerate to when in a normal aerial state
 jump_change = 3; //maximum hsp when double jumping. If already going faster, it will not slow you down
 air_accel = .4;
-prat_fall_accel = .85; //multiplier of air_accel while in pratfall
+prat_fall_accel = .80; //multiplier of air_accel while in pratfall
 air_friction = .02;
 max_djumps = 1;
 double_jump_time = 45; //the number of frames to play the djump animation. Can't be less than 31.
@@ -238,9 +275,9 @@ hitstun_grav = .5;
 knockback_adj = 1.1; //the multiplier to KB dealt to you. 1 = default, >1 = lighter, <1 = heavier
 
 land_time = 4; //normal landing frames
-prat_land_time = 3;
+prat_land_time = 10;
 wave_land_time = 8;
-wave_land_adj = 1.35; //the multiplier to your initial hsp when wavelanding. Usually greater than 1
+wave_land_adj = 1.45; //the multiplier to your initial hsp when wavelanding. Usually greater than 1
 wave_friction = .04; //grounded deceleration when wavelanding
 
 //crouch animation frames

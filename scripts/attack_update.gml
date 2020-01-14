@@ -230,11 +230,11 @@ if (attack == AT_NSPECIAL_2 && window == 2 && window_timer == 1)
 //--------------------------------------------------------
 
 //SPORE SHROOM MECHANICS ---------------------------------
-
+/*
 //Article Spawn
 if (equipped_charm_1 = "sporeshroom" || equipped_charm_2 = "sporeshroom" || equipped_charm_3 = "sporeshroom")
 {
-   /* if(attack == AT_NSPECIAL)
+    if(attack == AT_NSPECIAL)
     {
         
         timer_spore++
@@ -243,7 +243,7 @@ if (equipped_charm_1 = "sporeshroom" || equipped_charm_2 = "sporeshroom" || equi
             var spore_shroom = instance_create(proj_x, proj_y, "obj_article2");
         }
         
-    }*/
+    }
     if(attack == AT_NSPECIAL_2)
     {
         timer_spore++
@@ -316,7 +316,7 @@ if (equipped_charm_1 = "sporeshroom" || equipped_charm_2 = "sporeshroom" || equi
         }
     }
 }
-
+*/
 //--------------------------------------------------------
 //------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 //DIVERS ---------------------------------

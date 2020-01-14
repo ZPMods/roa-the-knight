@@ -1,6 +1,7 @@
 //Charms menu ----------------------------------------------------------------------------------------------------------
 
 //Charms position
+/*
 stalwart_x = x - 17 + charms_facing_direction;
 stalwart_y = y - 125;
 
@@ -444,7 +445,19 @@ if (up_stick_down && left_stick_down) //Dashmaster Quick Equip
     }
   }
 }
+*/
+if abyssEnabled { 
+	if "runesUpdated" in self && runesUpdated {
+		//attribute changes and things that don't have to run every frame go in here
+		if runeL {
+		    
+		} else {
 
+		}
+	}
+	
+	//everything that should run every frame goes here.
+}
 //----------------------------------------------------------
 //Normal to Shade Effect
 //----------------------------------------------------------
