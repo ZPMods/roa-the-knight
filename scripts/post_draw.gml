@@ -446,21 +446,22 @@ if (up_stick_down && left_stick_down) //Dashmaster Quick Equip
   }
 }
 */
-if abyssEnabled { 
+if abyssEnabled {
 	if "runesUpdated" in self && runesUpdated {
 		//attribute changes and things that don't have to run every frame go in here
 		if runeL {
-		    
+
 		} else {
 
 		}
 	}
-	
+
 	//everything that should run every frame goes here.
 }
-//----------------------------------------------------------
+
+//EFFECTS ANIMATIONS -----------------------------------------------------------
+
 //Normal to Shade Effect
-//----------------------------------------------------------
 
 if (nts_effect_show == true)
 {
@@ -491,9 +492,7 @@ if (nts_effect_show == true)
      }
 }
 
-//----------------------------------------------------------
 //Neutral Special Effect
-//----------------------------------------------------------
 
 if (nspecial_effect_show == true)
 {
@@ -567,6 +566,39 @@ if (nspecial_boosted_effect_show == true)
                nspecial_boosted_effect_animation_frame = 1;
                nspecial_boosted_effect_show = false;
                nspecial_boosted_effect_freeze = false;
+          }
+     }
+}
+
+//Down Special Explosion
+
+if (dspecial_explosion_show == true)
+{
+     if (dspecial_explosion_freeze == false)
+     {
+          dspecial_explosion_x = x - 128 - 2 * spr_dir;
+          dspecial_explosion_y = y - 128 - 12;
+          dspecial_explosion_freeze = true;
+     }
+
+     shader_start();
+     draw_sprite_part(sprite_get("dspecial_explosion"), 0, ((dspecial_explosion_animation_frame * 256) - 256), 0, 256, 256, dspecial_explosion_x, dspecial_explosion_y);
+     shader_end();
+	if (!hitpause)
+	{
+     	dspecial_explosion_animation_timer += 1;
+	}
+
+     if (dspecial_explosion_animation_timer >= dspecial_explosion_animation_framelength)
+     {
+          dspecial_explosion_animation_frame += 1;
+          dspecial_explosion_animation_timer = 0;
+
+          if (dspecial_explosion_animation_frame > 9)
+          {
+               dspecial_explosion_animation_frame = 1;
+               dspecial_explosion_show = false;
+               dspecial_explosion_freeze = false;
           }
      }
 }

@@ -88,6 +88,7 @@ if (attack == AT_USPECIAL_2)
         can_wall_jump = true;
     }
 }
+
 // Down Special Boosted
 if (attack == AT_DSPECIAL && soul_points >= SP_dspecial)
 {
@@ -171,20 +172,26 @@ if (attack == AT_NSPECIAL_2)
 //Empecher le boost vertical en l'air
 if (attack == AT_DSPECIAL && free && window == 2)
 {
-  window = 4;
+     window = 4;
 }
 
 //Hitbox au sol
 if (attack == AT_DSPECIAL && !free && window == 5)
 {
-  window = 6;
-  window_timer = 0;
+     window = 6;
+     window_timer = 0;
 }
-if (attack == AT_DSPECIAL && window == 6 && window_timer == 5)
+if (attack == AT_DSPECIAL && window == 6)
 {
-  window = 9;
-  window_timer = 0;
-  move_cooldown[AT_DSPECIAL] = 999;
+     if (window_timer == 0)
+     {
+          dspecial_explosion_show = true;
+     }
+
+     if (window_timer == 25)
+     {
+          set_state(PS_IDLE);
+     }
 }
 
 //Hitbox en l'air
@@ -236,13 +243,13 @@ if (equipped_charm_1 = "sporeshroom" || equipped_charm_2 = "sporeshroom" || equi
 {
     if(attack == AT_NSPECIAL)
     {
-        
+
         timer_spore++
         if(timer_spore % 6 == 0)
         {
             var spore_shroom = instance_create(proj_x, proj_y, "obj_article2");
         }
-        
+
     }
     if(attack == AT_NSPECIAL_2)
     {
@@ -251,13 +258,13 @@ if (equipped_charm_1 = "sporeshroom" || equipped_charm_2 = "sporeshroom" || equi
         {
             var spore_shroom = instance_create(shade_soul_x, shade_soul_y - 35, "obj_article2");
         }
-        
+
     }
     //SPORE SHROOM DPSPECIAL SETUP
     if(attack == AT_DSPECIAL && window > 4 && window < 6)
     {
         timer_spore++
-        
+
         if(timer_spore % 4 == 0)
         {
             var spore_shroom = instance_create(x, y, "obj_article2");
@@ -279,7 +286,7 @@ if (equipped_charm_1 = "sporeshroom" || equipped_charm_2 = "sporeshroom" || equi
     if(attack == AT_USPECIAL && window > 2)
     {
         timer_spore++
-        
+
         if(timer_spore % 6 == 0)
         {
             var spore_shroom = instance_create(x, y, "obj_article2");
@@ -288,28 +295,28 @@ if (equipped_charm_1 = "sporeshroom" || equipped_charm_2 = "sporeshroom" || equi
     if(attack == AT_USPECIAL_2 && window > 1)
     {
         timer_spore++
-        
+
         if(timer_spore % 6 == 0)
         {
             var spore_shroom = instance_create(x, y, "obj_article2");
         }
     }
-    
+
     //SPORE SHROOM FPSPECIAL SETUP
-    if(attack == AT_FSPECIAL  && window = 3) 
+    if(attack == AT_FSPECIAL  && window = 3)
     {
         timer_spore++
-        
+
         if(timer_spore % 2 == 0)
         {
             var spore_shroom = instance_create(x, y, "obj_article2");
         }
     }
 
-    if(attack == AT_FSPECIAL_2  && window = 2) 
+    if(attack == AT_FSPECIAL_2  && window = 2)
     {
         timer_spore++
-        
+
         if(timer_spore % 2 == 0)
         {
             var spore_shroom = instance_create(x, y, "obj_article2");

@@ -166,6 +166,7 @@ if (overcharmed = true)
 */
 //Moves cooldown
 //Down Special
+
 if (!free)
 {
   move_cooldown[AT_DSPECIAL] = 0;

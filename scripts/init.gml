@@ -123,6 +123,7 @@ overcharm_shaking_timer = 0;
 //Charms Variables
 soulcatcher_multiplier = 1;
 */
+
 //ANIMATIONS
 
 //Airdodge Trail
@@ -217,10 +218,20 @@ nspecial_boosted_effect_animation_framelength = 2;
 nspecial_boosted_effect_animation_timer = 0;
 nspecial_boosted_effect_dir = "right";
 
+//dspecial_explosion animation
+dspecial_explosion_show = false;
+dspecial_explosion_freeze = false;
+dspecial_explosion_x = 0;
+dspecial_explosion_y = 0;
+dspecial_explosion_animation_frame = 1;
+dspecial_explosion_animation_framelength = 2;
+dspecial_explosion_animation_timer = 0;
+
 //HIT EFFECTS
 
 nspecial_explosion = hit_fx_create(sprite_get("nspecial_explosion"), 30);
 nspecial_boosted_explosion = hit_fx_create(sprite_get("nspecial_boosted_explosion"), 30);
+
 shade_hit_weak = hit_fx_create(sprite_get("shade_hit_weak"), 20);
 
 //----------------------------------------------------------
