@@ -381,11 +381,9 @@ if abyssEnabled {
 
 	#region // RUNE A
 	if runeA {
-
+		can_wall_cling = true;
 	} else {
-		//default attributes. this part is optional but you should have it for compatibility with
-		//the random rune mode.
-
+		can_wall_cling = false;
 	}
 	#endregion
 	#region // RUNE B
@@ -398,16 +396,13 @@ if abyssEnabled {
 	}
 	#endregion
 	#region // RUNE C
-	if runeC {
-		SP_nspecial = 0;
+	if (runeC && !runeM) {
+		SP_nspecial = 20;
 		SP_fspecial = 20;
 		SP_dspecial = 20;
 		SP_uspecial = 20;
 	} else {
-		SP_nspecial = 25;
-		SP_fspecial = 25;
-		SP_dspecial = 25;
-		SP_uspecial = 25;
+
 	}
 	#endregion
 	#region // RUNE D
@@ -432,8 +427,11 @@ if abyssEnabled {
 	#endregion
 	#region // RUNE E
 	if runeE {
-
+		dash_speed = 7;
+		dash_turn_time = 12;
 	} else {
+		dash_speed = 5.5;
+		dash_turn_time = 10;
 		//default attributes. this part is optional but you should have it for compatibility with
 		//the random rune mode.
 
@@ -520,10 +518,7 @@ if abyssEnabled {
 		SP_uspecial = 0;
 
 	} else {
-		SP_nspecial = 25;
-		SP_fspecial = 25;
-		SP_dspecial = 25;
-		SP_uspecial = 25;
+
 		//default attributes. this part is optional but you should have it for compatibility with
 		//the random rune mode.
 
@@ -555,4 +550,10 @@ if abyssEnabled {
 	#endregion
 
 	#endregion
+	if (!runeC & !runeM){
+		SP_nspecial = 25;
+		SP_fspecial = 25;
+		SP_dspecial = 25;
+		SP_uspecial = 25;
+	}
 }

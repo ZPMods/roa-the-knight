@@ -15,20 +15,20 @@ ab_hud_y = 0;
 // 3 - ability boost: Powers up a character attribute or action.
 abyssMods = array_create(16,[-1,"Not Implemented."]);
 //example rune definition:
-//abyssMods[@ runes.A] = [3,"Ground speed is faster."];
+abyssMods[@ runes.A] = [3,"The Knight can wallcling. "];
 //abyssMods[@ runes.B] = [3,"Ground speed is faster."];
 abyssMods[@ runes.C] = [3,"Boosted Special cost 10 less soul."];
-abyssMods[@ runes.D] = [3,"Special Moves burn the enemy."];
-//abyssMods[@ runes.E] = [3,"Ground speed is faster."];
+abyssMods[@ runes.D] = [2,"Special Moves burn the enemy."];
+abyssMods[@ runes.E] = [3,"Ground speed is faster."];
 //abyssMods[@ runes.F] = [3,"Ground speed is faster."];
 
-//abyssMods[@ runes.G] = [3,"Ground speed is faster."];
+abyssMods[@ runes.G] = [3,"Sandbert's Values"];
 abyssMods[@ runes.H] = [3,"Up Special cover more distance."];
 abyssMods[@ runes.I] = [3,"Up Special Boosted doesn't put you in pratfall."];
 abyssMods[@ runes.J] = [3,"Second Double Jump."];
 //abyssMods[@ runes.K] = [3,"Ground speed is faster."];
 
-abyssMods[@ runes.L] = [2,"Charm Wheel babyyyy!"];
+//abyssMods[@ runes.L] = [2,"Charm Wheel babyyyy!"];
 abyssMods[@ runes.M] = [3,"Special Boosted cost no soul"];
 abyssMods[@ runes.N] = [3,"WAVEDAAAASH!"];
 abyssMods[@ runes.O] = [3,"Ground speed is faster."];
@@ -342,6 +342,14 @@ bubble_y = 8;
 
 //colors
 hue = 0;
+
+//Dream Nail
+vanillachar = 0; // Permet de détecter le main cast
+dream_random = 0;
+dream_nail_1 = "No mind to think"; // Phrase 1 
+dream_nail_2 = "No will to break"; // Phrase 2
+dream_nail_draw_1 = "";
+dream_nail_draw_2 = "";
 
 //Practice mode
 practice = false;               //Whether you're in Practice Mode or not.

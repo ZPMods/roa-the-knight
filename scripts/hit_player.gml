@@ -78,3 +78,23 @@ if (my_hitboxID.attack == AT_NSPECIAL_2)
      }
 
 }
+// Dream Nail
+if (attack == AT_TAUNT) {
+	with(asset_get("oPlayer")){
+		if(id != other.id){
+			if(select == clamp(select, 2, 15)){
+				other.vanillachar = select - 1;
+			}
+			if (url == 1865940669){ //Sandbert
+                vanillachar = 15;
+            }
+                
+            if (url == 1866016173){ //Guadua
+                vanillachar = 16;
+            }
+		}
+	}
+	dream_nail_draw_1 = hit_player_obj.dream_nail_1;
+	dream_nail_draw_2 = hit_player_obj.dream_nail_2;
+		
+}

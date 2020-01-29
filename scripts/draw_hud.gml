@@ -54,6 +54,35 @@ if (equipped_charm_3 != "")
 }
 */
 
+// Dream Nail 
+
+if (vanillachar == 0 && dream_nail_draw_1 != ""){
+    draw_sprite(sprite_get("charm_infobox"), 0, temp_x + 126, temp_y - 347);
+    draw_debug_text( temp_x +220, temp_y -315, string(dream_nail_draw_1));
+    draw_debug_text( temp_x +220, temp_y -290, string(dream_nail_draw_2));
+    
+}
+if (vanillachar == 1)
+{
+    draw_sprite(sprite_get("charm_infobox"), 0, temp_x + 126, temp_y - 347);
+    dream_random = random_func (0,2,true);
+    
+    if (dream_random == 0)
+    {
+        draw_debug_text( temp_x +220, temp_y -315, "zizi lol 1"); 
+    }
+    if (dream_random == 1)
+    {
+        draw_debug_text( temp_x +220, temp_y -315, "zizi lol 2"); 
+    }
+    if (dream_random == 2)
+    {
+        draw_debug_text( temp_x +220, temp_y -315, "zizi lol 3"); 
+    }
+    
+}
+
+
 //abyss gui code
 ab_hud_x = temp_x;
 ab_hud_y = temp_y;
@@ -97,7 +126,7 @@ if ("abyss_drawArray" in self && ds_list_valid(abyss_drawArray))  {
 /// draw_text_plus(x, y, text, font, color = c_white)
 /// draws outlined text in any in-game font.
 var x = argument[0], y = argument[1], text = argument[2], font = argument[3];
-var color = argument_count > 4 ? argument[4] : c_white;
+var color; if (argument_count > 4) color = argument[4]; else color = c_white;
 if draw_get_font() != font {
     draw_set_font(font);
 }
