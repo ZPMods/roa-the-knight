@@ -235,6 +235,7 @@ nspecial_boosted_explosion = hit_fx_create(sprite_get("nspecial_boosted_explosio
 dspecial_explosion = hit_fx_create(sprite_get("dspecial_hiteffect"), 20);
 
 shade_hit_weak = hit_fx_create(sprite_get("shade_hit_weak"), 20);
+shade_hit_weak_2 = hit_fx_create(sprite_get("shade_hit_weak_2"), 20);
 
 //----------------------------------------------------------
 
@@ -346,7 +347,7 @@ hue = 0;
 //Dream Nail
 vanillachar = 0; // Permet de détecter le main cast
 dream_random = 0;
-dream_nail_1 = "No mind to think"; // Phrase 1 
+dream_nail_1 = "No mind to think"; // Phrase 1
 dream_nail_2 = "No will to break"; // Phrase 2
 dream_nail_draw_1 = "";
 dream_nail_draw_2 = "";
