@@ -65,7 +65,9 @@ if trummelcodecneeded{
 
 }
 
-// Walking Variables
+//Variables modified by the charms
+
+/* // Walking Variables
     walk_speed = 3;
     walk_accel = 0.1;
     walk_turn_time = 5;
@@ -91,7 +93,7 @@ if trummelcodecneeded{
     knockback_adj = 1.1;
 
 // Soul Variable
-    soulcatcher_multiplier = 1;
+    soulcatcher_multiplier = 1; */
 
 
 
