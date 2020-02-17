@@ -4,7 +4,7 @@ if (my_hitboxID.attack == AT_JAB || my_hitboxID.attack == AT_DATTACK || my_hitbo
   if (soul_points < 100)
   {
 
-    soul_points += round((my_hitboxID.damage * soulcatcher_multiplier));
+    soul_points += round((my_hitboxID.damage));
 
     if (soul_points > 100)
     {
@@ -12,35 +12,10 @@ if (my_hitboxID.attack == AT_JAB || my_hitboxID.attack == AT_DATTACK || my_hitbo
     }
   }
 }
-/*
-//Strength Charm
-if (my_hitboxID.attack == AT_JAB || my_hitboxID.attack == AT_DATTACK || my_hitboxID.attack == AT_FTILT || my_hitboxID.attack == AT_DTILT || my_hitboxID.attack == AT_UTILT || my_hitboxID.attack == AT_FSTRONG || my_hitboxID.attack == AT_DSTRONG || my_hitboxID.attack == AT_FAIR || my_hitboxID.attack == AT_BAIR || my_hitboxID.attack == AT_DAIR || my_hitboxID.attack == AT_UAIR || my_hitboxID.attack == AT_NAIR)
-{
-    if(equipped_charm_1 == "strength" || equipped_charm_2 == "strength" || equipped_charm_3 == "strength")
-    {
-        take_damage(hit_player_obj.player,1,round(my_hitboxID.damage*0.3));
-    }
 
-     if(equipped_charm_1 == "heart" || equipped_charm_2 == "heart" || equipped_charm_3 == "heart")
-    {
-        take_damage(hit_player_obj.player,1,round(my_hitboxID.damage*-0.2));
-    }
-}
-
-//Shaman Stone
-if(my_hitboxID.attack == AT_DSPECIAL || my_hitboxID.attack == AT_DSPECIAL_2 || my_hitboxID.attack == AT_USPECIAL_2 || my_hitboxID.attack == AT_NSPECIAL || my_hitboxID.attack == AT_FSPECIAL_2)
-{
-
-    if(equipped_charm_1 == "shamanstone" || equipped_charm_2 == "shamanstone" || equipped_charm_3 == "shamanstone")
-    {
-        take_damage(hit_player_obj.player,1,round(my_hitboxID.damage*0.2));
-    }
-}
-*/
-//Pogo du dair
 if (my_hitboxID.attack == AT_DAIR && window == 2)
 {
-  has_dair_hit = true;
+     has_dair_hit = true;
 }
 
 //Down Special Aerial Hitbox
@@ -88,7 +63,7 @@ if (attack == AT_TAUNT) {
 			if (url == 1865940669){ //Sandbert
                 vanillachar = 15;
             }
-                
+
             if (url == 1866016173){ //Guadua
                 vanillachar = 16;
             }
@@ -96,5 +71,5 @@ if (attack == AT_TAUNT) {
 	}
 	dream_nail_draw_1 = hit_player_obj.dream_nail_1;
 	dream_nail_draw_2 = hit_player_obj.dream_nail_2;
-		
+
 }

@@ -1,14 +1,3 @@
- /* draw_debug_text( temp_x+150, temp_y-30, string( soulmeter_animation_timer ));
-draw_debug_text( temp_x+150, temp_y-50, string( soulmeter_animation_framelength ));
-draw_debug_text( temp_x+150, temp_y-70, string( soulmeter_animation_frame ));
-draw_debug_text( temp_x+150, temp_y-10, selected_charm);
-draw_debug_text( temp_x+150, temp_y-30, equipped_charm_1);
-draw_debug_text( temp_x+150, temp_y-50, equipped_charm_2);
-draw_debug_text( temp_x+150, temp_y-70, equipped_charm_3);
-draw_debug_text( temp_x+250, temp_y-10, string(shade_soul_x));
-draw_debug_text( temp_x+280, temp_y-10, string(shade_soul_y));
-draw_debug_text( temp_x+250, temp_y-70, string(nspecial_effect_show)); */
-
 draw_debug_text( temp_x+250, temp_y-30, string(window));
 draw_debug_text( temp_x+250, temp_y-50, string(window_timer));
 
@@ -30,56 +19,33 @@ if (soulmeter_animation_timer == soulmeter_animation_framelength)
     soulmeter_animation_frame = 1;
   }
 }
-/*
-//Affichage de l'overcharm
-if (overcharmed == true)
-{
-    draw_sprite_ext(sprite_get("overcharm_8"), 0, temp_x + 50, temp_y - 26, 1, 1, 0, c_white, 1);
-}
 
-//Affichage des charms équipés
-if (equipped_charm_1 != "")
-{
-  draw_sprite(sprite_get(equipped_charm_1 + "_8"), 0, temp_x + 60 + overcharm_shaking_1_x, temp_y - 22 + overcharm_shaking_1_y);
-}
 
-if (equipped_charm_2 != "")
-{
-  draw_sprite(sprite_get(equipped_charm_2 + "_8"), 0, temp_x + 82  + overcharm_shaking_2_x, temp_y - 22 + overcharm_shaking_2_y);
-}
-
-if (equipped_charm_3 != "")
-{
-  draw_sprite(sprite_get(equipped_charm_3 + "_8"), 0, temp_x + 104 + overcharm_shaking_3_x, temp_y - 22 + overcharm_shaking_3_y);
-}
-*/
-
-// Dream Nail 
-
+// Dream Nail
 if (vanillachar == 0 && dream_nail_draw_1 != ""){
     draw_sprite(sprite_get("charm_infobox"), 0, temp_x + 126, temp_y - 347);
     draw_debug_text( temp_x +220, temp_y -315, string(dream_nail_draw_1));
     draw_debug_text( temp_x +220, temp_y -290, string(dream_nail_draw_2));
-    
+
 }
 if (vanillachar == 1)
 {
     draw_sprite(sprite_get("charm_infobox"), 0, temp_x + 126, temp_y - 347);
     dream_random = random_func (0,2,true);
-    
+
     if (dream_random == 0)
     {
-        draw_debug_text( temp_x +220, temp_y -315, "zizi lol 1"); 
+        draw_debug_text( temp_x +220, temp_y -315, "zizi lol 1");
     }
     if (dream_random == 1)
     {
-        draw_debug_text( temp_x +220, temp_y -315, "zizi lol 2"); 
+        draw_debug_text( temp_x +220, temp_y -315, "zizi lol 2");
     }
     if (dream_random == 2)
     {
-        draw_debug_text( temp_x +220, temp_y -315, "zizi lol 3"); 
+        draw_debug_text( temp_x +220, temp_y -315, "zizi lol 3");
     }
-    
+
 }
 
 

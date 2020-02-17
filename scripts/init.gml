@@ -72,57 +72,6 @@ SP_uspecial = 25;
 charged_time = 0;
 required_charge_time = 10;
 is_charged = false;
-/*
-//CHARMS
-
-//Notches number
-notches_avaible = 2;
-
-//Equipping CHARMS
-is_equipping_charms = false;
-
-equip_cooldown = false;
-equip_cooldown_timer = 0;
-
-charms_ui_alpha = 0;
-charms_facing_direction = 0;
-
-selected_charm = "stalwart";
-
-equipped_charm_1 = "";
-equipped_charm_2 = "";
-equipped_charm_3 = "";
-
-charm_selector_x = -100;
-charm_selector_y = -100;
-
-//Charms color
-stalwart_color = c_white;
-soulcatcher_color = c_white;
-shamanstone_color = c_white;
-grubsong_color =  c_white;
-strength_color = c_white;
-heart_color = c_white;
-sporeshroom_color = c_white;
-dashmaster_color = c_white;
-
-//Overcharmed
-overcharmed = false;
-
-overcharm_shaking_1_x = 0;
-overcharm_shaking_1_y = 0;
-
-overcharm_shaking_2_x = 0;
-overcharm_shaking_2_y = 0;
-
-overcharm_shaking_3_x = 0;
-overcharm_shaking_3_y = 0;
-
-overcharm_shaking_timer = 0;
-
-//Charms Variables
-soulcatcher_multiplier = 1;
-*/
 
 //ANIMATIONS
 

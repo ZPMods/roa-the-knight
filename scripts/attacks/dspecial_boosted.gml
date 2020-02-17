@@ -1,7 +1,7 @@
 set_attack_value(AT_DSPECIAL_2, AG_CATEGORY, 2);
 set_attack_value(AT_DSPECIAL_2, AG_SPRITE, sprite_get("dspecial_boosted"));
 set_attack_value(AT_DSPECIAL_2, AG_NUM_WINDOWS, 6);
-set_attack_value(AT_DSPECIAL_2, AG_HURTBOX_SPRITE, sprite_get("dspecial_hurt"));
+set_attack_value(AT_DSPECIAL_2, AG_HURTBOX_SPRITE, sprite_get("dspecial_boosted_hurt"));
 
 //Avant boost vertical
 set_window_value(AT_DSPECIAL_2, 1, AG_WINDOW_TYPE, 1);
