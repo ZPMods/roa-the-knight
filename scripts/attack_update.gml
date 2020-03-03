@@ -159,11 +159,11 @@ if (attack == AT_NSPECIAL && soul_points < SP_nspecial && window == 1)
 
 if (attack == AT_NSPECIAL)
 {
-    move_cooldown[AT_NSPECIAL] = 25;
+    move_cooldown[AT_NSPECIAL] = 30;
 }
 if (attack == AT_NSPECIAL_2)
 {
-    move_cooldown[AT_NSPECIAL] = 25;
+    move_cooldown[AT_NSPECIAL] = 30;
 }
 //--------------------------------------------------------
 //------------------------------------------------------------------------------------------------------------------------------------------------------------------------
