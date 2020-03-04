@@ -4,7 +4,7 @@ set_attack_value(AT_USPECIAL_2, AG_NUM_WINDOWS, 4);
 set_attack_value(AT_USPECIAL_2, AG_HAS_LANDING_LAG, 8);
 set_attack_value(AT_USPECIAL_2, AG_OFF_LEDGE, 1);
 set_attack_value(AT_USPECIAL_2, AG_AIR_SPRITE, sprite_get("uspecial_boosted"));
-set_attack_value(AT_USPECIAL_2, AG_HURTBOX_SPRITE, sprite_get("uspecial_hurt"));
+set_attack_value(AT_USPECIAL_2, AG_HURTBOX_SPRITE, sprite_get("uspecial_boosted_hurt"));
 
 //Startup
 set_window_value(AT_USPECIAL_2, 1, AG_WINDOW_TYPE, 1);
