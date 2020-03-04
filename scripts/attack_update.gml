@@ -1,3 +1,12 @@
+//DACUS
+
+if(attack == AT_DATTACK && window == 1 && window_timer <= 3 )
+{
+    if(up_strong_pressed)
+    {
+        attack = AT_USTRONG;
+    }
+}
 //BOOSTED --------------------------------------------------
 
 //Forward Special Boosted
@@ -168,6 +177,25 @@ if (attack == AT_NSPECIAL_2)
 //--------------------------------------------------------
 //------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 //DOWN SPECIAL MECHANICS ---------------------------------
+
+//Cancel possible
+if(attack == AT_DSPECIAL || attack == AT_DSPECIAL_2)
+{
+    ds_timer += 1;
+}
+
+if ((attack == AT_DSPECIAL && window == 4 && window_timer >= 3) || (attack == AT_DSPECIAL && window == 5 && ds_timer > 40))
+{
+    can_jump = true;
+    can_shield = true;
+}
+if((attack == AT_DSPECIAL_2 && window == 3 && window_timer >= 3) || (attack == AT_DSPECIAL_2 && window == 4 && ds_timer > 60))
+{
+   can_jump = true;
+   can_shield = true; 
+}
+
+
 
 //Empecher le boost vertical en l'air
 if (attack == AT_DSPECIAL && free && window == 2)

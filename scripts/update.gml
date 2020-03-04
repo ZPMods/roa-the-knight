@@ -270,6 +270,11 @@ if (shade_soul_first_hit)
      shade_soul_player_hit.y = lerp(shade_soul_player_hit.y, shade_soul_y, 0.3);
 }
 
+//Down Special Cancel
+if(state == PS_AIR_DODGE || state == PS_DOUBLE_JUMP || state == PS_IDLE)
+{
+	ds_timer = 0;
+}
 
 // RUNES
 if abyssEnabled {

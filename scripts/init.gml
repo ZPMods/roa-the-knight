@@ -301,6 +301,8 @@ dream_nail_2 = "No will to break"; // Phrase 2
 dream_nail_draw_1 = "";
 dream_nail_draw_2 = "";
 
+ds_timer = 0;
+
 //Practice mode
 practice = false;               //Whether you're in Practice Mode or not.
 timer1 = get_game_timer();      //The initial game timer.
