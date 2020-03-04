@@ -54,4 +54,4 @@ set_hitbox_value(AT_FSPECIAL_2, 1, HG_BASE_HITPAUSE, 7);
 set_hitbox_value(AT_FSPECIAL_2, 1, HG_HITPAUSE_SCALING, 0.4);
 set_hitbox_value(AT_FSPECIAL_2, 1, HG_HIT_SFX, asset_get("sfx_absa_singlezap2"));
 set_hitbox_value(AT_FSPECIAL_2, 1, HG_IGNORES_PROJECTILES, 1);
-set_hitbox_value(AT_FSPECIAL_2, 1, HG_ANGLE_FLIPPER, 1);
+set_hitbox_value(AT_FSPECIAL_2, 1, HG_ANGLE_FLIPPER, 0);
