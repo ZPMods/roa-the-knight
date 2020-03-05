@@ -1,6 +1,6 @@
 //DACUS
 
-if(attack == AT_DATTACK && window == 1 && window_timer <= 3 )
+if(attack == AT_DATTACK && window == 2 && window_timer <= 3 )
 {
     if(up_strong_pressed)
     {
