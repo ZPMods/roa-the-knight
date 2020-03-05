@@ -179,7 +179,7 @@ if (attack == AT_NSPECIAL_2)
 //DOWN SPECIAL MECHANICS ---------------------------------
 
 //Cancel possible
-if(attack == AT_DSPECIAL || attack == AT_DSPECIAL_2)
+if((attack == AT_DSPECIAL && window >= 4) || attack == AT_DSPECIAL_2)
 {
     ds_timer += 1;
 }
