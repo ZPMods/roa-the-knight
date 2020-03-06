@@ -5,7 +5,7 @@ patch_ver = "";
 patch_day = "";
 patch_month = "";
 
-var num_alts = 10;
+var num_alts = 12;
 var alt_cur = get_player_color(player);
 
 
@@ -22,6 +22,8 @@ alt_name[6]  = "Seer";
 alt_name[7]  = "Godseeker";
 alt_name[8]  = "Pink / Blue";
 alt_name[9]  = "Rainbow";
+alt_name[10] = "Early Acces";
+alt_name[11] = "Abyss";
 
 
 // CSS Goodies
@@ -30,14 +32,16 @@ alt_name[9]  = "Rainbow";
 if (alt_cur == 6){
   draw_sprite_ext(sprite_get("cssextras"), 2, temp_x + 3, temp_y + 92, 1, 1, 0, c_white, 1);
 }
+*/
 // Abyss
-if (alt_cur == 7){
+if (alt_cur == 11){
   draw_sprite_ext(sprite_get("cssextras"), 1, temp_x + 3, temp_y + 92, 1, 1, 0, c_white, 1);
 }
 // Early Access
-if (alt_cur == 8){
+if (alt_cur == 10){
   draw_sprite_ext(sprite_get("cssextras"), 3, temp_x + 3, temp_y + 92, 1, 1, 0, c_white, 1);
 }
+/*
 // Little Star
 if (alt_cur == 15){
   draw_sprite_ext(sprite_get("cssextras"), 0, temp_x + 3, temp_y + 92, 1, 1, 0, c_white, 1);
