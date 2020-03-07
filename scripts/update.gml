@@ -42,7 +42,7 @@ if (shade_soul_first_hit)
      shade_soul_player_hit.y = lerp(shade_soul_player_hit.y, shade_soul_y, 0.3);
 }
 
-//Down Special cooldown
+//Down Special Cooldown Reset
 if (!free)
 {
   move_cooldown[AT_DSPECIAL] = 0;
@@ -52,6 +52,12 @@ if (!free)
 if(state == PS_AIR_DODGE || state == PS_DOUBLE_JUMP || state == PS_IDLE)
 {
 	ds_timer = 0;
+}
+
+//Forward Special Cooldown Reset
+if (!free && move_cooldown[AT_FSPECIAL] > 25)
+{
+     move_cooldown[AT_FSPECIAL] = 0;
 }
 
 //------------------------------------------------------------------------------------------------------------------------------------------------------------------------

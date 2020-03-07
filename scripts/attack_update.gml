@@ -43,12 +43,6 @@ if (attack == AT_FSPECIAL && soul_points < SP_fspecial && window == 1)
   window = 2;
 }
 
-if (attack == AT_FSPECIAL || attack == AT_FSPECIAL_2)
-{
-    move_cooldown[AT_FSPECIAL] = 25;
-    move_cooldown[AT_FSPECIAL_2] = 22;
-}
-
 
 //UpSpecial Boosted
 if (attack == AT_USPECIAL && soul_points >= SP_uspecial)
@@ -166,36 +160,9 @@ if (attack == AT_NSPECIAL && soul_points < SP_nspecial && window == 1)
   window_timer = 0;
 }
 
-if (attack == AT_NSPECIAL)
-{
-    move_cooldown[AT_NSPECIAL] = 30;
-}
-if (attack == AT_NSPECIAL_2)
-{
-    move_cooldown[AT_NSPECIAL] = 30;
-}
 //--------------------------------------------------------
 //------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 //DOWN SPECIAL MECHANICS ---------------------------------
-
-//Cancel possible
-if(attack == AT_DSPECIAL || attack == AT_DSPECIAL_2)
-{
-    ds_timer += 1;
-}
-
-if ((attack == AT_DSPECIAL && window == 4 && window_timer >= 3) || (attack == AT_DSPECIAL && window == 5 && ds_timer > 40))
-{
-    can_jump = true;
-    can_shield = true;
-}
-if((attack == AT_DSPECIAL_2 && window == 3 && window_timer >= 3) || (attack == AT_DSPECIAL_2 && window == 4 && ds_timer > 60))
-{
-   can_jump = true;
-   can_shield = true; 
-}
-
-
 
 //Empecher le boost vertical en l'air
 if (attack == AT_DSPECIAL && free && window == 2)
@@ -234,6 +201,23 @@ if (attack == AT_DSPECIAL && window == 8 && window_timer == 7)
   move_cooldown[AT_DSPECIAL] = 999;
 }
 
+//Cancel possible
+if(attack == AT_DSPECIAL || attack == AT_DSPECIAL_2)
+{
+    ds_timer += 1;
+}
+
+if ((attack == AT_DSPECIAL && window == 4 && window_timer >= 3) || (attack == AT_DSPECIAL && window == 5 && ds_timer > 40))
+{
+    can_jump = true;
+    can_shield = true;
+}
+if((attack == AT_DSPECIAL_2 && window == 3 && window_timer >= 3) || (attack == AT_DSPECIAL_2 && window == 4 && ds_timer > 60))
+{
+   can_jump = true;
+   can_shield = true;
+}
+
 //DOWN SPECIAL BOOSTED MECHANICS -------------------------
 
 //Empecher le boost vertical en l'air
@@ -249,6 +233,16 @@ if (attack == AT_DSPECIAL_2 && !free && window == 4)
   window_timer = 0;
 }
 
+//--------------------------------------------------------
+//------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+//NEUTRAL SPECIAL MECHANICS ---------------------------------
+
+//Neutral Special Cooldown
+if (attack == AT_NSPECIAL)
+{
+    move_cooldown[AT_NSPECIAL] = 30;
+}
+
 //NEUTRAL SPECIAL BOOSTED MECHANICS -------------------------
 
 //Faire spawn l'article
@@ -260,6 +254,35 @@ if (attack == AT_NSPECIAL_2 && window == 2 && window_timer == 1)
      var shade_soul = instance_create(x, y + 10, "obj_article1");
      shade_soul.spr_dir = spr_dir;
      shade_soul.hsp *= spr_dir;
+}
+
+//--------------------------------------------------------
+//------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+//FORWARD SPECIAL MECHANICS ---------------------------------
+
+//Forward Special Cooldown
+if (attack == AT_FSPECIAL || attack == AT_FSPECIAL_2)
+{
+     if (free)
+     {
+          move_cooldown[AT_FSPECIAL] = 999;
+     }
+     else
+     {
+          move_cooldown[AT_FSPECIAL] = 25;
+     }
+}
+
+//NEUTRAL SPECIAL BOOSTED MECHANICS -------------------------
+
+//Forward Special Boosted Jump Cancel
+if(my_hitboxID.attack == AT_FSPECIAL_2 && hitpause)
+{
+    can_jump = true;
+    if (jump_pressed)
+    {
+       hsp = 1 * spr_dir;
+    }
 }
 
 //--------------------------------------------------------
@@ -349,15 +372,5 @@ if((attack == AT_FSTRONG && window == 1)|| (attack == AT_DSTRONG && window == 1)
     if (joy_pad_idle == false)
     {
         hsp = lengthdir_x(0.4, joy_dir);
-    }
-}
-
-//FORWARD SPECIAL CANCEL
-if(my_hitboxID.attack == AT_FSPECIAL_2 && hitpause)
-{
-    can_jump = true;
-    if (jump_pressed)
-    {
-       hsp = 1 * spr_dir;
     }
 }

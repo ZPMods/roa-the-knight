@@ -6,9 +6,9 @@ set_attack_value(AT_FSPECIAL_2, AG_AIR_SPRITE, sprite_get("fspecial_boosted"));
 set_attack_value(AT_FSPECIAL_2, AG_HURTBOX_SPRITE, sprite_get("fspecial_hurt"));
 set_attack_value(AT_FSPECIAL_2, AG_OFF_LEDGE, 1);
 
-
+//Startup
 set_window_value(AT_FSPECIAL_2, 1, AG_WINDOW_TYPE, 1);
-set_window_value(AT_FSPECIAL_2, 1, AG_WINDOW_LENGTH, 4);
+set_window_value(AT_FSPECIAL_2, 1, AG_WINDOW_LENGTH, 8);
 set_window_value(AT_FSPECIAL_2, 1, AG_WINDOW_ANIM_FRAMES, 2);
 set_window_value(AT_FSPECIAL_2, 1, AG_WINDOW_HSPEED_TYPE, 1);
 set_window_value(AT_FSPECIAL_2, 1, AG_WINDOW_VSPEED_TYPE, 1);
@@ -16,23 +16,22 @@ set_window_value(AT_FSPECIAL_2, 1, AG_WINDOW_HAS_SFX, 1);
 set_window_value(AT_FSPECIAL_2, 1, AG_WINDOW_SFX, asset_get("sfx_may_arc_cointoss"));
 set_window_value(AT_FSPECIAL_2, 1, AG_WINDOW_SFX_FRAME, 8);
 
+//Movement
 set_window_value(AT_FSPECIAL_2, 2, AG_WINDOW_TYPE, 1);
 set_window_value(AT_FSPECIAL_2, 2, AG_WINDOW_LENGTH, 5);
 set_window_value(AT_FSPECIAL_2, 2, AG_WINDOW_INVINCIBILITY, 2);
 set_window_value(AT_FSPECIAL_2, 2, AG_WINDOW_ANIM_FRAMES, 1);
 set_window_value(AT_FSPECIAL_2, 2, AG_WINDOW_ANIM_FRAME_START, 2);
-set_window_value(AT_FSPECIAL_2, 2, AG_WINDOW_HSPEED, 30);
-set_window_value(AT_FSPECIAL_2, 2, AG_WINDOW_HSPEED_TYPE, 1);
-set_window_value(AT_FSPECIAL_2, 2, AG_WINDOW_VSPEED_TYPE, 1);
-set_window_value(AT_FSPECIAL_2, 2, AG_WINDOW_HAS_CUSTOM_FRICTION, 1);
+set_window_value(AT_FSPECIAL_2, 2, AG_WINDOW_HSPEED, 27);
 
+//Endlag
 set_window_value(AT_FSPECIAL_2, 3, AG_WINDOW_TYPE, 1);
-set_window_value(AT_FSPECIAL_2, 3, AG_WINDOW_LENGTH, 6);
+set_window_value(AT_FSPECIAL_2, 3, AG_WINDOW_LENGTH, 8);
 set_window_value(AT_FSPECIAL_2, 3, AG_WINDOW_ANIM_FRAMES, 2);
 set_window_value(AT_FSPECIAL_2, 3, AG_WINDOW_ANIM_FRAME_START, 4);
 set_window_value(AT_FSPECIAL_2, 3, AG_WINDOW_HAS_CUSTOM_FRICTION, 1);
-set_window_value(AT_FSPECIAL_2, 3, AG_WINDOW_CUSTOM_AIR_FRICTION, 5);
-set_window_value(AT_FSPECIAL_2, 3, AG_WINDOW_CUSTOM_GROUND_FRICTION, 5);
+set_window_value(AT_FSPECIAL_2, 3, AG_WINDOW_CUSTOM_AIR_FRICTION, 2.5);
+set_window_value(AT_FSPECIAL_2, 3, AG_WINDOW_CUSTOM_GROUND_FRICTION, 2.5);
 
 set_num_hitboxes(AT_FSPECIAL_2, 1);
 
