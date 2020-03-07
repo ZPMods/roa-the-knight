@@ -1,6 +1,11 @@
 //----------------------------------------------------------
 // GAMEPLAY
 //----------------------------------------------------------
+if (get_player_color(player) == 10){
+    for(i = 0; i < 6; i++){
+        set_character_color_shading(i, 0);
+    }
+}
 
 //NTS Effect
 if (state == PS_AIR_DODGE && window == 2 && window_timer == 9)
