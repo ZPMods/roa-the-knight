@@ -1,6 +1,6 @@
 //DACUS
 
-if(attack == AT_DATTACK && window == 2 && window_timer <= 3 )
+if (attack == AT_DATTACK && window == 2 && window_timer <= 3)
 {
     if(up_strong_pressed)
     {
@@ -164,28 +164,6 @@ if (attack == AT_NSPECIAL && soul_points < SP_nspecial && window == 1)
 //------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 //DOWN SPECIAL MECHANICS ---------------------------------
 
-<<<<<<< HEAD
-=======
-//Cancel possible
-if((attack == AT_DSPECIAL && window >= 4) || attack == AT_DSPECIAL_2)
-{
-    ds_timer += 1;
-}
-
-if ((attack == AT_DSPECIAL && window == 4 && window_timer >= 3) || (attack == AT_DSPECIAL && window == 5 && ds_timer > 40))
-{
-    can_jump = true;
-    can_shield = true;
-}
-if((attack == AT_DSPECIAL_2 && window == 3 && window_timer >= 3) || (attack == AT_DSPECIAL_2 && window == 4 && ds_timer > 60))
-{
-   can_jump = true;
-   can_shield = true;
-}
-
-
-
->>>>>>> 590f6e4fc2b0dfb190695dc90fb7ccbc49f5d342
 //Empecher le boost vertical en l'air
 if (attack == AT_DSPECIAL && free && window == 2)
 {
