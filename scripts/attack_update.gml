@@ -180,7 +180,7 @@ if ((attack == AT_DSPECIAL && window == 4 && window_timer >= 3) || (attack == AT
 if((attack == AT_DSPECIAL_2 && window == 3 && window_timer >= 3) || (attack == AT_DSPECIAL_2 && window == 4 && ds_timer > 60))
 {
    can_jump = true;
-   can_shield = true; 
+   can_shield = true;
 }
 
 
@@ -224,7 +224,7 @@ if (attack == AT_DSPECIAL && window == 8 && window_timer == 7)
 }
 
 //Cancel possible
-if(attack == AT_DSPECIAL || attack == AT_DSPECIAL_2)
+if((attack == AT_DSPECIAL && window >= 4) || attack == AT_DSPECIAL_2)
 {
     ds_timer += 1;
 }
