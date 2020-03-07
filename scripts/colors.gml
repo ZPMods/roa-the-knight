@@ -85,9 +85,9 @@ set_color_profile_slot(10, 2, 167,186,74); //Nail
 set_color_profile_slot(10, 0, 35, 67, 49); //Body 
 set_color_profile_slot(10, 4,  167,186,74); //Eyes */
 
-//Lifeblood
+//Abyss
 set_color_profile_slot(11, 0, 35, 67, 49); //Helmet 
-set_color_profile_slot(11, 1,  167,186,74); //Cape 
-set_color_profile_slot(11, 2,  228, 246, 255); //Nail 
+set_color_profile_slot(11, 1,  94, 73, 112); //Cape 
+set_color_profile_slot(11, 2,  175, 215, 215); //Nail 
 set_color_profile_slot(11, 0, 141, 131, 188); //Body 
-set_color_profile_slot(11, 4,  86, 84, 146); //Eyes */
+set_color_profile_slot(11, 4,  64, 26, 93); //Eyes */
