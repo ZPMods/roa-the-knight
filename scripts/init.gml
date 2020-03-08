@@ -38,26 +38,34 @@ abyssMods[@ runes.O] = [3,"Ground speed is faster."];
 //----------------------------------------------------------
 //Custom Variables
 //----------------------------------------------------------
+
+// Kirby
+kirbyability = 16;
+kirb_used = 0;
 swallowed = 1;
 
-//Shade Soul
+// Trummel
+trummelcodecneeded = false;
+trummelcodec_id = noone;
+
+
+
+//ATTACKS
+
+//Dair
+has_dair_hit = false;
+has_dspecial_air_hit = false;
+
+//Neutral Special Boosted
 shade_soul_hit = false;
 shade_soul_first_hit = false;
 shade_soul_x = 0;
 shade_soul_y = 0;
 shade_soul_player_hit = 0;
 
-// Kirby
-kirbyability = 16;
-kirb_used = 0;
-
-// Trummel
-trummelcodecneeded = false;
-trummelcodec_id = noone;
-
-//ATTACKS
-has_dair_hit = false;
-has_dspecial_air_hit = false;
+//Forward Special Boosted
+fspecial_boosted_hit = false;
+fspecial_boosted_player_hit = 0;
 
 //SOUL
 

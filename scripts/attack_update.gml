@@ -291,6 +291,13 @@ if (attack == AT_FSPECIAL || attack == AT_FSPECIAL_2)
      }
 }
 
+//Forward Special Boosted Position Reset
+if (attack != AT_FSPECIAL_2)
+{
+     fspecial_boosted_player_hit = 0;
+     fspecial_boosted_hit = false;
+}
+
 //NEUTRAL SPECIAL BOOSTED MECHANICS -------------------------
 
 //Forward Special Boosted Jump Cancel
@@ -361,7 +368,10 @@ if (attack = AT_JAB && window == 1)
 }
 
 //Pas de fastfall pendant les attaques
-if (attack == AT_USPECIAL || attack == AT_USPECIAL_2 || attack == AT_NSPECIAL || attack == AT_NSPECIAL_2 || attack == AT_FSPECIAL || attack == AT_FSPECIAL_2 || attack == AT_DSPECIAL || attack == AT_DSPECIAL_2)
+if (attack == AT_USPECIAL || attack == AT_USPECIAL_2
+     || attack == AT_NSPECIAL || attack == AT_NSPECIAL_2
+     || attack == AT_FSPECIAL || attack == AT_FSPECIAL_2
+     || attack == AT_DSPECIAL || attack == AT_DSPECIAL_2)
 {
      can_fast_fall = false;
 }
@@ -382,5 +392,3 @@ if (attack == AT_NSPECIAL_2 && window == 1 && window_timer == 8)
 {
      nspecial_boosted_effect_show = true;
 }
-
-
