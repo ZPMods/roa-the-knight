@@ -5,7 +5,7 @@ patch_ver = "";
 patch_day = "";
 patch_month = "";
 
-var num_alts = 13;
+var num_alts = 12;
 var alt_cur = get_player_color(player);
 
 
@@ -24,7 +24,7 @@ alt_name[8]  = "Pink / Blue";
 alt_name[9]  = "Rainbow";
 alt_name[10] = "Early Acces";
 alt_name[11] = "Abyss";
-alt_name[12] = "Abyss";
+
 
 
 // CSS Goodies

@@ -302,12 +302,21 @@ bubble_y = 8;
 hue = 0;
 
 //Dream Nail
+
+dream_nail[0] = "Debug Knight 1";
+dream_nail[1] = "Debug Knight 2";
+dream_nail[2] = "Debug Knight 3";
+
+dream_nail_zetterburn[0] = "Debug Zetterburn 1";
+dream_nail_zetterburn[1] = "Debug Zetterburn 2";
+dream_nail_zetterburn[2] = "Debug Zetterburn 3";
+
+
+
 vanillachar = 0; // Permet de détecter le main cast
-dream_random = 0;
-dream_nail_1 = "No mind to think"; // Phrase 1
-dream_nail_2 = "No will to break"; // Phrase 2
-dream_nail_draw_1 = "";
-dream_nail_draw_2 = "";
+dream_random = "";
+dream_choice = 0;
+
 
 ds_timer = 0;
 

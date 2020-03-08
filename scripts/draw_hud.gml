@@ -1,4 +1,4 @@
-draw_debug_text( temp_x+250, temp_y-30, string(window));
+draw_debug_text( temp_x+250, temp_y-30, string(vanillachar));
 draw_debug_text( temp_x+250, temp_y-50, string(window_timer));
 draw_debug_text( temp_x+250, temp_y-70, string(state));
 draw_debug_text( temp_x+250, temp_y-90, string(state_timer));
@@ -25,30 +25,15 @@ if (soulmeter_animation_timer == soulmeter_animation_framelength)
 
 
 // Dream Nail
-if (vanillachar == 0 && dream_nail_draw_1 != ""){
+/*if (vanillachar == 0){
     draw_sprite(sprite_get("charm_infobox"), 0, temp_x + 126, temp_y - 347);
-    draw_debug_text( temp_x +220, temp_y -315, string(dream_nail_draw_1));
-    draw_debug_text( temp_x +220, temp_y -290, string(dream_nail_draw_2));
+    draw_debug_text( temp_x +220, temp_y -315, string(dream_random));
 
-}
+}*/
 if (vanillachar == 1)
 {
     draw_sprite(sprite_get("charm_infobox"), 0, temp_x + 126, temp_y - 347);
-    dream_random = random_func (0,2,true);
-
-    if (dream_random == 0)
-    {
-        draw_debug_text( temp_x +220, temp_y -315, "zizi lol 1");
-    }
-    if (dream_random == 1)
-    {
-        draw_debug_text( temp_x +220, temp_y -315, "zizi lol 2");
-    }
-    if (dream_random == 2)
-    {
-        draw_debug_text( temp_x +220, temp_y -315, "zizi lol 3");
-    }
-
+    draw_debug_text( temp_x +220, temp_y -315,dream_random);
 }
 
 

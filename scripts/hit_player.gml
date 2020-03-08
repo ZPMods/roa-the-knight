@@ -69,7 +69,7 @@ if (my_hitboxID.attack == AT_FSPECIAL_2)
 
 
 // Dream Nail
-if (attack == AT_TAUNT) {
+if (attack == AT_FAIR) {
 	with(asset_get("oPlayer")){
 		if(id != other.id){
 			if(select == clamp(select, 2, 15)){
@@ -84,7 +84,12 @@ if (attack == AT_TAUNT) {
             }
 		}
 	}
-	dream_nail_draw_1 = hit_player_obj.dream_nail_1;
-	dream_nail_draw_2 = hit_player_obj.dream_nail_2;
+	dream_random = dream_nail[random_func(0,array_lenght_1dd(dream_nail),true];
 
+
+}
+
+if (vanillachar == 1)
+{
+	dream_random = dream_nail_zetterburn[random_func(0,array_length_1d(dream_nail_zetterburn), true)];
 }
