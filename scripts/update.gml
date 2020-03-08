@@ -20,6 +20,16 @@ if (get_player_color(player) == 1 && get_gameplay_time() <= 3 )
 		set_color_profile_slot(1, 3, 64, 26, 93); //Body
 		set_color_profile_slot(1, 4, 245, 90, 204); //Eyes */
 	}
+	if (jump_pressed && taunt_pressed)
+	{
+		set_color_profile_slot(1, 0, 229, 229, 229); //Helmet 
+		set_color_profile_slot(1, 1, 37, 158, 37); //Cape 
+		set_color_profile_slot(1, 2, 65, 67, 80); //Nail 
+		set_color_profile_slot(1, 3, 40, 40, 40); //Body 
+		set_color_profile_slot(1, 4, 30, 30, 30); //Eyes */
+
+	}
+	init_shader();
 
 }
 

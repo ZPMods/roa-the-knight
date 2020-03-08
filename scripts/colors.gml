@@ -1,4 +1,4 @@
-set_num_palettes(12);
+set_num_palettes(13);
 
 //DEFAULT COLOR (R,G,B)
 set_color_profile_slot(0, 0, 167, 195, 217); //Helmet - White/Blue
@@ -91,5 +91,12 @@ set_color_profile_slot(11, 1, 94, 73, 112); //Cape
 set_color_profile_slot(11, 2, 64, 26, 93); //Nail 
 set_color_profile_slot(11, 3, 24, 23, 33); //Body 
 set_color_profile_slot(11, 4, 64, 26, 93); //Eyes */
+
+//Abyss
+set_color_profile_slot(12, 0, 160, 168, 170); //Helmet 
+set_color_profile_slot(12, 1, 254, 254, 254); //Cape 
+set_color_profile_slot(12, 2, 170, 178, 181); //Nail 
+set_color_profile_slot(12, 3, 75, 77, 86); //Body 
+set_color_profile_slot(12, 4, 55, 56, 61); //Eyes */
 
 
