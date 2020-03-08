@@ -65,11 +65,24 @@ if (practice)
     }
 }
 
-//Shade Soul Follow
+//Neutral Special Boosted Multihit
 if (shade_soul_first_hit)
 {
      shade_soul_player_hit.x = lerp(shade_soul_player_hit.x, shade_soul_x, 0.3);
      shade_soul_player_hit.y = lerp(shade_soul_player_hit.y, shade_soul_y, 0.3);
+}
+
+//Forward Special Boosted Multihit
+if (fspecial_boosted_hit)
+{
+     fspecial_boosted_player_hit.x = lerp(fspecial_boosted_player_hit.x, x, 0.6);
+     fspecial_boosted_player_hit.y = lerp(fspecial_boosted_player_hit.y, y, 0.6);
+}
+
+if (fspecial_boosted_hit && (state_cat == SC_AIR_NEUTRAL || state_cat == SC_GROUND_NEUTRAL))
+{
+     fspecial_boosted_player_hit = 0;
+     fspecial_boosted_hit = false;
 }
 
 //Down Special Cooldown Reset

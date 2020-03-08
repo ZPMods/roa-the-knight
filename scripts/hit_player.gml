@@ -26,7 +26,7 @@ if(my_hitboxID.attack == AT_DSPECIAL && window == 5)
   window_timer = 0;
 }
 
-//Down Special Boosted Drag Down
+//Down Special Boosted Multihit
 if (my_hitboxID.attack == AT_DSPECIAL_2 && window == 4)
 {
   if (y < 750)
@@ -35,24 +35,39 @@ if (my_hitboxID.attack == AT_DSPECIAL_2 && window == 4)
     hit_player_obj.should_make_shockwave = true;
 }
 
-//Neutral Special Boosted
+//Neutral Special Boosted Multihit
 if (my_hitboxID.attack == AT_NSPECIAL_2)
 {
-     //Empecher l'effet violet dégueulasse
      if (my_hitboxID.hbox_num == 3)
      {
           shade_soul_player_hit = hit_player_obj;
           shade_soul_hit = true;
      }
 
+     //Empecher l'effet violet dégueulasse
      if (my_hitboxID.hbox_num == 1)
      {
           hit_player_obj.should_make_shockwave = false;
-          /* hit_player_obj.x = shade_soul_x;
-          hit_player_obj.y = shade_soul_y; */
      }
 
 }
+
+//Forward Special Boosted Multihit
+if (my_hitboxID.attack == AT_FSPECIAL_2)
+{
+     if (my_hitboxID.hbox_num != 4)
+     {
+          fspecial_boosted_player_hit = hit_player_obj;
+          fspecial_boosted_hit = true;
+     }
+     else
+     {
+          fspecial_boosted_player_hit = 0;
+          fspecial_boosted_hit = false;
+     }
+}
+
+
 // Dream Nail
 if (attack == AT_TAUNT) {
 	with(asset_get("oPlayer")){
