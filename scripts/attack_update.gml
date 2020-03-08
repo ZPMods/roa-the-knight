@@ -261,6 +261,12 @@ if (attack == AT_NSPECIAL)
     move_cooldown[AT_NSPECIAL] = 30;
 }
 
+//Effect
+if (attack == AT_NSPECIAL && window == 2 && window_timer == 8)
+{
+     nspecial_effect_show = true;
+}
+
 //NEUTRAL SPECIAL BOOSTED MECHANICS -------------------------
 
 //Faire spawn l'article
@@ -272,6 +278,12 @@ if (attack == AT_NSPECIAL_2 && window == 2 && window_timer == 1)
      var shade_soul = instance_create(x, y + 10, "obj_article1");
      shade_soul.spr_dir = spr_dir;
      shade_soul.hsp *= spr_dir;
+}
+
+//Effect
+if (attack == AT_NSPECIAL_2 && window == 1 && window_timer == 8)
+{
+     nspecial_boosted_effect_show = true;
 }
 
 //--------------------------------------------------------
@@ -291,6 +303,8 @@ if (attack == AT_FSPECIAL || attack == AT_FSPECIAL_2)
      }
 }
 
+//FORWARD SPECIAL BOOSTED MECHANICS ---------------------------------
+
 //Forward Special Boosted Position Reset
 if (attack != AT_FSPECIAL_2)
 {
@@ -298,17 +312,17 @@ if (attack != AT_FSPECIAL_2)
      fspecial_boosted_hit = false;
 }
 
-//NEUTRAL SPECIAL BOOSTED MECHANICS -------------------------
-
 //Forward Special Boosted Jump Cancel
-if(my_hitboxID.attack == AT_FSPECIAL_2 && hitpause)
+if (attack == AT_FSPECIAL_2 && hitpause)
 {
-    can_jump = true;
-    if (jump_pressed)
-    {
-       hsp = 1 * spr_dir;
-    }
+     can_jump = true;
+
+     if (jump_pressed)
+     {
+          hsp = 1 * spr_dir;
+     }
 }
+
 
 //--------------------------------------------------------
 //------------------------------------------------------------------------------------------------------------------------------------------------------------------------
@@ -320,7 +334,6 @@ if (attack == AT_NSPECIAL || attack == AT_FSPECIAL || attack == AT_DSPECIAL || a
     trigger_b_reverse();
 }
 
-
 //Taunt
 if (attack == AT_TAUNT)
 {
@@ -331,8 +344,6 @@ if (attack == AT_TAUNT)
           clear_button_buffer(PC_TAUNT_PRESSED);
      }
 }
-
-
 
 //Pogo dair
 if (attack == AT_DAIR)
@@ -368,27 +379,13 @@ if (attack = AT_JAB && window == 1)
 }
 
 //Pas de fastfall pendant les attaques
-if (attack == AT_USPECIAL || attack == AT_USPECIAL_2
-     || attack == AT_NSPECIAL || attack == AT_NSPECIAL_2
-     || attack == AT_FSPECIAL || attack == AT_FSPECIAL_2
-     || attack == AT_DSPECIAL || attack == AT_DSPECIAL_2)
+/* if (attack == AT_USPECIAL || attack == AT_USPECIAL_2 || attack == AT_NSPECIAL || attack == AT_NSPECIAL_2 || attack == AT_FSPECIAL || attack == AT_FSPECIAL_2 || attack == AT_DSPECIAL || attack == AT_DSPECIAL_2)
 {
      can_fast_fall = false;
-}
+} */
 
 //NTS Effect
 if (attack == AT_NSPECIAL_2 && window == 3 && window_timer == 9)
 {
      nts_effect_show = true;
-}
-
-//NEUTRAL SPECIAL EFFECT
-if (attack == AT_NSPECIAL && window == 2 && window_timer == 8)
-{
-     nspecial_effect_show = true;
-}
-
-if (attack == AT_NSPECIAL_2 && window == 1 && window_timer == 8)
-{
-     nspecial_boosted_effect_show = true;
 }
