@@ -32,7 +32,8 @@ set_window_value(AT_FSPECIAL, 3, AG_WINDOW_TYPE, 1);
 set_window_value(AT_FSPECIAL, 3, AG_WINDOW_LENGTH, 8);
 set_window_value(AT_FSPECIAL, 3, AG_WINDOW_ANIM_FRAMES, 2);
 set_window_value(AT_FSPECIAL, 3, AG_WINDOW_ANIM_FRAME_START, 2);
-set_window_value(AT_FSPECIAL, 3, AG_WINDOW_HSPEED, 15);
+set_window_value(AT_FSPECIAL, 3, AG_WINDOW_HSPEED_TYPE, 1);
+set_window_value(AT_FSPECIAL, 3, AG_WINDOW_HSPEED, 14);
 
 //Endlag
 set_window_value(AT_FSPECIAL, 4, AG_WINDOW_TYPE, 1);

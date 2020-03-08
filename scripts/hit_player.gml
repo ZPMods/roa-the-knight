@@ -84,7 +84,7 @@ if (attack == AT_FAIR) {
             }
 		}
 	}
-	dream_random = dream_nail[random_func(0,array_lenght_1dd(dream_nail),true];
+	dream_random = dream_nail[random_func(0, array_length_1d(dream_nail), true)];
 
 
 }

@@ -23,20 +23,20 @@ if (get_player_color(player) == 1 && get_gameplay_time() <= 3 )
 	if (jump_pressed && taunt_pressed)
 	{
 		//Bumble
-		set_color_profile_slot(1, 0, 229, 229, 229); //Helmet 
-		set_color_profile_slot(1, 1, 37, 158, 37); //Cape 
-		set_color_profile_slot(1, 2, 65, 67, 80); //Nail 
-		set_color_profile_slot(1, 3, 40, 40, 40); //Body 
+		set_color_profile_slot(1, 0, 229, 229, 229); //Helmet
+		set_color_profile_slot(1, 1, 37, 158, 37); //Cape
+		set_color_profile_slot(1, 2, 65, 67, 80); //Nail
+		set_color_profile_slot(1, 3, 40, 40, 40); //Body
 		set_color_profile_slot(1, 4, 30, 30, 30); //Eyes */
 
 	}
 	if(attack_pressed && special_pressed)
 	{
 		//Yg
-		set_color_profile_slot(1, 0, 136, 136, 136); //Helmet 
-		set_color_profile_slot(1, 1, 254, 254, 254); //Cape 
-		set_color_profile_slot(1, 2, 136, 136, 136); //Nail 
-		set_color_profile_slot(1, 3, 75, 77, 86); //Body 
+		set_color_profile_slot(1, 0, 136, 136, 136); //Helmet
+		set_color_profile_slot(1, 1, 254, 254, 254); //Cape
+		set_color_profile_slot(1, 2, 136, 136, 136); //Nail
+		set_color_profile_slot(1, 3, 75, 77, 86); //Body
 		set_color_profile_slot(1, 4, 55, 56, 61); //Eyes */
 	}
 	init_shader();
@@ -95,8 +95,8 @@ if (shade_soul_first_hit)
 //Forward Special Boosted Multihit
 if (fspecial_boosted_hit)
 {
-     fspecial_boosted_player_hit.x = lerp(fspecial_boosted_player_hit.x, x, 0.6);
-     fspecial_boosted_player_hit.y = lerp(fspecial_boosted_player_hit.y, y, 0.6);
+     fspecial_boosted_player_hit.x = lerp(fspecial_boosted_player_hit.x, x, 0.8);
+     fspecial_boosted_player_hit.y = lerp(fspecial_boosted_player_hit.y, y, 0.8);
 }
 
 if (fspecial_boosted_hit && (state_cat == SC_AIR_NEUTRAL || state_cat == SC_GROUND_NEUTRAL))
