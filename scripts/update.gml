@@ -3,7 +3,7 @@ if (get_player_color(player) == 1 && get_gameplay_time() <= 3 )
 {
 	if (jump_pressed && attack_pressed)
 	{
-		//SHAYD
+		//Shayd
 		set_color_profile_slot(1, 0, 35, 41, 67); //Helmet
 		set_color_profile_slot(1, 1, 152, 14, 3); //Cape
 		set_color_profile_slot(1, 2, 152, 14, 3); //Nail
@@ -22,6 +22,7 @@ if (get_player_color(player) == 1 && get_gameplay_time() <= 3 )
 	}
 	if (jump_pressed && taunt_pressed)
 	{
+		//Bumble
 		set_color_profile_slot(1, 0, 229, 229, 229); //Helmet 
 		set_color_profile_slot(1, 1, 37, 158, 37); //Cape 
 		set_color_profile_slot(1, 2, 65, 67, 80); //Nail 
