@@ -379,10 +379,10 @@ if (attack = AT_JAB && window == 1)
 }
 
 //Pas de fastfall pendant les attaques
-/* if (attack == AT_USPECIAL || attack == AT_USPECIAL_2 || attack == AT_NSPECIAL || attack == AT_NSPECIAL_2 || attack == AT_FSPECIAL || attack == AT_FSPECIAL_2 || attack == AT_DSPECIAL || attack == AT_DSPECIAL_2)
+if (attack == AT_USPECIAL || attack == AT_USPECIAL_2 || attack == AT_NSPECIAL || attack == AT_NSPECIAL_2 || attack == AT_FSPECIAL || attack == AT_FSPECIAL_2 || attack == AT_DSPECIAL || attack == AT_DSPECIAL_2)
 {
      can_fast_fall = false;
-} */
+}
 
 //NTS Effect
 if (attack == AT_NSPECIAL_2 && window == 3 && window_timer == 9)
