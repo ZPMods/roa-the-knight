@@ -11,7 +11,7 @@ set_window_value(AT_USTRONG, 1, AG_WINDOW_ANIM_FRAMES, 1);
 
 //Startup
 set_window_value(AT_USTRONG, 2, AG_WINDOW_TYPE, 1);
-set_window_value(AT_USTRONG, 2, AG_WINDOW_LENGTH, 15);
+set_window_value(AT_USTRONG, 2, AG_WINDOW_LENGTH, 13);
 set_window_value(AT_USTRONG, 2, AG_WINDOW_ANIM_FRAMES, 1);
 
 //Scoop
@@ -38,7 +38,7 @@ set_window_value(AT_USTRONG, 5, AG_WINDOW_ANIM_FRAME_START, 3);
 
 //Endlag
 set_window_value(AT_USTRONG, 6, AG_WINDOW_TYPE, 1);
-set_window_value(AT_USTRONG, 6, AG_WINDOW_LENGTH, 20);
+set_window_value(AT_USTRONG, 6, AG_WINDOW_LENGTH, 15);
 set_window_value(AT_USTRONG, 6, AG_WINDOW_ANIM_FRAMES, 4);
 set_window_value(AT_USTRONG, 6, AG_WINDOW_ANIM_FRAME_START, 9);
 set_window_value(AT_USTRONG, 6, AG_WINDOW_HAS_WHIFFLAG, 1);

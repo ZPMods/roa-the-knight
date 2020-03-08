@@ -38,7 +38,7 @@ set_window_value(AT_DSPECIAL_2, 4, AG_WINDOW_ANIM_FRAMES, 4);
 set_window_value(AT_DSPECIAL_2, 4, AG_WINDOW_ANIM_FRAME_START, 15);
 set_window_value(AT_DSPECIAL_2, 4, AG_WINDOW_VSPEED_TYPE, 1);
 set_window_value(AT_DSPECIAL_2, 4, AG_WINDOW_VSPEED, 15);
-set_window_value(AT_DSPECIAL_2, 4, AG_WINDOW_HSPEED_TYPE, 1);
+set_window_value(AT_DSPECIAL_2, 4, AG_WINDOW_HSPEED_TYPE, 0);
 set_window_value(AT_DSPECIAL_2, 4, AG_WINDOW_HSPEED, 0);
 
 //Hitboxes au sol - Phase 1

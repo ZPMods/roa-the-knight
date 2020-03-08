@@ -1,3 +1,28 @@
+// Test Nul
+if (get_player_color(player) == 1 && get_gameplay_time() <= 3 )
+{
+	if (jump_pressed && attack_pressed)
+	{
+		//SHAYD
+		set_color_profile_slot(1, 0, 35, 41, 67); //Helmet
+		set_color_profile_slot(1, 1, 152, 14, 3); //Cape
+		set_color_profile_slot(1, 2, 152, 14, 3); //Nail
+		set_color_profile_slot(1, 3, 35, 41, 67); //Body
+		set_color_profile_slot(1, 4, 8, 194, 109); //Eyes */
+
+	}
+	if (special_pressed && jump_pressed)
+	{
+		//Uki
+		set_color_profile_slot(1, 0, 175, 221, 239); //Helmet
+		set_color_profile_slot(1, 1, 67, 174, 216); //Cape
+		set_color_profile_slot(1, 2, 226, 240, 245); //Nail
+		set_color_profile_slot(1, 3, 64, 26, 93); //Body
+		set_color_profile_slot(1, 4, 245, 90, 204); //Eyes */
+	}
+
+}
+
 //----------------------------------------------------------
 // GAMEPLAY
 //----------------------------------------------------------

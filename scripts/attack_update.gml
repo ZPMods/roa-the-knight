@@ -1,3 +1,20 @@
+//STRONG MOVEMENT
+if((attack == AT_FSTRONG && window == 1)|| (attack == AT_DSTRONG && window == 1))
+{
+    if (joy_pad_idle == false)
+    {
+        hsp = lengthdir_x(0.4, joy_dir);
+    }
+}
+
+//Test DSpecial mvt
+if((attack == AT_DSPECIAL && window >= 6) || attack == AT_DSPECIAL_2 && window <= 4)
+{
+    if (joy_pad_idle == false)
+    {
+        hsp = lengthdir_x(1.5, joy_dir);
+    }
+}
 //DACUS
 
 if (attack == AT_DATTACK && window == 2 && window_timer <= 3)
@@ -207,16 +224,17 @@ if((attack == AT_DSPECIAL && window >= 4) || attack == AT_DSPECIAL_2)
     ds_timer += 1;
 }
 
-if ((attack == AT_DSPECIAL && window == 4 && window_timer >= 3) || (attack == AT_DSPECIAL && window == 5 && ds_timer > 40))
+if ((attack == AT_DSPECIAL && window == 4 && window_timer >= 3) || (attack == AT_DSPECIAL && window == 5 && ds_timer > 30))
 {
     can_jump = true;
     can_shield = true;
 }
-if((attack == AT_DSPECIAL_2 && window == 3 && window_timer >= 3) || (attack == AT_DSPECIAL_2 && window == 4 && ds_timer > 60))
+if((attack == AT_DSPECIAL_2 && window == 3 && window_timer >= 3) || (attack == AT_DSPECIAL_2 && window == 4 && ds_timer > 30))
 {
    can_jump = true;
    can_shield = true;
 }
+
 
 //DOWN SPECIAL BOOSTED MECHANICS -------------------------
 
@@ -366,11 +384,3 @@ if (attack == AT_NSPECIAL_2 && window == 1 && window_timer == 8)
 }
 
 
-//STRONG MOVEMENT
-if((attack == AT_FSTRONG && window == 1)|| (attack == AT_DSTRONG && window == 1))
-{
-    if (joy_pad_idle == false)
-    {
-        hsp = lengthdir_x(0.4, joy_dir);
-    }
-}

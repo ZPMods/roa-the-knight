@@ -50,7 +50,7 @@ set_window_value(AT_DSPECIAL, 5, AG_WINDOW_ANIM_FRAMES, 4);
 set_window_value(AT_DSPECIAL, 5, AG_WINDOW_ANIM_FRAME_START, 15);
 set_window_value(AT_DSPECIAL, 5, AG_WINDOW_VSPEED_TYPE, 1);
 set_window_value(AT_DSPECIAL, 5, AG_WINDOW_VSPEED, 12);
-set_window_value(AT_DSPECIAL, 5, AG_WINDOW_HSPEED_TYPE, 1);
+set_window_value(AT_DSPECIAL, 5, AG_WINDOW_HSPEED_TYPE, 0);
 set_window_value(AT_DSPECIAL, 5, AG_WINDOW_HSPEED, 0);
 
 //Hitbox au sol
