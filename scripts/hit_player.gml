@@ -69,7 +69,7 @@ if (my_hitboxID.attack == AT_FSPECIAL_2)
 
 
 // Dream Nail
-if (attack == AT_FAIR) {
+if (attack == AT_TAUNT_2) {
 	with(asset_get("oPlayer")){
 		if(id != other.id){
 			if(select == clamp(select, 2, 15)){

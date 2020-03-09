@@ -8,7 +8,7 @@ if((attack == AT_FSTRONG && window == 1)|| (attack == AT_DSTRONG && window == 1)
 }
 
 //Test DSpecial mvt
-if((attack == AT_DSPECIAL && window >= 6) || attack == AT_DSPECIAL_2 && window <= 4)
+if((attack == AT_DSPECIAL && window >= 6 && !hitpause) || attack == AT_DSPECIAL_2 && window <= 4 && !hitpause)
 {
     if (joy_pad_idle == false)
     {
@@ -107,6 +107,12 @@ if (attack == AT_USPECIAL_2)
     {
         can_wall_jump = true;
     }
+}
+
+//FSPECIAL
+if (attack == AT_FSPECIAL || attack == AT_FSPECIAL_2)
+{
+    can_wall_jump = true;
 }
 
 // Down Special Boosted
@@ -388,4 +394,10 @@ if (attack == AT_USPECIAL || attack == AT_USPECIAL_2 || attack == AT_NSPECIAL ||
 if (attack == AT_NSPECIAL_2 && window == 3 && window_timer == 9)
 {
      nts_effect_show = true;
+}
+
+//Taunt
+if (attack == AT_TAUNT && down_down)
+{
+    attack = AT_TAUNT_2;
 }
