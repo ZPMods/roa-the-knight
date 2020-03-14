@@ -9,7 +9,7 @@ set_window_value(AT_JAB, 2, AG_WINDOW_LENGTH, 2);
 set_window_value(AT_JAB, 2, AG_WINDOW_ANIM_FRAMES, 1);
 set_window_value(AT_JAB, 2, AG_WINDOW_ANIM_FRAME_START, 2);
 
-set_window_value(AT_JAB, 3, AG_WINDOW_LENGTH, 9);
+set_window_value(AT_JAB, 3, AG_WINDOW_LENGTH, 16);
 set_window_value(AT_JAB, 3, AG_WINDOW_ANIM_FRAMES, 2);
 set_window_value(AT_JAB, 3, AG_WINDOW_ANIM_FRAME_START, 3);
 set_window_value(AT_JAB, 3, AG_WINDOW_CANCEL_TYPE, 1);
@@ -19,7 +19,7 @@ set_window_value(AT_JAB, 4, AG_WINDOW_LENGTH, 2);
 set_window_value(AT_JAB, 4, AG_WINDOW_ANIM_FRAMES, 1);
 set_window_value(AT_JAB, 4, AG_WINDOW_ANIM_FRAME_START, 5);
 
-set_window_value(AT_JAB, 5, AG_WINDOW_LENGTH, 9);
+set_window_value(AT_JAB, 5, AG_WINDOW_LENGTH, 16);
 set_window_value(AT_JAB, 5, AG_WINDOW_ANIM_FRAMES, 3);
 set_window_value(AT_JAB, 5, AG_WINDOW_ANIM_FRAME_START, 6);
 

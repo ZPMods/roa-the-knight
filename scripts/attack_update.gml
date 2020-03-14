@@ -96,17 +96,11 @@ if (attack == AT_USPECIAL && soul_points < SP_uspecial && window == 1)
 }
 if (attack == AT_USPECIAL)
 {
-    if (window <= 3)
-    {
-        can_wall_jump = true;
-    }
+    can_wall_jump = true;
 }
 if (attack == AT_USPECIAL_2)
 {
-    if(window <= 2)
-    {
-        can_wall_jump = true;
-    }
+    can_wall_jump = true;
 }
 
 //FSPECIAL
@@ -240,8 +234,6 @@ if((attack == AT_DSPECIAL_2 && window == 3 && window_timer >= 3) || (attack == A
    can_jump = true;
    can_shield = true;
 }
-
-
 //DOWN SPECIAL BOOSTED MECHANICS -------------------------
 
 //Empecher le boost vertical en l'air

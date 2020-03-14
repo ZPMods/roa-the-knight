@@ -3,7 +3,7 @@ set_attack_value(AT_FSPECIAL_2, AG_SPRITE, sprite_get("fspecial_boosted"));
 set_attack_value(AT_FSPECIAL_2, AG_NUM_WINDOWS, 3);
 set_attack_value(AT_FSPECIAL_2, AG_HAS_LANDING_LAG, 4);
 set_attack_value(AT_FSPECIAL_2, AG_AIR_SPRITE, sprite_get("fspecial_boosted"));
-set_attack_value(AT_FSPECIAL_2, AG_HURTBOX_SPRITE, sprite_get("fspecial_hurt"));
+set_attack_value(AT_FSPECIAL_2, AG_HURTBOX_SPRITE, sprite_get("uair_hurt"));
 set_attack_value(AT_FSPECIAL_2, AG_OFF_LEDGE, 1);
 
 //Startup
@@ -87,7 +87,7 @@ set_hitbox_value(AT_FSPECIAL_2, 4, HG_PRIORITY, 6);
 set_hitbox_value(AT_FSPECIAL_2, 4, HG_DAMAGE, 8);
 set_hitbox_value(AT_FSPECIAL_2, 4, HG_ANGLE, 38);
 set_hitbox_value(AT_FSPECIAL_2, 4, HG_BASE_KNOCKBACK, 8);
-set_hitbox_value(AT_FSPECIAL_2, 4, HG_KNOCKBACK_SCALING, .7);
+set_hitbox_value(AT_FSPECIAL_2, 4, HG_KNOCKBACK_SCALING, .6);
 set_hitbox_value(AT_FSPECIAL_2, 4, HG_BASE_HITPAUSE, 12);
 set_hitbox_value(AT_FSPECIAL_2, 4, HG_HITPAUSE_SCALING, 0.6);
 set_hitbox_value(AT_FSPECIAL_2, 4, HG_HIT_SFX, asset_get("sfx_blow_heavy1"));
