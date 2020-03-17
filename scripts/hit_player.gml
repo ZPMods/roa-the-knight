@@ -67,6 +67,20 @@ if (my_hitboxID.attack == AT_FSPECIAL_2)
      }
 }
 
+//Down Special Boosted Multihit
+if (my_hitboxID.attack == AT_DSPECIAL_2)
+{
+     if (my_hitboxID.hbox_num < 6)
+     {
+          dspecial_boosted_player_hit = hit_player_obj;
+          dspecial_boosted_hit = true;
+     }
+     else
+     {
+          dspecial_boosted_player_hit = 0;
+          dspecial_boosted_hit = false;
+     }
+}
 
 // Dream Nail
 if (attack == AT_TAUNT_2) {

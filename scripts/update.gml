@@ -105,6 +105,19 @@ if (fspecial_boosted_hit && (state_cat == SC_AIR_NEUTRAL || state_cat == SC_GROU
      fspecial_boosted_hit = false;
 }
 
+//Forward Special Boosted Multihit
+if (dspecial_boosted_hit)
+{
+     dspecial_boosted_player_hit.x = lerp(dspecial_boosted_player_hit.x, x, 0.8);
+     dspecial_boosted_player_hit.y = lerp(dspecial_boosted_player_hit.y, y, 0.8);
+}
+
+if (dspecial_boosted_hit && (state_cat == SC_AIR_NEUTRAL || state_cat == SC_GROUND_NEUTRAL))
+{
+     dspecial_boosted_player_hit = 0;
+     dspecial_boosted_hit = false;
+}
+
 //Down Special Cooldown Reset
 if (!free)
 {

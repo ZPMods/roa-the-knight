@@ -67,6 +67,10 @@ shade_soul_player_hit = 0;
 fspecial_boosted_hit = false;
 fspecial_boosted_player_hit = 0;
 
+//Forward Special Boosted
+dspecial_boosted_hit = false;
+dspecial_boosted_player_hit = 0;
+
 //SOUL
 
 //Soul points, Boosted Attacks
