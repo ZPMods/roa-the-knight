@@ -198,6 +198,9 @@ dspecial_explosion = hit_fx_create(sprite_get("dspecial_hiteffect"), 20);
 shade_hit_weak = hit_fx_create(sprite_get("shade_hit_weak"), 20);
 shade_hit_weak_2 = hit_fx_create(sprite_get("shade_hit_weak_2"), 20);
 
+soul_hit_weak = hit_fx_create(sprite_get("soul_hit_weak"), 20);
+soul_hit_heavy = hit_fx_create(sprite_get("soul_hit_heavy"), 20);
+
 //----------------------------------------------------------
 
 //Common Variables

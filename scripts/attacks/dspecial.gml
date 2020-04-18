@@ -96,7 +96,7 @@ set_hitbox_value(AT_DSPECIAL, 1, HG_HITPAUSE_SCALING, 0);
 set_hitbox_value(AT_DSPECIAL, 1, HG_HIT_SFX, asset_get("sfx_blow_strong1"));
 set_hitbox_value(AT_DSPECIAL, 1, HG_ANGLE_FLIPPER, 0);
 set_hitbox_value(AT_DSPECIAL, 1, HG_HITBOX_GROUP, 1);
-set_hitbox_value(AT_DSPECIAL, 1, HG_VISUAL_EFFECT, dspecial_explosion)
+set_hitbox_value(AT_DSPECIAL, 1, HG_VISUAL_EFFECT, soul_hit_heavy)
 
 //Hitboxes au sol
 set_hitbox_value(AT_DSPECIAL, 2, HG_PARENT_HITBOX, 0);
@@ -118,6 +118,8 @@ set_hitbox_value(AT_DSPECIAL, 2, HG_HITPAUSE_SCALING, 0);
 set_hitbox_value(AT_DSPECIAL, 2, HG_HIT_SFX, asset_get("sfx_blow_heavy1"));
 set_hitbox_value(AT_DSPECIAL, 2, HG_ANGLE_FLIPPER, 0);
 set_hitbox_value(AT_DSPECIAL, 2, HG_HITBOX_GROUP, 2);
+set_hitbox_value(AT_DSPECIAL, 2, HG_VISUAL_EFFECT, soul_hit_heavy);
+
 
 set_hitbox_value(AT_DSPECIAL, 3, HG_PARENT_HITBOX, 0);
 set_hitbox_value(AT_DSPECIAL, 3, HG_HITBOX_TYPE, 1);
@@ -138,6 +140,7 @@ set_hitbox_value(AT_DSPECIAL, 3, HG_HITPAUSE_SCALING, 0);
 set_hitbox_value(AT_DSPECIAL, 3, HG_HIT_SFX, asset_get("sfx_blow_weak1"));
 set_hitbox_value(AT_DSPECIAL, 3, HG_ANGLE_FLIPPER, 0);
 set_hitbox_value(AT_DSPECIAL, 3, HG_HITBOX_GROUP, 3);
+set_hitbox_value(AT_DSPECIAL, 3, HG_VISUAL_EFFECT, soul_hit_weak);
 
 set_hitbox_value(AT_DSPECIAL, 4, HG_PARENT_HITBOX, 0);
 set_hitbox_value(AT_DSPECIAL, 4, HG_HITBOX_TYPE, 1);
@@ -158,3 +161,4 @@ set_hitbox_value(AT_DSPECIAL, 4, HG_HITPAUSE_SCALING, 0);
 set_hitbox_value(AT_DSPECIAL, 4, HG_HIT_SFX, asset_get("sfx_blow_weak1"));
 set_hitbox_value(AT_DSPECIAL, 4, HG_ANGLE_FLIPPER, 6);
 set_hitbox_value(AT_DSPECIAL, 4, HG_HITBOX_GROUP, 2);
+set_hitbox_value(AT_DSPECIAL, 4, HG_VISUAL_EFFECT, soul_hit_weak);
