@@ -8,7 +8,46 @@ draw_debug_text( temp_x+250, temp_y-110, string(attack));*/
 //draw_debug_text( temp_x+150, temp_y-14, "Soul : " + string( soul_points ));
 
 //Affichage et animation du Soul Meter
-draw_sprite_part(sprite_get("soulmeter_" + string(round(soul_points/5))), 0, ((soulmeter_animation_frame*64) - 64), 0, 64, 64, temp_x, temp_y - 50);
+if (soul_points <= 25)
+{
+     soulmeter_stage_main = round(soul_points / (25 / 20));
+     soulmeter_stage_mini_1 = 0;
+     soulmeter_stage_mini_2 = 0;
+     soulmeter_stage_mini_3 = 0;
+}
+
+if (soul_points > 25 && soul_points <= 50)
+{
+     soulmeter_stage_main = 20;
+     soulmeter_stage_mini_1 = round((soul_points - 25) / (25 / 7));
+     soulmeter_stage_mini_2 = 0;
+     soulmeter_stage_mini_3 = 0;
+}
+
+if (soul_points > 50 && soul_points <= 75)
+{
+     soulmeter_stage_main = 20;
+     soulmeter_stage_mini_1 = 7;
+     soulmeter_stage_mini_2 = round((soul_points - 50) / (25 / 7));
+     soulmeter_stage_mini_3 = 0;
+}
+
+if (soul_points > 75 && soul_points <= 100)
+{
+     soulmeter_stage_main = 20;
+     soulmeter_stage_mini_1 = 7;
+     soulmeter_stage_mini_2 = 7;
+     soulmeter_stage_mini_3 = round((soul_points - 75) / (25 / 7));
+}
+
+//Principal
+draw_sprite_part(sprite_get("soulmeter_" + string(soulmeter_stage_main)), 0, ((soulmeter_animation_frame*64) - 64), 0, 64, 64, temp_x, temp_y - 50);
+//Mini 1
+draw_sprite_part(sprite_get("soulmeter_mini_" + string(soulmeter_stage_mini_1)), 0, ((soulmeter_animation_frame*20) - 20), 0, 20, 20, temp_x - 12, temp_y - 19);
+//Mini 2
+draw_sprite_part(sprite_get("soulmeter_mini_" + string(soulmeter_stage_mini_2)), 0, ((soulmeter_animation_frame*20) - 20), 0, 20, 20, temp_x - 10, temp_y - 40);
+//Mini 3
+draw_sprite_part(sprite_get("soulmeter_mini_" + string(soulmeter_stage_mini_3)), 0, ((soulmeter_animation_frame*20) - 20), 0, 20, 20, temp_x + 4, temp_y - 56);
 
 soulmeter_animation_timer += 1;
 

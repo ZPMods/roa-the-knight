@@ -201,6 +201,12 @@ shade_hit_weak_2 = hit_fx_create(sprite_get("shade_hit_weak_2"), 20);
 soul_hit_weak = hit_fx_create(sprite_get("soul_hit_weak"), 20);
 soul_hit_heavy = hit_fx_create(sprite_get("soul_hit_heavy"), 20);
 
+//PARTICLE EFFECTS
+soul_full_effect = hit_fx_create(sprite_get("soul_full_effect"), 30);
+soul_full_play = -1;
+
+soul_burst_effect = hit_fx_create(sprite_get("soul_burst"), 40);
+
 //----------------------------------------------------------
 
 //Common Variables

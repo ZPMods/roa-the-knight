@@ -136,6 +136,28 @@ if (!free && move_cooldown[AT_FSPECIAL] > 25)
      move_cooldown[AT_FSPECIAL] = 0;
 }
 
+//Soul Full Effect
+if (soul_full_play == 0)
+{
+	sound_play(sound_get("soul_full"));
+	spawned_soul_effect = spawn_hit_fx(x, y-35, soul_full_effect);
+}
+
+if (soul_full_play >= 0)
+{
+	soul_full_play += 1
+
+	spawned_soul_effect.x = x;
+	spawned_soul_effect.y = y-40;
+}
+
+if (soul_full_play == 30)
+{
+	soul_full_play = -1;
+	spawn_hit_fx(x, y-35, soul_burst_effect);
+}
+
+
 //------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 //----------------------------------------------------------
