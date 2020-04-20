@@ -1,16 +1,26 @@
 // Soul system
 if (my_hitboxID.attack == AT_JAB || my_hitboxID.attack == AT_DATTACK || my_hitboxID.attack == AT_FTILT || my_hitboxID.attack == AT_DTILT || my_hitboxID.attack == AT_UTILT || my_hitboxID.attack == AT_FSTRONG || my_hitboxID.attack == AT_DSTRONG || my_hitboxID.attack == AT_USTRONG || my_hitboxID.attack == AT_FAIR || my_hitboxID.attack == AT_BAIR || my_hitboxID.attack == AT_DAIR || my_hitboxID.attack == AT_UAIR|| my_hitboxID.attack == AT_NAIR )
 {
-  if (soul_points < 100)
-  {
+     if (soul_points < 100)
+     {
+          old_soul_points = soul_points
 
-    soul_points += round((my_hitboxID.damage));
+          soul_points += round((my_hitboxID.damage));
 
-    if (soul_points > 100)
-    {
-      soul_points = 100;
-    }
-  }
+          if (soul_points > 100)
+          {
+               soul_points = 100;
+          }
+
+          var i;
+          for (i = 25; i < 125; i += 25)
+          {
+               if (old_soul_points < i && soul_points >= i)
+               {
+                    soul_full_play = 0;
+               }
+          }
+     }
 }
 
 if (my_hitboxID.attack == AT_DAIR && window == 2)
@@ -100,7 +110,7 @@ if (attack == AT_TAUNT_2) {
 		vanillachar = 0;
         dream_random =  hit_player_obj.dream_nail[random_func(0, array_length_1d(dream_nail), true)];
 	}
-	
+
 
 
 }

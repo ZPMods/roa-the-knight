@@ -83,5 +83,10 @@ sprite_change_offset("nspecial_boosted_explosion", 128, 128);
 sprite_change_offset("dspecial_hiteffect", 128, 128);
 sprite_change_offset("shade_hit_weak", 64, 64);
 sprite_change_offset("shade_hit_weak_2", 64, 64);
+sprite_change_offset("soul_hit_weak", 64, 64);
+sprite_change_offset("soul_hit_heavy", 64, 64);
+
+sprite_change_offset("soul_full_effect", 120, 120);
+sprite_change_offset("soul_burst", 120, 120);
 
 set_victory_theme( sound_get("Hollow_Knight_Victory_Theme"));

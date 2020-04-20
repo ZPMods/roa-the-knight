@@ -136,6 +136,27 @@ if (!free && move_cooldown[AT_FSPECIAL] > 25)
      move_cooldown[AT_FSPECIAL] = 0;
 }
 
+//Soul Full Effect
+if (soul_full_play == 0)
+{
+	sound_play(sound_get("soul_full"));
+	spawned_soul_effect = spawn_hit_fx(x, y-35, soul_full_effect);
+}
+
+if (soul_full_play >= 0)
+{
+	soul_full_play += 1
+
+	spawned_soul_effect.x = x;
+	spawned_soul_effect.y = y-40;
+}
+
+if (soul_full_play == 30)
+{
+	soul_full_play = -1;
+	spawn_hit_fx(x, y-35, soul_burst_effect);
+}
+
 //------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 //----------------------------------------------------------
@@ -189,7 +210,7 @@ if (!free && move_cooldown[AT_FSPECIAL] > 25)
     set_window_value(AT_EXTRA_3, 3, AG_WINDOW_VSPEED, 0);
     set_window_value(AT_EXTRA_3, 3, AG_WINDOW_HSPEED_TYPE, 1);
     set_window_value(AT_EXTRA_3, 3, AG_WINDOW_VSPEED_TYPE, 1);
-    
+
 
     set_num_hitboxes(AT_EXTRA_3, 1);
 
@@ -225,7 +246,7 @@ if enemykirby != undefined { //if kirby is in a match & swallowed
                 kirb_used_Theknight = 1;
                 move_cooldown[AT_EXTRA_3] = 20;
             }
-            
+
         }
     }
 }*/
@@ -233,14 +254,14 @@ if enemykirby != undefined { //if kirby is in a match & swallowed
 if swallowed {
     swallowed = 0;
     kirb_used = 0;
-    
+
     var ability_spr = sprite_get("nspecial");
     var ability_air_spr = sprite_get("nspecial");
     var hurtbox_spr = sprite_get("nspecial_hurt");
     var ability_proj_spr = sprite_get("nspecial_proj");
-    
+
     with enemykirby {
-    	
+
         set_attack_value(AT_EXTRA_3, AG_CATEGORY, 2);
     	set_attack_value(AT_EXTRA_3, AG_SPRITE,ability_spr);
     	set_attack_value(AT_EXTRA_3, AG_NUM_WINDOWS, 4);
@@ -276,9 +297,9 @@ if swallowed {
 		set_window_value(AT_EXTRA_3, 3, AG_WINDOW_VSPEED, 0);
     	set_window_value(AT_EXTRA_3, 3, AG_WINDOW_HSPEED_TYPE, 1);
     	set_window_value(AT_EXTRA_3, 3, AG_WINDOW_VSPEED_TYPE, 1);
-        
+
         set_window_value(AT_EXTRA_3, 4, AG_WINDOW_ANIM_FRAMES, 99765); //Arbitrary value in a dead window for checking
-        
+
         set_num_hitboxes(AT_EXTRA_3, 1);
 
     	set_hitbox_value(AT_EXTRA_3, 1, HG_PARENT_HITBOX, 0);
@@ -316,7 +337,7 @@ if enemykirby != undefined { //if kirby is in a match & swallowed
                 vsp = - vsp;
                 sound_play(other.switch_sfx);
             }
-            
+
         }
     }
 }
