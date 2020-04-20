@@ -20,3 +20,6 @@ stage_right = (room_width - get_stage_data(SD_X_POS)) + get_stage_data(SD_SIDE_B
 nspecial_animation_frame = 8;
 nspecial_animation_framelength = 4;
 nspecial_animation_timer = 0;
+
+//Bubbles
+bubbles_timer = 0;

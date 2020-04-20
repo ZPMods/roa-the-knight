@@ -442,3 +442,14 @@ if (attack == AT_TAUNT && down_down)
 {
     attack = AT_TAUNT_2;
 }
+
+//Shade Bubbles
+if (attack == AT_USPECIAL_2 || attack == AT_FSPECIAL_2 || attack == AT_DSPECIAL_2)
+{
+     if (state_timer % 4 == 0)
+     {
+          shade_bubbles_play = 1;
+          shade_bubbles_x = x;
+          shade_bubbles_y = y - 35;
+     }
+}

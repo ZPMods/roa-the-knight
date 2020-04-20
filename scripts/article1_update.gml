@@ -56,3 +56,13 @@ if (nspecial_animation_timer == nspecial_animation_framelength)
     nspecial_animation_frame = 1;
   }
 }
+
+//Shade bubbles
+bubbles_timer ++;
+
+if (bubbles_timer % 4 == 0)
+{
+     player_id.shade_bubbles_play = 1;
+     player_id.shade_bubbles_x = x;
+     player_id.shade_bubbles_y = y - 40;
+}

@@ -157,6 +157,25 @@ if (soul_full_play == 30)
 	spawnShadeBurst(x, y - 35);
 }
 
+//Particle effects triggers from other scripts, 'cause you can't call a function from other scripts for some godforsaken reason, @dan plz fix
+if (soul_burst_play = 1)
+{
+	soul_burst_play = 0;
+	spawnSoulBurst(soul_burst_x, soul_burst_y);
+}
+
+if (shade_burst_play = 1)
+{
+	shade_burst_play = 0;
+	spawnShadeBurst(shade_burst_x, shade_burst_y);
+}
+
+if (shade_bubbles_play = 1)
+{
+	shade_bubbles_play = 0;
+	spawnShadeBubbles(shade_bubbles_x, shade_bubbles_y);
+}
+
 //------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 //----------------------------------------------------------
