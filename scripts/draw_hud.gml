@@ -1,8 +1,5 @@
-draw_debug_text( temp_x+250, temp_y-60, string(vanillachar));
-/*draw_debug_text( temp_x+250, temp_y-50, string(window_timer));
-draw_debug_text( temp_x+250, temp_y-70, string(state));
-draw_debug_text( temp_x+250, temp_y-90, string(state_timer));
-draw_debug_text( temp_x+250, temp_y-110, string(attack));*/
+draw_debug_text( temp_x+250, temp_y-30, string(window));
+draw_debug_text( temp_x+250, temp_y-50, string(window_timer));
 
 //Affiche le nombre de Soul Points sur le HUD
 //draw_debug_text( temp_x+150, temp_y-14, "Soul : " + string( soul_points ));

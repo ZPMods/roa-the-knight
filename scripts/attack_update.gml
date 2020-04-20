@@ -422,6 +422,21 @@ if (attack == AT_NSPECIAL_2 && window == 3 && window_timer == 9)
      nts_effect_show = true;
 }
 
+if (attack == AT_FSPECIAL_2 && window == 3 && window_timer == 15)
+{
+     nts_effect_show = true;
+}
+
+if (attack == AT_USPECIAL_2 && window == 4 && window_timer == 17)
+{
+     nts_effect_show = true;
+}
+
+if (attack == AT_DSPECIAL_2 && window == 7 && window_timer == 15)
+{
+     nts_effect_show = true;
+}
+
 //Taunt
 if (attack == AT_TAUNT && down_down)
 {
