@@ -154,7 +154,7 @@ if (soul_full_play >= 0)
 if (soul_full_play == 30)
 {
 	soul_full_play = -1;
-	spawn_hit_fx(x, y-35, soul_burst_effect);
+	spawnShadeBurst(x, y - 35);
 }
 
 //------------------------------------------------------------------------------------------------------------------------------------------------------------------------
@@ -642,3 +642,61 @@ if abyssEnabled {
 }
 
 //------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+//----------------------------------------------------------
+// FUNCTIONS
+//----------------------------------------------------------
+
+#define spawnSoulBurst
+//argument 0 = x
+//argument 1 = y
+var id = random_func(0, 5, true);
+var toSpawn = soul_burst_1;
+
+switch (id)
+{
+	case 0 : toSpawn = soul_burst_1; break;
+	case 1 : toSpawn = soul_burst_1; break;
+	case 2 : toSpawn = soul_burst_3; break;
+	case 3 : toSpawn = soul_burst_4; break;
+	case 4 : toSpawn = soul_burst_5; break;
+}
+
+spawn_hit_fx(argument[0], argument[1], toSpawn);
+
+//----------------------------------------------------------
+
+#define spawnShadeBurst
+//argument 0 = x
+//argument 1 = y
+var id = random_func(0, 5, true);
+var toSpawn = shade_burst_1;
+
+switch (id)
+{
+	case 0 : toSpawn = shade_burst_1; break;
+	case 1 : toSpawn = shade_burst_1; break;
+	case 2 : toSpawn = shade_burst_3; break;
+	case 3 : toSpawn = shade_burst_4; break;
+	case 4 : toSpawn = shade_burst_5; break;
+}
+
+spawn_hit_fx(argument[0], argument[1], toSpawn);
+
+//----------------------------------------------------------
+
+#define spawnShadeBubbles
+//argument 0 = x
+//argument 1 = y
+var id = random_func(0, 5, true);
+var toSpawn = shade_bubbles_1;
+
+switch (id)
+{
+	case 0 : toSpawn = shade_bubbles_1; break;
+	case 1 : toSpawn = shade_bubbles_1; break;
+	case 2 : toSpawn = shade_bubbles_3; break;
+	case 3 : toSpawn = shade_bubbles_4; break;
+	case 4 : toSpawn = shade_bubbles_5; break;
+}
+
+spawn_hit_fx(argument[0], argument[1], toSpawn);

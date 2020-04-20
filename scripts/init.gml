@@ -206,7 +206,24 @@ soul_hit_heavy = hit_fx_create(sprite_get("soul_hit_heavy"), 20);
 soul_full_effect = hit_fx_create(sprite_get("soul_full_effect"), 30);
 soul_full_play = -1;
 
-soul_burst_effect = hit_fx_create(sprite_get("soul_burst"), 40);
+soul_burst_1 = hit_fx_create(sprite_get("soul_burst_1"), 40);
+soul_burst_2 = hit_fx_create(sprite_get("soul_burst_2"), 40);
+soul_burst_3 = hit_fx_create(sprite_get("soul_burst_3"), 40);
+soul_burst_4 = hit_fx_create(sprite_get("soul_burst_4"), 40);
+soul_burst_5 = hit_fx_create(sprite_get("soul_burst_5"), 40);
+
+shade_burst_1 = hit_fx_create(sprite_get("shade_burst_1"), 50);
+shade_burst_2 = hit_fx_create(sprite_get("shade_burst_2"), 50);
+shade_burst_3 = hit_fx_create(sprite_get("shade_burst_3"), 50);
+shade_burst_4 = hit_fx_create(sprite_get("shade_burst_4"), 50);
+shade_burst_5 = hit_fx_create(sprite_get("shade_burst_5"), 50);
+
+shade_bubbles_1 = hit_fx_create(sprite_get("shade_bubbles_1"), 22);
+shade_bubbles_2 = hit_fx_create(sprite_get("shade_bubbles_2"), 22);
+shade_bubbles_3 = hit_fx_create(sprite_get("shade_bubbles_3"), 22);
+shade_bubbles_4 = hit_fx_create(sprite_get("shade_bubbles_4"), 22);
+shade_bubbles_5 = hit_fx_create(sprite_get("shade_bubbles_5"), 22);
+
 //----------------------------------------------------------
 
 //Common Variables

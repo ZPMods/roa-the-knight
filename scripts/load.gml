@@ -87,6 +87,23 @@ sprite_change_offset("soul_hit_weak", 64, 64);
 sprite_change_offset("soul_hit_heavy", 64, 64);
 
 sprite_change_offset("soul_full_effect", 120, 120);
-sprite_change_offset("soul_burst", 120, 120);
+
+sprite_change_offset("soul_burst_1", 120, 120);
+sprite_change_offset("soul_burst_2", 120, 120);
+sprite_change_offset("soul_burst_3", 120, 120);
+sprite_change_offset("soul_burst_4", 120, 120);
+sprite_change_offset("soul_burst_5", 120, 120);
+
+sprite_change_offset("shade_burst_1", 120, 120);
+sprite_change_offset("shade_burst_2", 120, 120);
+sprite_change_offset("shade_burst_3", 120, 120);
+sprite_change_offset("shade_burst_4", 120, 120);
+sprite_change_offset("shade_burst_5", 120, 120);
+
+sprite_change_offset("shade_bubbles_1", 60, 60);
+sprite_change_offset("shade_bubbles_2", 60, 60);
+sprite_change_offset("shade_bubbles_3", 60, 60);
+sprite_change_offset("shade_bubbles_4", 60, 60);
+sprite_change_offset("shade_bubbles_5", 60, 60);
 
 set_victory_theme( sound_get("Hollow_Knight_Victory_Theme"));
