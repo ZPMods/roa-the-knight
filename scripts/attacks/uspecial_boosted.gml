@@ -19,6 +19,8 @@ set_window_value(AT_USPECIAL_2, 2, AG_WINDOW_TYPE, 1);
 set_window_value(AT_USPECIAL_2, 2, AG_WINDOW_LENGTH, 15);
 set_window_value(AT_USPECIAL_2, 2, AG_WINDOW_ANIM_FRAMES, 7);
 set_window_value(AT_USPECIAL_2, 2, AG_WINDOW_ANIM_FRAME_START, 2);
+set_window_value(AT_USPECIAL_2, 2, AG_WINDOW_HAS_SFX, 1);
+set_window_value(AT_USPECIAL_2, 2, AG_WINDOW_SFX, asset_get("sfx_ice_uspecial_jump"));
 set_window_value(AT_USPECIAL_2, 2, AG_WINDOW_VSPEED_TYPE, 1);
 set_window_value(AT_USPECIAL_2, 2, AG_WINDOW_HSPEED_TYPE, 1);
 set_window_value(AT_USPECIAL_2, 2, AG_WINDOW_VSPEED, -14);
@@ -27,10 +29,17 @@ set_window_value(AT_USPECIAL_2, 2, AG_WINDOW_HAS_SFX, 1);
 
 //Hitbox
 set_window_value(AT_USPECIAL_2, 3, AG_WINDOW_TYPE, 1);
+set_window_value(AT_USPECIAL_2, 3, AG_WINDOW_HAS_SFX, 1);
+set_window_value(AT_USPECIAL_2, 3, AG_WINDOW_SFX, sound_get("knight_special_up_boosted"));
+set_window_value(AT_USPECIAL_2, 3, AG_WINDOW_SFX_FRAME, 1);
+set_window_value(AT_USPECIAL_2, 3, AG_WINDOW_ANIM_FRAME_START, 1);
 set_window_value(AT_USPECIAL_2, 3, AG_WINDOW_LENGTH, 16);
 set_window_value(AT_USPECIAL_2, 3, AG_WINDOW_VSPEED, 5);
 set_window_value(AT_USPECIAL_2, 3, AG_WINDOW_ANIM_FRAMES, 4);
 set_window_value(AT_USPECIAL_2, 3, AG_WINDOW_ANIM_FRAME_START, 9);
+
+
+
 
 //Endlag -> Pratfall
 set_window_value(AT_USPECIAL_2, 4, AG_WINDOW_TYPE, 7);

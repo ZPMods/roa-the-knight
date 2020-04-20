@@ -198,6 +198,15 @@ dspecial_explosion = hit_fx_create(sprite_get("dspecial_hiteffect"), 20);
 shade_hit_weak = hit_fx_create(sprite_get("shade_hit_weak"), 20);
 shade_hit_weak_2 = hit_fx_create(sprite_get("shade_hit_weak_2"), 20);
 
+soul_hit_weak = hit_fx_creat(sprite_get("soul_hit_weak"), 20);
+soul_hit_heavy = hit_fx_create(sprite_get("soul_hit_heavy"), 20);
+
+//PARTICLE EFFECT
+
+soul_full_effect = hit_fx_create(sprite_get("soul_full_effect"),30);
+soul_full_play = -1;
+
+soul_burst_effect = hit_fx_create(sprite_get("soul_burst"), 40);
 //----------------------------------------------------------
 
 //Common Variables
@@ -315,11 +324,65 @@ dream_nail_zetterburn[0] = "Debug Zetterburn 1";
 dream_nail_zetterburn[1] = "Debug Zetterburn 2";
 dream_nail_zetterburn[2] = "Debug Zetterburn 3";
 
+dream_nail_kragg[0] = "Debug Kragg 1";
+dream_nail_kragg[1] = "Debug Kragg 2";
+dream_nail_kragg[2] = "Debug Kragg 3";
+
+dream_nail_frosburn[0] = "Debug Frosburn 1";
+dream_nail_frosburn[1] = "Debug Frosburn 2";
+dream_nail_frosburn[2] = "Debug Frosburn 3";
+
+dream_nail_maypul[0] = "Debug Maypul 1";
+dream_nail_maypul[1] = "Debug Maypul 2";
+dream_nail_maypul[2] = "Debug Maypul 3";
+
+dream_nail_clairen[0] = "Debug Clairen 1";
+dream_nail_clairen[1] = "Debug Clairen 2";
+dream_nail_clairen[2] = "Debug Clairen 3";
+
+dream_nail_sylvanos[0] = "Debug Sylvanos 1";
+dream_nail_sylvanos[1] = "Debug Sylvanos 2";
+dream_nail_sylvanos[2] = "Debug Sylvanos 3";
+
+dream_nail_wrastor[0] = "Debug Wrastor 1";
+dream_nail_wrastor[1] = "Debug Wrastor 2";
+dream_nail_wrastor[2] = "Debug Wrastor 3";
+
+dream_nail_orcane[0] = "Debug Orcane 1";
+dream_nail_orcane[1] = "Debug Orcane 2";
+dream_nail_orcane[2] = "Debug Orcane 3";
+
+dream_nail_absa[0] = "Debug Absa 1";
+dream_nail_absa[1] = "Debug Absa 2";
+dream_nail_absa[2] = "Debug Absa 3";
+
+dream_nail_etalus[0] = "Debug Etalus 1";
+dream_nail_etalus[1] = "Debug Etalus 2";
+dream_nail_etalus[2] = "Debug Etalus 3";
+
+dream_nail_elliana[0] = "Debug Elliana 1";
+dream_nail_elliana[1] = "Debug Elliana 2";
+dream_nail_elliana[2] = "Debug Elliana 3";
+
+dream_nail_ranno[0] = "Debug Ranno 1";
+dream_nail_ranno[1] = "Debug Ranno 2";
+dream_nail_ranno[2] = "Debug Ranno 3";
+
+dream_nail_ori[0] = "Debug Ori 1";
+dream_nail_ori[1] = "Debug Ori 2";
+dream_nail_ori[2] = "Debug Ori 3";
+
+dream_nail_shovel[0] = "Debug Shovel 1";
+dream_nail_shovel[1] = "Debug Shovel 2";
+dream_nail_shovel[2] = "Debug Shovel 3";
 
 
-vanillachar = 0; // Permet de détecter le main cast
+
+
+
+
+vanillachar = 25; // Permet de détecter le main cast
 dream_random = "";
-dream_choice = 0;
 
 
 ds_timer = 0;

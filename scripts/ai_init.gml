@@ -1,44 +1,60 @@
 //ai_init - setting the basic AI attack behaviors
 //The Knight
 
-far_down_attacks[0] = AT_FAIR;
-far_down_attacks[1] = AT_DAIR;
-far_down_attacks[2] = AT_DSPECIAL;
 
-far_up_attacks[0] = AT_UAIR;
-far_up_attacks[1] = AT_USTRONG;
-far_up_attacks[2] = AT_USPECIAL;
+far_side_attacks[0] = AT_NSPECIAL;
+far_side_attacks[1] = AT_FSPECIAL;
 
-far_side_attacks[0] = AT_DATTACK;
-far_side_attacks[1] = AT_FSTRONG;
-far_side_attacks[2] = AT_FSPECIAL;
-far_side_attacks[3] = AT_FSPECIAL_2;
-far_side_attacks[4] = AT_USPECIAL;
+mid_side_attacks[0] = AT_NSPECIAL;
 
-mid_side_attacks[0] = AT_DTILT;
-mid_side_attacks[1] = AT_DATTACK;
-mid_side_attacks[2] = AT_FSTRONG;
-mid_side_attacks[3] = AT_FSPECIAL;
-mid_side_attacks[4] = AT_USPECIAL;
-mid_side_attacks[5] = AT_DSPECIAL;
-
-close_up_attacks[0] = AT_USTRONG;
+close_up_attacks[0] = AT_UTILT;
 close_up_attacks[1] = AT_UAIR;
-close_up_attacks[2] = AT_UTILT;
-close_up_attacks[3] = AT_NAIR;
-close_up_attacks[4] = AT_DSTRONG;
+close_up_attacks[2] = AT_USTRONG;
 
-close_down_attacks[0] = AT_DSTRONG;
-close_down_attacks[1] = AT_DAIR;
-close_down_attacks[2] = AT_DSPECIAL;
 
-close_side_attacks[0] = AT_FTILT;
-close_side_attacks[1] = AT_JAB;
-close_side_attacks[2] = AT_DTILT;
-close_side_attacks[3] = AT_NSPECIAL;
-close_side_attacks[4] = AT_DSTRONG;
+close_down_attacks[0] = AT_DAIR;
+close_down_attacks[1] = AT_DTILT;
+
+mid_down_attacks[0] = AT_DSPECIAL;
+
+far_down_attacks[0] = AT_DSPECIAL;
+
+close_side_attacks[0] = AT_FAIR;
+close_side_attacks[1] = AT_DSTRONG;
+close_side_attacks[2] = AT_FSTRONG;
+
 
 neutral_attacks[0] = AT_JAB;
 neutral_attacks[1] = AT_NAIR;
-neutral_attacks[2] = AT_NSPECIAL;
-neutral_attacks[3] = AT_FTILT;
+
+
+
+temp_level = 9;
+facing = false;
+rangedtimer = 300;
+inactive = 0;
+xpos = 0;
+ypos = 0;
+atkwidth = 0;
+atkheight = 0;
+target_init = true;
+hurtboxWidth = 0;
+chosenAttack = 0;
+old_ai_target = noone;
+xdist = 0;
+ydist = 0;
+num_whiffs = 0;
+predict = false;
+xtrag = 0;
+ytrag = 0;
+fprediction = 8;
+targetbusy = false;
+stagex = get_stage_data(SD_X_POS);
+stagey = get_stage_data(SD_Y_POS);
+
+
+iterations = 0;
+cancel_jab = false;
+
+DACUStimer = 0;
+can_DACUS = false;

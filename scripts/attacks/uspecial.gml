@@ -23,6 +23,8 @@ set_window_value(AT_USPECIAL, 3, AG_WINDOW_TYPE, 1);
 set_window_value(AT_USPECIAL, 3, AG_WINDOW_LENGTH, 15);
 set_window_value(AT_USPECIAL, 3, AG_WINDOW_ANIM_FRAMES, 8);
 set_window_value(AT_USPECIAL, 3, AG_WINDOW_ANIM_FRAME_START, 8);
+set_window_value(AT_USPECIAL, 3, AG_WINDOW_HAS_SFX, 1);
+set_window_value(AT_USPECIAL, 3, AG_WINDOW_SFX, asset_get("sfx_ice_uspecial_jump"));
 set_window_value(AT_USPECIAL, 3, AG_WINDOW_VSPEED_TYPE, 2);
 set_window_value(AT_USPECIAL, 3, AG_WINDOW_VSPEED, -16);
 set_window_value(AT_USPECIAL, 3, AG_WINDOW_HSPEED, 1);

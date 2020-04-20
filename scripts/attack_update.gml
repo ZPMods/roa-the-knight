@@ -21,8 +21,10 @@ if (attack == AT_DATTACK && window == 2 && window_timer <= 3)
 {
     if(up_strong_pressed)
     {
+        set_window_value(AT_DATTACK, 2, AG_WINDOW_HSPEED, 0);
         attack = AT_USTRONG;
     }
+    set_window_value(AT_DATTACK, 2, AG_WINDOW_HSPEED, 2);
 }
 //BOOSTED --------------------------------------------------
 
@@ -245,10 +247,12 @@ if(attack == AT_DSPECIAL_2 && window == 4 && dspecial_boosted_hit && window != 5
         set_window_value(AT_DSPECIAL_2, 6, AG_WINDOW_VSPEED, 0);
         set_window_value(AT_DSPECIAL_2, 6, AG_WINDOW_HSPEED_TYPE, 1);
         set_window_value(AT_DSPECIAL_2, 6, AG_WINDOW_VSPEED_TYPE, 1);
+        set_window_value(AT_DSPECIAL_2, 6, AG_WINDOW_HAS_SFX, 1);
+        set_window_value(AT_DSPECIAL_2, 6, AG_WINDOW_SFX, sound_get("knight_special_up_boosted"));
         set_hitbox_value(AT_DSPECIAL_2, 10, HG_ANGLE, 75);
         set_hitbox_value(AT_DSPECIAL_2, 10, HG_BASE_KNOCKBACK, 13);
         set_window_value(AT_DSPECIAL_2, 7, AG_WINDOW_LENGTH, 7);
-    set_hitbox_value(AT_DSPECIAL_2, 10, HG_KNOCKBACK_SCALING, 0);
+        set_hitbox_value(AT_DSPECIAL_2, 10, HG_KNOCKBACK_SCALING, 0);
         window = 6;
         window_timer = 0;
     }
@@ -257,6 +261,7 @@ if(attack == AT_DSPECIAL_2 && window == 4 && dspecial_boosted_hit && window != 5
         set_window_value(AT_DSPECIAL_2, 6, AG_WINDOW_HSPEED_TYPE, 1);
         set_window_value(AT_DSPECIAL_2, 6, AG_WINDOW_HSPEED, 0);
         set_hitbox_value(AT_DSPECIAL_2, 6, HG_ANGLE, 100);
+        set_window_value(AT_DSPECIAL_2, 6, AG_WINDOW_HAS_SFX, 0);
         set_hitbox_value(AT_DSPECIAL_2, 10, HG_ANGLE, 60);
         set_hitbox_value(AT_DSPECIAL_2, 10, HG_BASE_KNOCKBACK, 10);
         set_hitbox_value(AT_DSPECIAL_2, 10, HG_KNOCKBACK_SCALING, .9);

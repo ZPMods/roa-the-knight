@@ -97,8 +97,10 @@ if (attack == AT_TAUNT_2) {
                 vanillachar = 16;
             }
 		}
+		vanillachar = 0;
+        dream_random =  hit_player_obj.dream_nail[random_func(0, array_length_1d(dream_nail), true)];
 	}
-	dream_random = dream_nail[random_func(0, array_length_1d(dream_nail), true)];
+	
 
 
 }
@@ -106,4 +108,56 @@ if (attack == AT_TAUNT_2) {
 if (vanillachar == 1)
 {
 	dream_random = dream_nail_zetterburn[random_func(0,array_length_1d(dream_nail_zetterburn), true)];
+}
+if (vanillachar == 2)
+{
+	dream_random = dream_nail_orcane[random_func(0,array_length_1d(dream_nail_orcane), true)];
+}
+if (vanillachar == 3)
+{
+	dream_random = dream_nail_wrastor[random_func(0,array_length_1d(dream_nail_wrastor), true)];
+}
+if (vanillachar == 4)
+{
+	dream_random = dream_nail_kragg[random_func(0,array_length_1d(dream_nail_kragg), true)];
+}
+if (vanillachar == 5)
+{
+	dream_random = dream_nail_frosburn[random_func(0,array_length_1d(dream_nail_frosburn), true)];
+}
+if (vanillachar == 6)
+{
+	dream_random = dream_nail_maypul[random_func(0,array_length_1d(dream_nail_maypul), true)];
+}
+if (vanillachar == 7)
+{
+	dream_random = dream_nail_absa[random_func(0,array_length_1d(dream_nail_absa), true)];
+}
+if (vanillachar == 8)
+{
+	dream_random = dream_nail_etalus[random_func(0,array_length_1d(dream_nail_etalus), true)];
+}
+if (vanillachar == 9)
+{
+	dream_random = dream_nail_ori[random_func(0,array_length_1d(dream_nail_ori), true)];
+}
+if (vanillachar == 10)
+{
+	dream_random = dream_nail_ranno[random_func(0,array_length_1d(dream_nail_ranno), true)];
+}
+if (vanillachar == 11)
+{
+	dream_random = dream_nail_clairen[random_func(0,array_length_1d(dream_nail_clairen), true)];
+}
+if (vanillachar == 12)
+{
+	dream_random = dream_nail_sylvanos[random_func(0,array_length_1d(dream_nail_sylvanos), true)];
+}
+if (vanillachar == 13)
+{
+	dream_random = dream_nail_elliana[random_func(0,array_length_1d(dream_nail_elliana), true)];
+}
+if (vanillachar == 14)
+{
+	dream_random = dream_nail_shovel[random_func(0,array_length_1d(dream_nail_shovel), true)];
 }

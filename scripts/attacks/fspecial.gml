@@ -23,14 +23,14 @@ set_window_value(AT_FSPECIAL, 2, AG_WINDOW_ANIM_FRAMES, 2);
 set_window_value(AT_FSPECIAL, 2, AG_WINDOW_ANIM_FRAME_START, 0);
 set_window_value(AT_FSPECIAL, 2, AG_WINDOW_HSPEED_TYPE, 1);
 set_window_value(AT_FSPECIAL, 2, AG_WINDOW_VSPEED_TYPE, 1);
-set_window_value(AT_FSPECIAL, 2, AG_WINDOW_HAS_SFX, 1);
-set_window_value(AT_FSPECIAL, 2, AG_WINDOW_SFX, asset_get("sfx_may_arc_cointoss"));
 set_window_value(AT_FSPECIAL, 2, AG_WINDOW_SFX_FRAME, 8);
 
 //Mouvement
 set_window_value(AT_FSPECIAL, 3, AG_WINDOW_TYPE, 1);
 set_window_value(AT_FSPECIAL, 3, AG_WINDOW_LENGTH, 8);
 set_window_value(AT_FSPECIAL, 3, AG_WINDOW_ANIM_FRAMES, 2);
+set_window_value(AT_FSPECIAL, 3, AG_WINDOW_HAS_SFX, 1);
+set_window_value(AT_FSPECIAL, 3, AG_WINDOW_SFX, sound_get("knight_special_side_normal"));
 set_window_value(AT_FSPECIAL, 3, AG_WINDOW_ANIM_FRAME_START, 2);
 set_window_value(AT_FSPECIAL, 3, AG_WINDOW_HSPEED_TYPE, 1);
 set_window_value(AT_FSPECIAL, 3, AG_WINDOW_HSPEED, 14);
