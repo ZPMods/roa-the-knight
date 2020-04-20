@@ -198,6 +198,7 @@ dspecial_explosion = hit_fx_create(sprite_get("dspecial_hiteffect"), 20);
 shade_hit_weak = hit_fx_create(sprite_get("shade_hit_weak"), 20);
 shade_hit_weak_2 = hit_fx_create(sprite_get("shade_hit_weak_2"), 20);
 
+<<<<<<< HEAD
 soul_hit_weak = hit_fx_creat(sprite_get("soul_hit_weak"), 20);
 soul_hit_heavy = hit_fx_create(sprite_get("soul_hit_heavy"), 20);
 
@@ -207,6 +208,17 @@ soul_full_effect = hit_fx_create(sprite_get("soul_full_effect"),30);
 soul_full_play = -1;
 
 soul_burst_effect = hit_fx_create(sprite_get("soul_burst"), 40);
+=======
+soul_hit_weak = hit_fx_create(sprite_get("soul_hit_weak"), 20);
+soul_hit_heavy = hit_fx_create(sprite_get("soul_hit_heavy"), 20);
+
+//PARTICLE EFFECTS
+soul_full_effect = hit_fx_create(sprite_get("soul_full_effect"), 30);
+soul_full_play = -1;
+
+soul_burst_effect = hit_fx_create(sprite_get("soul_burst"), 40);
+
+>>>>>>> 834507c5f2c758b17e771c476a10be36ea954cd3
 //----------------------------------------------------------
 
 //Common Variables
