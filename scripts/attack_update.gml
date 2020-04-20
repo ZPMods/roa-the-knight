@@ -236,7 +236,7 @@ if((attack == AT_DSPECIAL_2 && window == 3 && window_timer >= 3 && !hitpause) ||
    can_jump = true;
    can_shield = true;
 }
-if(attack == AT_DSPECIAL_2 && window == 4 && dspecial_boosted_hit && window != 5)
+if(attack == AT_DSPECIAL_2 && window == 4 && window != 5)
 {
     can_jump = false;
     can_shield = false;

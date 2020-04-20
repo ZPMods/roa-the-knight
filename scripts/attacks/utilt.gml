@@ -28,15 +28,22 @@ set_hitbox_value(AT_UTILT, 1, HG_HITBOX_TYPE, 1);
 set_hitbox_value(AT_UTILT, 1, HG_WINDOW, 2);
 set_hitbox_value(AT_UTILT, 1, HG_LIFETIME, 4);
 set_hitbox_value(AT_UTILT, 1, HG_HITBOX_X, -1);
-set_hitbox_value(AT_UTILT, 1, HG_HITBOX_Y, -61);
+set_hitbox_value(AT_UTILT, 1, HG_HITBOX_Y, -65);
 set_hitbox_value(AT_UTILT, 1, HG_WIDTH, 95);
-set_hitbox_value(AT_UTILT, 1, HG_HEIGHT, 106);
+set_hitbox_value(AT_UTILT, 1, HG_HEIGHT, 80);
 set_hitbox_value(AT_UTILT, 1, HG_PRIORITY, 3);
 set_hitbox_value(AT_UTILT, 1, HG_DAMAGE, 6);
 set_hitbox_value(AT_UTILT, 1, HG_ANGLE, 80);
 set_hitbox_value(AT_UTILT, 1, HG_BASE_KNOCKBACK, 8);
-set_hitbox_value(AT_UTILT, 1, HG_KNOCKBACK_SCALING, .10);
+set_hitbox_value(AT_UTILT, 1, HG_KNOCKBACK_SCALING, .5);
 set_hitbox_value(AT_UTILT, 1, HG_BASE_HITPAUSE, 6);
 set_hitbox_value(AT_UTILT, 1, HG_HITPAUSE_SCALING, .30);
 set_hitbox_value(AT_UTILT, 1, HG_HIT_SFX, asset_get("sfx_blow_medium2"));
+
+
+
+
+
+
+
 
