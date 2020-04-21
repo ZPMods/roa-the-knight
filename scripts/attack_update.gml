@@ -260,7 +260,7 @@ if (attack == AT_NSPECIAL_2 && window == 2 && window_timer == 1)
      shade_soul_hit = false;
      shade_soul_first_hit = false;
 
-     var shade_soul = instance_create(x, y + 10, "obj_article1");
+     var shade_soul = instance_create(x + 20 * spr_dir, y + 10, "obj_article1");
      shade_soul.spr_dir = spr_dir;
      shade_soul.hsp *= spr_dir;
 }
