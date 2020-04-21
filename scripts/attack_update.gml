@@ -46,20 +46,8 @@ if (attack == AT_FSPECIAL && soul_points >= SP_fspecial)
 
         nts_effect_show = true;
       }
-
-      window = 1;
-    }
-    else
-    {
-      window = 2;
-      window_timer = 0;
     }
   }
-}
-
-if (attack == AT_FSPECIAL && soul_points < SP_fspecial && window == 1)
-{
-  window = 2;
 }
 
 
@@ -81,21 +69,10 @@ if (attack == AT_USPECIAL && soul_points >= SP_uspecial)
 
         nts_effect_show = true;
       }
-
-      window = 1;
-    }
-    else
-    {
-      window = 2;
-      window_timer = 0;
     }
   }
 }
 
-if (attack == AT_USPECIAL && soul_points < SP_uspecial && window == 1)
-{
-  window = 2;
-}
 if (attack == AT_USPECIAL)
 {
     can_wall_jump = true;
@@ -129,20 +106,8 @@ if (attack == AT_DSPECIAL && soul_points >= SP_dspecial)
 
         nts_effect_show = true;
       }
-
-      window = 1;
-    }
-    else
-    {
-      window = 2;
-      window_timer = 0;
     }
   }
-}
-
-if (attack == AT_DSPECIAL && soul_points < SP_dspecial && window == 1)
-{
-  window = 2;
 }
 
 //Neutral Special Boosted
@@ -163,20 +128,8 @@ if (attack == AT_NSPECIAL && soul_points >= SP_nspecial)
 
         nts_effect_show = true;
       }
-
-      window = 1;
-    }
-    else
-    {
-      window = 2;
-      window_timer = 0;
     }
   }
-}
-if (attack == AT_NSPECIAL && soul_points < SP_nspecial && window == 1)
-{
-  window = 2;
-  window_timer = 0;
 }
 
 //--------------------------------------------------------
