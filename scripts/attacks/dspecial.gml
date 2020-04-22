@@ -167,4 +167,4 @@ set_hitbox_value(AT_DSPECIAL, 4, HG_HITPAUSE_SCALING, 0);
 set_hitbox_value(AT_DSPECIAL, 4, HG_HIT_SFX, asset_get("sfx_blow_weak1"));
 set_hitbox_value(AT_DSPECIAL, 4, HG_ANGLE_FLIPPER, 6);
 set_hitbox_value(AT_DSPECIAL, 4, HG_HITBOX_GROUP, 2);
-set_hitbox_value(AT_DPSECIAL, 4, HG_VISUAL_EFFECT, soul_hit_weak);
+set_hitbox_value(AT_DSPECIAL, 4, HG_VISUAL_EFFECT, soul_hit_weak);
