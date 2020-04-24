@@ -58,6 +58,7 @@ if (nspecial_animation_timer == nspecial_animation_framelength)
 }
 
 //Clairen Plasma Field
+
 if (place_meeting(x, y, asset_get("plasma_field_obj"))) {
 		sound_play(asset_get("sfx_clairen_hit_med"));
 		spawn_hit_fx(floor(x),floor(y),256);
