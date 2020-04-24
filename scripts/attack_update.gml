@@ -152,7 +152,7 @@ if (attack == AT_DSPECIAL && window == 6)
 {
      if (window_timer == 0)
      {
-          dspecial_explosion_show = true;
+          /* dspecial_explosion_show = true; */
      }
 
      if (window_timer == 25)
