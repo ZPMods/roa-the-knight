@@ -121,36 +121,3 @@ if (nspecial_boosted_effect_show == true)
           }
      }
 }
-
-//Down Special Explosion
-
-if (dspecial_explosion_show == true)
-{
-     if (dspecial_explosion_freeze == false)
-     {
-          dspecial_explosion_x = x - 128 - 2 * spr_dir;
-          dspecial_explosion_y = y - 128 - 12;
-          dspecial_explosion_freeze = true;
-     }
-
-     shader_start();
-     draw_sprite_part(sprite_get("dspecial_explosion"), 0, ((dspecial_explosion_animation_frame * 256) - 256), 0, 256, 256, dspecial_explosion_x, dspecial_explosion_y);
-     shader_end();
-	if (!hitpause)
-	{
-     	dspecial_explosion_animation_timer += 1;
-	}
-
-     if (dspecial_explosion_animation_timer >= dspecial_explosion_animation_framelength)
-     {
-          dspecial_explosion_animation_frame += 1;
-          dspecial_explosion_animation_timer = 0;
-
-          if (dspecial_explosion_animation_frame > 9)
-          {
-               dspecial_explosion_animation_frame = 1;
-               dspecial_explosion_show = false;
-               dspecial_explosion_freeze = false;
-          }
-     }
-}

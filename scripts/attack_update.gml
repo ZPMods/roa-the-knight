@@ -150,11 +150,6 @@ if (attack == AT_DSPECIAL && !free && window == 5)
 }
 if (attack == AT_DSPECIAL && window == 6)
 {
-     if (window_timer == 0)
-     {
-          /* dspecial_explosion_show = true; */
-     }
-
      if (window_timer == 25)
      {
           set_state(PS_IDLE);
