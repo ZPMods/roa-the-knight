@@ -95,7 +95,7 @@ if (shade_soul_first_hit)
 //Forward Special Boosted Multihit
 if (fspecial_boosted_hit)
 {
-     fspecial_boosted_player_hit.x = lerp(fspecial_boosted_player_hit.x, x, 0.8);
+     fspecial_boosted_player_hit.x = lerp(fspecial_boosted_player_hit.x, x, 0.8) + 10;
      fspecial_boosted_player_hit.y = lerp(fspecial_boosted_player_hit.y, y, 0.8);
 }
 
@@ -109,7 +109,7 @@ if (fspecial_boosted_hit && (state_cat == SC_AIR_NEUTRAL || state_cat == SC_GROU
 if (dspecial_boosted_hit)
 {
      dspecial_boosted_player_hit.x = lerp(dspecial_boosted_player_hit.x, x, 0.8);
-     dspecial_boosted_player_hit.y = lerp(dspecial_boosted_player_hit.y, y, 0.8);
+     dspecial_boosted_player_hit.y = lerp(dspecial_boosted_player_hit.y, y, 0.8) + 40;
 }
 
 if (dspecial_boosted_hit && (state_cat == SC_AIR_NEUTRAL || state_cat == SC_GROUND_NEUTRAL))
@@ -658,6 +658,15 @@ if abyssEnabled {
 		SP_dspecial = 25;
 		SP_uspecial = 25;
 	}
+}
+
+//Boosted shenanigans
+if(PS_STATE == PS_DEAD)
+{
+	fspecial_boosted_player_hit = 0;
+    fspecial_boosted_hit = false;
+	dspecial_boosted_player_hit = 0;
+    dspecial_boosted_hit = false;
 }
 
 //------------------------------------------------------------------------------------------------------------------------------------------------------------------------
