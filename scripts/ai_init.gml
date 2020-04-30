@@ -7,28 +7,27 @@ far_side_attacks[1] = AT_FSPECIAL;
 
 mid_side_attacks[0] = AT_NSPECIAL;
 
-close_up_attacks[0] = AT_UTILT;
-close_up_attacks[1] = AT_UAIR;
-close_up_attacks[2] = AT_USTRONG;
+// close_up_attacks[0] = AT_UTILT;
+//close_up_attacks[0] = AT_USTRONG;
 
 
 close_down_attacks[0] = AT_DAIR;
-close_down_attacks[1] = AT_DTILT;
+
+
 
 mid_down_attacks[0] = AT_DSPECIAL;
 
 far_down_attacks[0] = AT_DSPECIAL;
 
-close_side_attacks[0] = AT_FAIR;
-close_side_attacks[1] = AT_DSTRONG;
-close_side_attacks[2] = AT_FSTRONG;
+close_side_attacks[0] = AT_DSTRONG;
+close_side_attacks[1] = AT_FSTRONG;
 
 
-neutral_attacks[0] = AT_JAB;
-neutral_attacks[1] = AT_NAIR;
+// neutral_attacks[0] = AT_JAB;
+neutral_attacks[0] = AT_NAIR;
 
 
-
+FTILTprob = random_func(3,1,false);
 temp_level = 9;
 facing = false;
 rangedtimer = 300;
@@ -51,7 +50,11 @@ fprediction = 8;
 targetbusy = false;
 stagex = get_stage_data(SD_X_POS);
 stagey = get_stage_data(SD_Y_POS);
-
+top_blastzone = get_stage_data(SD_TOP_BLASTZONE);
+new_x = x;
+new_y = y;
+chasing = 0;
+to_boost = 0;
 
 iterations = 0;
 cancel_jab = false;
