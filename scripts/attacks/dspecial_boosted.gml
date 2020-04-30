@@ -143,6 +143,7 @@ set_hitbox_value(AT_DSPECIAL_2, 5, HG_BASE_HITPAUSE, 1);
 set_hitbox_value(AT_DSPECIAL_2, 5, HG_HIT_SFX, asset_get("sfx_blow_weak1"));
 set_hitbox_value(AT_DSPECIAL_2, 5, HG_ANGLE_FLIPPER, 4);
 set_hitbox_value(AT_DSPECIAL_2, 5, HG_HITBOX_GROUP, -1);
+set_hitbox_value(AT_DSPECIAL_2, 5, HG_TECHABLE, 1);
 
 set_hitbox_value(AT_DSPECIAL_2, 6, HG_PARENT_HITBOX, 0);
 set_hitbox_value(AT_DSPECIAL_2, 6, HG_HITBOX_TYPE, 1);
@@ -162,6 +163,7 @@ set_hitbox_value(AT_DSPECIAL_2, 6, HG_BASE_HITPAUSE, 1);
 set_hitbox_value(AT_DSPECIAL_2, 6, HG_HIT_SFX, asset_get("sfx_blow_weak1"));
 set_hitbox_value(AT_DSPECIAL_2, 6, HG_ANGLE_FLIPPER, 4);
 set_hitbox_value(AT_DSPECIAL_2, 6, HG_HITBOX_GROUP, -1);
+set_hitbox_value(AT_DSPECIAL_2, 6, HG_TECHABLE, 1);
 
 set_hitbox_value(AT_DSPECIAL_2, 7, HG_PARENT_HITBOX, 0);
 set_hitbox_value(AT_DSPECIAL_2, 7, HG_HITBOX_TYPE, 1);
@@ -181,6 +183,7 @@ set_hitbox_value(AT_DSPECIAL_2, 7, HG_BASE_HITPAUSE, 1);
 set_hitbox_value(AT_DSPECIAL_2, 7, HG_HIT_SFX, asset_get("sfx_blow_weak1"));
 set_hitbox_value(AT_DSPECIAL_2, 7, HG_ANGLE_FLIPPER, 9);
 set_hitbox_value(AT_DSPECIAL_2, 7, HG_HITBOX_GROUP, -1);
+set_hitbox_value(AT_DSPECIAL_2, 7, HG_TECHABLE, 1);
 
 set_hitbox_value(AT_DSPECIAL_2, 8, HG_PARENT_HITBOX, 0);
 set_hitbox_value(AT_DSPECIAL_2, 8, HG_HITBOX_TYPE, 1);
@@ -200,6 +203,7 @@ set_hitbox_value(AT_DSPECIAL_2, 8, HG_BASE_HITPAUSE, 1);
 set_hitbox_value(AT_DSPECIAL_2, 8, HG_HIT_SFX, asset_get("sfx_blow_weak1"));
 set_hitbox_value(AT_DSPECIAL_2, 8, HG_ANGLE_FLIPPER, 9);
 set_hitbox_value(AT_DSPECIAL_2, 8, HG_HITBOX_GROUP, -1);
+set_hitbox_value(AT_DSPECIAL_2, 8, HG_TECHABLE, 1);
 
 set_hitbox_value(AT_DSPECIAL_2, 9, HG_PARENT_HITBOX, 0);
 set_hitbox_value(AT_DSPECIAL_2, 9, HG_HITBOX_TYPE, 1);
@@ -220,6 +224,7 @@ set_hitbox_value(AT_DSPECIAL_2, 9, HG_HIT_SFX, asset_get("sfx_blow_weak1"));
 set_hitbox_value(AT_DSPECIAL_2, 9, HG_ANGLE_FLIPPER, 9);
 set_hitbox_value(AT_DSPECIAL_2, 9, HG_EXTRA_HITPAUSE, 3);
 set_hitbox_value(AT_DSPECIAL_2, 9, HG_HITBOX_GROUP, -1);
+set_hitbox_value(AT_DSPECIAL_2, 9, HG_TECHABLE, 1);
 
 //Explosion
 set_hitbox_value(AT_DSPECIAL_2, 10, HG_PARENT_HITBOX, 0);
