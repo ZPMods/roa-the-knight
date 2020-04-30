@@ -134,11 +134,23 @@ if (get_gameplay_time() >= 140){
 }
 if (practice)
 {
-    if(shield_pressed)
+    if(shield_pressed && taunt_pressed && !shade_mod)
     {
-       soul_points = 100;
+    	shade_mod = true;
     }
 }
+if (practice && shade_mod)
+{
+	if(shield_pressed && taunt_pressed)
+	{
+		shade_mod = false;
+	}
+}
+if(shade_mod)
+{
+	soul_points ++;
+}
+
 
 //Neutral Special Boosted Multihit
 if (shade_soul_first_hit)

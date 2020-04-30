@@ -403,6 +403,7 @@ dream_random = "";
 ds_timer = 0;
 
 //Practice mode
-practice = false;               //Whether you're in Practice Mode or not.
+practice = false;      //Whether you're in Practice Mode or not.
+shade_mod = false;
 timer1 = get_game_timer();      //The initial game timer.
 timer2 = 0;                     //The game timer after a couple seconds pass.

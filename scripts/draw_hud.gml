@@ -3,7 +3,11 @@ draw_debug_text( temp_x+250, temp_y-50, string(window_timer));
 
 //Affiche le nombre de Soul Points sur le HUD
 //draw_debug_text( temp_x+150, temp_y-14, "Soul : " + string( soul_points ));
-
+if(practice)
+{
+    draw_debug_text( temp_x - 170, temp_y + 5,("Press Taunt + Parry"));
+    draw_debug_text( temp_x - 170, temp_y + 25,("To gain infinite Soul"));
+}
 //Affichage et animation du Soul Meter
 if (soul_points <= 25)
 {
