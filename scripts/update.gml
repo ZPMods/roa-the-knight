@@ -1,4 +1,59 @@
 // Test Nul
+
+//Rainbow Color
+if get_player_color(player) = 9 {
+	hue+=1 if hue>255 hue-=255;
+	//make hue shift every step + loop around
+
+	color_rgb=make_color_rgb(167, 195, 217);
+	//make a gamemaker color variable using kirby's default color (body)
+	hue2=(color_get_hue(color_rgb)+hue) mod 255;
+	//shift that colour by Hue, make sure it also loops
+	color_hsv=make_color_hsv(hue2,color_get_saturation(color_rgb),color_get_value(color_rgb));
+	//make a gamemaker color variable using the new hue
+	set_color_profile_slot(9,0,color_get_red(color_hsv),color_get_green(color_hsv),color_get_blue(color_hsv));
+	//set the new color using rgb values from the gamemaker color
+
+
+	color_rgb=make_color_rgb(84, 87, 138);
+	//make a gamemaker color variable using kirby's default color (feet)
+	hue3=(color_get_hue(color_rgb)+hue) mod 255;
+	//kirby's feet keep the same hue as his skin
+	color_hsv=make_color_hsv(hue3,color_get_saturation(color_rgb),color_get_value(color_rgb));
+	//make a gamemaker color variable using the new hue
+	set_color_profile_slot(9,1,color_get_red(color_hsv),color_get_green(color_hsv),color_get_blue(color_hsv));
+	//set the new color using rgb values from the gamemaker color
+
+	color_rgb=make_color_rgb(110, 106, 131);
+	//make a gamemaker color variable using kirby's default color (feet)
+	hue4=(color_get_hue(color_rgb)+hue) mod 255;
+	//kirby's feet keep the same hue as his skin
+	color_hsv=make_color_hsv(hue4,color_get_saturation(color_rgb),color_get_value(color_rgb));
+	//make a gamemaker color variable using the new hue
+	set_color_profile_slot(9,2,color_get_red(color_hsv),color_get_green(color_hsv),color_get_blue(color_hsv));
+	//set the new color using rgb values from the gamemaker color
+
+	color_rgb=make_color_rgb(24, 23, 33);
+	//make a gamemaker color variable using kirby's default color (feet)
+	hue5=(color_get_hue(color_rgb)+hue) mod 255;
+	//kirby's feet keep the same hue as his skin
+	color_hsv=make_color_hsv(hue5,color_get_saturation(color_rgb),color_get_value(color_rgb));
+	//make a gamemaker color variable using the new hue
+	set_color_profile_slot(9,3,color_get_red(color_hsv),color_get_green(color_hsv),color_get_blue(color_hsv));
+	//set the new color using rgb values from the gamemaker color
+
+	color_rgb=make_color_rgb(84, 87, 138);
+	//make a gamemaker color variable using kirby's default color (feet)
+	hue6=(color_get_hue(color_rgb)+hue) mod 255;
+	//kirby's feet keep the same hue as his skin
+	color_hsv=make_color_hsv(hue6,color_get_saturation(color_rgb),color_get_value(color_rgb));
+	//make a gamemaker color variable using the new hue
+	set_color_profile_slot(9,4,color_get_red(color_hsv),color_get_green(color_hsv),color_get_blue(color_hsv));
+	//set the new color using rgb values from the gamemaker color
+	}
+init_shader();
+
+
 if (get_player_color(player) == 1 && get_gameplay_time() <= 3 )
 {
 	if (jump_pressed && attack_pressed)
@@ -424,58 +479,6 @@ if trummelcodecneeded{
 }
 
 
-//Rainbow Color
-if get_player_color(player) = 9 {
-	hue+=1 if hue>255 hue-=255;
-	//make hue shift every step + loop around
-
-	color_rgb=make_color_rgb(167, 195, 217);
-	//make a gamemaker color variable using kirby's default color (body)
-	hue2=(color_get_hue(color_rgb)+hue) mod 255;
-	//shift that colour by Hue, make sure it also loops
-	color_hsv=make_color_hsv(hue2,color_get_saturation(color_rgb),color_get_value(color_rgb));
-	//make a gamemaker color variable using the new hue
-	set_color_profile_slot(9,0,color_get_red(color_hsv),color_get_green(color_hsv),color_get_blue(color_hsv));
-	//set the new color using rgb values from the gamemaker color
-
-
-	color_rgb=make_color_rgb(84, 87, 138);
-	//make a gamemaker color variable using kirby's default color (feet)
-	hue3=(color_get_hue(color_rgb)+hue) mod 255;
-	//kirby's feet keep the same hue as his skin
-	color_hsv=make_color_hsv(hue3,color_get_saturation(color_rgb),color_get_value(color_rgb));
-	//make a gamemaker color variable using the new hue
-	set_color_profile_slot(9,1,color_get_red(color_hsv),color_get_green(color_hsv),color_get_blue(color_hsv));
-	//set the new color using rgb values from the gamemaker color
-
-	color_rgb=make_color_rgb(110, 106, 131);
-	//make a gamemaker color variable using kirby's default color (feet)
-	hue4=(color_get_hue(color_rgb)+hue) mod 255;
-	//kirby's feet keep the same hue as his skin
-	color_hsv=make_color_hsv(hue4,color_get_saturation(color_rgb),color_get_value(color_rgb));
-	//make a gamemaker color variable using the new hue
-	set_color_profile_slot(9,2,color_get_red(color_hsv),color_get_green(color_hsv),color_get_blue(color_hsv));
-	//set the new color using rgb values from the gamemaker color
-
-	color_rgb=make_color_rgb(24, 23, 33);
-	//make a gamemaker color variable using kirby's default color (feet)
-	hue5=(color_get_hue(color_rgb)+hue) mod 255;
-	//kirby's feet keep the same hue as his skin
-	color_hsv=make_color_hsv(hue5,color_get_saturation(color_rgb),color_get_value(color_rgb));
-	//make a gamemaker color variable using the new hue
-	set_color_profile_slot(9,3,color_get_red(color_hsv),color_get_green(color_hsv),color_get_blue(color_hsv));
-	//set the new color using rgb values from the gamemaker color
-
-	color_rgb=make_color_rgb(173, 3, 91);
-	//make a gamemaker color variable using kirby's default color (feet)
-	hue6=(color_get_hue(color_rgb)+hue) mod 255;
-	//kirby's feet keep the same hue as his skin
-	color_hsv=make_color_hsv(hue6,color_get_saturation(color_rgb),color_get_value(color_rgb));
-	//make a gamemaker color variable using the new hue
-	set_color_profile_slot(9,4,color_get_red(color_hsv),color_get_green(color_hsv),color_get_blue(color_hsv));
-	//set the new color using rgb values from the gamemaker color
-	}
-init_shader();
 
 // RUNES
 if abyssEnabled {
@@ -660,14 +663,7 @@ if abyssEnabled {
 	}
 }
 
-//Boosted shenanigans
-if(PS_STATE == PS_DEAD)
-{
-	fspecial_boosted_player_hit = 0;
-    fspecial_boosted_hit = false;
-	dspecial_boosted_player_hit = 0;
-    dspecial_boosted_hit = false;
-}
+
 
 //------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 //----------------------------------------------------------
