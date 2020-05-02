@@ -150,7 +150,7 @@ if (attack == AT_DSPECIAL && !free && window == 5)
 }
 if (attack == AT_DSPECIAL && window == 6)
 {
-     if (window_timer == 25)
+     if (window_timer == 18)
      {
           set_state(PS_IDLE);
      }
