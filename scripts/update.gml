@@ -137,19 +137,27 @@ if (practice)
     if(shield_pressed && taunt_pressed && !shade_mod)
     {
     	shade_mod = true;
+        clear_button_buffer(PC_SHIELD_PRESSED);
+        clear_button_buffer(PC_TAUNT_PRESSED);
     }
 }
-if (practice && shade_mod)
+
+if (practice)
 {
-	if(shield_pressed && taunt_pressed)
+	if(shield_pressed && taunt_pressed && shade_mod)
 	{
 		shade_mod = false;
+		soul_points = 100;
+		clear_button_buffer(PC_SHIELD_PRESSED);
+        clear_button_buffer(PC_TAUNT_PRESSED);
 	}
 }
 if(shade_mod)
 {
 	soul_points ++;
 }
+
+
 
 
 //Neutral Special Boosted Multihit
@@ -162,7 +170,7 @@ if (shade_soul_first_hit)
 //Forward Special Boosted Multihit
 if (fspecial_boosted_hit)
 {
-     fspecial_boosted_player_hit.x = lerp(fspecial_boosted_player_hit.x, x, 0.8) + 10;
+     fspecial_boosted_player_hit.x = lerp(fspecial_boosted_player_hit.x, x, 0.8);
      fspecial_boosted_player_hit.y = lerp(fspecial_boosted_player_hit.y, y, 0.8);
 }
 
