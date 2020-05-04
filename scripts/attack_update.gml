@@ -305,7 +305,27 @@ if (attack != AT_FSPECIAL_2)
      fspecial_boosted_hit = false;
 }
 
+//Getting out failsafe
+if (attack == AT_FSPECIAL_2)
+{
+     if (fspecial_boosted_player_hit != noone)
+     {
+          if (window == 2 && (window_timer == 3 || window_timer == 6 || window_timer == 9))
+          {
+               fspecial_boosted_got_out = true;
+          }
 
+          if (((window == 2 && (window_timer == 5 || window_timer == 8)) || (window == 3 && window_timer == 1)) && fspecial_boosted_got_out == true)
+          {
+               fspecial_boosted_player_hit.hsp = 4 * spr_dir;
+               fspecial_boosted_player_hit.hsp = 4 * spr_dir;
+
+               fspecial_boosted_player_hit = noone;
+               fspecial_boosted_hit = false;
+               fspecial_boosted_got_out = false;
+          }
+     }
+}
 
 
 //          CHANGE --------- CHANGE

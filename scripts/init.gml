@@ -66,6 +66,7 @@ shade_soul_player_hit = noone;
 //Forward Special Boosted
 fspecial_boosted_hit = false;
 fspecial_boosted_player_hit = noone;
+fspecial_boosted_got_out = false;
 
 //Forward Special Boosted
 dspecial_boosted_hit = false;

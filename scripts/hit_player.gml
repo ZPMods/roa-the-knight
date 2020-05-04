@@ -72,10 +72,12 @@ if (my_hitboxID.attack == AT_NSPECIAL_2)
 //Forward Special Boosted Multihit
 if (my_hitboxID.attack == AT_FSPECIAL_2)
 {
+     fspecial_boosted_got_out = false;
+
      if (my_hitboxID.hbox_num != 4)
      {
           fspecial_boosted_player_hit = hit_player_obj;
-          newhit_hsp = old_hsp + (spr_dir * hit_player_obj.air_friction * 3);
+          newhit_hsp = old_hsp + (spr_dir * hit_player_obj.air_friction * 20);
           newhit_vsp = -1 * hit_player_obj.hitstun_grav * 2;
 
           fspecial_boosted_hit = true;
