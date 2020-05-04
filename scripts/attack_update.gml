@@ -17,14 +17,9 @@ if((attack == AT_DSPECIAL && window >= 6 && !hitpause) || attack == AT_DSPECIAL_
 }
 //DACUS
 
-if (attack == AT_DATTACK && window == 2 && window_timer <= 3)
+if (attack == AT_DATTACK && window <= 2 && window_timer <= 3)
 {
-    if(up_strong_pressed)
-    {
-        set_window_value(AT_DATTACK, 2, AG_WINDOW_HSPEED, 0);
-        attack = AT_USTRONG;
-    }
-    set_window_value(AT_DATTACK, 2, AG_WINDOW_HSPEED, 2);
+    can_ustrong = true;
 }
 //BOOSTED --------------------------------------------------
 
@@ -231,6 +226,24 @@ if (attack == AT_DSPECIAL_2 && !free && window == 4)
   window_timer = 0;
 }
 
+
+//          CHANGE --------- CHANGE
+
+if (attack == AT_DSPECIAL_2 and (newhit_vsp != 0 or newhit_hsp != 0))
+{
+    if(dspecial_boosted_player_hit != noone){
+        if ((dspecial_boosted_player_hit.state == PS_HITSTUN or dspecial_boosted_player_hit.state == PS_HITSTUN_LAND) and !dspecial_boosted_player_hit.hitpause){
+            dspecial_boosted_player_hit.vsp = newhit_vsp;
+            dspecial_boosted_player_hit.hsp = newhit_hsp;
+            newhit_vsp = 0;
+            newhit_hsp = 0;
+            debug = 1;
+        }
+        
+    }
+}
+
+
 //--------------------------------------------------------
 //------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 //NEUTRAL SPECIAL MECHANICS ---------------------------------
@@ -255,7 +268,7 @@ if (attack == AT_NSPECIAL_2 && window == 2 && window_timer == 1)
      shade_soul_hit = false;
      shade_soul_first_hit = false;
 
-     var shade_soul = instance_create(x + 20 * spr_dir, y + 10, "obj_article1");
+     shade_soul = instance_create(x + 20 * spr_dir, y + 10, "obj_article1");
      shade_soul.spr_dir = spr_dir;
      shade_soul.hsp *= spr_dir;
 }
@@ -288,9 +301,31 @@ if (attack == AT_FSPECIAL || attack == AT_FSPECIAL_2)
 //Forward Special Boosted Position Reset
 if (attack != AT_FSPECIAL_2)
 {
-     fspecial_boosted_player_hit = 0;
+     fspecial_boosted_player_hit = noone;
      fspecial_boosted_hit = false;
 }
+
+
+
+
+//          CHANGE --------- CHANGE
+
+if (attack == AT_FSPECIAL_2 and (shade_soul.newhit_vsp != 0 or shade_soul.newhit_hsp != 0))
+{
+    if(fspecial_boosted_player_hit != noone){
+        if ((fspecial_boosted_player_hit.state == PS_HITSTUN or fspecial_boosted_player_hit.state == PS_HITSTUN_LAND) and !fspecial_boosted_player_hit.hitpause){
+            
+            fspecial_boosted_player_hit.vsp = newhit_vsp;
+            fspecial_boosted_player_hit.hsp = newhit_hsp;
+            newhit_vsp = 0;
+            newhit_hsp = 0;
+            debug = 1;
+        }
+        
+    }
+}
+
+
 
 //Forward Special Boosted Jump Cancel
 if (attack == AT_FSPECIAL_2 && hitpause)

@@ -158,38 +158,38 @@ if(shade_mod)
 }
 
 
+//          CHANGE --------- CHANGE
 
+// //Neutral Special Boosted Multihit
+// if (shade_soul_first_hit)
+// {
+//      shade_soul_player_hit.x = lerp(shade_soul_player_hit.x, shade_soul_x, 0.3);
+//      shade_soul_player_hit.y = lerp(shade_soul_player_hit.y, shade_soul_y, 0.3);
+// }
 
-//Neutral Special Boosted Multihit
-if (shade_soul_first_hit)
+// //Forward Special Boosted Multihit
+// if (fspecial_boosted_hit)
+// {
+//      fspecial_boosted_player_hit.x = lerp(fspecial_boosted_player_hit.x, x, 0.8);
+//      fspecial_boosted_player_hit.y = lerp(fspecial_boosted_player_hit.y, y, 0.8);
+// }
+
+if (fspecial_boosted_hit && !(state == PS_ATTACK_GROUND || state == PS_ATTACK_AIR))
 {
-     shade_soul_player_hit.x = lerp(shade_soul_player_hit.x, shade_soul_x, 0.3);
-     shade_soul_player_hit.y = lerp(shade_soul_player_hit.y, shade_soul_y, 0.3);
-}
-
-//Forward Special Boosted Multihit
-if (fspecial_boosted_hit)
-{
-     fspecial_boosted_player_hit.x = lerp(fspecial_boosted_player_hit.x, x, 0.8);
-     fspecial_boosted_player_hit.y = lerp(fspecial_boosted_player_hit.y, y, 0.8);
-}
-
-if (fspecial_boosted_hit && (state_cat == SC_AIR_NEUTRAL || state_cat == SC_GROUND_NEUTRAL))
-{
-     fspecial_boosted_player_hit = 0;
+     fspecial_boosted_player_hit = noone;
      fspecial_boosted_hit = false;
 }
 
-//Down Special Boosted Multihit
-if (dspecial_boosted_hit)
-{
-     dspecial_boosted_player_hit.x = lerp(dspecial_boosted_player_hit.x, x, 0.8);
-     dspecial_boosted_player_hit.y = lerp(dspecial_boosted_player_hit.y, y, 0.8) + 40;
-}
+// //Down Special Boosted Multihit
+// if (dspecial_boosted_hit)
+// {
+//      dspecial_boosted_player_hit.x = lerp(dspecial_boosted_player_hit.x, x, 0.8);
+//      dspecial_boosted_player_hit.y = lerp(dspecial_boosted_player_hit.y, y, 0.8) + 40;
+// }
 
-if (dspecial_boosted_hit && (state_cat == SC_AIR_NEUTRAL || state_cat == SC_GROUND_NEUTRAL))
+if (dspecial_boosted_hit && !(state == PS_ATTACK_GROUND || state == PS_ATTACK_AIR))
 {
-     dspecial_boosted_player_hit = 0;
+     dspecial_boosted_player_hit = noone;
      dspecial_boosted_hit = false;
 }
 
@@ -418,23 +418,23 @@ if swallowed {
     }
 }
 
-if enemykirby != undefined { //if kirby is in a match & swallowed
-    with oPlayer { //Run through all players
-        if (state_cat == SC_GROUND_COMMITTED || state_cat == SC_GROUND_NEUTRAL) && move_cooldown[AT_EXTRA_3] == 0 {
-            kirb_used_Theknight = 0;
-        }
-        if ((state == PS_ATTACK_AIR || state == PS_ATTACK_GROUND) && attack == AT_EXTRA_3) {
-            if (get_window_value(AT_EXTRA_3,2,AG_WINDOW_ANIM_FRAMES) == 99765 && kirb_used_Theknight == 0) {
-                kirb_used_Theknight = 1;
-                move_cooldown[AT_EXTRA_3] = 20;
-                hsp = -hsp;
-                vsp = - vsp;
-                sound_play(other.switch_sfx);
-            }
+// if enemykirby != undefined { //if kirby is in a match & swallowed
+//     with oPlayer { //Run through all players
+//         if (state_cat == SC_GROUND_COMMITTED || state_cat == SC_GROUND_NEUTRAL) && move_cooldown[AT_EXTRA_3] == 0 {
+//             kirb_used_Theknight = 0;
+//         }
+//         if ((state == PS_ATTACK_AIR || state == PS_ATTACK_GROUND) && attack == AT_EXTRA_3) {
+//             if (get_window_value(AT_EXTRA_3,2,AG_WINDOW_ANIM_FRAMES) == 99765 && kirb_used_Theknight == 0) {
+//                 kirb_used_Theknight = 1;
+//                 move_cooldown[AT_EXTRA_3] = 20;
+//                 hsp = -hsp;
+//                 vsp = - vsp;
+//                 sound_play(other.switch_sfx);
+//             }
 
-        }
-    }
-}
+//         }
+//     }
+// }
 //Trummel
 if trummelcodecneeded{
     trummelcodec = 17;

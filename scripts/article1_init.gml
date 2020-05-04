@@ -16,6 +16,11 @@ timer_boom = 14;
 stage_left = get_stage_data(SD_X_POS) - get_stage_data(SD_SIDE_BLASTZONE);
 stage_right = (room_width - get_stage_data(SD_X_POS)) + get_stage_data(SD_SIDE_BLASTZONE);
 
+//          CHANGE --------- CHANGE
+shade_soul_player_hit = noone;
+newhit_vsp = 0;
+newhit_hsp = 0;
+
 //Animation
 nspecial_animation_frame = 8;
 nspecial_animation_framelength = 4;

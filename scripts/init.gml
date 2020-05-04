@@ -61,15 +61,15 @@ shade_soul_hit = false;
 shade_soul_first_hit = false;
 shade_soul_x = 0;
 shade_soul_y = 0;
-shade_soul_player_hit = 0;
+shade_soul_player_hit = noone;
 
 //Forward Special Boosted
 fspecial_boosted_hit = false;
-fspecial_boosted_player_hit = 0;
+fspecial_boosted_player_hit = noone;
 
 //Forward Special Boosted
 dspecial_boosted_hit = false;
-dspecial_boosted_player_hit = 0;
+dspecial_boosted_player_hit = noone;
 
 //SOUL
 
@@ -391,10 +391,13 @@ dream_nail_shovel[0] = "Debug Shovel 1";
 dream_nail_shovel[1] = "Debug Shovel 2";
 dream_nail_shovel[2] = "Debug Shovel 3";
 
-
-
-
-
+//TP related branch
+//          CHANGE --------- CHANGE
+debug = 0;
+newhit_vsp = 0;
+newhit_hsp = 0;
+hitbox_hitpause = 0;
+shade_soul = noone;
 
 vanillachar = 25; // Permet de détecter le main cast
 dream_random = "";

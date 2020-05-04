@@ -45,12 +45,17 @@ if (my_hitboxID.attack == AT_DSPECIAL_2 && window == 4)
     hit_player_obj.should_make_shockwave = true;
 }
 
+
+//          CHANGE --------- CHANGE
 //Neutral Special Boosted Multihit
 if (my_hitboxID.attack == AT_NSPECIAL_2)
 {
-     if (my_hitboxID.hbox_num == 3)
-     {
-          shade_soul_player_hit = hit_player_obj;
+     if (my_hitboxID.hbox_num != 2)
+     {	
+     	  //multi-hit moved to article
+          shade_soul.shade_soul_player_hit = hit_player_obj;
+          shade_soul.newhit_hsp = shade_soul.hsp + (shade_soul.spr_dir * hit_player_obj.air_friction * 4);
+          shade_soul.newhit_vsp = -1 * hit_player_obj.hitstun_grav * 4;
           shade_soul_hit = true;
      }
 
@@ -62,32 +67,43 @@ if (my_hitboxID.attack == AT_NSPECIAL_2)
 
 }
 
+
+//          CHANGE --------- CHANGE
 //Forward Special Boosted Multihit
 if (my_hitboxID.attack == AT_FSPECIAL_2)
 {
      if (my_hitboxID.hbox_num != 4)
      {
+     	  
           fspecial_boosted_player_hit = hit_player_obj;
+          newhit_hsp = old_hsp + (spr_dir * hit_player_obj.air_friction * 2);
+          newhit_vsp = -1 * hit_player_obj.hitstun_grav * 2;
+          
           fspecial_boosted_hit = true;
      }
      else
      {
-          fspecial_boosted_player_hit = 0;
+          fspecial_boosted_player_hit = noone;
           fspecial_boosted_hit = false;
      }
 }
 
+
+//          CHANGE --------- CHANGE
 //Down Special Boosted Multihit
 if (my_hitboxID.attack == AT_DSPECIAL_2)
 {
-     if (my_hitboxID.hbox_num < 6)
+     if (my_hitboxID.hbox_num < 5)
      {
           dspecial_boosted_player_hit = hit_player_obj;
+          newhit_hsp = hsp;
+          newhit_vsp = vsp + (hit_player_obj.air_friction * 5);
+          
           dspecial_boosted_hit = true;
      }
      else
      {
-          dspecial_boosted_player_hit = 0;
+          dspecial_boosted_player_hit = noone;
           dspecial_boosted_hit = false;
      }
 }
