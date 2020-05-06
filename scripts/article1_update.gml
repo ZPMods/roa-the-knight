@@ -1,3 +1,4 @@
+
 //timer
 if (player_id.shade_soul_first_hit)
 {
@@ -18,7 +19,8 @@ if (player_id.shade_soul_first_hit)
 }
 else
 {
-     create_hitbox(AT_NSPECIAL_2, 3, x, y - 33)
+     shade_hitbox = create_hitbox(AT_NSPECIAL_2, 3, x, y - 33)
+     shade_hitbox.source = id;
 }
 
 player_id.shade_soul_x = x;
