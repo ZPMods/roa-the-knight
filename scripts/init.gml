@@ -71,6 +71,7 @@ fspecial_boosted_got_out = false;
 //Forward Special Boosted
 dspecial_boosted_hit = false;
 dspecial_boosted_player_hit = noone;
+dspecial_boosted_got_out = false;
 
 //SOUL
 

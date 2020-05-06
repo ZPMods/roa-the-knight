@@ -229,7 +229,7 @@ if (attack == AT_DSPECIAL_2 && !free && window == 4)
 
 //          CHANGE --------- CHANGE
 
-if (attack == AT_DSPECIAL_2 and (newhit_vsp != 0 or newhit_hsp != 0))
+/* if (attack == AT_DSPECIAL_2 and (newhit_vsp != 0 or newhit_hsp != 0))
 {
     if(dspecial_boosted_player_hit != noone){
         if ((dspecial_boosted_player_hit.state == PS_HITSTUN or dspecial_boosted_player_hit.state == PS_HITSTUN_LAND) and !dspecial_boosted_player_hit.hitpause){
@@ -241,6 +241,28 @@ if (attack == AT_DSPECIAL_2 and (newhit_vsp != 0 or newhit_hsp != 0))
         }
 
     }
+} */
+
+//Getting out failsafe
+if (attack == AT_DSPECIAL_2)
+{
+     if (dspecial_boosted_player_hit != noone)
+     {
+          if (window == 4 && (window_timer == 0 || window_timer == 4 || window_timer == 8 || window_timer == 12))
+          {
+               dspecial_boosted_got_out = true;
+          }
+
+          if ((window == 4 && (window_timer == 3 || window_timer == 7 || window_timer == 11 || window_timer == 15)) && dspecial_boosted_got_out == true)
+          {
+               dspecial_boosted_player_hit.hsp = 0;
+               dspecial_boosted_player_hit.vsp = 1;
+
+               dspecial_boosted_player_hit = noone;
+               dspecial_boosted_hit = false;
+               dspecial_boosted_got_out = false;
+          }
+     }
 }
 
 
@@ -317,7 +339,6 @@ if (attack == AT_FSPECIAL_2)
 
           if (((window == 2 && (window_timer == 5 || window_timer == 8)) || (window == 3 && window_timer == 1)) && fspecial_boosted_got_out == true)
           {
-               fspecial_boosted_player_hit.hsp = 4 * spr_dir;
                fspecial_boosted_player_hit.hsp = 4 * spr_dir;
 
                fspecial_boosted_player_hit = noone;

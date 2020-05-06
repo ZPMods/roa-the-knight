@@ -94,11 +94,13 @@ if (my_hitboxID.attack == AT_FSPECIAL_2)
 //Down Special Boosted Multihit
 if (my_hitboxID.attack == AT_DSPECIAL_2)
 {
+     dspecial_boosted_got_out = false;
+
      if (my_hitboxID.hbox_num < 5)
      {
           dspecial_boosted_player_hit = hit_player_obj;
-          newhit_hsp = hsp;
-          newhit_vsp = vsp + (hit_player_obj.air_friction * 5);
+          /* newhit_hsp = hsp;
+          newhit_vsp = vsp + (hit_player_obj.air_friction * 5); */
 
           dspecial_boosted_hit = true;
      }
@@ -106,6 +108,11 @@ if (my_hitboxID.attack == AT_DSPECIAL_2)
      {
           dspecial_boosted_player_hit = noone;
           dspecial_boosted_hit = false;
+     }
+
+     if (my_hitboxID.hbox_num == 10)
+     {
+          djumps = 0;
      }
 }
 
