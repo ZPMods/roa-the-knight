@@ -23,8 +23,8 @@ close_side_attacks[0] = AT_DSTRONG;
 close_side_attacks[1] = AT_FSTRONG;
 
 
-// neutral_attacks[0] = AT_JAB;
-neutral_attacks[0] = AT_NAIR;
+//neutral_attacks[0] = AT_NSPECIAL;
+// neutral_attacks[1] = AT_NAIR;
 
 
 FTILTprob = random_func(3,1,false);
@@ -55,6 +55,9 @@ new_x = x;
 new_y = y;
 chasing = 0;
 to_boost = 0;
+strongPercent = 0;
+stall = 0;
+camping = 0;
 
 iterations = 0;
 cancel_jab = false;

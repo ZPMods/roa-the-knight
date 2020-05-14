@@ -1,4 +1,5 @@
 sprite_change_offset("smalltalk",7,0);
+sprite_change_offset("Kirby_Knight",32,54);
 
 sprite_change_offset("_hurtbox_standing", 82, 128);
 sprite_change_offset("_hurtbox_crouching", 82, 128);

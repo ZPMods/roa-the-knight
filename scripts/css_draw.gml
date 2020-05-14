@@ -17,13 +17,13 @@ alt_name[1]  = "Quirrel";
 alt_name[2]  = "Grimm";
 alt_name[3]  = "Hollow Knight";
 alt_name[4]  = "Hornet";
-alt_name[5]  = "Pale King";
-alt_name[6]  = "Seer";
-alt_name[7]  = "Godseeker";
-alt_name[8]  = "Pink / Blue";
-alt_name[9]  = "Rainbow";
-alt_name[10] = "Early Acces";
-alt_name[11] = "Abyss";
+alt_name[5]  = "Trans Right";
+alt_name[6]  = "Rainbow";
+alt_name[7]  = "Early Acces";
+alt_name[8]  = "Abyss";
+alt_name[9]  = "Pale King";
+alt_name[10] = "Thistlewind";
+alt_name[11] = "Godseeker";
 
 
 
@@ -35,11 +35,11 @@ if (alt_cur == 6){
 }
 */
 // Abyss
-if (alt_cur == 11){
+if (alt_cur == 8){
   draw_sprite_ext(sprite_get("cssextras"), 1, temp_x + 3, temp_y + 92, 1, 1, 0, c_white, 1);
 }
 // Early Access
-if (alt_cur == 10){
+if (alt_cur == 7){
   draw_sprite_ext(sprite_get("cssextras"), 3, temp_x + 3, temp_y + 92, 1, 1, 0, c_white, 1);
 }
 /*

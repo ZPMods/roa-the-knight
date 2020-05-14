@@ -1,7 +1,7 @@
 // Test Nul
 
 //Rainbow Color
-if get_player_color(player) = 9 {
+if get_player_color(player) = 6 {
 	hue+=1 if hue>255 hue-=255;
 	//make hue shift every step + loop around
 
@@ -101,7 +101,7 @@ if (get_player_color(player) == 1 && get_gameplay_time() <= 3 )
 //----------------------------------------------------------
 // GAMEPLAY
 //----------------------------------------------------------
-if (get_player_color(player) == 10){
+if (get_player_color(player) == 7){
     for(i = 0; i < 6; i++){
         set_character_color_shading(i, 0);
     }
@@ -349,9 +349,9 @@ if swallowed {
     swallowed = 0;
     kirb_used = 0;
 
-    var ability_spr = sprite_get("nspecial");
-    var ability_air_spr = sprite_get("nspecial");
-    var hurtbox_spr = sprite_get("nspecial_hurt");
+    var ability_spr = sprite_get("Kirby_Knight");
+    var ability_air_spr = sprite_get("Kirby_Knight");
+    var hurtbox_spr = sprite_get("Kirby_Knight_hurt");
     var ability_proj_spr = sprite_get("nspecial_proj");
 
     with enemykirby {
@@ -377,7 +377,7 @@ if swallowed {
     	set_window_value(AT_EXTRA_3, 2, AG_WINDOW_TYPE, 1);
     	set_window_value(AT_EXTRA_3, 2, AG_WINDOW_LENGTH, 4);
     	set_window_value(AT_EXTRA_3, 2, AG_WINDOW_ANIM_FRAMES, 1);
-    	set_window_value(AT_EXTRA_3, 2, AG_WINDOW_ANIM_FRAME_START, 3);
+    	set_window_value(AT_EXTRA_3, 2, AG_WINDOW_ANIM_FRAME_START, 1);
     	set_window_value(AT_EXTRA_3, 2, AG_WINDOW_HSPEED, 0);
     	set_window_value(AT_EXTRA_3, 2, AG_WINDOW_VSPEED, 0);
     	set_window_value(AT_EXTRA_3, 2, AG_WINDOW_HSPEED_TYPE, 1);
@@ -385,8 +385,8 @@ if swallowed {
 
     	set_window_value(AT_EXTRA_3, 3, AG_WINDOW_TYPE, 1);
     	set_window_value(AT_EXTRA_3, 3, AG_WINDOW_LENGTH, 12);
-    	set_window_value(AT_EXTRA_3, 3, AG_WINDOW_ANIM_FRAMES, 2);
-    	set_window_value(AT_EXTRA_3, 3, AG_WINDOW_ANIM_FRAME_START, 4);
+    	set_window_value(AT_EXTRA_3, 3, AG_WINDOW_ANIM_FRAMES, 1);
+    	set_window_value(AT_EXTRA_3, 3, AG_WINDOW_ANIM_FRAME_START, 2);
     	set_window_value(AT_EXTRA_3, 3, AG_WINDOW_HSPEED, 0);
 		set_window_value(AT_EXTRA_3, 3, AG_WINDOW_VSPEED, 0);
     	set_window_value(AT_EXTRA_3, 3, AG_WINDOW_HSPEED_TYPE, 1);
@@ -410,7 +410,6 @@ if swallowed {
     	set_hitbox_value(AT_EXTRA_3, 1, HG_KNOCKBACK_SCALING, 0.3);
     	set_hitbox_value(AT_EXTRA_3, 1, HG_BASE_HITPAUSE, 9);
     	set_hitbox_value(AT_EXTRA_3, 1, HG_ANGLE, 75);
-    	set_hitbox_value(AT_EXTRA_3, 1, HG_VISUAL_EFFECT_Y_OFFSET, -16);
     	set_hitbox_value(AT_EXTRA_3, 1, HG_PROJECTILE_SPRITE, ability_proj_spr);
     	set_hitbox_value(AT_EXTRA_3, 1, HG_PROJECTILE_MASK, ability_proj_spr);
     	set_hitbox_value(AT_EXTRA_3, 1, HG_PROJECTILE_ANIM_SPEED, .2);

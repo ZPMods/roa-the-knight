@@ -54,8 +54,8 @@ if (my_hitboxID.attack == AT_NSPECIAL_2)
      {
      	  //multi-hit moved to article
           shade_soul.shade_soul_player_hit = hit_player_obj;
-          shade_soul.newhit_hsp = shade_soul.hsp + (shade_soul.spr_dir * hit_player_obj.air_friction * 4);
-          shade_soul.newhit_vsp = -1 * hit_player_obj.hitstun_grav * 4;
+          shade_soul.newhit_hsp = shade_soul.hsp + (shade_soul.spr_dir * hit_player_obj.air_friction * 3);
+          shade_soul.newhit_vsp = -1 * hit_player_obj.hitstun_grav * 3;
           shade_soul_hit = true;
      }
 
@@ -77,7 +77,7 @@ if (my_hitboxID.attack == AT_FSPECIAL_2)
      if (my_hitboxID.hbox_num != 4)
      {
           fspecial_boosted_player_hit = hit_player_obj;
-          newhit_hsp = old_hsp + (spr_dir * hit_player_obj.air_friction * 20);
+          newhit_hsp = hsp + (spr_dir * hit_player_obj.air_friction * 20);
           newhit_vsp = -1 * hit_player_obj.hitstun_grav * 2;
 
           fspecial_boosted_hit = true;
