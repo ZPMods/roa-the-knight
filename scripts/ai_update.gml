@@ -24,7 +24,8 @@ if (get_training_cpu_action() == CPU_FIGHT){
     chasing = 0;
     camping = 0;
     debug = 0;
-    var offstage = (x > room_width - stagex || x < stagex);
+    do_not_attack = 0;
+    var offstage = (x > room_width - stagex || x < stagex) and y <= stagey;
     var ai_target_offstage = (ai_target.x - hurtboxWidth > room_width - stagex || ai_target.x + hurtboxWidth < stagex);
     if state_cat == SC_HITSTUN{
     	if (hit_player_obj != ai_target){
@@ -107,32 +108,31 @@ if (get_training_cpu_action() == CPU_FIGHT){
 				}
 			}
 			
-			// if can_special and xdist > 350 and facing {
+			if can_special and xdist > 350 and ydist < 20 and facing {
 				
-			//     joy_pad_idle = true;
-			// 	up_pressed = false;
-			// 	left_pressed = false;
-			// 	right_pressed = false;
-			// 	down_pressed = false;
-			// 	left_down = false;
-			// 	right_down = false;
-			// 	up_down = false;
-			// 	down_down = false;
-			//     special_pressed = true;
-			//     attack_pressed = false;
-			// }
+			    joy_pad_idle = true;
+				up_pressed = false;
+				left_pressed = false;
+				right_pressed = false;
+				down_pressed = false;
+				left_down = false;
+				right_down = false;
+				up_down = false;
+				down_down = false;
+			    special_pressed = true;
+			    attack_pressed = false;
+			}
 		}
 		
 		camping = 1;
 	}
     
-	if (ai_target.state == PS_DEAD or ai_target.state == PS_RESPAWN) and !free and !(x > room_width/2 - 100 or x > room_width/2 + 100){
+	if (ai_target.state == PS_DEAD or ai_target.state == PS_RESPAWN) and !free and !(x > room_width/2 - 100 and x < room_width/2 + 100){
     	clear_button_buffer(PC_JUMP_PRESSED);
     	jump_down = false;
     	jump_pressed = false;
     	tiltDance();
     	
-
     }
 	
 	if (state_cat == SC_GROUND_NEUTRAL or state_cat == SC_AIR_NEUTRAL or (state == PS_DASH_START or state == PS_DASH or state == PS_DASH_TURN) and state != PS_SPAWN){
@@ -241,7 +241,9 @@ if (get_training_cpu_action() == CPU_FIGHT){
     // 	can_attack = false;
     // }
 	
-	
+	if (attack == AT_NSPECIAL and ai_target_offstage and soul_points >= 50 and window > 0){
+		special_down = true;
+	}
 	
 	if can_special and !targetbusy{
 		
@@ -293,7 +295,7 @@ if (get_training_cpu_action() == CPU_FIGHT){
 		
 	}
 	
-	if (attack == AT_USPECIAL and to_boost){	
+	if (attack == AT_USPECIAL and to_boost and window == 1){	
 		joy_pad_idle = true;
 	    special_down = true;
 	    if(to_boost > 0){
@@ -301,10 +303,16 @@ if (get_training_cpu_action() == CPU_FIGHT){
 		}
 	}
 	
-
+	if(ai_recovering){
+		if(y + char_height >= stagey){
+			if !(can_boost and vsp < -1){
+				do_not_attack = 1;
+			}
+		}
+	}
 	
     //Attacks
-    if (can_attack or state == PS_DASH or state == PS_DOUBLE_JUMP) and !targetbusy and !to_boost and (!ai_recovering ? true : (y + 20 <= stagey ? true : (can_boost and vsp < -1))){
+    if (can_attack or state == PS_DASH or state == PS_DOUBLE_JUMP) and !targetbusy and !to_boost and !do_not_attack{
     	
     	
         
@@ -594,6 +602,7 @@ if (get_training_cpu_action() == CPU_FIGHT){
 }
 
 #define Nspecial
+/// Nspecial(side, ...)
 
 var side = argument[0];
 
@@ -610,6 +619,7 @@ special_pressed = true;
 attack_pressed = false;
 
 #define Fspecial
+/// Fspecial(side, ...)
 
 var side = argument[0];
 
@@ -838,7 +848,7 @@ if len != 0{
 		
 		if(chosenAttack == AT_DATTACK){
 			if attack == AT_DATTACK{
-				if random_func(6, 100, true) < 33{
+				if random_func(6, 100, true) < 90{
 					chosenAttack = noone;
 					reroll = false;
 					break;

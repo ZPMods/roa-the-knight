@@ -34,7 +34,7 @@ set_window_value(AT_NSPECIAL_2, 3, AG_WINDOW_LENGTH, 12);
 set_window_value(AT_NSPECIAL_2, 3, AG_WINDOW_ANIM_FRAMES, 5);
 set_window_value(AT_NSPECIAL_2, 3, AG_WINDOW_ANIM_FRAME_START, 6);
 
-set_num_hitboxes(AT_NSPECIAL_2, 2);
+set_num_hitboxes(AT_NSPECIAL_2, 3);
 
 //Hitbox Drag
 set_hitbox_value(AT_NSPECIAL_2, 1, HG_PARENT_HITBOX, 1);
@@ -75,6 +75,22 @@ set_hitbox_value(AT_NSPECIAL_2, 2, HG_PROJECTILE_WALL_BEHAVIOR, 0);
 set_hitbox_value(AT_NSPECIAL_2, 2, HG_VISUAL_EFFECT, nspecial_boosted_explosion);
 
 //First Hitbox
-set_hitbox_value(AT_NSPECIAL_2, 3, HG_PARENT_HITBOX, 1);
+//set_hitbox_value(AT_NSPECIAL_2, 3, HG_PARENT_HITBOX, 3);
 set_hitbox_value(AT_NSPECIAL_2, 3, HG_HITBOX_TYPE, 2);
-set_hitbox_value(AT_NSPECIAL_2, 3, HG_HITBOX_GROUP, 1);
+set_hitbox_value(AT_NSPECIAL_2, 3, HG_HITBOX_GROUP, 3);
+set_hitbox_value(AT_NSPECIAL_2, 3, HG_LIFETIME, 1920);
+set_hitbox_value(AT_NSPECIAL_2, 3, HG_HITBOX_X, -10);
+set_hitbox_value(AT_NSPECIAL_2, 3, HG_HITBOX_Y, 0);
+set_hitbox_value(AT_NSPECIAL_2, 3, HG_PRIORITY, 9);
+set_hitbox_value(AT_NSPECIAL_2, 3, HG_BASE_KNOCKBACK, 6);
+set_hitbox_value(AT_NSPECIAL_2, 3, HG_SHAPE, 2);
+set_hitbox_value(AT_NSPECIAL_2, 3, HG_WIDTH, 70);
+set_hitbox_value(AT_NSPECIAL_2, 3, HG_HEIGHT, 40);
+set_hitbox_value(AT_NSPECIAL_2, 3, HG_DAMAGE, 1);
+set_hitbox_value(AT_NSPECIAL_2, 3, HG_ANGLE, 20);
+set_hitbox_value(AT_NSPECIAL_2, 3, HG_HIT_SFX, asset_get("sfx_blow_weak1"));
+set_hitbox_value(AT_NSPECIAL_2, 3, HG_PROJECTILE_SPRITE, asset_get("empty_sprite"));
+set_hitbox_value(AT_NSPECIAL_2, 3, HG_PROJECTILE_MASK, -1);
+set_hitbox_value(AT_NSPECIAL_2, 3, HG_LIFETIME, 200);
+set_hitbox_value(AT_NSPECIAL_2, 3, HG_PROJECTILE_ENEMY_BEHAVIOR	, 1);
+set_hitbox_value(AT_NSPECIAL_2, 3, HG_VISUAL_EFFECT, shade_hit_weak);

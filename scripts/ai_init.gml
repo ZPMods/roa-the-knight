@@ -58,6 +58,7 @@ to_boost = 0;
 strongPercent = 0;
 stall = 0;
 camping = 0;
+do_not_attack = 0;
 
 iterations = 0;
 cancel_jab = false;

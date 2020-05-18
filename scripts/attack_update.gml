@@ -147,7 +147,8 @@ if (attack == AT_DSPECIAL && window == 6)
 {
      if (window_timer == 18)
      {
-          set_state(PS_IDLE);
+          window = 29;
+          window_timer = 0;
      }
 }
 
@@ -159,7 +160,8 @@ if (attack == AT_DSPECIAL && window == 5 && has_dspecial_air_hit == true)
 }
 if (attack == AT_DSPECIAL && window == 8 && window_timer == 7)
 {
-  set_state(PS_IDLE);
+  window = 29;
+  window_timer = 0;
   move_cooldown[AT_DSPECIAL] = 999;
 }
 
@@ -276,6 +278,11 @@ if (attack == AT_NSPECIAL)
     move_cooldown[AT_NSPECIAL] = 30;
 }
 
+if (attack == AT_NSPECIAL_2)
+{
+    move_cooldown[AT_NSPECIAL] = 25;
+}
+
 //Effect
 if (attack == AT_NSPECIAL && window == 2 && window_timer == 8)
 {
@@ -287,10 +294,10 @@ if (attack == AT_NSPECIAL && window == 2 && window_timer == 8)
 //Faire spawn l'article
 if (attack == AT_NSPECIAL_2 && window == 2 && window_timer == 1)
 {
-     shade_soul_hit = false;
-     shade_soul_first_hit = false;
-
      shade_soul = instance_create(x + 20 * spr_dir, y + 10, "obj_article1");
+     shade_soul.shade_soul_hit = false;
+     shade_soul.shade_soul_first_hit = false;
+     
      shade_soul.spr_dir = spr_dir;
      shade_soul.hsp *= spr_dir;
 }

@@ -1,5 +1,6 @@
 // Test Nul
-
+soul_points = 100;
+debug = 0;
 //Rainbow Color
 if get_player_color(player) = 6 {
 	hue+=1 if hue>255 hue-=255;
@@ -245,11 +246,7 @@ if (shade_burst_play = 1)
 	spawnShadeBurst(shade_burst_x, shade_burst_y);
 }
 
-if (shade_bubbles_play = 1)
-{
-	shade_bubbles_play = 0;
-	spawnShadeBubbles(shade_bubbles_x, shade_bubbles_y);
-}
+
 
 //------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
@@ -417,23 +414,23 @@ if swallowed {
     }
 }
 
-// if enemykirby != undefined { //if kirby is in a match & swallowed
-//     with oPlayer { //Run through all players
-//         if (state_cat == SC_GROUND_COMMITTED || state_cat == SC_GROUND_NEUTRAL) && move_cooldown[AT_EXTRA_3] == 0 {
-//             kirb_used_Theknight = 0;
-//         }
-//         if ((state == PS_ATTACK_AIR || state == PS_ATTACK_GROUND) && attack == AT_EXTRA_3) {
-//             if (get_window_value(AT_EXTRA_3,2,AG_WINDOW_ANIM_FRAMES) == 99765 && kirb_used_Theknight == 0) {
-//                 kirb_used_Theknight = 1;
-//                 move_cooldown[AT_EXTRA_3] = 20;
-//                 hsp = -hsp;
-//                 vsp = - vsp;
-//                 sound_play(other.switch_sfx);
-//             }
+if enemykirby != undefined { //if kirby is in a match & swallowed
+    with oPlayer { //Run through all players
+        if (state_cat == SC_GROUND_COMMITTED || state_cat == SC_GROUND_NEUTRAL) && move_cooldown[AT_EXTRA_3] == 0 {
+            kirb_used_Theknight = 0;
+        }
+        if ((state == PS_ATTACK_AIR || state == PS_ATTACK_GROUND) && attack == AT_EXTRA_3) {
+            if (get_window_value(AT_EXTRA_3,2,AG_WINDOW_ANIM_FRAMES) == 99765 && kirb_used_Theknight == 0) {
+                kirb_used_Theknight = 1;
+                move_cooldown[AT_EXTRA_3] = 20;
+                hsp = -hsp;
+                vsp = - vsp;
+                sound_play(other.switch_sfx);
+            }
 
-//         }
-//     }
-// }
+        }
+    }
+}
 //Trummel
 if trummelcodecneeded{
     trummelcodec = 17;
@@ -726,20 +723,3 @@ switch (id)
 spawn_hit_fx(argument[0], argument[1], toSpawn);
 
 //----------------------------------------------------------
-
-#define spawnShadeBubbles
-//argument 0 = x
-//argument 1 = y
-var id = random_func(0, 5, true);
-var toSpawn = shade_bubbles_1;
-
-switch (id)
-{
-	case 0 : toSpawn = shade_bubbles_1; break;
-	case 1 : toSpawn = shade_bubbles_1; break;
-	case 2 : toSpawn = shade_bubbles_3; break;
-	case 3 : toSpawn = shade_bubbles_4; break;
-	case 4 : toSpawn = shade_bubbles_5; break;
-}
-
-spawn_hit_fx(argument[0], argument[1], toSpawn);

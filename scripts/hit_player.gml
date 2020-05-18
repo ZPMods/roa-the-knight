@@ -52,11 +52,20 @@ if (my_hitboxID.attack == AT_NSPECIAL_2)
 {
      if (my_hitboxID.hbox_num != 2)
      {
+     		debug = hit_player_obj.player
      	  //multi-hit moved to article
-          shade_soul.shade_soul_player_hit = hit_player_obj;
-          shade_soul.newhit_hsp = shade_soul.hsp + (shade_soul.spr_dir * hit_player_obj.air_friction * 3);
-          shade_soul.newhit_vsp = -1 * hit_player_obj.hitstun_grav * 3;
-          shade_soul_hit = true;
+     	  if(hit_player_obj.player != 0){
+     	  	 shade_soul.shade_soul_player_hit = hit_player_obj;
+        	 shade_soul.newhit_hsp = shade_soul.hsp + (shade_soul.spr_dir * hit_player_obj.air_friction * 3);
+         	 shade_soul.newhit_vsp = -1 * hit_player_obj.hitstun_grav * 3;
+        	 shade_soul.shade_soul_hit = true;
+        	 instance_destroy(shade_soul.shade_hitbox);
+        	 
+     	  }else{
+     	  	 shade_soul.shade_soul_player_hit = noone;
+     	  	 shade_soul.shade_soul_hit = false;
+     	  }
+          
      }
 
      //Empecher l'effet violet dégueulasse

@@ -15,11 +15,17 @@ timer = 0;
 timer_boom = 14;
 stage_left = get_stage_data(SD_X_POS) - get_stage_data(SD_SIDE_BLASTZONE);
 stage_right = (room_width - get_stage_data(SD_X_POS)) + get_stage_data(SD_SIDE_BLASTZONE);
+owner = player_id;
 
 //          CHANGE --------- CHANGE
 shade_soul_player_hit = noone;
 newhit_vsp = 0;
 newhit_hsp = 0;
+shade_bubbles_play = 0;
+shade_soul_hit = false;
+shade_soul_first_hit = false;
+shade_hitbox = noone;
+
 
 //Animation
 nspecial_animation_frame = 8;
@@ -28,3 +34,5 @@ nspecial_animation_timer = 0;
 
 //Bubbles
 bubbles_timer = 0;
+shade_bubbles_x = x;
+shade_bubbles_y = y - 40;

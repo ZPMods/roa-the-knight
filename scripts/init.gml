@@ -43,6 +43,8 @@ abyssMods[@ runes.O] = [3,"Ground speed is faster."];
 kirbyability = 16;
 kirb_used = 0;
 swallowed = 1;
+enemykirby = undefined;
+
 
 // Trummel
 trummelcodecneeded = false;
