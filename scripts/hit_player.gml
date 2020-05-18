@@ -124,7 +124,7 @@ if (my_hitboxID.attack == AT_DSPECIAL_2)
           djumps = 0;
      }
 }
-
+/*
 // Dream Nail
 if (attack == AT_TAUNT_2) {
 	with(asset_get("oPlayer")){
@@ -204,7 +204,7 @@ if (vanillachar == 14)
 {
 	dream_random = dream_nail_shovel[random_func(0,array_length_1d(dream_nail_shovel), true)];
 }
-
+*/
 //----------------------------------------------------------
 // PARTICLES
 //----------------------------------------------------------

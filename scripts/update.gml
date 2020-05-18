@@ -1,6 +1,6 @@
 // Test Nul
-soul_points = 100;
-debug = 0;
+//soul_points = 100;
+//debug = 0;
 //Rainbow Color
 if get_player_color(player) = 6 {
 	hue+=1 if hue>255 hue-=255;

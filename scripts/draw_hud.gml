@@ -1,6 +1,6 @@
-draw_debug_text( temp_x+250, temp_y-30, string(window));
-draw_debug_text( temp_x+250, temp_y-50, string(window_timer));
-draw_debug_text( temp_x+250, temp_y-70, string(shade_soul.shade_soul_first_hit));
+//draw_debug_text( temp_x+250, temp_y-30, string(window));
+//draw_debug_text( temp_x+250, temp_y-50, string(window_timer));
+//draw_debug_text( temp_x+250, temp_y-70, string(shade_soul.shade_soul_first_hit));
 // draw_debug_text( shade_soul.x, shade_soul.y, string(shade_soul.shade_hitbox.hbox_num));
 
 //Affiche le nombre de Soul Points sur le HUD
@@ -123,7 +123,7 @@ if ("abyss_drawArray" in self && ds_list_valid(abyss_drawArray))  {
 /// draw_text_plus(x, y, text, font, color = c_white)
 /// draws outlined text in any in-game font.
 var x = argument[0], y = argument[1], text = argument[2], font = argument[3];
-var color = argument_count > 4 ? argument[4] : c_white;
+var color; if (argument_count > 4) color = argument[4]; else color = c_white;
 if draw_get_font() != font {
     draw_set_font(font);
 }
