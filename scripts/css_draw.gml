@@ -62,6 +62,28 @@ textDraw(temp_x + 2, temp_y + 50, "fName", c_white, 0, 1000, 1, true, 1, patch_d
 
 
 
+//MAGIC COLOUR CODE
+if !("hue" in self) hue = 0
+if get_player_color(player) = 6 {
+	hue+=1 
+	if hue>255 hue-=255;
+	color_rgb=make_color_rgb(167, 195, 217);
+	hue2=(color_get_hue(color_rgb)+hue) mod 255;
+	color_hsv=make_color_hsv(hue2,color_get_saturation(color_rgb),color_get_value(color_rgb)); 
+	set_color_profile_slot(6,0,color_get_red(color_hsv),color_get_green(color_hsv),color_get_blue(color_hsv));
+
+
+	color_rgb=make_color_rgb( 84, 87, 138);
+	color_hsv=make_color_hsv(hue2,color_get_saturation(color_rgb),color_get_value(color_rgb)); 
+	set_color_profile_slot(6,1,color_get_red(color_hsv),color_get_green(color_hsv),color_get_blue(color_hsv));
+	
+	color_rgb=make_color_rgb(15, 15, 30);
+	color_hsv=make_color_hsv(hue2,color_get_saturation(color_rgb),color_get_value(color_rgb)); 
+	set_color_profile_slot(6,4,color_get_red(color_hsv),color_get_green(color_hsv),color_get_blue(color_hsv));
+	}
+init_shader();
+//Credits Anguish (Code From Kirby)
+
 //Alt
 
 

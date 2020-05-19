@@ -55,7 +55,7 @@ set_color_profile_slot(6, 0, 167, 195, 217); //Helmet - White/Blue
 set_color_profile_slot(6, 1, 84, 87, 138); //Cape - Purple
 set_color_profile_slot(6, 2, 110, 106, 131); //Nail - Grey
 set_color_profile_slot(6, 3, 24, 23, 33); //Body - Dark Grey/Blue
-set_color_profile_slot(6, 4, 173, 3, 91); //Eyes - Pink
+set_color_profile_slot(6, 4, 15, 15, 30); //Eyes - Pink
 
 //Early Acces
 set_color_profile_slot(7, 0, 167, 186, 74); //Helmet 
