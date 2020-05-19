@@ -406,6 +406,8 @@ shade_soul = noone;
 vanillachar = 25; // Permet de détecter le main cast
 dream_random = "";
 
+nsb_parried = 0;
+player_who_parried = noone;
 
 ds_timer = 0;
 

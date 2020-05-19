@@ -68,16 +68,16 @@ sprite_change_offset("taunt", 66, 126);
 sprite_change_offset("plat", 160, 190);
 
 sprite_change_offset("nspecial_proj", 64, 56);
-sprite_change_offset("nspecial_boosted_proj_1", 64, 56);
-sprite_change_offset("nspecial_boosted_proj_2", 64, 56);
-sprite_change_offset("nspecial_boosted_proj_3", 64, 56);
-sprite_change_offset("nspecial_boosted_proj_4", 64, 56);
-sprite_change_offset("nspecial_boosted_proj_5", 64, 56);
-sprite_change_offset("nspecial_boosted_proj_6", 64, 56);
-sprite_change_offset("nspecial_boosted_proj_7", 64, 56);
-sprite_change_offset("nspecial_boosted_proj_8", 64, 56);
-sprite_change_offset("nspecial_boosted_proj_9", 64, 56);
-sprite_change_offset("nspecial_boosted_proj_10", 64, 56);
+sprite_change_offset("nspecial_boosted_proj_1",  52, 56);
+sprite_change_offset("nspecial_boosted_proj_2",  52, 56);
+sprite_change_offset("nspecial_boosted_proj_3",  52, 56);
+sprite_change_offset("nspecial_boosted_proj_4",  52, 56);
+sprite_change_offset("nspecial_boosted_proj_5",  52, 56);
+sprite_change_offset("nspecial_boosted_proj_6",  52, 56);
+sprite_change_offset("nspecial_boosted_proj_7",  52, 56);
+sprite_change_offset("nspecial_boosted_proj_8",  52, 56);
+sprite_change_offset("nspecial_boosted_proj_9",  52, 56);
+sprite_change_offset("nspecial_boosted_proj_10", 52, 56);
 
 sprite_change_offset("nspecial_explosion", 64, 64);
 sprite_change_offset("nspecial_boosted_explosion", 128, 128);
@@ -86,6 +86,7 @@ sprite_change_offset("shade_hit_weak", 64, 64);
 sprite_change_offset("shade_hit_weak_2", 64, 64);
 sprite_change_offset("soul_hit_weak", 64, 64);
 sprite_change_offset("soul_hit_heavy", 64, 64);
+
 
 sprite_change_offset("soul_full_effect", 120, 120);
 

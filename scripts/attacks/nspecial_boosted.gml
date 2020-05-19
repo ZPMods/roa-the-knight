@@ -40,6 +40,8 @@ set_num_hitboxes(AT_NSPECIAL_2, 3);
 set_hitbox_value(AT_NSPECIAL_2, 1, HG_PARENT_HITBOX, 1);
 set_hitbox_value(AT_NSPECIAL_2, 1, HG_HITBOX_TYPE, 2);
 set_hitbox_value(AT_NSPECIAL_2, 1, HG_LIFETIME, 2);
+set_hitbox_value(AT_NSPECIAL_2, 1, HG_HITBOX_X, 0);
+set_hitbox_value(AT_NSPECIAL_2, 1, HG_HITBOX_Y, 0);
 set_hitbox_value(AT_NSPECIAL_2, 1, HG_WIDTH, 70);
 set_hitbox_value(AT_NSPECIAL_2, 1, HG_HEIGHT, 40);
 set_hitbox_value(AT_NSPECIAL_2, 1, HG_SHAPE, 2);
@@ -53,6 +55,7 @@ set_hitbox_value(AT_NSPECIAL_2, 1, HG_TECHABLE, 1);
 set_hitbox_value(AT_NSPECIAL_2, 1, HG_PROJECTILE_SPRITE, asset_get("empty_sprite"));
 set_hitbox_value(AT_NSPECIAL_2, 1, HG_PROJECTILE_MASK, -1);
 set_hitbox_value(AT_NSPECIAL_2, 1, HG_PROJECTILE_WALL_BEHAVIOR, 0);
+set_hitbox_value(AT_NSPECIAL_2, 1, HG_PROJECTILE_PARRY_STUN, 1);
 set_hitbox_value(AT_NSPECIAL_2, 1, HG_VISUAL_EFFECT, shade_hit_weak);
 
 //Hitbox Boom
@@ -69,9 +72,11 @@ set_hitbox_value(AT_NSPECIAL_2, 2, HG_BASE_HITPAUSE, 20);
 set_hitbox_value(AT_NSPECIAL_2, 2, HG_HIT_SFX, asset_get("sfx_boss_fireball"));
 set_hitbox_value(AT_NSPECIAL_2, 2, HG_ANGLE, 42);
 set_hitbox_value(AT_NSPECIAL_2, 2, HG_EFFECT, 0);
+set_hitbox_value(AT_NSPECIAL_2, 2, HG_EXTENDED_PARRY_STUN, 1);
 set_hitbox_value(AT_NSPECIAL_2, 2, HG_PROJECTILE_SPRITE, asset_get("empty_sprite"));
 set_hitbox_value(AT_NSPECIAL_2, 2, HG_PROJECTILE_MASK, -1);
 set_hitbox_value(AT_NSPECIAL_2, 2, HG_PROJECTILE_WALL_BEHAVIOR, 0);
+set_hitbox_value(AT_NSPECIAL_2, 2, HG_PROJECTILE_PARRY_STUN, 1);
 set_hitbox_value(AT_NSPECIAL_2, 2, HG_VISUAL_EFFECT, nspecial_boosted_explosion);
 
 //First Hitbox
@@ -79,7 +84,7 @@ set_hitbox_value(AT_NSPECIAL_2, 2, HG_VISUAL_EFFECT, nspecial_boosted_explosion)
 set_hitbox_value(AT_NSPECIAL_2, 3, HG_HITBOX_TYPE, 2);
 set_hitbox_value(AT_NSPECIAL_2, 3, HG_HITBOX_GROUP, 3);
 set_hitbox_value(AT_NSPECIAL_2, 3, HG_LIFETIME, 1920);
-set_hitbox_value(AT_NSPECIAL_2, 3, HG_HITBOX_X, -10);
+set_hitbox_value(AT_NSPECIAL_2, 3, HG_HITBOX_X, 0);
 set_hitbox_value(AT_NSPECIAL_2, 3, HG_HITBOX_Y, 0);
 set_hitbox_value(AT_NSPECIAL_2, 3, HG_PRIORITY, 9);
 set_hitbox_value(AT_NSPECIAL_2, 3, HG_BASE_KNOCKBACK, 6);

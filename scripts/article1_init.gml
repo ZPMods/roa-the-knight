@@ -25,6 +25,11 @@ shade_bubbles_play = 0;
 shade_soul_hit = false;
 shade_soul_first_hit = false;
 shade_hitbox = noone;
+shade_drag = noone;
+shade_boom = noone;
+shade_player_id = player_id;
+parried = false;
+destroy_firsthit = false;
 
 
 //Animation

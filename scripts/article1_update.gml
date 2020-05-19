@@ -1,3 +1,10 @@
+if parried{
+	owner.nsb_parried = true;
+}
+
+if (destroy_firsthit){
+	instance_destroy(shade_hitbox);
+}
 
 //timer
 if (shade_soul_first_hit)
@@ -18,8 +25,10 @@ if (shade_soul_first_hit)
 	}
 }
 
+
+
 if shade_hitbox == noone and !shade_soul_first_hit{
- 	shade_hitbox = create_hitbox(AT_NSPECIAL_2, 3, x - (spr_dir*10), y - 33);
+ 	shade_hitbox = create_hitbox(AT_NSPECIAL_2, 3, x , y - 33);
 	shade_hitbox.source = id;
 	shade_hitbox.hsp = hsp;
 }
@@ -28,8 +37,10 @@ if shade_hitbox == noone and !shade_soul_first_hit{
 // player_id.shade_soul_y = y;
 
 if (shade_soul_first_hit && timer % 5 == 0 && !hit_wall && timer_boom > 1)
-{
-     create_hitbox(AT_NSPECIAL_2, 1, x, y - 33);
+{	
+	
+    shade_drag = create_hitbox(AT_NSPECIAL_2, 1, x + 10 * spr_dir, y - 33);
+    
 }
 
 if (shade_soul_hit)
@@ -85,21 +96,45 @@ if (shade_bubbles_play = 1)
 	spawnShadeBubbles(shade_bubbles_x, shade_bubbles_y);
 }
 
-if (timer_boom == 0 || hit_wall || x < stage_left || x > stage_right)
+if (hit_wall || x < stage_left || x > stage_right)
 {
-     timer_boom = 0;
-
-     if (shade_soul_first_hit)
-     {
-          create_hitbox(AT_NSPECIAL_2, 2, x, y - 33);
+     if timer_boom > 0{
+     	timer_boom = 0;
      }
 
-     owner.move_cooldown[AT_NSPECIAL] = 0;
-     shade_soul_first_hit = false;
-     instance_destroy();
+    if(timer_boom) == 0{
+	
+		if (shade_soul_first_hit)
+	    {
+	    	create_hitbox(AT_NSPECIAL_2, 2, x + 10 * spr_dir, y - 33);
+	        
+	    }
+	    
+	}
+
+    instance_destroy(shade_hitbox);
+    instance_destroy();
+    //sprite_index = asset_get("empty_sprite");
+    return;
 }
 
+if(timer_boom) == 0{
+	
+	if (shade_soul_first_hit)
+    {
+    	create_hitbox(AT_NSPECIAL_2, 2, x + 10 * spr_dir, y - 33);
+        
+    }
+    
+}
 
+if timer_boom == -1{
+	owner.move_cooldown[AT_NSPECIAL] = 0;
+    shade_soul_first_hit = false;
+    instance_destroy(shade_hitbox);
+    instance_destroy();
+    return;
+}
 #define spawnShadeBubbles
 //argument 0 = x
 //argument 1 = y

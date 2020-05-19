@@ -50,6 +50,12 @@ if (my_hitboxID.attack == AT_DSPECIAL_2 && window == 4)
 //Neutral Special Boosted Multihit
 if (my_hitboxID.attack == AT_NSPECIAL_2)
 {
+	  //Empecher l'effet violet dégueulasse
+     if (my_hitboxID.hbox_num == 1)
+     {
+          hit_player_obj.should_make_shockwave = false;
+     }
+     
      if (my_hitboxID.hbox_num != 2)
      {
      		debug = hit_player_obj.player
@@ -59,19 +65,13 @@ if (my_hitboxID.attack == AT_NSPECIAL_2)
         	 shade_soul.newhit_hsp = shade_soul.hsp + (shade_soul.spr_dir * hit_player_obj.air_friction * 3);
          	 shade_soul.newhit_vsp = -1 * hit_player_obj.hitstun_grav * 3;
         	 shade_soul.shade_soul_hit = true;
-        	 instance_destroy(shade_soul.shade_hitbox);
+        	 shade_soul.destroy_firsthit = true;
         	 
      	  }else{
      	  	 shade_soul.shade_soul_player_hit = noone;
      	  	 shade_soul.shade_soul_hit = false;
      	  }
           
-     }
-
-     //Empecher l'effet violet dégueulasse
-     if (my_hitboxID.hbox_num == 1)
-     {
-          hit_player_obj.should_make_shockwave = false;
      }
 
 }
