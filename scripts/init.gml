@@ -183,6 +183,7 @@ nspecial_boosted_effect_animation_framelength = 2;
 nspecial_boosted_effect_animation_timer = 0;
 nspecial_boosted_effect_dir = "right";
 
+
 //HIT EFFECTS
 
 nspecial_explosion = hit_fx_create(sprite_get("nspecial_explosion"), 30);

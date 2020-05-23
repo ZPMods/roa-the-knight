@@ -400,7 +400,7 @@ if (attack == AT_NSPECIAL || attack == AT_FSPECIAL || attack == AT_DSPECIAL || a
 //Taunt
 if (attack == AT_TAUNT)
 {
-     if (window >= 2 && window_timer >= 10 && (shield_pressed || taunt_pressed))
+     if (window >= 2 && window_timer >= 60 && (shield_pressed || taunt_pressed))
      {
           set_state(PS_LAND);
           clear_button_buffer(PC_SHIELD_PRESSED);

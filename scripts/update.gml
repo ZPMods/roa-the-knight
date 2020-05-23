@@ -2,40 +2,41 @@
 //soul_points = 100;
 //debug = 0;
 //Rainbow Color
-if get_player_color(player) = 6 {
+if get_player_color(player) = 11 {
 	hue+=1 if hue>255 hue-=255;
 	//make hue shift every step + loop around
 
 	color_rgb=make_color_rgb(167, 195, 217);
 	hue2=(color_get_hue(color_rgb)+hue) mod 255;
 	color_hsv=make_color_hsv(hue2,color_get_saturation(color_rgb),color_get_value(color_rgb));
-	set_color_profile_slot(6,0,color_get_red(color_hsv),color_get_green(color_hsv),color_get_blue(color_hsv));
+	set_color_profile_slot(11,0,color_get_red(color_hsv),color_get_green(color_hsv),color_get_blue(color_hsv));
 
 
 
 	color_rgb=make_color_rgb(84, 87, 138);
 	hue3=(color_get_hue(color_rgb)+hue) mod 255;
 	color_hsv=make_color_hsv(hue3,color_get_saturation(color_rgb),color_get_value(color_rgb));
-	set_color_profile_slot(6,1,color_get_red(color_hsv),color_get_green(color_hsv),color_get_blue(color_hsv));
+	set_color_profile_slot(11,1,color_get_red(color_hsv),color_get_green(color_hsv),color_get_blue(color_hsv));
 
 	color_rgb=make_color_rgb(110, 106, 131);
 	hue4=(color_get_hue(color_rgb)+hue) mod 255;
 	color_hsv=make_color_hsv(hue4,color_get_saturation(color_rgb),color_get_value(color_rgb));
-	set_color_profile_slot(6,2,color_get_red(color_hsv),color_get_green(color_hsv),color_get_blue(color_hsv));
+	set_color_profile_slot(11,2,color_get_red(color_hsv),color_get_green(color_hsv),color_get_blue(color_hsv));
 
 	color_rgb=make_color_rgb(24, 23, 33);
 	hue5=(color_get_hue(color_rgb)+hue) mod 255;
 	color_hsv=make_color_hsv(hue5,color_get_saturation(color_rgb),color_get_value(color_rgb));
-	set_color_profile_slot(6,3,color_get_red(color_hsv),color_get_green(color_hsv),color_get_blue(color_hsv));
+	set_color_profile_slot(11,3,color_get_red(color_hsv),color_get_green(color_hsv),color_get_blue(color_hsv));
 
 	color_rgb=make_color_rgb(84, 87, 138);
 	hue6=(color_get_hue(color_rgb)+hue) mod 255;
 	color_hsv=make_color_hsv(hue6,color_get_saturation(color_rgb),color_get_value(color_rgb));
-	set_color_profile_slot(6,4,color_get_red(color_hsv),color_get_green(color_hsv),color_get_blue(color_hsv));
+	set_color_profile_slot(11,4,color_get_red(color_hsv),color_get_green(color_hsv),color_get_blue(color_hsv));
 	}
 init_shader();
 //Credits Anguish (Code From Kirby)
 
+//taunt.hurtbox_spr = "taunt_hurt";
 
 if (get_player_color(player) == 1 && get_gameplay_time() <= 3 )
 {
@@ -84,11 +85,13 @@ if (get_player_color(player) == 1 && get_gameplay_time() <= 3 )
 //----------------------------------------------------------
 // GAMEPLAY
 //----------------------------------------------------------
-if (get_player_color(player) == 7){
-    for(i = 0; i < 6; i++){
+if (get_player_color(player) == 12){
+    for(i = 0; i < 5; i++){
         set_character_color_shading(i, 0);
     }
 }
+
+
 
 //NTS Effect
 if (state == PS_AIR_DODGE && window == 2 && window_timer == 9)
@@ -424,8 +427,8 @@ if trummelcodecneeded{
     trummelcodecspeaker[0] = 2;
     trummelcodecexpression[0] = 2;
 
-    trummelcodecline[0,1] = "Is that the little ghost";
-    trummelcodecline[0,2] = "she was talking about?";
+    trummelcodecline[0,1] = "";
+    trummelcodecline[0,2] = "";
     trummelcodecline[0,3] = "";
     trummelcodecline[0,4] = "";
 
@@ -443,8 +446,8 @@ if trummelcodecneeded{
     trummelcodecspeaker[2] = 1;
     trummelcodecexpression[2] = 0;
 
-    trummelcodecline[2,1] = "I'll take the lack";
-    trummelcodecline[2,2] = "of answer as a yes.";
+    trummelcodecline[2,1] = "";
+    trummelcodecline[2,2] = "";
     trummelcodecline[2,3] = "";
     trummelcodecline[2,4] = "";
 
@@ -452,8 +455,8 @@ if trummelcodecneeded{
     trummelcodecspeaker[3] = 2;
     trummelcodecexpression[3] = 2;
 
-    trummelcodecline[3,1] = "It doesn't look like";
-    trummelcodecline[3,2] = "a threat!";
+    trummelcodecline[3,1] = "";
+    trummelcodecline[3,2] = "";
     trummelcodecline[3,3] = "";
     trummelcodecline[3,4] = "";
 
@@ -461,18 +464,18 @@ if trummelcodecneeded{
     trummelcodecspeaker[4] = 1;
     trummelcodecexpression[4] = 0;
 
-    trummelcodecline[4,1] = "Keep your guard up,";
-    trummelcodecline[4,2] = "They might look frail but";
-    trummelcodecline[4,3] = "they can use their soul";
-    trummelcodecline[4,4] = "to cast powerful spell.";
+    trummelcodecline[4,1] = "";
+    trummelcodecline[4,2] = "";
+    trummelcodecline[4,3] = "";
+    trummelcodecline[4,4] = "";
 
     //Page 5
     trummelcodecspeaker[5] = 1;
     trummelcodecexpression[5] = 0;
 
-    trummelcodecline[5,1] = "And don't let them";
-    trummelcodecline[5,2] = "equip charms or we'll";
-    trummelcodecline[5,3] = "be in big trouble.";
+    trummelcodecline[5,1] = "";
+    trummelcodecline[5,2] = "";
+    trummelcodecline[5,3] = "";
     trummelcodecline[5,4] = "";
 }
 
