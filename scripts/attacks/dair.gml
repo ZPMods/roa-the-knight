@@ -46,6 +46,7 @@ set_hitbox_value(AT_DAIR, 1, HG_HITPAUSE_SCALING, 0.1);
 set_hitbox_value(AT_DAIR, 1, HG_HITSTUN_MULTIPLIER, 0);
 set_hitbox_value(AT_DAIR, 1, HG_VISUAL_EFFECT, 301);
 set_hitbox_value(AT_DAIR, 1, HG_VISUAL_EFFECT_Y_OFFSET, 20);
+set_hitbox_value(AT_DAIR, 1, HG_HIT_SFX, asset_get("sfx_blow_medium1"));
 set_hitbox_value(AT_DAIR, 1, HG_ANGLE_FLIPPER, 3);
 
 set_hitbox_value(AT_DAIR, 2, HG_PARENT_HITBOX, 0);
