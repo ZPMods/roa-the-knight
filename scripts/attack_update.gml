@@ -376,7 +376,7 @@ if (attack == AT_FSPECIAL_2 and (newhit_vsp != 0 or newhit_hsp != 0))
 
 
 //Forward Special Boosted Jump Cancel
-if (attack == AT_FSPECIAL_2 && hitpause)
+if ((attack == AT_FSPECIAL_2 && hitpause) || attack == AT_FSPECIAL_2)
 {
      can_jump = true;
 
@@ -385,6 +385,7 @@ if (attack == AT_FSPECIAL_2 && hitpause)
           hsp = 1 * spr_dir;
      }
 }
+
 
 
 //--------------------------------------------------------
@@ -469,10 +470,10 @@ if (attack == AT_DSPECIAL_2 && window == 7 && window_timer == 15)
 }
 
 //Taunt
-if (attack == AT_TAUNT && down_down)
+/*if (attack == AT_TAUNT && down_down)
 {
     attack = AT_TAUNT_2;
-}
+}*/
 
 //Shade Bubbles
 if (attack == AT_USPECIAL_2 || attack == AT_FSPECIAL_2 || attack == AT_DSPECIAL_2)
