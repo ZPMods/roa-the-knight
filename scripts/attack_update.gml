@@ -369,7 +369,6 @@ if (attack == AT_FSPECIAL_2 and (newhit_vsp != 0 or newhit_hsp != 0))
             newhit_hsp = 0;
             debug = 1;
         }
-
     }
 }
 
@@ -378,11 +377,32 @@ if (attack == AT_FSPECIAL_2 and (newhit_vsp != 0 or newhit_hsp != 0))
 //Forward Special Boosted Jump Cancel
 if ((attack == AT_FSPECIAL_2 && hitpause) || attack == AT_FSPECIAL_2)
 {
-     can_jump = true;
-
-     if (jump_pressed)
+     if (fspecial_boosted_player_hit != noone)
      {
-          hsp = 1 * spr_dir;
+          if (hitpause)
+          {
+               can_jump = true;
+
+               if (jump_pressed)
+               {
+                    hsp = 1 * spr_dir;
+                    fspecial_boosted_player_hit.hsp = 2 * spr_dir;
+               }
+          }
+          else
+          {
+               can_jump = false;
+          }
+     }
+     else
+     {
+          can_jump = true;
+
+          if (jump_pressed && djumps == 0)
+          {
+               set_state(PS_FIRST_JUMP);
+               hsp = 10 * spr_dir;
+          }
      }
 }
 
