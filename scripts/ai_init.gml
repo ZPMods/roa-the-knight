@@ -28,7 +28,6 @@ close_side_attacks[1] = AT_FSTRONG;
 
 
 FTILTprob = random_func(3,1,false);
-temp_level = 9;
 facing = false;
 rangedtimer = 300;
 inactive = 0;
