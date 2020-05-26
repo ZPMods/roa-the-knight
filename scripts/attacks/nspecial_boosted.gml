@@ -96,6 +96,7 @@ set_hitbox_value(AT_NSPECIAL_2, 3, HG_ANGLE, 20);
 set_hitbox_value(AT_NSPECIAL_2, 3, HG_HIT_SFX, asset_get("sfx_blow_weak1"));
 set_hitbox_value(AT_NSPECIAL_2, 3, HG_PROJECTILE_SPRITE, asset_get("empty_sprite"));
 set_hitbox_value(AT_NSPECIAL_2, 3, HG_PROJECTILE_MASK, -1);
+set_hitbox_value(AT_NSPECIAL_2, 3, HG_PROJECTILE_UNBASHABLE, 1);
 set_hitbox_value(AT_NSPECIAL_2, 3, HG_LIFETIME, 200);
 set_hitbox_value(AT_NSPECIAL_2, 3, HG_PROJECTILE_ENEMY_BEHAVIOR	, 1);
 set_hitbox_value(AT_NSPECIAL_2, 3, HG_VISUAL_EFFECT, shade_hit_weak);
