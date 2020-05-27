@@ -33,6 +33,22 @@ if (get_training_cpu_action() == CPU_FIGHT){
     	}
     }
     
+    if(state == PS_ATTACK_GROUND or state == PS_ATTACK_AIR){
+    	if wait_time == 0{
+    		attacking = true;
+    		wait_time = -1;
+    	}
+    }else{
+    	attacking = false;
+    }
+    
+    if(wait_time == -1 and !attacking){
+    	wait_time = 90 - (temp_level * 10);
+    }
+    if wait_time > 0{
+    	wait_time--;
+    }
+    
     if soul_points >= 25{
         can_boost = true;
     }
@@ -57,7 +73,7 @@ if (get_training_cpu_action() == CPU_FIGHT){
     }
     
     //Chase - Agression
-    if (((0 > rangedtimer) and (!ai_recovering and inactive > 20)) and (state_cat == SC_GROUND_NEUTRAL or state_cat == SC_AIR_NEUTRAL) and state_cat != SC_HITSTUN and !ai_target_offstage and !offstage and xdist > 100){
+    if (((0 > rangedtimer) and (!ai_recovering and inactive > 20)) and (state_cat == SC_GROUND_NEUTRAL or state_cat == SC_AIR_NEUTRAL) and state_cat != SC_HITSTUN and !ai_target_offstage and !offstage and xdist > 100 and !wait_time > 0){
 	    if ai_target.x > x{
 	        right_hard_pressed = true;
 			if state = PS_DASH {
@@ -73,7 +89,7 @@ if (get_training_cpu_action() == CPU_FIGHT){
 	}
 	
 	//Chase - Combos
-	if(ai_target.state_cat == SC_HITSTUN and state != PS_PRATFALL and state_cat != SC_HITSTUN and !((attack == AT_USPECIAL or attack == AT_USPECIAL_2) and state == PS_ATTACK_AIR) and !ai_target_offstage and !offstage and !can_DACUS and !to_boost){
+	if(ai_target.state_cat == SC_HITSTUN and state != PS_PRATFALL and state_cat != SC_HITSTUN and !((attack == AT_USPECIAL or attack == AT_USPECIAL_2) and state == PS_ATTACK_AIR) and !ai_target_offstage and !offstage and !can_DACUS and !to_boost and !wait_time > 0){
 		if ai_target.x > x{
 	        right_hard_pressed = true;
 			if state = PS_DASH {
@@ -89,7 +105,7 @@ if (get_training_cpu_action() == CPU_FIGHT){
 	}
 	
 	//Camping
-	if (((state != PS_PRATFALL and rangedtimer > 0 and ai_target.state_cat != SC_HITSTUN and !to_boost and state_cat != SC_HITSTUN ) or targetbusy) and !ai_recovering ){
+	if (((state != PS_PRATFALL and rangedtimer > 0 and ai_target.state_cat != SC_HITSTUN and !to_boost and state_cat != SC_HITSTUN ) or targetbusy) and !ai_recovering and !wait_time > 0){
 		if !facing and xdist > 350 and !(attack == AT_USPECIAL_2 and state == PS_ATTACK_AIR){
 			faceopponent();
 		} 
@@ -245,7 +261,7 @@ if (get_training_cpu_action() == CPU_FIGHT){
 		special_down = true;
 	}
 	
-	if can_special and !targetbusy{
+	if can_special and !targetbusy and !wait_time > 0{
 		
 		//USpecial Boosted
 		if (ai_target.y + 100 <= y) and !ai_target.y + 400 >= y and can_boost and xdist < 50 and facing and !offstage and attack != AT_USPECIAL_2{
@@ -306,11 +322,13 @@ if (get_training_cpu_action() == CPU_FIGHT){
 	if(ai_recovering){
 		if(y + char_height >= stagey){
 			if !(can_boost and vsp < -1){
-				do_not_attack = 1;
+				do_not_attack = true;
 			}
 		}
 	}
-	
+	if(wait_time > 0){
+		do_not_attack = true;
+	}
     //Attacks
     if (can_attack or state == PS_DASH or state == PS_DOUBLE_JUMP) and !targetbusy and !to_boost and !do_not_attack{
     	
