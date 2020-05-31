@@ -33,6 +33,8 @@ if (get_training_cpu_action() == CPU_FIGHT){
     	}
     }
     
+    
+    //------------------ Wait time
     if(state == PS_ATTACK_GROUND or state == PS_ATTACK_AIR){
     	if wait_time == 0{
     		attacking = true;
@@ -48,7 +50,7 @@ if (get_training_cpu_action() == CPU_FIGHT){
     if wait_time > 0{
     	wait_time--;
     }
-    
+    //--------------------
     if soul_points >= 25{
         can_boost = true;
     }
@@ -70,6 +72,9 @@ if (get_training_cpu_action() == CPU_FIGHT){
     
     if (ai_target.x < x && spr_dir = -1) || (ai_target.x > x && spr_dir = 1){
         facing = true;
+    }
+    if(state_cat == SC_GROUND_NEUTRAL and !facing){
+    	faceopponent();
     }
     
     //Chase - Agression
@@ -102,7 +107,10 @@ if (get_training_cpu_action() == CPU_FIGHT){
 			}
 	    }
 	    chasing = 1;
+	    
+	    
 	}
+	
 	
 	//Camping
 	if (((state != PS_PRATFALL and rangedtimer > 0 and ai_target.state_cat != SC_HITSTUN and !to_boost and state_cat != SC_HITSTUN ) or targetbusy) and !ai_recovering and !wait_time > 0){
@@ -143,6 +151,63 @@ if (get_training_cpu_action() == CPU_FIGHT){
 		camping = 1;
 	}
     
+    // if(chasing){
+	// 	if(state == PS_JUMPSQUAT){
+	    	
+	//     	if ai_target.y > y - char_height and ai_target.y < y{
+	//     		shield_pressed = true;
+	    		
+	//     	}
+	//     }
+	// }
+	if state == PS_WAVELAND{
+	 	if chasing{
+	 		if x < ai_target.x{
+				left_down = false;
+				right_down = true;
+			} 	else {
+				left_down = true;
+				right_down = false;
+			}
+	 	}
+	 		
+	}
+	
+	var plat_near = collision_point(x, y+5, asset_get("jumpthrough_32_obj"), false, false);
+    if free and plat_near and (chasing or camping) and vsp < 0{
+    	shield_pressed = true;
+    }
+    
+    if (state == PS_AIR_DODGE and plat_near){
+    	if chasing{
+    		if x < ai_target.x{
+				left_down = false;
+				right_down = true;
+				joy_pad_idle = false;
+				joy_dir = 0;
+			}else {
+				left_down = true;
+				right_down = false;
+				joy_pad_idle = false;
+				joy_dir = 180;
+			}
+    	}
+    	if camping{
+    		if x > ai_target.x{
+				left_down = false;
+				right_down = true;
+				joy_pad_idle = false;
+				joy_dir = 180;
+			}else {
+				left_down = true;
+				right_down = false;
+				joy_pad_idle = false;
+				joy_dir = 0;
+			}
+    	}
+    }
+    
+    
 	if (ai_target.state == PS_DEAD or ai_target.state == PS_RESPAWN) and !free and !(x > room_width/2 - 100 and x < room_width/2 + 100){
     	clear_button_buffer(PC_JUMP_PRESSED);
     	jump_down = false;
@@ -158,13 +223,22 @@ if (get_training_cpu_action() == CPU_FIGHT){
         inactive = 0;
     }
     
+    if !free and ai_target.y - 70 > y and !ai_target.free {
+		down_hard_pressed = true;
+	}
     
     //Fastfall
  //   if free and ai_target.y - 120 > y {
 	// 	down_hard_pressed = true;
 	// }
 	
-	 
+	//Shielding from Kirby AI code
+	nearbyhitbox = collision_circle( x, y - char_height/2, 64-(wait_time*0.4), asset_get("pHitBox"), true, true);
+	if nearbyhitbox != noone{
+		if nearbyhitbox.player_id != self{
+			shield_pressed = true
+		}
+	}
     
    	//----------------------------------------------------
 	//Combos logic
@@ -329,8 +403,9 @@ if (get_training_cpu_action() == CPU_FIGHT){
 	if(wait_time > 0){
 		do_not_attack = true;
 	}
+	
     //Attacks
-    if (can_attack or state == PS_DASH or state == PS_DOUBLE_JUMP) and !targetbusy and !to_boost and !do_not_attack{
+    if (can_attack or state == PS_DASH or state == PS_DASH_STOP or state == PS_DOUBLE_JUMP) and !targetbusy and !to_boost and !do_not_attack{
     	
     	
         
@@ -617,8 +692,13 @@ if (get_training_cpu_action() == CPU_FIGHT){
     // if(inactive > 20){
     // 	num_whiffs = 0;
     // }
+    
 }
 
+if (get_training_cpu_action() == CPU_EVADE){
+	chasing = true;
+	
+}
 #define Nspecial
 /// Nspecial(side, ...)
 

@@ -54,7 +54,10 @@ if (shade_soul_first_hit)
      timer_boom --;
 }
 
-
+if(!instance_exists(shade_hitbox) and !destroy_firsthit){
+	instance_destroy();
+	return;
+}
 
 //Animation
 sprite_index = sprite_get("nspecial_boosted_proj_" + string(nspecial_animation_frame));
