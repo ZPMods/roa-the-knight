@@ -85,6 +85,9 @@ if (get_player_color(player) == 1 && get_gameplay_time() <= 3 )
 //----------------------------------------------------------
 // GAMEPLAY
 //----------------------------------------------------------
+if(free && hsp > air_max_speed)
+{
+}
 if (get_player_color(player) == 12){
     for(i = 0; i < 5; i++){
         set_character_color_shading(i, 0);
