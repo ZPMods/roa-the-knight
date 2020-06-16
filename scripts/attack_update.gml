@@ -1,9 +1,10 @@
 //STRONG MOVEMENT
 if((attack == AT_FSTRONG && window == 1)|| (attack == AT_DSTRONG && window == 1))
 {
-    if (joy_pad_idle == false)
+    var mov_value = lengthdir_x(0.4, joy_dir);
+    if (joy_pad_idle == false and hsp/mov_value <= 1)
     {
-        hsp = lengthdir_x(0.4, joy_dir);
+        hsp = mov_value;
     }
 }
 
@@ -24,21 +25,21 @@ if (attack == AT_DATTACK && window <= 2 && window_timer <= 3)
 //BOOSTED --------------------------------------------------
 
 //Forward Special Boosted
-if (attack == AT_FSPECIAL && soul_points >= SP_fspecial)
+if (attack == AT_FSPECIAL)
 {
   if (window == 1)
   {
-    if (special_down)
+    if (special_down && soul_points >= SP_nspecial)
     {
       charged_time += 1;
 
-      if (charged_time == required_charge_time)
+      if (charged_time == get_window_value(attack, 1, AG_WINDOW_LENGTH))
       {
         window = 1;
         window_timer = 0;
         attack = AT_FSPECIAL_2;
         soul_points -= SP_fspecial;
-
+        hurtboxID.sprite_index = sprite_get("fspecial_boosted_hurt");
         nts_effect_show = true;
       }
     }
@@ -47,21 +48,21 @@ if (attack == AT_FSPECIAL && soul_points >= SP_fspecial)
 
 
 //UpSpecial Boosted
-if (attack == AT_USPECIAL && soul_points >= SP_uspecial)
+if (attack == AT_USPECIAL)
 {
   if (window == 1)
   {
-    if (special_down)
+    if (special_down && soul_points >= SP_nspecial)
     {
       charged_time += 1;
 
-      if (charged_time == required_charge_time)
+      if (charged_time == get_window_value(attack, 1, AG_WINDOW_LENGTH))
       {
         window = 1;
         window_timer = 0;
         attack = AT_USPECIAL_2;
         soul_points -= SP_uspecial;
-
+        hurtboxID.sprite_index = sprite_get("uspecial_boosted_hurt");
         nts_effect_show = true;
       }
     }
@@ -84,21 +85,21 @@ if (attack == AT_FSPECIAL || attack == AT_FSPECIAL_2)
 }
 
 // Down Special Boosted
-if (attack == AT_DSPECIAL && soul_points >= SP_dspecial)
+if (attack == AT_DSPECIAL)
 {
   if (window == 1)
   {
-    if (special_down)
+    if (special_down && soul_points >= SP_nspecial)
     {
       charged_time += 1;
 
-      if (charged_time == required_charge_time)
+      if (charged_time == get_window_value(attack, 1, AG_WINDOW_LENGTH))
       {
         window = 1;
         window_timer = 0;
         attack = AT_DSPECIAL_2;
         soul_points -= SP_dspecial;
-
+        hurtboxID.sprite_index = sprite_get("dspecial_boosted_hurt");
         nts_effect_show = true;
       }
     }
@@ -106,15 +107,15 @@ if (attack == AT_DSPECIAL && soul_points >= SP_dspecial)
 }
 
 //Neutral Special Boosted
-if (attack == AT_NSPECIAL && soul_points >= SP_nspecial)
+if (attack == AT_NSPECIAL)
 {
   if (window == 1)
   {
-    if (special_down)
+    if (special_down && soul_points >= SP_nspecial)
     {
       charged_time += 1;
 
-      if (charged_time == required_charge_time)
+      if (charged_time == get_window_value(attack, 1, AG_WINDOW_LENGTH))
       {
         window = 1;
         window_timer = 0;
@@ -132,18 +133,19 @@ if (attack == AT_NSPECIAL && soul_points >= SP_nspecial)
 //DOWN SPECIAL MECHANICS ---------------------------------
 
 //Empecher le boost vertical en l'air
-if (attack == AT_DSPECIAL && free && window == 2)
+if (attack == AT_DSPECIAL && free && window == 1 && window_timer == get_window_value(AT_DSPECIAL, 1, AG_WINDOW_LENGTH))
 {
-     window = 4;
+     window = 3;
+     window_timer = 0;
 }
 
 //Hitbox au sol
-if (attack == AT_DSPECIAL && !free && window == 5)
+if (attack == AT_DSPECIAL && !free && window == 4)
 {
-     window = 6;
+     window = 5;
      window_timer = 0;
 }
-if (attack == AT_DSPECIAL && window == 6)
+if (attack == AT_DSPECIAL && window == 5)
 {
      if (window_timer == 18)
      {
@@ -153,12 +155,12 @@ if (attack == AT_DSPECIAL && window == 6)
 }
 
 //Hitbox en l'air
-if (attack == AT_DSPECIAL && window == 5 && has_dspecial_air_hit == true)
+if (attack == AT_DSPECIAL && window == 4 && has_dspecial_air_hit == true)
 {
-  window = 7;
+  window = 6;
   window_timer = 0;
 }
-if (attack == AT_DSPECIAL && window == 8 && window_timer == 7)
+if (attack == AT_DSPECIAL && window == 7 && window_timer == 7)
 {
   window = 29;
   window_timer = 0;
@@ -457,7 +459,7 @@ if (attack == AT_DAIR)
 }
 
 //Reset buffer jab
-if (attack = AT_JAB && window == 1)
+if (attack == AT_JAB && window == 1)
 {
      clear_button_buffer(PC_ATTACK_PRESSED);
 }

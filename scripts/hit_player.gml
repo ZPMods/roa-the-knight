@@ -29,10 +29,10 @@ if (my_hitboxID.attack == AT_DAIR && window == 2)
 }
 
 //Down Special Aerial Hitbox
-if(my_hitboxID.attack == AT_DSPECIAL && window == 5)
+if(my_hitboxID.attack == AT_DSPECIAL && window == 4)
 {
   has_dspecial_air_hit = true;
-  window = 7;
+  window = 6;
   window_timer = 0;
 }
 

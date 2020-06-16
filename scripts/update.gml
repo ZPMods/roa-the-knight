@@ -403,7 +403,7 @@ if swallowed {
 }
 
 if enemykirby != undefined { //if kirby is in a match & swallowed
-    with oPlayer { //Run through all players
+    with asset_get("oPlayer") { //Run through all players
         if (state_cat == SC_GROUND_COMMITTED || state_cat == SC_GROUND_NEUTRAL) && move_cooldown[AT_EXTRA_3] == 0 {
             kirb_used_Theknight = 0;
         }
