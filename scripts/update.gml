@@ -338,7 +338,7 @@ if swallowed {
     var ability_air_spr = sprite_get("Kirby_Knight");
     var hurtbox_spr = sprite_get("Kirby_Knight_hurt");
     var ability_proj_spr = sprite_get("nspecial_proj");
-
+	
     with enemykirby {
 
         set_attack_value(AT_EXTRA_3, AG_CATEGORY, 2);
@@ -351,7 +351,7 @@ if swallowed {
 
     	set_window_value(AT_EXTRA_3, 1, AG_WINDOW_TYPE, 1);
     	set_window_value(AT_EXTRA_3, 1, AG_WINDOW_LENGTH, 15);
-    	set_window_value(AT_EXTRA_3, 1, AG_WINDOW_ANIM_FRAMES, 3);
+    	set_window_value(AT_EXTRA_3, 1, AG_WINDOW_ANIM_FRAMES, 2);
     	set_window_value(AT_EXTRA_3, 1, AG_WINDOW_HAS_SFX, 1);
     	set_window_value(AT_EXTRA_3, 1, AG_WINDOW_SFX_FRAME, 4);
     	set_window_value(AT_EXTRA_3, 1, AG_WINDOW_HSPEED, 0);
@@ -361,8 +361,8 @@ if swallowed {
 
     	set_window_value(AT_EXTRA_3, 2, AG_WINDOW_TYPE, 1);
     	set_window_value(AT_EXTRA_3, 2, AG_WINDOW_LENGTH, 4);
-    	set_window_value(AT_EXTRA_3, 2, AG_WINDOW_ANIM_FRAMES, 1);
-    	set_window_value(AT_EXTRA_3, 2, AG_WINDOW_ANIM_FRAME_START, 1);
+    	set_window_value(AT_EXTRA_3, 2, AG_WINDOW_ANIM_FRAMES, 2);
+    	set_window_value(AT_EXTRA_3, 2, AG_WINDOW_ANIM_FRAME_START, 2);
     	set_window_value(AT_EXTRA_3, 2, AG_WINDOW_HSPEED, 0);
     	set_window_value(AT_EXTRA_3, 2, AG_WINDOW_VSPEED, 0);
     	set_window_value(AT_EXTRA_3, 2, AG_WINDOW_HSPEED_TYPE, 1);
@@ -371,7 +371,7 @@ if swallowed {
     	set_window_value(AT_EXTRA_3, 3, AG_WINDOW_TYPE, 1);
     	set_window_value(AT_EXTRA_3, 3, AG_WINDOW_LENGTH, 12);
     	set_window_value(AT_EXTRA_3, 3, AG_WINDOW_ANIM_FRAMES, 1);
-    	set_window_value(AT_EXTRA_3, 3, AG_WINDOW_ANIM_FRAME_START, 2);
+    	set_window_value(AT_EXTRA_3, 3, AG_WINDOW_ANIM_FRAME_START, 3);
     	set_window_value(AT_EXTRA_3, 3, AG_WINDOW_HSPEED, 0);
 		set_window_value(AT_EXTRA_3, 3, AG_WINDOW_VSPEED, 0);
     	set_window_value(AT_EXTRA_3, 3, AG_WINDOW_HSPEED_TYPE, 1);
@@ -404,16 +404,13 @@ if swallowed {
 
 if enemykirby != undefined { //if kirby is in a match & swallowed
     with asset_get("oPlayer") { //Run through all players
-        if (state_cat == SC_GROUND_COMMITTED || state_cat == SC_GROUND_NEUTRAL) && move_cooldown[AT_EXTRA_3] == 0 {
-            kirb_used_Theknight = 0;
-        }
         if ((state == PS_ATTACK_AIR || state == PS_ATTACK_GROUND) && attack == AT_EXTRA_3) {
-            if (get_window_value(AT_EXTRA_3,2,AG_WINDOW_ANIM_FRAMES) == 99765 && kirb_used_Theknight == 0) {
+            if (get_window_value(AT_EXTRA_3,4,AG_WINDOW_ANIM_FRAMES) == 99765) {
                 kirb_used_Theknight = 1;
-                move_cooldown[AT_EXTRA_3] = 20;
+                move_cooldown[AT_EXTRA_3] = 70;
                 hsp = -hsp;
                 vsp = - vsp;
-                sound_play(other.switch_sfx);
+                //sound_play(other.sound_get("knight_special_neutral"));
             }
 
         }
