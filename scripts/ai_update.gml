@@ -136,7 +136,7 @@ if (get_training_cpu_action() == CPU_FIGHT){
 				}
 			}
 			
-			if can_special and xdist > 350 and ydist < 20 and facing {
+			if can_special and xdist > 300 and ydist < 20 and facing {
 				
 			    joy_pad_idle = true;
 				up_pressed = false;
@@ -690,6 +690,7 @@ if (get_training_cpu_action() == CPU_EVADE){
 	
 }
 #define Nspecial
+
 /// Nspecial(side, ...)
 
 var side = argument[0];
@@ -707,6 +708,7 @@ special_pressed = true;
 attack_pressed = false;
 
 #define Fspecial
+
 /// Fspecial(side, ...)
 
 var side = argument[0];
@@ -751,57 +753,55 @@ if cur_p <= fprediction{
 			stopped_at_target = current_prediction_target;
 			break;
 		}
-		if stage {
+		if stage and ai_target.free{
 			stopped_at_target = current_prediction_target;
 			break;
 		}
 		
 		current_prediction_target++;
-		xtrag = xtrag + ai_target.hsp;
-		
-		new_target_vsp = new_target_vsp + ai_target.grav;
 		
 		
-		if new_target_vsp > ai_target.max_fall{
-			new_target_vsp = ai_target.max_fall;
-		}
-		if ai_target.fast_falling{
-			if new_target_vsp > ai_target.fast_fall{
-				new_target_vsp = ai_target.fast_fall;
+		
+		if ai_target.free{
+			new_target_vsp = new_target_vsp + ai_target.grav;
+		
+			if new_target_vsp > ai_target.max_fall{
+				new_target_vsp = ai_target.max_fall;
 			}
+			if ai_target.fast_falling{
+				if new_target_vsp > ai_target.fast_fall{
+					new_target_vsp = ai_target.fast_fall;
+				}
+			}
+			
+			
+			ytrag = ytrag + new_target_vsp;
 		}
-		
-		
-		ytrag = ytrag + new_target_vsp;
-		
-		ytrag = ytrag;
-		xtrag = xtrag;
+		xtrag = xtrag + ai_target.hsp;
 		
 	}
 }else{
 	for(var i = 0; i < cur_p - fprediction; i++){
 		
 		current_prediction_target--;
-		xtrag = xtrag - ai_target.hsp;
+	
+		if free{
+			new_target_vsp = new_target_vsp - ai_target.grav;
 		
-		new_target_vsp = new_target_vsp - ai_target.grav;
-		
-		
-		if new_target_vsp > ai_target.max_fall{
-			new_target_vsp = ai_target.max_fall;
-		}
-		if ai_target.fast_falling{
-			if new_target_vsp > ai_target.fast_fall{
-				new_target_vsp = ai_target.fast_fall;
+			if new_target_vsp > ai_target.max_fall{
+				new_target_vsp = ai_target.max_fall;
 			}
+			if ai_target.fast_falling{
+				if new_target_vsp > ai_target.fast_fall{
+					new_target_vsp = ai_target.fast_fall;
+				}
+			}
+			
+			
+			ytrag = ytrag - new_target_vsp;
 		}
 		
-		
-		ytrag = ytrag - new_target_vsp;
-		new_target_vsp = new_target_vsp;
-		ytrag = ytrag;
-		xtrag = xtrag;
-		
+		xtrag = xtrag - ai_target.hsp;
 	}
 }
 
@@ -809,9 +809,9 @@ if !(ai_target.x > room_width - stagex || ai_target.x < stagex){
 	if ytrag >= stagey{
 		ytrag = stagey;
 	}
-	if !ai_target.free{
-		ytrag = ai_target.y
-	}
+	// if !ai_target.free{
+	// 	ytrag = ai_target.y;
+	// }
 }
 
 #define predictloc
@@ -821,7 +821,7 @@ fprediction = argument[0];
 var plat = 0;
 var stage = 0;
 
-if stopped_at > 0{
+if stopped_at >= 0{
 	if fprediction >= stopped_at{
 		return;
 	}
@@ -835,60 +835,61 @@ if cur_p <= fprediction{
 		stage = position_meeting(new_x, new_y, asset_get("par_block"));
 		plat = position_meeting(new_x, new_y, asset_get("jumpthrough_32_obj"));
 		if plat and new_vsp > 0{
-			stopped_at_target = current_prediction;
-			break;
+			if stopped_at == -1{
+				stopped_at = current_prediction;
+			}
+			
+			
 		}
-		if stage {
-			stopped_at_target = current_prediction;
-			break;
-		}
-		
-		current_prediction++;
-		new_x = new_x + hsp;
-		
-		new_vsp = new_vsp + grav;
-		
-		
-		if new_vsp > max_fall{
-			new_vsp = max_fall;
-		}
-		if fast_falling{
-			if new_vsp > fast_fall{
-				new_vsp = fast_fall;
+		if stage and free{
+			if stopped_at == -1{
+				stopped_at = current_prediction;
+				break;
 			}
 		}
 		
+		current_prediction++;
 		
-		new_y = new_y + new_vsp;
-		
-		new_y = new_y;
-		new_x = new_x;
+		if free{
+			new_vsp = new_vsp + grav;
+			
+			if new_vsp > max_fall{
+				new_vsp = max_fall;
+			}
+			if fast_falling{
+				if new_vsp > fast_fall{
+					new_vsp = fast_fall;
+				}
+			}
+			
+			
+			new_y = new_y + new_vsp;
+		}
+	
+		new_x = new_x + hsp;
 		
 	}
 }else{
 	for(var i = 0; i < cur_p - fprediction; i++){
 		
 		current_prediction--;
-		new_x = new_x - ai_target.hsp;
 		
-		new_target_vsp = new_target_vsp - ai_target.grav;
-		
-		
-		if new_target_vsp > ai_target.max_fall{
-			new_target_vsp = ai_target.max_fall;
-		}
-		if ai_target.fast_falling{
-			if new_target_vsp > ai_target.fast_fall{
-				new_target_vsp = ai_target.fast_fall;
+		if free{
+			if new_vsp > max_fall{
+				new_target_vsp = max_fall;
 			}
+			if fast_falling{
+				if new_target_vsp > fast_fall{
+					new_vsp = fast_fall;
+				}
+			}
+			
+			new_vsp = new_vsp - grav;
+			new_y = new_y - new_vsp;
 		}
 		
 		
-		new_y = new_y - new_target_vsp;
-		new_target_vsp = new_target_vsp;
-		new_y = new_y;
-		new_x = new_x;
-		
+		new_x = new_x - hsp;
 	}
 }
 
@@ -896,9 +897,9 @@ if !(x > room_width - stagex || x < stagex){
 	if new_y >= stagey{
 		new_y = stagey;
 	}
-	if !free{
-		new_y = y;
-	}
+	// if !free{
+	// 	new_y = y;
+	// }
 }
 
 #define predictlocComplex
@@ -1131,8 +1132,8 @@ for(var i = 0; i < len; i++){
 	
 	//Long condition to set the boundaries of the attack (this always calcules the boundaries in rectangles for performance, if the hitbox is an ellipse it might not hit)
 	//Test if the predicted location falls inside the boundaries/range
-	if (xtrag <= new_x + xpos + atkwidth or xtrag - hurtboxWidth <= new_x + xpos + atkwidth) and (xtrag >= new_x + xpos - atkwidth or xtrag + hurtboxWidth >= new_x + xpos - atkwidth){
-		if (ypos + atkheight + new_y <= ytrag or ypos - atkheight + new_y <= ytrag) and (ypos + atkheight + new_y >= ytrag - ai_target.char_height or ypos - atkheight + new_y >= ytrag - ai_target.char_height){
+	if (xtrag < new_x + xpos + atkwidth or xtrag - hurtboxWidth < new_x + xpos + atkwidth) and (xtrag > new_x + xpos - atkwidth or xtrag + hurtboxWidth > new_x + xpos - atkwidth){
+		if (ypos + atkheight + new_y < ytrag or ypos - atkheight + new_y < ytrag) and (ypos + atkheight + new_y > ytrag - ai_target.char_height or ypos - atkheight + new_y > ytrag - ai_target.char_height){
 			
 			//Add the attack in range to a new array
 			listAtk[j] = attacke[i];
