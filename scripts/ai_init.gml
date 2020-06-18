@@ -43,9 +43,20 @@ xdist = 0;
 ydist = 0;
 num_whiffs = 0;
 predict = false;
+
 xtrag = 0;
 ytrag = 0;
+new_x = 0;
+new_y = 0;
+current_prediction = 0;
+stopped_at = 0;
+stopped_at_target = 0;
+new_target_vsp = 0;
+new_vsp = 0;
+
 fprediction = 8;
+current_prediction = 0;
+stopped_at = -1;
 targetbusy = false;
 stagex = get_stage_data(SD_X_POS);
 stagey = get_stage_data(SD_Y_POS);
