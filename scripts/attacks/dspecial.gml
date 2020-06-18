@@ -121,7 +121,7 @@ set_hitbox_value(AT_DSPECIAL, 2, HG_EFFECT, 0);
 set_hitbox_value(AT_DSPECIAL, 2, HG_ANGLE, 80);
 set_hitbox_value(AT_DSPECIAL, 2, HG_BASE_KNOCKBACK, 10);
 set_hitbox_value(AT_DSPECIAL, 2, HG_KNOCKBACK_SCALING, 0.5);
-set_hitbox_value(AT_DSPECIAL, 2, HG_BASE_HITPAUSE, 0);
+set_hitbox_value(AT_DSPECIAL, 2, HG_BASE_HITPAUSE, 6);
 set_hitbox_value(AT_DSPECIAL, 2, HG_HIT_SFX, asset_get("sfx_blow_medium1"));
 set_hitbox_value(AT_DSPECIAL, 2, HG_ANGLE_FLIPPER, 4);
 set_hitbox_value(AT_DSPECIAL, 2, HG_HITBOX_GROUP, 1);

@@ -1,8 +1,5 @@
-// draw_debug_text( temp_x+250, temp_y-30, string(window));
-// draw_debug_text( temp_x+250, temp_y-50, string(window_timer));
-// draw_debug_text( temp_x+250, temp_y-70, string(shade_soul.timer_boom));
-//draw_debug_text( temp_x+250, temp_y-90, string(shade_soul.shade_player_id.player));
-// draw_debug_text( temp_x+250, temp_y-110, string(player));
+draw_debug_text( temp_x+250, temp_y-30, string(sex));
+draw_debug_text( temp_x+250, temp_y-60, string(shade_bubbles_play));
 
 //Affiche le nombre de Soul Points sur le HUD
 //draw_debug_text( temp_x+150, temp_y-14, "Soul : " + string( soul_points ));
