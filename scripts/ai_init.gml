@@ -49,6 +49,7 @@ ytrag = 0;
 new_x = 0;
 new_y = 0;
 current_prediction = 0;
+current_prediction_target = 0;
 stopped_at = 0;
 stopped_at_target = 0;
 new_target_vsp = 0;

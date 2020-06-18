@@ -63,7 +63,7 @@ if (get_training_cpu_action() == CPU_FIGHT){
     	special_down = true;
     }
     
-    if (ai_target.state == PS_DEAD or ai_target.state == PS_RESPAWN or ai_target.invince_time > 10){
+    if (ai_target.state == PS_DEAD or ai_target.state == PS_RESPAWN){
         targetbusy = true;
         rangedtimer = 100;
     }
@@ -201,7 +201,7 @@ if (get_training_cpu_action() == CPU_FIGHT){
 				left_down = false;
 				right_down = true;
 				joy_pad_idle = false;
-				joy_dir = 250;
+				joy_dir = 350;
 			}else {
 				left_down = true;
 				right_down = false;
@@ -339,7 +339,7 @@ if (get_training_cpu_action() == CPU_FIGHT){
 		special_down = true;
 	}
 	
-	if can_special and !wait_time > 0{
+	if can_special and !targetbusy and !wait_time > 0{
 		
 		//USpecial Boosted
 		if (ai_target.y + 100 <= y) and !ai_target.y + 400 >= y and can_boost and xdist < 50 and facing and !offstage and attack != AT_USPECIAL_2{
@@ -366,7 +366,11 @@ if (get_training_cpu_action() == CPU_FIGHT){
 		}
 		
 		if !camping and xdist > 300 and !ai_target_offstage{
-			set_attack(AT_FSPECIAL);
+			if x > ai_target.x{
+				Fspecial(1);
+			}else{
+				Fspecial(-1);
+			}
 		}
 	}
 	
@@ -385,7 +389,7 @@ if (get_training_cpu_action() == CPU_FIGHT){
 			}
 		}
 	}
-	if(wait_time > 0){
+	if(wait_time > 0 or ai_target.invince_time > 10){
 		do_not_attack = true;
 	}
 	
@@ -730,12 +734,12 @@ var plat = 0;
 var stage = 0;
 
 if stopped_at_target > 0{
-	if fprediction > stopped_at_target{
+	if fprediction >= stopped_at_target{
 		return;
 	}
 }
 
-var cur_p = current_prediction;
+var cur_p = current_prediction_target;
 
 if cur_p <= fprediction{
 	for(var i = 0; i < fprediction - cur_p; i++){
@@ -743,15 +747,15 @@ if cur_p <= fprediction{
 		stage = position_meeting(xtrag, ytrag, asset_get("par_block"));
 		plat = position_meeting(xtrag, ytrag, asset_get("jumpthrough_32_obj"));
 		if plat and new_target_vsp > 0{
-			stopped_at_target = current_prediction;
+			stopped_at_target = current_prediction_target;
 			break;
 		}
 		if stage {
-			stopped_at_target = current_prediction;
+			stopped_at_target = current_prediction_target;
 			break;
 		}
 		
-		current_prediction++;
+		current_prediction_target++;
 		xtrag = xtrag + ai_target.hsp;
 		
 		new_target_vsp = new_target_vsp + ai_target.grav;
@@ -776,7 +780,7 @@ if cur_p <= fprediction{
 }else{
 	for(var i = 0; i < cur_p - fprediction; i++){
 		
-		current_prediction--;
+		current_prediction_target--;
 		xtrag = xtrag - ai_target.hsp;
 		
 		new_target_vsp = new_target_vsp - ai_target.grav;
@@ -817,7 +821,7 @@ var plat = 0;
 var stage = 0;
 
 if stopped_at > 0{
-	if fprediction > stopped_at{
+	if fprediction >= stopped_at{
 		return;
 	}
 }
@@ -1020,6 +1024,7 @@ if !(x > room_width - stagex || x < stagex){
 
 
 current_prediction = 0;
+current_prediction_target = 0;
 stopped_at = -1;
 xtrag = ai_target.x;
 ytrag = ai_target.y;
