@@ -326,7 +326,9 @@ if (get_training_cpu_action() == CPU_FIGHT){
 		}
     }
     
-    
+    if(wait_time > 0 or ai_target.invince_time > 10){
+		do_not_attack = true;
+	}
     
 	//----------------------
 	
@@ -365,7 +367,8 @@ if (get_training_cpu_action() == CPU_FIGHT){
 			resetPredict();
 		}
 		
-		if !camping and xdist > 300 and !ai_target_offstage{
+		//Fspecial
+		if !camping and xdist > 300 and !ai_target_offstage and !attacking and !do_not_attack{
 			if x > ai_target.x{
 				Fspecial(1);
 			}else{
@@ -389,9 +392,7 @@ if (get_training_cpu_action() == CPU_FIGHT){
 			}
 		}
 	}
-	if(wait_time > 0 or ai_target.invince_time > 10){
-		do_not_attack = true;
-	}
+	
 	
     //Attacks
     if (can_attack or state == PS_DASH or state == PS_DASH_STOP or state == PS_DOUBLE_JUMP) and !targetbusy and !to_boost and !do_not_attack{
