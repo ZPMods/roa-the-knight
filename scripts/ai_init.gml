@@ -54,7 +54,10 @@ stopped_at = 0;
 stopped_at_target = 0;
 new_target_vsp = 0;
 new_vsp = 0;
-
+real_pred_x = 0;
+real_pred_y = 0;
+real_pred_x_target = 0;
+real_pred_y_target = 0;
 fprediction = 8;
 current_prediction = 0;
 stopped_at = -1;
