@@ -5,23 +5,23 @@ set_attack_value(AT_DSTRONG, AG_HURTBOX_SPRITE, sprite_get("dstrong_hurt"));
 
 
 set_window_value(AT_DSTRONG, 1, AG_WINDOW_LENGTH, 14);
-set_window_value(AT_DSTRONG, 1, AG_WINDOW_ANIM_FRAMES, 1);
+set_window_value(AT_DSTRONG, 1, AG_WINDOW_ANIM_FRAMES, 4);
 
 set_window_value(AT_DSTRONG, 2, AG_WINDOW_LENGTH, 4);
 set_window_value(AT_DSTRONG, 2, AG_WINDOW_ANIM_FRAMES, 1);
-set_window_value(AT_DSTRONG, 2, AG_WINDOW_ANIM_FRAME_START, 1);
+set_window_value(AT_DSTRONG, 2, AG_WINDOW_ANIM_FRAME_START, 3);
 set_window_value(AT_DSTRONG, 2, AG_WINDOW_HAS_SFX, 1);
 set_window_value(AT_DSTRONG, 2, AG_WINDOW_SFX_FRAME, 2);
 
 set_window_value(AT_DSTRONG, 3, AG_WINDOW_LENGTH, 35);
 set_window_value(AT_DSTRONG, 3, AG_WINDOW_ANIM_FRAMES, 9);
-set_window_value(AT_DSTRONG, 3, AG_WINDOW_ANIM_FRAME_START, 2);
+set_window_value(AT_DSTRONG, 3, AG_WINDOW_ANIM_FRAME_START, 5);
 set_window_value(AT_DSTRONG, 3, AG_WINDOW_HAS_SFX, 1);
 set_window_value(AT_DSTRONG, 3, AG_WINDOW_SFX, sound_get("knight_strong_down"));
 
 set_window_value(AT_DSTRONG, 4, AG_WINDOW_LENGTH, 15);
 set_window_value(AT_DSTRONG, 4, AG_WINDOW_ANIM_FRAMES, 2);
-set_window_value(AT_DSTRONG, 4, AG_WINDOW_ANIM_FRAME_START, 11);
+set_window_value(AT_DSTRONG, 4, AG_WINDOW_ANIM_FRAME_START, 14);
 set_window_value(AT_DSTRONG, 4, AG_WINDOW_HAS_WHIFFLAG, 10);
 
 set_num_hitboxes(AT_DSTRONG, 7);
