@@ -279,7 +279,7 @@ if (get_training_cpu_action() == CPU_FIGHT){
 	}
 	
 	//DACUS
-    DACUSpercent = (2 - ai_target.knockback_adj) * 110;
+    DACUSpercent = (2 - ai_target.knockback_adj) * 100;
     if(attack == AT_DTILT and has_hit and DACUSpercent < targetdamage and targetdamage < DACUSpercent * 1.30){
     	can_DACUS = true;
     }
@@ -359,7 +359,7 @@ if (get_training_cpu_action() == CPU_FIGHT){
 		}
 		
 		//DSpecial
-		if(ai_target.state == PS_ROLL_BACKWARD or ai_target.state == PS_ROLL_FORWARD or ai_target.state == PS_TECH_GROUND or ai_target.state == PS_TECH_BACKWARD or ai_target.state == PS_TECH_FORWARD) and ai_target.state_timer <= 5{
+		if(ai_target.state == PS_ROLL_BACKWARD or ai_target.state == PS_ROLL_FORWARD or ai_target.state == PS_TECH_GROUND or ai_target.state == PS_TECH_BACKWARD or ai_target.state == PS_TECH_FORWARD) and ai_target.state_timer <= 2{
 			predictlocSimple(10);
 			if (xtrag < x + 50 and xtrag > x - 50) and (y - 10 < ytrag and ytrag < y + char_height + 10){
 				set_attack(AT_DSPECIAL);
@@ -392,10 +392,16 @@ if (get_training_cpu_action() == CPU_FIGHT){
 			}
 		}
 	}
+	// if !hitpause{
+	// 	predictloc(5);
+	// }
+	// if ai_target.hitpause{
+	// 	predictlocTarget(5);
+	// }
 	
 	
     //Attacks
-    if (can_attack or state == PS_DASH or state == PS_DASH_STOP or state == PS_DOUBLE_JUMP) and !targetbusy and !to_boost and !do_not_attack{
+    if (can_attack or state == PS_DASH or state == PS_DASH_START or state == PS_DASH_STOP or state == PS_DOUBLE_JUMP) and !targetbusy and !to_boost and !do_not_attack{
     	
     	
         
@@ -712,7 +718,7 @@ attack_pressed = false;
 /// Fspecial(side, ...)
 
 var side = argument[0];
-
+joy_pad_idle = true;
 if side == 1 {
 	left_down = true;
 	right_down = false;
@@ -735,83 +741,96 @@ fprediction = argument[0];
 
 var plat = 0;
 var stage = 0;
+var len = array_length(prediction_array_target);
+var current_prediction = len - 1;
 
-if stopped_at_target > 0{
-	if fprediction >= stopped_at_target{
-		return;
-	}
-}
+var new_x_c = 0;
+var new_y_c = 0;
+var new_vsp = 0;
+var new_hsp = 0;
 
-var cur_p = current_prediction_target;
-
-if cur_p <= fprediction{
-	for(var i = 0; i < fprediction - cur_p; i++){
-		
-		stage = position_meeting(xtrag, ytrag, asset_get("par_block"));
-		plat = position_meeting(xtrag, ytrag, asset_get("jumpthrough_32_obj"));
-		if plat and new_target_vsp > 0{
-			stopped_at_target = current_prediction_target;
-			break;
-		}
-		if stage and ai_target.free{
-			stopped_at_target = current_prediction_target;
-			break;
-		}
-		
-		current_prediction_target++;
+if fprediction > current_prediction{
+	var i = current_prediction;
+	for (i = current_prediction; i < fprediction; i++){
 		
 		
-		
-		if ai_target.free{
-			new_target_vsp = new_target_vsp + ai_target.grav;
-		
-			if new_target_vsp > ai_target.max_fall{
-				new_target_vsp = ai_target.max_fall;
-			}
-			if ai_target.fast_falling{
-				if new_target_vsp > ai_target.fast_fall{
-					new_target_vsp = ai_target.fast_fall;
-				}
-			}
-			
-			
-			ytrag = ytrag + new_target_vsp;
-		}
-		xtrag = xtrag + ai_target.hsp;
-		
-	}
-}else{
-	for(var i = 0; i < cur_p - fprediction; i++){
-		
-		current_prediction_target--;
+		current_prediction++;
+		new_x_c = prediction_array_target[current_prediction-1, 0];
+		new_y_c = prediction_array_target[current_prediction-1, 1];
+		new_vsp = prediction_array_target[current_prediction-1, 2];
+		new_hsp = prediction_array_target[current_prediction-1, 3];
 	
-		if free{
-			new_target_vsp = new_target_vsp - ai_target.grav;
 		
-			if new_target_vsp > ai_target.max_fall{
-				new_target_vsp = ai_target.max_fall;
+		
+	
+		var project_y = new_vsp + grav;
+		
+		if project_y > ai_target.max_fall{
+			project_y = ai_target.max_fall;
+		}
+		if ai_target.fast_falling{
+			if project_y > ai_target.fast_fall{
+				project_y = ai_target.fast_fall;
 			}
-			if ai_target.fast_falling{
-				if new_target_vsp > ai_target.fast_fall{
-					new_target_vsp = ai_target.fast_fall;
+		}
+		
+		stage = position_meeting(new_x_c, new_y_c + project_y, asset_get("par_block"));
+		plat = position_meeting(new_x_c, new_y_c + project_y, asset_get("jumpthrough_32_obj"));
+		if stage or (plat and project_y > 0){
+			new_vsp = 0;
+			
+		}else{
+			new_vsp = project_y;
+			new_y_c += new_vsp;
+		}
+		
+		if new_vsp == 0 and (stage or plat){
+			if new_hsp > 0{
+				var project_x = new_hsp - ai_target.frict;
+				if project_x < 0{
+					project_x = 0;
+				}
+			}else{
+				var project_x = new_hsp + ai_target.frict;
+				if project_x > 0{
+					project_x = 0;
+				}
+			}
+		}else{
+			if new_hsp > 0{
+				var project_x = new_hsp - ai_target.air_frict;
+				if project_x < 0{
+					project_x = 0;
+				}
+			}else if new_hsp < 0{
+				var project_x = new_hsp + ai_target.air_frict;
+				if project_x > 0{
+					project_x = 0;
 				}
 			}
 			
-			
-			ytrag = ytrag - new_target_vsp;
 		}
 		
-		xtrag = xtrag - ai_target.hsp;
+		
+		stage = position_meeting(new_x_c + project_x, new_y_c - 2, asset_get("par_block"));
+		plat = position_meeting(new_x_c + project_x, new_y_c - 2, asset_get("jumpthrough_32_obj"));
+		if stage or plat{
+			new_hsp = 0;
+			// new_x_c = new_x_c + new_hsp;
+		}else{
+			new_hsp = project_x;
+			new_x_c = new_x_c + new_hsp;
+		}
+		
+		prediction_array_target[current_prediction] = [new_x_c, new_y_c, new_vsp, new_hsp];
 	}
-}
-
-if !(ai_target.x > room_width - stagex || ai_target.x < stagex){
-	if ytrag >= stagey{
-		ytrag = stagey;
-	}
-	// if !ai_target.free{
-	// 	ytrag = ai_target.y;
-	// }
+	
+	xtrag = prediction_array_target[fprediction, 0];
+	ytrag = prediction_array_target[fprediction, 1];
+	
+}else{
+	xtrag = prediction_array_target[fprediction, 0];
+	ytrag = prediction_array_target[fprediction, 1];
 }
 
 #define predictloc
@@ -820,87 +839,97 @@ fprediction = argument[0];
 
 var plat = 0;
 var stage = 0;
+var len = array_length(prediction_array);
+var current_prediction = len - 1;
 
-if stopped_at >= 0{
-	if fprediction >= stopped_at{
-		return;
-	}
-}
+var new_x_c = 0;
+var new_y_c = 0;
+var new_vsp = 0;
+var new_hsp = 0;
 
-var cur_p = current_prediction;
-
-if cur_p <= fprediction{
-	for(var i = 0; i < fprediction - cur_p; i++){
+if fprediction > current_prediction{
+	var i = current_prediction;
+	for (i = current_prediction; i < fprediction; i++){
 		
-		stage = position_meeting(new_x, new_y, asset_get("par_block"));
-		plat = position_meeting(new_x, new_y, asset_get("jumpthrough_32_obj"));
-		if plat and new_vsp > 0{
-			if stopped_at == -1{
-				stopped_at = current_prediction;
-			}
-			
-			
-		}
-		if stage and free{
-			if stopped_at == -1{
-				stopped_at = current_prediction;
-				break;
-			}
-		}
 		
 		current_prediction++;
-		
-		if free{
-			new_vsp = new_vsp + grav;
-			
-			if new_vsp > max_fall{
-				new_vsp = max_fall;
-			}
-			if fast_falling{
-				if new_vsp > fast_fall{
-					new_vsp = fast_fall;
-				}
-			}
-			
-			
-			new_y = new_y + new_vsp;
-		}
+		new_x_c = prediction_array[current_prediction-1, 0];
+		new_y_c = prediction_array[current_prediction-1, 1];
+		new_vsp = prediction_array[current_prediction-1, 2];
+		new_hsp = prediction_array[current_prediction-1, 3];
 	
-		new_x = new_x + hsp;
 		
-	}
-}else{
-	for(var i = 0; i < cur_p - fprediction; i++){
+		var project_y = new_vsp + grav;
 		
-		current_prediction--;
-		
-		if free{
-			if new_vsp > max_fall{
-				new_target_vsp = max_fall;
+		if project_y > max_fall{
+			project_y = max_fall;
+		}
+		if fast_falling{
+			if project_y > fast_fall{
+				project_y = fast_fall;
 			}
-			if fast_falling{
-				if new_target_vsp > fast_fall{
-					new_vsp = fast_fall;
+		}
+		
+		stage = position_meeting(new_x_c, new_y_c + project_y, asset_get("par_block"));
+		plat = position_meeting(new_x_c, new_y_c + project_y, asset_get("jumpthrough_32_obj"));
+		if (stage or (plat and project_y > 0)){
+			new_vsp = 0;
+			
+		}else{
+			new_vsp = project_y;
+			new_y_c += new_vsp;
+		}
+		
+		if new_vsp == 0 and (stage or plat){
+			if new_hsp > 0{
+				var project_x = new_hsp - frict;
+				if project_x < 0{
+					project_x = 0;
+				}
+			}else{
+				var project_x = new_hsp + frict;
+				if project_x > 0{
+					project_x = 0;
+				}
+			}
+		}else{
+			if new_hsp > 0{
+				var project_x = new_hsp - air_frict;
+				if project_x < 0{
+					project_x = 0;
+				}
+			}else if new_hsp < 0{
+				var project_x = new_hsp + air_frict;
+				if project_x > 0{
+					project_x = 0;
 				}
 			}
 			
-			new_vsp = new_vsp - grav;
-			new_y = new_y - new_vsp;
+		}
+		
+		stage = position_meeting(new_x_c + project_x, new_y_c - 2, asset_get("par_block"));
+		plat = position_meeting(new_x_c + project_x, new_y_c - 2, asset_get("jumpthrough_32_obj"));
+		if stage or plat{
+			new_hsp = 0;
+			
+		}else{
+			new_hsp = project_x;
+			new_x_c = new_x_c + new_hsp;
 		}
 		
 		
-		new_x = new_x - hsp;
+		prediction_array[current_prediction] = [new_x_c, new_y_c, new_vsp, new_hsp];
 	}
+	
+	new_x = prediction_array[fprediction, 0];
+	new_y = prediction_array[fprediction, 1];
+	
+}else{
+	new_x = prediction_array[fprediction, 0];
+	new_y = prediction_array[fprediction, 1];
+	//print_debug("frame:" + string(fprediction) + " new_x:" + string(new_x) + " new_y:" + string(new_y) + " new_vsp:" + string(prediction_array[fprediction, 2]) + " new_hsp:" + string(prediction_array[fprediction, 3]));
 }
 
-if !(x > room_width - stagex || x < stagex){
-	if new_y >= stagey{
-		new_y = stagey;
-	}
-	// if !free{
-	// 	new_y = y;
-	// }
-}
 
 #define predictlocComplex
 
@@ -1025,16 +1054,20 @@ if !(x > room_width - stagex || x < stagex){
 #define resetPredict
 
 
-current_prediction = 0;
-current_prediction_target = 0;
-stopped_at = -1;
+// current_prediction = 0;
+// current_prediction_target = 0;
+// stopped_at = -1;
 xtrag = ai_target.x;
 ytrag = ai_target.y;
 new_x = x;
 new_y = y;
-new_target_vsp = ai_target.vsp;
-new_vsp = vsp;
+// new_target_vsp = ai_target.vsp;
+// new_vsp = vsp;
 
+prediction_array = 0;
+prediction_array_target = 0;
+prediction_array[0] = [x, y, vsp, hsp];
+prediction_array_target[0] = [ai_target.x, ai_target.y, ai_target.vsp, ai_target.hsp];
 
 #define checkHurtboxWidth
 
@@ -1085,7 +1118,7 @@ for(var i = 0; i < len; i++){
 	
 	//Special condition of range of the attack (if the character moves for example)
 	if(attacke[i] == AT_DATTACK){
-		distadd_x = 150;
+		distadd_x = 160;
 		distadd_y = 0;
 	}else{
 		distadd_x = 0;
@@ -1119,12 +1152,21 @@ for(var i = 0; i < len; i++){
 			atkwidth = get_hitbox_value( attacke[i], 1, HG_WIDTH ) div 2;
 			atkheight = get_hitbox_value( attacke[i], 1, HG_HEIGHT ) div 2;
 			var frame = get_window_value(attacke[i], 1, AG_WINDOW_LENGTH) + get_window_value(attacke[i], 2, AG_WINDOW_LENGTH);
+			break;
 		case AT_DSTRONG:
 			xpos = (get_hitbox_value( attacke[i], 1, HG_HITBOX_X ) + distadd_x)* spr_dir;
 			ypos = get_hitbox_value( attacke[i], 1, HG_HITBOX_Y ) + distadd_y;
 			atkwidth = get_hitbox_value( attacke[i], 1, HG_WIDTH ) div 2;
 			atkheight = get_hitbox_value( attacke[i], 1, HG_HEIGHT ) div 2;
 			var frame = get_window_value(attacke[i], 1, AG_WINDOW_LENGTH) + get_window_value(attacke[i], 2, AG_WINDOW_LENGTH);
+			break;
+		case AT_DATTACK:
+			xpos = (get_hitbox_value( attacke[i], 1, HG_HITBOX_X ) + distadd_x)* spr_dir;
+			ypos = get_hitbox_value( attacke[i], 1, HG_HITBOX_Y ) + distadd_y;
+			atkwidth = get_hitbox_value( attacke[i], 1, HG_WIDTH ) div 2;
+			atkheight = get_hitbox_value( attacke[i], 1, HG_HEIGHT ) div 2;
+			var frame = get_window_value(attacke[i], 1, AG_WINDOW_LENGTH) + get_window_value(attacke[i], 2, AG_WINDOW_LENGTH);
+			break;
 	}
 	
 	predictloc(frame);

@@ -48,19 +48,20 @@ xtrag = 0;
 ytrag = 0;
 new_x = 0;
 new_y = 0;
-current_prediction = 0;
-current_prediction_target = 0;
-stopped_at = 0;
-stopped_at_target = 0;
-new_target_vsp = 0;
-new_vsp = 0;
-real_pred_x = 0;
-real_pred_y = 0;
-real_pred_x_target = 0;
-real_pred_y_target = 0;
-fprediction = 8;
+// current_prediction = 0;
+// current_prediction_target = 0;
+// stopped_at = 0;
+// stopped_at_target = 0;
+// new_target_vsp = 0;
+// new_vsp = 0;
+
+fprediction = 0;
 current_prediction = 0;
 stopped_at = -1;
+
+prediction_array = [];
+prediction_array_target = [];
+
 targetbusy = false;
 stagex = get_stage_data(SD_X_POS);
 stagey = get_stage_data(SD_Y_POS);
