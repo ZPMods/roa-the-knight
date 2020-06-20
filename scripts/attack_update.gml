@@ -423,9 +423,15 @@ if (attack == AT_NSPECIAL || attack == AT_FSPECIAL || attack == AT_DSPECIAL || a
 //Taunt
 if (attack == AT_TAUNT)
 {
-     if (window >= 2 && window_timer >= 60 && (shield_pressed || taunt_pressed))
+     if (window >= 4 && window_timer >= 60 && (shield_pressed || taunt_pressed))
      {
-          set_state(PS_LAND);
+          //set_state(PS_LAND);
+          if was_parried{
+               set_state(PS_PRATFALL);
+          }else{
+          	   set_state(PS_LAND);
+          }
+          
           clear_button_buffer(PC_SHIELD_PRESSED);
           clear_button_buffer(PC_TAUNT_PRESSED);
      }
