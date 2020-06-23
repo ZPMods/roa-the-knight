@@ -81,7 +81,7 @@ set_window_value(AT_DSPECIAL, 7, AG_WINDOW_ANIM_FRAME_START, 26);
 set_window_value(AT_DSPECIAL, 7, AG_WINDOW_VSPEED, -10);
 set_window_value(AT_DSPECIAL, 7, AG_WINDOW_VSPEED_TYPE, 2);
 
-set_num_hitboxes(AT_DSPECIAL, 3);
+set_num_hitboxes(AT_DSPECIAL, 2);
 
 //Hitbox en l'air
 set_hitbox_value(AT_DSPECIAL, 1, HG_PARENT_HITBOX, 0);
@@ -127,23 +127,3 @@ set_hitbox_value(AT_DSPECIAL, 2, HG_ANGLE_FLIPPER, 4);
 set_hitbox_value(AT_DSPECIAL, 2, HG_HITBOX_GROUP, 1);
 set_hitbox_value(AT_DSPECIAL, 2, HG_VISUAL_EFFECT, soul_hit_heavy)
 
-set_hitbox_value(AT_DSPECIAL, 3, HG_PARENT_HITBOX, 0);
-set_hitbox_value(AT_DSPECIAL, 3, HG_HITBOX_TYPE, 1);
-set_hitbox_value(AT_DSPECIAL, 3, HG_WINDOW, 5);
-set_hitbox_value(AT_DSPECIAL, 3, HG_HITBOX_Y, -18);
-set_hitbox_value(AT_DSPECIAL, 3, HG_LIFETIME, 2);
-set_hitbox_value(AT_DSPECIAL, 3, HG_WINDOW_CREATION_FRAME, 2);
-set_hitbox_value(AT_DSPECIAL, 3, HG_WIDTH, 156);
-set_hitbox_value(AT_DSPECIAL, 3, HG_HEIGHT, 110);
-set_hitbox_value(AT_DSPECIAL, 3, HG_SHAPE, 2);
-set_hitbox_value(AT_DSPECIAL, 3, HG_PRIORITY, 3);
-set_hitbox_value(AT_DSPECIAL, 3, HG_DAMAGE, 2);
-set_hitbox_value(AT_DSPECIAL, 3, HG_EFFECT, 0);
-set_hitbox_value(AT_DSPECIAL, 3, HG_ANGLE, 40);
-set_hitbox_value(AT_DSPECIAL, 3, HG_BASE_KNOCKBACK, 9);
-set_hitbox_value(AT_DSPECIAL, 3, HG_KNOCKBACK_SCALING, 0.2);
-set_hitbox_value(AT_DSPECIAL, 3, HG_BASE_HITPAUSE, 4);
-set_hitbox_value(AT_DSPECIAL, 3, HG_HIT_SFX, asset_get("sfx_blow_medium2"));
-set_hitbox_value(AT_DSPECIAL, 3, HG_ANGLE_FLIPPER, 1);
-set_hitbox_value(AT_DSPECIAL, 3, HG_HITBOX_GROUP, 1);
-set_hitbox_value(AT_DSPECIAL, 3, HG_VISUAL_EFFECT, soul_hit_heavy)
