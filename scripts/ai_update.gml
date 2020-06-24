@@ -177,7 +177,7 @@ if (get_training_cpu_action() == CPU_FIGHT){
 	 		
 	}
 	
-	var plat_near = collision_point(x, y+5, asset_get("jumpthrough_32_obj"), false, false);
+	var plat_near = collision_point(x, y+6, asset_get("jumpthrough_32_obj"), false, false);
     if free and plat_near and (chasing or camping) and vsp < 0 and !(ai_target.y < y and xdist < 50) and !ai_target_offstage{
     	shield_pressed = true;
     }
@@ -240,7 +240,9 @@ if (get_training_cpu_action() == CPU_FIGHT){
 	nearbyhitbox = collision_circle( x, y - char_height/2, 64-(wait_time*0.4), asset_get("pHitBox"), true, true);
 	if nearbyhitbox != noone{
 		if nearbyhitbox.player_id != self{
-			shield_pressed = true
+			if nearbyhitbox.kb_value > 0 and nearbyhitbox.type == 2{
+				shield_pressed = true
+			}
 		}
 	}
     
@@ -786,12 +788,12 @@ if fprediction > current_prediction{
 		
 		if new_vsp == 0 and (stage or plat){
 			if new_hsp > 0{
-				var project_x = new_hsp - ai_target.frict;
+				var project_x = new_hsp - ai_target.ground_friction;
 				if project_x < 0{
 					project_x = 0;
 				}
 			}else{
-				var project_x = new_hsp + ai_target.frict;
+				var project_x = new_hsp + ai_target.ground_friction;
 				if project_x > 0{
 					project_x = 0;
 				}
@@ -882,12 +884,12 @@ if fprediction > current_prediction{
 		
 		if new_vsp == 0 and (stage or plat){
 			if new_hsp > 0{
-				var project_x = new_hsp - frict;
+				var project_x = new_hsp - ground_friction;
 				if project_x < 0{
 					project_x = 0;
 				}
 			}else{
-				var project_x = new_hsp + frict;
+				var project_x = new_hsp + ground_friction;
 				if project_x > 0{
 					project_x = 0;
 				}

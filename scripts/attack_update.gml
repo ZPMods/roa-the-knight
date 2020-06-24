@@ -516,9 +516,12 @@ if (attack == AT_USPECIAL_2 || attack == AT_FSPECIAL_2 || attack == AT_DSPECIAL_
 
 if (shade_bubbles_play == 1)
 {
-     shade_bubbles_play = 0;
+    shade_bubbles_play = 0;
 	spawnShadeBubbles(shade_bubbles_x, shade_bubbles_y);
 }
+
+
+
 
 #define spawnShadeBubbles
 var id = random_func(0, 5, true);
@@ -527,7 +530,7 @@ var toSpawn = shade_bubbles_1;
 switch (id)
 {
      case 0 : toSpawn = shade_bubbles_1; break;
-     case 1 : toSpawn = shade_bubbles_1; break;
+     case 1 : toSpawn = shade_bubbles_2; break;
      case 2 : toSpawn = shade_bubbles_3; break;
      case 3 : toSpawn = shade_bubbles_4; break;
      case 4 : toSpawn = shade_bubbles_5; break;
