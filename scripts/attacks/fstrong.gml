@@ -13,7 +13,7 @@ set_window_value(AT_FSTRONG, 2, AG_WINDOW_LENGTH, 5);
 set_window_value(AT_FSTRONG, 2, AG_WINDOW_ANIM_FRAMES, 1);
 set_window_value(AT_FSTRONG, 2, AG_WINDOW_ANIM_FRAME_START, 3);
 set_window_value(AT_FSTRONG, 2, AG_WINDOW_HAS_SFX, 1);
-set_window_value(AT_FSTRONG, 2, AG_WINDOW_SFX, sound_get("knight_strong_side_2"));
+set_window_value(AT_FSTRONG, 2, AG_WINDOW_SFX, sound_get("knight_strong_side"));
 
 set_window_value(AT_FSTRONG, 3, AG_WINDOW_TYPE, 1);
 set_window_value(AT_FSTRONG, 3, AG_WINDOW_LENGTH, 4);
