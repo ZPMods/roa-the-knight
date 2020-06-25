@@ -1,6 +1,6 @@
 set_attack_value(AT_DSPECIAL, AG_CATEGORY, 2);
 set_attack_value(AT_DSPECIAL, AG_SPRITE, sprite_get("dspecial"));
-set_attack_value(AT_DSPECIAL, AG_NUM_WINDOWS, 9);
+set_attack_value(AT_DSPECIAL, AG_NUM_WINDOWS, 7);
 set_attack_value(AT_DSPECIAL, AG_HURTBOX_SPRITE, sprite_get("dspecial_hurt"));
 
 // //Window de charge boosted
@@ -73,6 +73,7 @@ set_window_value(AT_DSPECIAL, 6, AG_WINDOW_TYPE, 1);
 set_window_value(AT_DSPECIAL, 6, AG_WINDOW_LENGTH, 1);
 set_window_value(AT_DSPECIAL, 6, AG_WINDOW_ANIM_FRAMES, 1);
 set_window_value(AT_DSPECIAL, 6, AG_WINDOW_ANIM_FRAME_START, 26);
+
 
 set_window_value(AT_DSPECIAL, 7, AG_WINDOW_TYPE, 1);
 set_window_value(AT_DSPECIAL, 7, AG_WINDOW_LENGTH, 10);

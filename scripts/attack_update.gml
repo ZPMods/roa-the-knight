@@ -142,6 +142,7 @@ if (attack == AT_DSPECIAL && free && window == 1 && window_timer == get_window_v
 //Hitbox au sol
 if (attack == AT_DSPECIAL && !free && window == 4)
 {
+	 destroy_hitboxes();
      window = 5;
      window_timer = 0;
 }
@@ -157,6 +158,7 @@ if (attack == AT_DSPECIAL && window == 5)
 //Hitbox en l'air
 if (attack == AT_DSPECIAL && window == 4 && has_dspecial_air_hit == true)
 {
+  
   window = 6;
   window_timer = 0;
 }
@@ -519,9 +521,6 @@ if (shade_bubbles_play == 1)
     shade_bubbles_play = 0;
 	spawnShadeBubbles(shade_bubbles_x, shade_bubbles_y);
 }
-
-
-
 
 #define spawnShadeBubbles
 var id = random_func(0, 5, true);

@@ -34,6 +34,7 @@ if(my_hitboxID.attack == AT_DSPECIAL && window == 4)
   has_dspecial_air_hit = true;
   window = 6;
   window_timer = 0;
+  sound_play(sound_get("knight_special_down_normal_air"));
 }
 
 //Down Special Boosted Multihit

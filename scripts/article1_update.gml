@@ -28,7 +28,7 @@ if (shade_soul_first_hit)
 
 
 if shade_hitbox == noone and !shade_soul_first_hit{
- 	shade_hitbox = create_hitbox(AT_NSPECIAL_2, 3, x , y - 33);
+ 	shade_hitbox = create_hitbox(AT_NSPECIAL_2, 3, x + 10 * spr_dir , y - 33);
 	shade_hitbox.source = id;
 	shade_hitbox.hsp = hsp;
 }
