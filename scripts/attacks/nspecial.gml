@@ -67,7 +67,7 @@ set_hitbox_value(AT_NSPECIAL, 1, HG_KNOCKBACK_SCALING, 0.3);
 set_hitbox_value(AT_NSPECIAL, 1, HG_BASE_HITPAUSE, 9);
 set_hitbox_value(AT_NSPECIAL, 1, HG_ANGLE, 75);
 set_hitbox_value(AT_NSPECIAL, 1, HG_VISUAL_EFFECT, soul_hit_heavy);
-set_hitbox_value(AT_NSPECIAL, 1, HG_EFFECT, 0);
+set_hitbox_value(AT_NSPECIAL, 1, HG_HIT_SFX, sound_get("knight_special_neutral_normal_impact"));
 set_hitbox_value(AT_NSPECIAL, 1, HG_HITSTUN_MULTIPLIER, 0);
 /* set_hitbox_value(AT_NSPECIAL, 1, HG_VISUAL_EFFECT_Y_OFFSET, -32);
 set_hitbox_value(AT_NSPECIAL, 1, HG_VISUAL_EFFECT_X_OFFSET, -32); */

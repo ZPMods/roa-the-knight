@@ -41,3 +41,6 @@ nspecial_animation_timer = 0;
 bubbles_timer = 0;
 shade_bubbles_x = x;
 shade_bubbles_y = y - 40;
+
+audio = sound_get("knight_special_neutral_boosted_loop");
+sound_play(audio);

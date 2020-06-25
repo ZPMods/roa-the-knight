@@ -3,6 +3,7 @@ if parried{
 }
 
 if (destroy_firsthit){
+	sound_stop(audio);
 	instance_destroy(shade_hitbox);
 }
 
@@ -39,7 +40,7 @@ if shade_hitbox == noone and !shade_soul_first_hit{
 if (shade_soul_first_hit && timer % 5 == 0 && !hit_wall && timer_boom > 1)
 {
 
-    shade_drag = create_hitbox(AT_NSPECIAL_2, 1, x + 10 * spr_dir, y - 33);
+    shade_drag = create_hitbox(AT_NSPECIAL_2, 1, x + 14 * spr_dir, y - 33);
 
 }
 
@@ -54,7 +55,9 @@ if (shade_soul_first_hit)
      timer_boom --;
 }
 
+
 if(!instance_exists(shade_hitbox) and !destroy_firsthit){
+	sound_stop(audio);
 	instance_destroy();
 	return;
 }
@@ -114,7 +117,8 @@ if (hit_wall || x < stage_left || x > stage_right)
 	    }
 
 	}
-
+	
+	sound_stop(audio);
     instance_destroy(shade_hitbox);
     instance_destroy();
     //sprite_index = asset_get("empty_sprite");
@@ -134,6 +138,7 @@ if(timer_boom) == 0{
 if timer_boom == -1{
 	owner.move_cooldown[AT_NSPECIAL] = 0;
     shade_soul_first_hit = false;
+    sound_stop(audio);
     instance_destroy(shade_hitbox);
     instance_destroy();
     return;
