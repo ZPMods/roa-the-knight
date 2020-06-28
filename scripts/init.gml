@@ -56,6 +56,7 @@ trummelcodec_id = noone;
 
 //ATTACKS
 
+
 //Dair
 has_dair_hit = false;
 has_dspecial_air_hit = false;
@@ -279,12 +280,13 @@ fast_fall = 13; //fast fall speed
 gravity_speed = .64;
 hitstun_grav = .5;
 knockback_adj = 1.1; //the multiplier to KB dealt to you. 1 = default, >1 = lighter, <1 = heavier
-
+can_wall_cling = true;
 land_time = 4; //normal landing frames
 prat_land_time = 10;
 wave_land_time = 8;
 wave_land_adj = 1.25; //the multiplier to your initial hsp when wavelanding. Usually greater than 1
 wave_friction = .06; //grounded deceleration when wavelanding
+
 
 //crouch animation frames
 crouch_startup_frames = 1;
@@ -405,7 +407,7 @@ newhit_vsp = 0;
 newhit_hsp = 0;
 hitbox_hitpause = 0;
 shade_soul = noone;
-
+clinging_timer = 0;
 vanillachar = 25; // Permet de détecter le main cast
 dream_random = "";
 
