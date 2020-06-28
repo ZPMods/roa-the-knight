@@ -234,14 +234,16 @@ if (shade_burst_play = 1)
 	spawnShadeBurst(shade_burst_x, shade_burst_y);
 }
 
+
+//Mantis Claw
 if state != PS_WALL_JUMP{
 	clinging = false;
 	clinging_timer = 0;
-	sound_stop(sound_get("hero_wall_slide"));
+	sound_stop(sound_get("knight_wall_slide"));
 }else{
 	if (clinging){
-		if clinging_timer == 0 { sound_play(sound_get("hero_mantis_claw")); }
-		if clinging_timer == 1 { sound_play(sound_get("hero_wall_slide")) }
+		if clinging_timer == 0 { sound_play(sound_get("knight_mantis_claw")); }
+		if clinging_timer == 1 { sound_play(sound_get("knight_wall_slide")) }
 		
 		
 		vsp = clinging_timer * 0.2;
@@ -249,8 +251,8 @@ if state != PS_WALL_JUMP{
 		clinging_timer++;
 	}else{
 		
-		sound_stop(sound_get("hero_wall_slide"));
-		if clinging_timer == state_timer - 1{ sound_play(sound_get("hero_wall_jump")); }
+		sound_stop(sound_get("knight_wall_slide"));
+		if clinging_timer == state_timer - 1{ sound_play(sound_get("knight_wall_jump")); }
 		
 	}
 }
