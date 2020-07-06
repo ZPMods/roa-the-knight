@@ -158,7 +158,7 @@ if (attack == AT_DSPECIAL && window == 5)
 //Hitbox en l'air
 if (attack == AT_DSPECIAL && window == 4 && has_dspecial_air_hit == true)
 {
-  
+
   window = 6;
   window_timer = 0;
 }
@@ -425,15 +425,17 @@ if (attack == AT_NSPECIAL || attack == AT_FSPECIAL || attack == AT_DSPECIAL || a
 //Taunt
 if (attack == AT_TAUNT)
 {
-     if (window >= 4 && window_timer >= 60 && (shield_pressed || taunt_pressed))
+     if (window >= 4 && window < 7 && (shield_pressed || taunt_pressed))
      {
-          //set_state(PS_LAND);
-          if was_parried{
+          /* if was_parried{
                set_state(PS_PRATFALL);
           }else{
           	   set_state(PS_LAND);
-          }
-          
+          } */
+
+          window = 7;
+          window_timer = 0;
+
           clear_button_buffer(PC_SHIELD_PRESSED);
           clear_button_buffer(PC_TAUNT_PRESSED);
      }
