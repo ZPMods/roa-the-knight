@@ -219,6 +219,7 @@ if (soul_full_play == 30)
 {
 	soul_full_play = -1;
 	spawnShadeBurst(x, y - 35);
+	white_flash_timer = 10;
 }
 
 //Particle effects triggers from other scripts, 'cause you can't call a function from other scripts for some godforsaken reason, @dan plz fix
@@ -244,16 +245,16 @@ if state != PS_WALL_JUMP{
 	if (clinging){
 		if clinging_timer == 0 { sound_play(sound_get("knight_mantis_claw")); }
 		if clinging_timer == 1 { sound_play(sound_get("knight_wall_slide")) }
-		
-		
+
+
 		vsp = clinging_timer * 0.2;
 		if vsp > max_fall { vsp = max_fall; }
 		clinging_timer++;
 	}else{
-		
+
 		sound_stop(sound_get("knight_wall_slide"));
 		if clinging_timer == state_timer - 1{ sound_play(sound_get("knight_wall_jump")); }
-		
+
 	}
 }
 
@@ -364,7 +365,7 @@ if swallowed {
     var ability_proj_spr = sprite_get("nspecial_proj");
 	var sound_nspecial = sound_get("knight_special_neutral_normal");
 	var vfx = hit_fx_create(sprite_get("soul_hit_heavy"), 20);
-	
+
     with enemykirby {
 
         set_attack_value(AT_EXTRA_3, AG_CATEGORY, 2);
@@ -436,7 +437,7 @@ if enemykirby != undefined { //if kirby is in a match & swallowed
     with asset_get("oPlayer") { //Run through all players
         if ((state == PS_ATTACK_AIR || state == PS_ATTACK_GROUND) && attack == AT_EXTRA_3) {
             if (get_window_value(AT_EXTRA_3,4,AG_WINDOW_ANIM_FRAMES) == 99765) {
-            	
+
                 kirb_used_Theknight = 1;
                 move_cooldown[AT_EXTRA_3] = 70;
                 //sound_play(other.sound_get("knight_special_neutral"));
