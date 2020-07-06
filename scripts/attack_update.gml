@@ -501,6 +501,12 @@ if (attack == AT_DSPECIAL_2 && window == 7 && window_timer == 15)
      nts_effect_show = true;
 }
 
+//Feathers particles
+if (attack == AT_USPECIAL && window == 3 && window_timer == 1)
+{
+     spawn_hit_fx(x, y-30, feathers_burst_1);
+}
+
 //Taunt
 /*if (attack == AT_TAUNT && down_down)
 {
@@ -538,3 +544,7 @@ switch (id)
 }
 
 spawn_hit_fx(argument[0], argument[1], toSpawn);
+
+/* #define spawnFeathers
+var toSpawn = feathers;
+spawn_hit_fx(argument[0], argument[1], toSpawn); */

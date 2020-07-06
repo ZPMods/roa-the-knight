@@ -228,6 +228,9 @@ shade_bubbles_play = 0;
 shade_bubbles_x = 0;
 shade_bubbles_y = 0;
 
+feathers_burst_1 = hit_fx_create(sprite_get("feathers_burst_1"), 40);
+feathers_play = 0;
+
 //----------------------------------------------------------
 
 //Common Variables
