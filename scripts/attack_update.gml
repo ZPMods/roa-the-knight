@@ -435,6 +435,7 @@ if (attack == AT_TAUNT)
 
           window = 7;
           window_timer = 0;
+          bench.end_anim = true;
 
           clear_button_buffer(PC_SHIELD_PRESSED);
           clear_button_buffer(PC_TAUNT_PRESSED);
