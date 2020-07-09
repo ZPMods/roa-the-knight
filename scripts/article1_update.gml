@@ -117,7 +117,7 @@ if (hit_wall || x < stage_left || x > stage_right)
 	    }
 
 	}
-	
+
 	sound_stop(audio);
     instance_destroy(shade_hitbox);
     instance_destroy();

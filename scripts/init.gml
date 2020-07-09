@@ -39,6 +39,9 @@ abyssMods[@ runes.O] = [3,"Ground speed is faster."];
 //Custom Variables
 //----------------------------------------------------------
 
+bench_timer = 0;
+bench_phase = 0;
+
 // Kirby
 kirbyability = 16;
 kirb_used = 0;

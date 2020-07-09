@@ -1,4 +1,6 @@
 phase_timer ++;
+player_id.bench_timer = phase_timer;
+player_id.bench_phase = phase;
 
 //Phase switching
 switch (phase)
@@ -44,4 +46,57 @@ if (end_stay <= 0)
 if (image_index == 17)
 {
 	instance_destroy();
+}
+
+//SOUNDS
+switch (phase)
+{
+     case 1 :
+          switch (phase_timer)
+          {
+               case 1 :
+                    sound_play(sound_get("knight_bench_rise"));
+          	break;
+
+               case 11 :
+                    sound_play(sound_get("knight_bench_open"));
+          	break;
+
+               case 21 :
+                    sound_play(sound_get("knight_bench_lower"));
+               break;
+          }
+	break;
+
+	case 3 :
+          switch (phase_timer)
+          {
+               case 5 :
+                    sound_play(sound_get("knight_bench_open"));
+               break;
+
+               case 25 :
+                    sound_play(sound_get("knight_bench_rise"));
+               break;
+          }
+	break;
+}
+
+//HITBOXES
+if (phase == 1)
+{
+     switch (phase_timer)
+     {
+          case 5 :
+               create_hitbox(AT_TAUNT, 1, x, y);
+          break;
+
+          case 15 :
+               create_hitbox(AT_TAUNT, 2, x, y);
+          break;
+
+          case 30 :
+               create_hitbox(AT_TAUNT, 3, x, y);
+          break;
+     }
 }
