@@ -237,6 +237,8 @@ feathers_falling_2 = hit_fx_create(sprite_get("feathers_falling_2"), 40);
 feathers_falling_3 = hit_fx_create(sprite_get("feathers_falling_3"), 40);
 feathers_play = 0;
 
+dash_burst = hit_fx_create(sprite_get("dash_burst"), 13);
+
 //----------------------------------------------------------
 
 //Common Variables

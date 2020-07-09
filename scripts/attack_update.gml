@@ -329,6 +329,11 @@ if (attack == AT_FSPECIAL || attack == AT_FSPECIAL_2)
      }
 }
 
+/* if (attack == AT_FSPECIAL && window == 1 && window_timer == 8)
+{
+     spawn_hit_fx(x, y, dash_burst)
+} */
+
 //FORWARD SPECIAL BOOSTED MECHANICS ---------------------------------
 
 //Forward Special Boosted Position Reset
