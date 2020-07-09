@@ -27,13 +27,13 @@ if (get_training_cpu_action() == CPU_FIGHT){
     camping = 0;
     debug = 0;
     do_not_attack = 0;
-    var offstage = (x > room_width - stagex || x < stagex) and y <= stagey;
+    var offstage = (x > room_width - stagex || x < stagex);
     var ai_target_offstage = (ai_target.x - hurtboxWidth > room_width - stagex || ai_target.x + hurtboxWidth < stagex);
-    if state_cat == SC_HITSTUN{
-    	if (hit_player_obj != ai_target){
-    		ai_target = hit_player_obj;
-    	}
-    }
+    // if state_cat == SC_HITSTUN{
+    // 	if (hit_player_obj != ai_target){
+    // 		ai_target = hit_player_obj;
+    // 	}
+    // }
     
     
     //------------------ Wait time
@@ -82,15 +82,15 @@ if (get_training_cpu_action() == CPU_FIGHT){
     }
     
     //Chase - Agression
-    if (((0 > rangedtimer) and (!ai_recovering and inactive > 20)) and (state_cat == SC_GROUND_NEUTRAL or state_cat == SC_AIR_NEUTRAL) and state_cat != SC_HITSTUN and !ai_target_offstage and !offstage and xdist > 100 and !wait_time > 0){
+    if (((0 > rangedtimer) and (!ai_recovering and inactive > 20)) and (state_cat == SC_GROUND_NEUTRAL or state_cat == SC_AIR_NEUTRAL) and state_cat != SC_HITSTUN and !ai_target_offstage and !offstage  and !can_DACUS and xdist > 100 and !wait_time > 0){
 	    if ai_target.x > x{
 	        right_hard_pressed = true;
-			if state = PS_DASH {
+			if state == PS_DASH {
 				right_down = true;
 			}
 	    } else {
 	        left_hard_pressed = true;
-			if state = PS_DASH {
+			if state == PS_DASH {
 				left_down = true;
 			}
 	    }
@@ -101,12 +101,12 @@ if (get_training_cpu_action() == CPU_FIGHT){
 	if(ai_target.state_cat == SC_HITSTUN and state != PS_PRATFALL and state_cat != SC_HITSTUN and !((attack == AT_USPECIAL or attack == AT_USPECIAL_2) and state == PS_ATTACK_AIR) and !ai_target_offstage and !offstage and !can_DACUS and !to_boost and !wait_time > 0){
 		if ai_target.x > x{
 	        right_hard_pressed = true;
-			if state = PS_DASH {
+			if state == PS_DASH {
 				right_down = true;
 			}
 	    } else {
 	        left_hard_pressed = true;
-			if state = PS_DASH {
+			if state == PS_DASH {
 				left_down = true;
 			}
 	    }
@@ -117,7 +117,7 @@ if (get_training_cpu_action() == CPU_FIGHT){
 	
 	
 	//Camping
-	if (((state != PS_PRATFALL and rangedtimer > 0 and ai_target.state_cat != SC_HITSTUN and !to_boost and state_cat != SC_HITSTUN ) or targetbusy) and !ai_recovering and !wait_time > 0){
+	if (((state != PS_PRATFALL and rangedtimer > 0 and ai_target.state_cat != SC_HITSTUN and !to_boost) or targetbusy) and !ai_recovering and !wait_time > 0 and state_cat != SC_HITSTUN){
 		if !facing and xdist > 350 and !(attack == AT_USPECIAL_2 and state == PS_ATTACK_AIR){
 			faceopponent();
 		} 
@@ -178,11 +178,12 @@ if (get_training_cpu_action() == CPU_FIGHT){
 	}
 	
 	var plat_near = collision_point(x, y+6, asset_get("jumpthrough_32_obj"), false, false);
-    if free and plat_near and (chasing or camping) and vsp < 0 and !(ai_target.y < y and xdist < 50) and !ai_target_offstage{
+    if free and plat_near and (chasing or camping) and vsp < -1 and !(ai_target.y < y and xdist < 50) and !ai_target_offstage{
     	shield_pressed = true;
+    	wavelanding = true;
     }
     
-    if (state == PS_AIR_DODGE and plat_near){
+    if (state == PS_AIR_DODGE and wavelanding){
     	if chasing{
     		if x < ai_target.x{
 				left_down = false;
@@ -195,8 +196,7 @@ if (get_training_cpu_action() == CPU_FIGHT){
 				joy_pad_idle = false;
 				joy_dir = 190;
 			}
-    	}
-    	if camping{
+    	}else{
     		if x > ai_target.x{
 				left_down = false;
 				right_down = true;
@@ -209,6 +209,7 @@ if (get_training_cpu_action() == CPU_FIGHT){
 				joy_dir = 190;
 			}
     	}
+    	wavelanding = false;
     }
     
     
@@ -286,11 +287,15 @@ if (get_training_cpu_action() == CPU_FIGHT){
     	can_DACUS = true;
     }
     
+    if(attack == AT_DATTACK and attacking and !ai_target_offstage and ground_type == 1 and DACUSpercent < targetdamage and targetdamage < DACUSpercent * 1.30){
+    	can_DACUS = true;
+    }
+    
     if(can_DACUS){
     	faceopponent();
     	DACUStimer++;
     	if can_attack and !free{
-    		if attack = AT_DTILT{
+    		if attack == AT_DTILT{
     			clear_button_buffer( PC_ATTACK_PRESSED );
     			clear_button_buffer( PC_JUMP_PRESSED );
     			if ai_target.x > x{
@@ -312,16 +317,22 @@ if (get_training_cpu_action() == CPU_FIGHT){
     		}
     	}
     	
-		if (window = 1 or (window = 2 and window_timer < 2)) and attack == AT_DATTACK{
-			clear_button_buffer( PC_ATTACK_PRESSED );
-			clear_button_buffer( PC_STRONG_PRESSED );
-			clear_button_buffer( PC_UP_STRONG_PRESSED );
-			joy_pad_idle = true;
-		    up_down = true;
-		    special_pressed = false;
-		    attack_pressed = false;
-		    up_strong_pressed = true;
+		if ((window == 2 and window_timer < 2)) and attack == AT_DATTACK{
+			hitboxloc("DACUS");
+			
+			if (chosenAttack == AT_USTRONG) {
+				clear_button_buffer( PC_ATTACK_PRESSED );
+				clear_button_buffer( PC_STRONG_PRESSED );
+				clear_button_buffer( PC_UP_STRONG_PRESSED );
+				joy_pad_idle = true;
+			    up_down = true;
+			    special_pressed = false;
+			    attack_pressed = false;
+			    up_strong_pressed = true;
+			}
+			
 		}
+		
 		if attack == AT_USTRONG{
 			DACUStimer = 0;
 			can_DACUS = false;
@@ -341,50 +352,6 @@ if (get_training_cpu_action() == CPU_FIGHT){
 	
 	if (attack == AT_NSPECIAL and ai_target_offstage and soul_points >= 50 and window > 0){
 		special_down = true;
-	}
-	
-	if can_special and !targetbusy and !wait_time > 0{
-		
-		//USpecial Boosted
-		if (ai_target.y + 100 <= y) and !ai_target.y + 400 >= y and can_boost and xdist < 50 and facing and !offstage and attack != AT_USPECIAL_2{
-			clear_button_buffer(PC_ATTACK_PRESSED);
-			clear_button_buffer(PC_JUMP_PRESSED);
-			joy_pad_idle = true;
-			up_down = true;
-			left_down = false;
-			right_down = false;
-			down_down = false;
-		    special_pressed = true;
-		    special_down = true;
-		    attack_pressed = false;
-		    to_boost = 10;
-		}
-		
-		//DSpecial
-		if(ai_target.state == PS_ROLL_BACKWARD or ai_target.state == PS_ROLL_FORWARD or ai_target.state == PS_TECH_GROUND or ai_target.state == PS_TECH_BACKWARD or ai_target.state == PS_TECH_FORWARD) and ai_target.state_timer <= 2{
-			predictlocSimple(10);
-			if (xtrag < x + 50 and xtrag > x - 50) and (y - 10 < ytrag and ytrag < y + char_height + 10){
-				set_attack(AT_DSPECIAL);
-			}
-			resetPredict();
-		}
-		
-		//Fspecial
-		if !camping and xdist > 300 and !ai_target_offstage and !attacking and !do_not_attack{
-			if x > ai_target.x{
-				Fspecial(1);
-			}else{
-				Fspecial(-1);
-			}
-		}
-	}
-	
-	if (attack == AT_USPECIAL and to_boost and window == 1){	
-		joy_pad_idle = true;
-	    special_down = true;
-	    if(to_boost > 0){
-			to_boost = to_boost - 1;
-		}
 	}
 	
 	if(ai_recovering){
@@ -412,7 +379,7 @@ if (get_training_cpu_action() == CPU_FIGHT){
     		
             strongPercent = (2 - ai_target.knockback_adj) * 70 < targetdamage;
             //Strongs
-            if can_strong and ((ai_target.state_cat = SC_HITSTUN and strongPercent) or ai_target_offstage or ai_target.state == PS_PRATLAND){
+            if can_strong and ((ai_target.state_cat == SC_HITSTUN and strongPercent) or ai_target_offstage or ai_target.state == PS_PRATLAND){
             	
             	//Predicts the location of ai target by 12 frames
             	//predictlocComplex(12);
@@ -490,6 +457,17 @@ if (get_training_cpu_action() == CPU_FIGHT){
     			
             }
             
+            //Dattack substitute to Fspecial (combo variety)
+       //     if chosenAttack == AT_FSPECIAL{
+       //     	if ai_target.x > x{
+    			// 	Fspecial(-1);
+    			// } 
+    			// else {
+    			// 	Fspecial(1);
+    			// }
+            	
+       //     }
+            
             //Jab
             if chosenAttack == AT_JAB{
                 clear_button_buffer( PC_ATTACK_PRESSED );
@@ -552,6 +530,7 @@ if (get_training_cpu_action() == CPU_FIGHT){
     			rangedtimer = 300;
     			
             }
+            
             
             
         //Aerials    
@@ -633,15 +612,103 @@ if (get_training_cpu_action() == CPU_FIGHT){
     	jump_down = false;
     }
     
-    if (ai_recovering){
+    if (to_boost and window == 1){	
+		joy_pad_idle = true;
+	    special_down = true;
+	    if(to_boost > 0){
+			to_boost = to_boost - 1;
+		}
+	}
+    
+    if(window == 1 and attack == AT_FSPECIAL_2){
+    	jump_pressed = false;
+    	jump_down = false;
+    }
+    
+    if can_special and !targetbusy and !wait_time > 0{
+		
+		var frame = get_window_value(AT_USPECIAL, 1, AG_WINDOW_LENGTH) + get_window_value(AT_USPECIAL_2, 1, AG_WINDOW_LENGTH) + 2;
+		predictloc(frame);
+		predictlocTarget(frame);
+		xdist = abs(xtrag - x);
+		//USpecial Boosted
+		if (ytrag + 50 <= y) and !ytrag + 300 >= y and can_boost and xdist < 50 and facing and !offstage and attack != AT_USPECIAL_2{
+			clear_button_buffer(PC_ATTACK_PRESSED);
+			clear_button_buffer(PC_JUMP_PRESSED);
+			joy_pad_idle = true;
+			up_down = true;
+			left_down = false;
+			right_down = false;
+			down_down = false;
+		    special_pressed = true;
+		    special_down = true;
+		    attack_pressed = false;
+		    to_boost = 10;
+		}
+		
+		//DSpecial
+		if(ai_target.state == PS_ROLL_BACKWARD or ai_target.state == PS_ROLL_FORWARD or ai_target.state == PS_TECH_GROUND or ai_target.state == PS_TECH_BACKWARD or ai_target.state == PS_TECH_FORWARD) and ai_target.state_timer <= 2{
+			predictloc(10);
+			predictlocTarget(10);
+			if (xtrag < x + 50 and xtrag > x - 50) and (y - 10 < ytrag and ytrag < y + char_height + 10){
+				set_attack(AT_DSPECIAL);
+			}
+			
+		}
+		
+		//Fspecial
+		if !camping and xdist > 300 and !ai_target_offstage and !attacking and !do_not_attack{
+			if x > ai_target.x{
+				Fspecial(-1);
+			}else{
+				Fspecial(1);
+			}
+		}
+		
+		if (move_cooldown[AT_FSPECIAL] == 0 and can_boost and ai_target.state_cat == SC_HITSTUN and soul_points >= 50){
+			var frame = get_window_value(AT_FSPECIAL, 1, AG_WINDOW_LENGTH) + get_window_value(AT_FSPECIAL_2, 1, AG_WINDOW_LENGTH);
+			predictloc(frame);
+			predictlocTarget(frame);
+			xdist = abs(xtrag - x);
+			if ytrag < y + 10 and ytrag > y - char_height and xdist < 140{
+				if x > xtrag{
+					Fspecial(-1);
+				}else{
+					Fspecial(1);
+				}
+				to_boost = 9;
+			}
+			
+			
+		}
+	}
 	
-    	if x < 130 or x > room_width - 130 {
+
+    
+    // if(pogo = 10){
+    // 	faceopponent();
+    // }
+    
+    // if !has_hit_player{
+    // 	if  window_timer == 1 and window == get_hitbox_value(attack, 1, HG_WINDOW){
+    // 		num_whiffs++;
+    // 	}
+    // }
+    // if(inactive > 20){
+    // 	num_whiffs = 0;
+    // }
+    
+}
+
+if (ai_recovering){
+	
+    	if x < 200 or x > room_width - 200 {
     		if(move_cooldown[AT_FSPECIAL] == 0){
 	    		if x > room_width/2{
-					Fspecial(1);
+					Fspecial(-1);
 					
 				}else {
-					Fspecial(-1);
+					Fspecial(1);
 					
 				}
 				
@@ -650,7 +717,7 @@ if (get_training_cpu_action() == CPU_FIGHT){
         
         if ((x < stagex and x > stagex - 100) or (x > room_width - stagex and x < room_width - stagex + 100)) and !ai_target_offstage{
         	if y - char_height - 10 > stagey{
-        		if(djumps == max_djumps and has_walljump and stall){
+        		if(djumps == max_djumps and has_walljump and stall and !state == PS_DOUBLE_JUMP){
 	        		
 	        		Nspecial(0);
 	        		stall = 0;
@@ -664,8 +731,20 @@ if (get_training_cpu_action() == CPU_FIGHT){
         		special_down = true;
         	}
         }else{
-        	
+        	if(state == PS_PRATFALL){
+				facestage();
+				jump_pressed = true;
+			}
+        	// facestage();
+        	// jump_pressed = true;
+        	// jump_down = true;
         }
+        
+        if (state == PS_WALL_JUMP and ai_target.smash_charging and y < (stagey + room_height)/2){
+        	jump_pressed = true;
+        	jump_down = true;
+        }
+        
         if attack == AT_FSPECIAL and window == 1 and window_timer <= 1{
         	facestage();
         }
@@ -676,22 +755,6 @@ if (get_training_cpu_action() == CPU_FIGHT){
 	if(state == PS_PRATFALL){
 		facestage();
 	}
-
-    
-    // if(pogo = 10){
-    // 	faceopponent();
-    // }
-    
-    if !has_hit_player{
-    	if  window_timer = 1 and window = get_hitbox_value(attack, 1, HG_WINDOW){
-    		num_whiffs++;
-    	}
-    }
-    // if(inactive > 20){
-    // 	num_whiffs = 0;
-    // }
-    
-}
 
 if (get_training_cpu_action() == CPU_EVADE){
 	chasing = true;
@@ -721,10 +784,10 @@ attack_pressed = false;
 
 var side = argument[0];
 joy_pad_idle = true;
-if side == 1 {
+if side == -1 {
 	left_down = true;
 	right_down = false;
-}else if side == -1{
+}else if side == 1{
 	left_down = false;
 	right_down = true;
 }
@@ -1073,19 +1136,19 @@ prediction_array_target[0] = [ai_target.x, ai_target.y, ai_target.vsp, ai_target
 
 #define checkHurtboxWidth
 
-var circleRad = 1;
-var widthChecker = collision_circle( ai_target.x, ai_target.y - ai_target.char_height/2, circleRad, asset_get("pHurtBox"), true, true );
-var i = 0;
-//Iterate a circle of radius 1 starting at the center of ai target, if it doesn't collide with the target anymore it stops
-for (i = 0; i < 60 and widthChecker.player == ai_target.player; i++){
+// var circleRad = 1;
+// var widthChecker = collision_circle( ai_target.x, ai_target.y - ai_target.char_height/2, circleRad, asset_get("pHurtBox"), true, true );
+// var i = 0;
+// //Iterate a circle of radius 1 starting at the center of ai target, if it doesn't collide with the target anymore it stops
+// for (i = 0; i < 60 and widthChecker.player == ai_target.player; i++){
 	
-	widthChecker = collision_circle( ai_target.x+circleRad*i, ai_target.y - ai_target.char_height/2, circleRad, asset_get("pHurtBox"), true, true );
-	if widthChecker == noone{
-		break;
-	}
-}
+// 	widthChecker = collision_circle( ai_target.x+circleRad*i, ai_target.y - ai_target.char_height/2, circleRad, asset_get("pHurtBox"), true, true );
+// 	if widthChecker == noone{
+// 		break;
+// 	}
+// }
 
-hurtboxWidth = i*circleRad;
+hurtboxWidth = ai_target.bbox_right - ai_target.x;
 
 #define hitboxloc
 
@@ -1101,6 +1164,9 @@ switch(argument[0]){
 		
 	case "strongs":
 		var attacke = [AT_DSTRONG, AT_USTRONG, AT_FSTRONG];
+		break;
+	case "DACUS":
+		var attacke = [AT_USTRONG];
 		break;
 }
 
@@ -1121,9 +1187,6 @@ for(var i = 0; i < len; i++){
 	//Special condition of range of the attack (if the character moves for example)
 	if(attacke[i] == AT_DATTACK){
 		distadd_x = 160;
-		distadd_y = 0;
-	}else{
-		distadd_x = 0;
 		distadd_y = 0;
 	}
 	
@@ -1167,7 +1230,7 @@ for(var i = 0; i < len; i++){
 			ypos = get_hitbox_value( attacke[i], 1, HG_HITBOX_Y ) + distadd_y;
 			atkwidth = get_hitbox_value( attacke[i], 1, HG_WIDTH ) div 2;
 			atkheight = get_hitbox_value( attacke[i], 1, HG_HEIGHT ) div 2;
-			var frame = get_window_value(attacke[i], 1, AG_WINDOW_LENGTH) + get_window_value(attacke[i], 2, AG_WINDOW_LENGTH);
+			var frame = get_window_value(attacke[i], 1, AG_WINDOW_LENGTH) + get_window_value(attacke[i], 2, AG_WINDOW_LENGTH) - 1;
 			break;
 	}
 	
@@ -1203,13 +1266,32 @@ if len != 0{
 		
 		if(chosenAttack == AT_DATTACK){
 			if attack == AT_DATTACK{
-				if random_func(6, 100, true) < 90{
+				if random_func(6, 100, true) < 95{
 					chosenAttack = noone;
 					reroll = false;
 					break;
 				}
+				// if random_func(6, 100, true) <= 50{
+				// 	chosenAttack = AT_FSPECIAL;
+				// 	reroll = false;
+				// 	break;
+				// }
+			}
+			
+			if attack == AT_FSPECIAL{
+				if random_func(6, 100, true) < 85{
+					chosenAttack = noone;
+					reroll = false;
+					break;
+				}
+				// if random_func(6, 100, true) <= 50{
+				// 	chosenAttack = AT_FSPECIAL;
+				// 	reroll = false;
+				// 	break;
+				// }
 			}
 		}
+		
 		
 		if(len == 1){
 			reroll = false;

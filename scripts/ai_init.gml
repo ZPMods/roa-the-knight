@@ -54,7 +54,6 @@ new_y = 0;
 // stopped_at_target = 0;
 // new_target_vsp = 0;
 // new_vsp = 0;
-
 fprediction = 0;
 current_prediction = 0;
 stopped_at = -1;
@@ -76,6 +75,7 @@ camping = 0;
 do_not_attack = false;
 attacking = false;
 wait_time = 0;
+wavelanding = false;
 
 iterations = 0;
 cancel_jab = false;
