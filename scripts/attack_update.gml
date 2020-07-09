@@ -503,9 +503,20 @@ if (attack == AT_DSPECIAL_2 && window == 7 && window_timer == 15)
 }
 
 //Feathers particles
-if (attack == AT_USPECIAL && window == 3 && window_timer == 1)
+if (attack == AT_USPECIAL)
 {
-     spawn_hit_fx(x, y-30, feathers_burst_1);
+     if (window == 3)
+     {
+          if (window_timer == 1)
+          {
+               spawn_hit_fx(x, y-30, feathers_burst_1);
+          }
+
+          if (window_timer % 4 == 0)
+          {
+               spawnFeathersFalling(x, y)
+          }
+     }
 }
 
 //Taunt
@@ -546,6 +557,16 @@ switch (id)
 
 spawn_hit_fx(argument[0], argument[1], toSpawn);
 
-/* #define spawnFeathers
-var toSpawn = feathers;
-spawn_hit_fx(argument[0], argument[1], toSpawn); */
+
+#define spawnFeathersFalling
+var id = random_func(0, 3, true);
+var toSpawn = feathers_falling_1;
+
+switch (id)
+{
+     case 0 : toSpawn = feathers_falling_1; break;
+     case 1 : toSpawn = feathers_falling_2; break;
+     case 2 : toSpawn = feathers_falling_3; break;
+}
+
+spawn_hit_fx(argument[0], argument[1], toSpawn);

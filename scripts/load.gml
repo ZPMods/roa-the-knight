@@ -110,5 +110,8 @@ sprite_change_offset("shade_bubbles_4", 60, 60);
 sprite_change_offset("shade_bubbles_5", 60, 60);
 
 sprite_change_offset("feathers_burst_1", 100, 86);
+sprite_change_offset("feathers_falling_1", 100, 86);
+sprite_change_offset("feathers_falling_2", 100, 86);
+sprite_change_offset("feathers_falling_3", 100, 86);
 
 set_victory_theme( sound_get("Hollow_Knight_Victory_Theme"));

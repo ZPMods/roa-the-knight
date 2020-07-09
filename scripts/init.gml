@@ -232,6 +232,9 @@ shade_bubbles_x = 0;
 shade_bubbles_y = 0;
 
 feathers_burst_1 = hit_fx_create(sprite_get("feathers_burst_1"), 40);
+feathers_falling_1 = hit_fx_create(sprite_get("feathers_falling_1"), 40);
+feathers_falling_2 = hit_fx_create(sprite_get("feathers_falling_2"), 40);
+feathers_falling_3 = hit_fx_create(sprite_get("feathers_falling_3"), 40);
 feathers_play = 0;
 
 //----------------------------------------------------------
