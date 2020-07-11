@@ -1,8 +1,8 @@
 sprite_change_offset("smalltalk",7,0);
 sprite_change_offset("Kirby_Knight",32,50);
 
-sprite_change_offset("_hurtbox_standing", 82, 128);
-sprite_change_offset("_hurtbox_crouching", 82, 128);
+sprite_change_offset("knight_hurtbox_standing", 82, 128);
+sprite_change_offset("knight_hurtbox_crouching", 82, 128);
 
 sprite_change_offset("idle", 82, 128);
 sprite_change_offset("hurt", 82, 128);
@@ -48,10 +48,10 @@ sprite_change_offset("ftilt", 146, 192);
 sprite_change_offset("dtilt", 146, 192);
 sprite_change_offset("utilt", 146, 192);
 sprite_change_offset("nair", 146, 192);
-sprite_change_offset("fair", 146, 192);
+sprite_change_offset("fair", 48, 80);
 sprite_change_offset("bair", 146, 192);
 sprite_change_offset("uair", 146, 192);
-sprite_change_offset("dair", 146, 192);
+sprite_change_offset("dair", 48, 78);
 sprite_change_offset("fstrong", 146, 192);
 sprite_change_offset("ustrong", 146, 192);
 sprite_change_offset("dstrong", 146, 192);
@@ -62,7 +62,7 @@ sprite_change_offset("fspecial_boosted", 146, 192);
 sprite_change_offset("uspecial", 146, 192);
 sprite_change_offset("uspecial_boosted", 146, 192);
 sprite_change_offset("dspecial", 146, 192);
-sprite_change_offset("dspecial_boosted", 146, 192);
+sprite_change_offset("dspecial_boosted", 98, 110);
 sprite_change_offset("taunt", 146, 192);
 sprite_change_offset("bench", 146, 192);
 

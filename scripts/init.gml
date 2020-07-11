@@ -41,6 +41,14 @@ abyssMods[@ runes.O] = [3,"Ground speed is faster."];
 
 bench_timer = 0;
 bench_phase = 0;
+bench = noone;
+colliding_bench = noone;
+sitting = false;
+sitting_id = noone;
+sitting_old_x = x;
+easing_enabled = true;
+do_easing = false;
+
 
 // Kirby
 kirbyability = 16;
@@ -243,8 +251,8 @@ dash_burst = hit_fx_create(sprite_get("dash_burst"), 13);
 
 //Common Variables
 
-hurtbox_spr = sprite_get("_hurtbox_standing");
-crouchbox_spr = sprite_get("_hurtbox_crouching");
+hurtbox_spr = sprite_get("knight_hurtbox_standing");
+crouchbox_spr = sprite_get("knight_hurtbox_crouching");
 air_hurtbox_spr = -1;
 hitstun_hurtbox_spr = -1;
 

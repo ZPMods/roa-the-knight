@@ -2,6 +2,8 @@ phase_timer ++;
 player_id.bench_timer = phase_timer;
 player_id.bench_phase = phase;
 
+
+// num_sitting = 0;
 //Phase switching
 switch (phase)
 {
@@ -18,6 +20,7 @@ switch (phase)
 	case 3 :
 		frame_timer = 5;
 		loop = false;
+		depth = 10000;
 	break;
 }
 
@@ -36,6 +39,7 @@ if (image_index == 9)
 if (end_anim && phase == 2)
 {
 	end_stay -= 1;
+    
 }
 
 if (end_stay <= 0)
@@ -46,6 +50,7 @@ if (end_stay <= 0)
 if (image_index == 17)
 {
 	instance_destroy();
+	return;
 }
 
 //SOUNDS
@@ -99,4 +104,59 @@ if (phase == 1)
                create_hitbox(AT_TAUNT, 3, x, y);
           break;
      }
+}
+
+if timer_ease <= 50 and timer_ease > -2{
+	timer_ease++;
+}
+
+
+
+with asset_get("oPlayer"){
+	if self.url == "2109714904"{
+		
+		if other.phase == 2{
+			if place_meeting(x, y, other){
+				colliding_bench = other;
+				print_debug("sim");
+			}else{
+				colliding_bench = noone;
+				if attack == AT_TAUNT and window > 0{
+					hop_off = true;
+				}
+				
+				print_debug("noone");
+			}
+		}else{
+			colliding_bench = noone;
+			print_debug("não phase 2")
+		}
+		
+	}
+}
+
+
+if num_sitting[2] == noone{
+	if num_sitting[1] == noone{
+		
+	}else{
+		
+		if update_mov == num_sitting[1]{
+			if update_mov.x < x{
+				update_mov.spr_dir = 1;
+				update_mov.x = ease_cubeOut(update_mov.sitting_old_x, pos_left, timer_ease, 50);
+				player_id.x = ease_cubeOut(player_id.sitting_old_x, pos_right, timer_ease, 50);
+			}else{
+				update_mov.spr_dir = -1;
+				update_mov.x = ease_cubeOut(update_mov.sitting_old_x, pos_right, timer_ease, 50);
+				player_id.x = ease_cubeOut(player_id.sitting_old_x, pos_left, timer_ease, 50);
+			}
+		}
+		
+	}
+}
+
+if(player_id.window == 7 and player_id.window_timer == 0) or all_hop_off{
+	num_sitting[1].hop_off = true;
+	num_sitting[2].hop_off = true;
 }

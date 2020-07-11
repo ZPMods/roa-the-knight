@@ -6,5 +6,10 @@ if (move_cooldown[AT_FSPECIAL] > 0)
 
 if (attack == AT_TAUNT)
 {
-     bench.end_anim = true;
+     if instance_exists(bench){
+         bench.end_anim = true;
+         bench.all_hop_off = true;
+     }
+     
+     sitting = false;
 }
