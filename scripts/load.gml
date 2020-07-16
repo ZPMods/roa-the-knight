@@ -117,3 +117,4 @@ sprite_change_offset("feathers_falling_3", 100, 86);
 sprite_change_offset("dash_burst", 146, 192);
 
 set_victory_theme( sound_get("Hollow_Knight_Victory_Theme"));
+set_victory_bg(sprite_get("victory_bg"));
