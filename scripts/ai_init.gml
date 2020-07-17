@@ -76,6 +76,8 @@ do_not_attack = false;
 attacking = false;
 wait_time = 0;
 wavelanding = false;
+plat_asset = asset_get("jumpthrough_32_obj");
+solid_asset = asset_get("par_block");
 
 iterations = 0;
 cancel_jab = false;

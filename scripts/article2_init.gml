@@ -22,12 +22,10 @@ loop = false;
 end_anim = false;
 end_stay = 30;
 
-num_sitting[0] = player_id;
-num_sitting[1] = noone;
-num_sitting[2] = noone;
 pos_left = x - 24;
 pos_right = x + 24;
 
 timer_ease = -2;
-update_mov = false;
+update_mov = noone;
 all_hop_off = false;
+second = noone;

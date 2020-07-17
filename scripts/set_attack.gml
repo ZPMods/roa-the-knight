@@ -14,17 +14,16 @@ if (attack == AT_TAUNT)
         sitting_old_x = x;
         
     }else{
-        var i = 0;
-		while(i < 3){
-			i++;
-			if (colliding_bench.num_sitting[i] == noone){
-			    colliding_bench.num_sitting[i] = id;
-			    sitting_old_x = x;
-			    if i == 1{colliding_bench.timer_ease = -1; colliding_bench.update_mov = id; colliding_bench.num_sitting[0].sitting_old_x = colliding_bench.num_sitting[0].x}
-			    sitting_id = i;
-			    do_easing = true;
-			    break;
-			}
-		}
+        
+		if colliding_bench != bench{
+			colliding_bench.timer_ease = -1;
+			colliding_bench.update_mov = id;
+			colliding_bench.player_id.sitting_old_x = colliding_bench.player_id.x;
+			colliding_bench.second = id;
+		    sitting_old_x = x;
+		    do_easing = true;
+		    
+		}	
+			    
     }
 }

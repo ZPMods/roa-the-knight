@@ -63,7 +63,7 @@ if(!instance_exists(shade_hitbox) and !destroy_firsthit){
 }
 
 //Animation
-sprite_index = sprite_get("nspecial_boosted_proj_" + string(nspecial_animation_frame));
+image_index = nspecial_animation_frame;
 
 nspecial_animation_timer += 1;
 

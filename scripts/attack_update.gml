@@ -430,8 +430,11 @@ if (attack == AT_NSPECIAL || attack == AT_FSPECIAL || attack == AT_DSPECIAL || a
 //Taunt
 if (attack == AT_TAUNT)
 {	
-	 sitting = true;
-     if (window >= 4 && window < 7 && (shield_pressed || taunt_pressed))
+	 if window == 1 and window_timer == 0{
+	 	sitting = true;
+	 }
+	 
+     if (window >= 4 && window < 7 && window_timer > 60 && (shield_pressed || taunt_pressed))
      {
           /* if was_parried{
                set_state(PS_PRATFALL);
@@ -450,23 +453,12 @@ if (attack == AT_TAUNT)
           clear_button_buffer(PC_TAUNT_PRESSED);
      }
      
-     if instance_exists(colliding_bench){
-     	if colliding_bench.end_anim and bench != colliding_bench and hop_off{
-     		hop_off = false;
-	     	window = 7
-	     	window_timer = 0;
-	    }
-	    if(window == 7){
-	     	sitting = false;
-	     	if sitting_id == 2{
-	     		colliding_bench.num_sitting[sitting_id] = colliding_bench.num_sitting[sitting_id+1];
-	     		colliding_bench.num_sitting[sitting_id+1] = noone;
-	     	}else{
-	     		colliding_bench.num_sitting[sitting_id] = noone;
-	     	}
-	     }
-     }
      
+     if hop_off{
+     	hop_off = false;
+	    window = 7
+	    window_timer = 0;
+     }
 }
 
 //Pogo dair

@@ -1,5 +1,5 @@
 //article1_init
-sprite_index = sprite_get("nspecial_boosted_proj_1");
+sprite_index = sprite_get("nspecial_boosted_proj");
 
 //Properties Variables
 hsp = 10;

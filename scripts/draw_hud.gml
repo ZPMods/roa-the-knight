@@ -2,8 +2,10 @@ draw_debug_text( temp_x+60, temp_y-15, "state : " + get_state_name(state));
 draw_debug_text( temp_x+60, temp_y-30, "state timer : " + string(state_timer));
 draw_debug_text( temp_x+60, temp_y-60, "window : " + string(window));
 draw_debug_text( temp_x+60, temp_y-75, "window timer : " + string(window_timer));
-draw_debug_text( temp_x+60, temp_y-105, "bench timer : " + string(bench_timer));
+draw_debug_text( temp_x+60, temp_y-90, "bench img index : " + string(colliding_bench));
+draw_debug_text( temp_x+60, temp_y-105, "bench timer : " + string(hop_off));
 draw_debug_text( temp_x+60, temp_y-120, "bench phase : " + string(bench_phase));
+draw_debug_text( 10, 10, "FPS : " + string(fps_real));
 
 //Affiche le nombre de Soul Points sur le HUD
 //draw_debug_text( temp_x+150, temp_y-14, "Soul : " + string( soul_points ));
@@ -13,9 +15,16 @@ if(practice)
     draw_debug_text( temp_x - 170, temp_y + 25,("To gain infinite Soul"));
 }
 //Affichage et animation du Soul Meter
-if (soul_points <= 25)
+if (soul_points == 0){
+     soulmeter_stage_main = 0;
+     soulmeter_animation_frame = 0;
+     soulmeter_stage_mini_1 = 0;
+     soulmeter_stage_mini_2 = 0;
+     soulmeter_stage_mini_3 = 0;
+}
+if (soul_points <= 25 and soul_points > 0)
 {
-     soulmeter_stage_main = round(soul_points / (25 / 20));
+     soulmeter_stage_main = round(soul_points / (25 / 19));
      soulmeter_stage_mini_1 = 0;
      soulmeter_stage_mini_2 = 0;
      soulmeter_stage_mini_3 = 0;
@@ -23,7 +32,7 @@ if (soul_points <= 25)
 
 if (soul_points > 25 && soul_points <= 50)
 {
-     soulmeter_stage_main = 20;
+     soulmeter_stage_main = 19;
      soulmeter_stage_mini_1 = round((soul_points - 25) / (25 / 7));
      soulmeter_stage_mini_2 = 0;
      soulmeter_stage_mini_3 = 0;
@@ -31,7 +40,7 @@ if (soul_points > 25 && soul_points <= 50)
 
 if (soul_points > 50 && soul_points <= 75)
 {
-     soulmeter_stage_main = 20;
+     soulmeter_stage_main = 19;
      soulmeter_stage_mini_1 = 7;
      soulmeter_stage_mini_2 = round((soul_points - 50) / (25 / 7));
      soulmeter_stage_mini_3 = 0;
@@ -39,20 +48,54 @@ if (soul_points > 50 && soul_points <= 75)
 
 if (soul_points > 75 && soul_points <= 100)
 {
-     soulmeter_stage_main = 20;
+     soulmeter_stage_main = 19;
      soulmeter_stage_mini_1 = 7;
      soulmeter_stage_mini_2 = 7;
      soulmeter_stage_mini_3 = round((soul_points - 75) / (25 / 7));
 }
 
+
+
 //Principal
-draw_sprite_part(sprite_get("soulmeter_" + string(soulmeter_stage_main)), 0, ((soulmeter_animation_frame*64) - 64), 0, 64, 64, temp_x, temp_y - 50);
+if soulmeter_stage_main == 19{
+    draw_sprite(sprite_get("soulmeter"), soulmeter_stage_main*8, temp_x + 10, temp_y - 38);
+}else{
+    draw_sprite(sprite_get("soulmeter"), soulmeter_animation_frame + soulmeter_stage_main*8, temp_x + 10, temp_y - 38);
+}
+
 //Mini 1
-draw_sprite_part(sprite_get("soulmeter_mini_" + string(soulmeter_stage_mini_1)), 0, ((soulmeter_animation_frame*20) - 20), 0, 20, 20, temp_x - 12, temp_y - 19);
+if soulmeter_stage_mini_1 == 0{
+    draw_sprite(sprite_get("soulmeter_mini"), 5, temp_x - 10, temp_y - 16);
+}else{
+    if soulmeter_stage_mini_1 == 7{
+        draw_sprite(sprite_get("soulmeter_mini"), 1 + (soulmeter_stage_mini_1-1)*8, temp_x - 10, temp_y - 16);
+    }else{
+        draw_sprite(sprite_get("soulmeter_mini"), 1 + soulmeter_animation_frame + (soulmeter_stage_mini_1-1)*8, temp_x - 10, temp_y - 16);
+    }
+}
+
 //Mini 2
-draw_sprite_part(sprite_get("soulmeter_mini_" + string(soulmeter_stage_mini_2)), 0, ((soulmeter_animation_frame*20) - 20), 0, 20, 20, temp_x - 10, temp_y - 40);
+if soulmeter_stage_mini_2 == 0{
+    draw_sprite(sprite_get("soulmeter_mini"), 0, temp_x - 8, temp_y - 36);
+}else{
+    if soulmeter_stage_mini_2 == 7{
+        draw_sprite(sprite_get("soulmeter_mini"), 1 + (soulmeter_stage_mini_2-1)*8, temp_x - 8, temp_y - 36);
+    }else{
+        draw_sprite(sprite_get("soulmeter_mini"), 1 + soulmeter_animation_frame + (soulmeter_stage_mini_2-1)*8, temp_x - 8, temp_y - 36);
+    }
+}
+
 //Mini 3
-draw_sprite_part(sprite_get("soulmeter_mini_" + string(soulmeter_stage_mini_3)), 0, ((soulmeter_animation_frame*20) - 20), 0, 20, 20, temp_x + 4, temp_y - 56);
+if soulmeter_stage_mini_3 == 0{
+    draw_sprite(sprite_get("soulmeter_mini"), 0, temp_x + 4, temp_y - 54);
+}else{
+    if soulmeter_stage_mini_3 == 7{
+        draw_sprite(sprite_get("soulmeter_mini"), 1 + (soulmeter_stage_mini_3-1)*8, temp_x + 4, temp_y - 54);
+    }else{
+        draw_sprite(sprite_get("soulmeter_mini"), 1 + soulmeter_animation_frame + (soulmeter_stage_mini_3-1)*8, temp_x + 4, temp_y - 54);
+    }
+
+}
 
 soulmeter_animation_timer += 1;
 
@@ -61,9 +104,9 @@ if (soulmeter_animation_timer == soulmeter_animation_framelength)
   soulmeter_animation_frame += 1;
   soulmeter_animation_timer = 0;
 
-  if (soulmeter_animation_frame > 8)
+  if (soulmeter_animation_frame > 7)
   {
-    soulmeter_animation_frame = 1;
+    soulmeter_animation_frame = 0;
   }
 }
 

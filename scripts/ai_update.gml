@@ -118,7 +118,7 @@ if (get_training_cpu_action() == CPU_FIGHT){
 	
 	//Camping
 	if (((state != PS_PRATFALL and rangedtimer > 0 and ai_target.state_cat != SC_HITSTUN and !to_boost) or targetbusy) and !ai_recovering and !wait_time > 0 and state_cat != SC_HITSTUN){
-		if !facing and xdist > 350 and !(attack == AT_USPECIAL_2 and state == PS_ATTACK_AIR){
+		if !facing and xdist > 350 and !(attack == AT_USPECIAL_2 and state == PS_ATTACK_AIR) and !ai_target_offstage{
 			faceopponent();
 		} 
 		
@@ -177,7 +177,7 @@ if (get_training_cpu_action() == CPU_FIGHT){
 	 		
 	}
 	
-	var plat_near = collision_point(x, y+6, asset_get("jumpthrough_32_obj"), false, false);
+	var plat_near = collision_point(x, y+6, plat_asset, false, false);
     if free and plat_near and (chasing or camping) and vsp < -1 and !(ai_target.y < y and xdist < 50) and !ai_target_offstage{
     	shield_pressed = true;
     	wavelanding = true;
@@ -265,8 +265,8 @@ if (get_training_cpu_action() == CPU_FIGHT){
     
    
 	if(free and has_hit and state == PS_ATTACK_AIR and !offstage){
-		var plat_near = instance_nearest(x, y, asset_get("par_jumpthrough"));
-		if ((y > stagey - char_height and y < stagey) or collision_line(x, y, x, y+char_height, plat_near, false, true)){
+		
+		if ((y > stagey - char_height and y < stagey) or collision_line(x, y, x, y+char_height, plat_asset, false, true)){
 			down_hard_pressed = true;
 		}
 		
@@ -760,6 +760,14 @@ if (get_training_cpu_action() == CPU_EVADE){
 	chasing = true;
 	
 }
+
+if (get_training_cpu_action() == CPU_STAND){
+	if(state_timer) == 0 and state == PS_IDLE{
+		set_attack(AT_TAUNT);
+		debug = false;
+	}
+	
+}
 #define Nspecial
 
 /// Nspecial(side, ...)
@@ -839,8 +847,8 @@ if fprediction > current_prediction{
 			}
 		}
 		
-		stage = position_meeting(new_x_c, new_y_c + project_y, asset_get("par_block"));
-		plat = position_meeting(new_x_c, new_y_c + project_y, asset_get("jumpthrough_32_obj"));
+		stage = position_meeting(new_x_c, new_y_c + project_y, solid_asset);
+		plat = position_meeting(new_x_c, new_y_c + project_y, plat_asset);
 		if stage or (plat and project_y > 0){
 			new_vsp = 0;
 			
@@ -877,8 +885,8 @@ if fprediction > current_prediction{
 		}
 		
 		
-		stage = position_meeting(new_x_c + project_x, new_y_c - 2, asset_get("par_block"));
-		plat = position_meeting(new_x_c + project_x, new_y_c - 2, asset_get("jumpthrough_32_obj"));
+		stage = position_meeting(new_x_c + project_x, new_y_c - 2, solid_asset);
+		plat = position_meeting(new_x_c + project_x, new_y_c - 2, plat_asset);
 		if stage or plat{
 			new_hsp = 0;
 			// new_x_c = new_x_c + new_hsp;
@@ -935,8 +943,8 @@ if fprediction > current_prediction{
 			}
 		}
 		
-		stage = position_meeting(new_x_c, new_y_c + project_y, asset_get("par_block"));
-		plat = position_meeting(new_x_c, new_y_c + project_y, asset_get("jumpthrough_32_obj"));
+		stage = position_meeting(new_x_c, new_y_c + project_y, solid_asset);
+		plat = position_meeting(new_x_c, new_y_c + project_y, plat_asset);
 		if (stage or (plat and project_y > 0)){
 			new_vsp = 0;
 			
@@ -972,8 +980,8 @@ if fprediction > current_prediction{
 			
 		}
 		
-		stage = position_meeting(new_x_c + project_x, new_y_c - 2, asset_get("par_block"));
-		plat = position_meeting(new_x_c + project_x, new_y_c - 2, asset_get("jumpthrough_32_obj"));
+		stage = position_meeting(new_x_c + project_x, new_y_c - 2, solid_asset);
+		plat = position_meeting(new_x_c + project_x, new_y_c - 2, plat_asset);
 		if stage or plat{
 			new_hsp = 0;
 			
@@ -1030,7 +1038,7 @@ for(i = 0; i < fprediction; i++){
 	
 	ytrag = ytrag + new_target_vsp;
 	
-	plat = position_meeting(xtrag, ytrag, asset_get("jumpthrough_32_obj"));
+	plat = position_meeting(xtrag, ytrag, plat_asset);
 	if plat and new_target_vsp > 0{
 		break;
 	}
@@ -1052,7 +1060,7 @@ for(i = 0; i < fprediction; i++){
 	}
 	new_y = new_y + new_vsp;
 	
-	plat = instance_position(new_x, new_y, asset_get("jumpthrough_32_obj"));
+	plat = instance_position(new_x, new_y, plat_asset);
 	if plat and new_vsp > 0{
 		break;
 	}

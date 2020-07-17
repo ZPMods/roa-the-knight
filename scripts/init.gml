@@ -48,7 +48,7 @@ sitting_id = noone;
 sitting_old_x = x;
 easing_enabled = true;
 do_easing = false;
-
+hop_off = false;
 
 // Kirby
 kirbyability = 16;
@@ -419,7 +419,7 @@ dream_nail_shovel[2] = "Debug Shovel 3";
 
 //TP related branch
 //          CHANGE --------- CHANGE
-debug = 0;
+debug = 1;
 newhit_vsp = 0;
 newhit_hsp = 0;
 hitbox_hitpause = 0;
