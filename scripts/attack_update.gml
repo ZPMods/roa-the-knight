@@ -121,7 +121,7 @@ if (attack == AT_NSPECIAL)
         window_timer = 0;
         attack = AT_NSPECIAL_2;
         soul_points -= SP_nspecial;
-
+		hurtboxID.sprite_index = sprite_get("nspecial_boosted_hurt");
         nts_effect_show = true;
       }
     }

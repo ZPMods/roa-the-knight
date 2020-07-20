@@ -19,13 +19,13 @@ if (nts_effect_show == true)
 {
      if (nts_effect_freeze == false)
      {
-          nts_effect_x = x - 82;
-          nts_effect_y = y - 128;
+          nts_effect_x = x - 40;
+          nts_effect_y = y - 64;
           nts_effect_freeze = true;
      }
 
      shader_start();
-     draw_sprite_part(sprite_get("nts_effect"), 0, ((nts_effect_animation_frame*160) - 160), 0, 160, 160, nts_effect_x, nts_effect_y);
+     draw_sprite_ext(sprite_get("normal_to_shade_effect"), nts_effect_animation_frame, nts_effect_x, nts_effect_y, 1, 1, 0, c_white, 255);
      shader_end();
 
      nts_effect_animation_timer += 1;
@@ -50,22 +50,14 @@ if (nspecial_effect_show == true)
 {
      if (nspecial_effect_freeze == false)
      {
-          nspecial_effect_x = x - 146;
-          nspecial_effect_y = y - 192;
+          nspecial_effect_x = x + (spr_dir * -6);
+          nspecial_effect_y = y - 86;
           nspecial_effect_freeze = true;
 
-          if (spr_dir = 1)
-          {
-               nspecial_effect_dir = "right";
-          }
-          else
-          {
-               nspecial_effect_dir = "left";
-          }
      }
 
      shader_start();
-     draw_sprite_part(sprite_get("nspecial_effect_" + nspecial_effect_dir), 0, ((nspecial_effect_animation_frame*288) - 288), 0, 288, 288, nspecial_effect_x, nspecial_effect_y);
+     draw_sprite_ext(sprite_get("nspecial_effect"), nspecial_effect_animation_frame, nspecial_effect_x, nspecial_effect_y, spr_dir, 1, 0, c_white, 255);
      shader_end();
 
      nspecial_effect_animation_timer += 1;
@@ -88,8 +80,8 @@ if (nspecial_boosted_effect_show == true)
 {
      if (nspecial_boosted_effect_freeze == false)
      {
-          nspecial_boosted_effect_x = x - 146;
-          nspecial_boosted_effect_y = y - 192;
+          nspecial_boosted_effect_x = x + (spr_dir * -6);
+          nspecial_boosted_effect_y = y - 84;
           nspecial_boosted_effect_freeze = true;
 
           if (spr_dir = 1)
@@ -103,7 +95,7 @@ if (nspecial_boosted_effect_show == true)
      }
 
      shader_start();
-     draw_sprite_part(sprite_get("nspecial_boosted_effect_" + nspecial_boosted_effect_dir), 0, ((nspecial_boosted_effect_animation_frame*288) - 288), 0, 288, 288, nspecial_boosted_effect_x, nspecial_boosted_effect_y);
+     draw_sprite_ext(sprite_get("nspecial_boosted_effect"), nspecial_boosted_effect_animation_frame, nspecial_boosted_effect_x, nspecial_boosted_effect_y, spr_dir, 1, 0, c_white, 255);
      shader_end();
 
      nspecial_boosted_effect_animation_timer += 1;

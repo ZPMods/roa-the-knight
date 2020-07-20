@@ -3,7 +3,7 @@ draw_debug_text( temp_x+60, temp_y-30, "state timer : " + string(state_timer));
 draw_debug_text( temp_x+60, temp_y-60, "window : " + string(window));
 draw_debug_text( temp_x+60, temp_y-75, "window timer : " + string(window_timer));
 draw_debug_text( temp_x+60, temp_y-90, "bench img index : " + string(colliding_bench));
-draw_debug_text( temp_x+60, temp_y-105, "bench timer : " + string(hop_off));
+draw_debug_text( temp_x+60, temp_y-105, "bench timer : " + string(bench_timer));
 draw_debug_text( temp_x+60, temp_y-120, "bench phase : " + string(bench_phase));
 draw_debug_text( 10, 10, "FPS : " + string(fps_real));
 
