@@ -694,7 +694,72 @@ if abyssEnabled {
 	}
 }
 
+// Break the target
 
+if get_btt_data { //Get data for Break The Targets
+	course_name = "The Knight Course";
+	//Set the spawn properties
+	respawn_point = [[155,60],[0,0],1];
+	//Set the collision of the solid sprites to precise
+	sprite_change_collision_mask("btt_solid",true, 1, 0, 0, 0, 0, 0 );  
+	room_add(1,[
+	    [ //Each Cell
+	        [0,0], //Cell Coordinates
+	        [
+	        	//Targets
+		        //[10, 155, 60, 0, -5, [0, 0, 32, [[0,0],[0,-3]], 0, 0, 0, 0], [0]],
+		        //[10, 40, 30.5, 0, -5, [1, 0, 60, [[-10,0],[5,0]], 0, 0, 0, 0], [0]],
+		        [10, 96, 55, 0, -5, [1, 0, 0, 0, 0, 0, 0, 0], [0]], //Pogo Duo 1
+		        [10, 83, 55, 0, -5, [2, 0, 0, 0, 0, 0, 0, 0], [0]], //Pogo Duo 2
+		        [10, 132,55, 0, -5, [3, 0, 0, 0, 0, 0, 0, 0], [0]], //Pogo Start 
+		        [10, 115,20, 0, -5, [4, 0, 0, 0, 0, 0, 0, 0], [0]], 
+		        [10, 108,38, 0, -5, [5, 0, 0, 0, 0, 0, 0, 0], [0]], //NSpecial
+		        [10, 89,20, 0, -5, [6, 0, 0, 0, 0, 0, 0, 0], [0]], 
+		        //Solid Ground
+		    	[1, 2, 2, 2, 0, [sprite_get("btt_solid"), 0, 0, 0, 0, 0, 0, 0], [0]],
+		    	//Plats
+		    	[1, 85, 25, 1, 0, [sprite_get("btt_plat_64"), 0, 0, 0, 0, 0, 0, 0], [0]],
+		    	[1, 130, 40, 1, 0, [sprite_get("btt_plat_64"), 0, 0, 0, 0, 0, 0, 0], [0]],
+	            ]
+	        ],
+	    //Blastzones
+	    [ //Each Cell
+	        [0,1], //Cell Coordinates
+	        [
+	            [4, 0, 32, 0, 0, [4, 0, 0, 0, 0, 2608, 20, 0], [0,0]]
+	            ]
+	        ],
+	    [
+	        [1,1],
+	        [
+	        	[4, 0, 32, 0, 0, [4, 0, 0, 0, 0, 2608, 20, 0], [0,0]]
+	            ]
+	        ],
+	    [ //Each Cell
+	        [-1,1], //Cell Coordinates
+	        [
+	        	[4, 0, 32, 0, 0, [4, 0, 0, 0, 0, 2608, 20, 0], [0,0]]
+	            ]
+	        ]
+	    ]);
+}
+
+
+
+
+
+#define room_add(_room_id,room_data) //Adds a new room to the scene
+with obj_stage_article if num == 5 {
+	var _room_id_ind = array_find_index(array_room_ID,_room_id);
+	if _room_id_ind == - 1 {
+	    if debug print_debug("[RM] Adding... "+string(_room_id));
+	    array_push(array_room_data,room_data);
+	    array_push(array_room_ID,_room_id);
+	} else {
+	    array_room_data[_room_id_ind] = room_data;
+	    array_room_ID[_room_id_ind] = _room_id;
+	}
+}
 
 //------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 //----------------------------------------------------------

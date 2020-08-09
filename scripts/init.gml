@@ -35,6 +35,9 @@ abyssMods[@ runes.O] = [3,"Ground speed is faster."];
 
 //abyss init code over
 
+// Break the target
+get_btt_data = false;
+
 //----------------------------------------------------------
 //Custom Variables
 //----------------------------------------------------------
