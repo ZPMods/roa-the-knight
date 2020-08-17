@@ -122,7 +122,7 @@ if (get_training_cpu_action() == CPU_FIGHT){
 			faceopponent();
 		} 
 		
-		if get_player_damage(player) > 90{
+		if targetdamage > 90{
 			if !free and xdist > 200{
 				jump_pressed = true
 			}
@@ -136,20 +136,6 @@ if (get_training_cpu_action() == CPU_FIGHT){
 				}
 			}
 			
-			if can_special and xdist > 300 and ydist < 20 and facing {
-				
-			    joy_pad_idle = true;
-				up_pressed = false;
-				left_pressed = false;
-				right_pressed = false;
-				down_pressed = false;
-				left_down = false;
-				right_down = false;
-				up_down = false;
-				down_down = false;
-			    special_pressed = true;
-			    attack_pressed = false;
-			}
 		}
 		
 		camping = 1;
@@ -232,20 +218,26 @@ if (get_training_cpu_action() == CPU_FIGHT){
 		down_hard_pressed = true;
 	}
     
-    //Fastfall
- //   if free and ai_target.y - 120 > y {
-	// 	down_hard_pressed = true;
-	// }
-	
-	//Shielding from Kirby AI code
-	nearbyhitbox = collision_circle( x, y - char_height/2, 64-(wait_time*0.4), asset_get("pHitBox"), true, true);
-	if nearbyhitbox != noone{
-		if nearbyhitbox.player_id != self{
-			if nearbyhitbox.kb_value > 0 and nearbyhitbox.type == 2{
-				shield_pressed = true
-			}
+	//Parry projectiles
+    with (asset_get("pHitBox")){
+    	
+		if player != other.player and type == 2 and (other.state_cat == SC_GROUND_NEUTRAL or other.state_cat == SC_AIR_NEUTRAL){
+    		print_debug("help");
+    		if collision_line(x, y - 40, x + (10 * hsp), y + (10 * vsp) - 40, other, false, true){
+    			other.shield_pressed = true;
+	    		if !other.free{
+	    			other.let_parry = true;
+	    		}
+    		}
+		
 		}
-	}
+    }
+    if(let_parry and state = PS_PARRY_START){
+    	joy_pad_idle = true;
+    	left_down = false;
+    	right_down = false;
+    	let_parry = false;
+    }
     
    	//----------------------------------------------------
 	//Combos logic
@@ -253,15 +245,10 @@ if (get_training_cpu_action() == CPU_FIGHT){
 	
 	
 	// //Shorthop combos
- //   if can_jump{
- //       if ai_target.state_cat == SC_HITSTUN{
- //           if ai_target.y < y-60 and state_cat == SC_GROUND_NEUTRAL{
- //               jump_pressed = true;
- //           }
-            
- //       }
+    if ai_target.y < y-60 and can_jump and ai_target.state_cat == SC_HITSTUN and state_cat == SC_GROUND_NEUTRAL{
+        jump_pressed = true;
         
- //   }
+    }
     
    
 	if(free and has_hit and state == PS_ATTACK_AIR and !offstage){
@@ -320,6 +307,8 @@ if (get_training_cpu_action() == CPU_FIGHT){
     	}
     	
 		if ((window == 2 and window_timer < 2)) and attack == AT_DATTACK{
+			predictloc(12);
+			predictlocTarget(12);
 			hitboxloc("DACUS");
 			
 			if (chosenAttack == AT_USTRONG) {
@@ -341,21 +330,17 @@ if (get_training_cpu_action() == CPU_FIGHT){
 		}
     }
     
+    //Prevento from attacking if should wait and target is invincible
     if(wait_time > 0 or ai_target.invince_time > 10){
 		do_not_attack = true;
 	}
     
-	//----------------------
-	
-    
-    // if ai_recovering{
-    // 	can_attack = false;
-    // }
-	
+    //Boost if opponent offstage
 	if (attack == AT_NSPECIAL and ai_target_offstage and soul_points >= 50 and window > 0){
 		special_down = true;
 	}
 	
+	//Prevent from attackign if recovering low
 	if(ai_recovering){
 		if(y + char_height >= stagey){
 			if !(can_boost and vsp < -1){
@@ -363,13 +348,6 @@ if (get_training_cpu_action() == CPU_FIGHT){
 			}
 		}
 	}
-	// if !hitpause{
-	// 	predictloc(5);
-	// }
-	// if ai_target.hitpause{
-	// 	predictlocTarget(5);
-	// }
-	
 	
     //Attacks
     if (can_attack or state == PS_DASH or state == PS_DASH_START or state == PS_DASH_STOP or state == PS_DOUBLE_JUMP) and !targetbusy and !to_boost and !do_not_attack{
@@ -383,8 +361,7 @@ if (get_training_cpu_action() == CPU_FIGHT){
             //Strongs
             if can_strong and ((ai_target.state_cat == SC_HITSTUN and strongPercent) or ai_target_offstage or ai_target.state == PS_PRATLAND){
             	
-            	//Predicts the location of ai target by 12 frames
-            	//predictlocComplex(12);
+            	//Call the hitbox selection function, it stores the value in chosenAttack
             	hitboxloc("strongs");
         		//UStrong
                 if chosenAttack == AT_USTRONG{
@@ -416,7 +393,6 @@ if (get_training_cpu_action() == CPU_FIGHT){
         	        
                 }
     
-    
                 //DStrong
                 if chosenAttack == AT_DSTRONG{
                     joy_pad_idle = true;
@@ -435,8 +411,6 @@ if (get_training_cpu_action() == CPU_FIGHT){
             
             //Tilts
             
-            //Predict location of ai target by 1 frame
-            //predictlocComplex(3);
             hitboxloc("tilts"); //Project all attacks and returns which is in range and it is based on a set of conditions or random otherwise
             
             //Dattack
@@ -529,9 +503,8 @@ if (get_training_cpu_action() == CPU_FIGHT){
         }else{
         
 
-            //Predict location of target ai by 3 frames 
-            //predictlocComplex(9);
             hitboxloc("aerials");
+            
             if chosenAttack == AT_DAIR{
                 clear_button_buffer( PC_ATTACK_PRESSED );
     	        joy_pad_idle = true;
@@ -542,7 +515,6 @@ if (get_training_cpu_action() == CPU_FIGHT){
     	        special_pressed = false;
     	        attack_pressed = true;
             }
-            
             
             if chosenAttack == AT_NAIR{
                 clear_button_buffer( PC_ATTACK_PRESSED );
@@ -600,10 +572,12 @@ if (get_training_cpu_action() == CPU_FIGHT){
         }
     }
     
-    if (xdist > 300 and ai_target_offstage){
+    //Do not jump if at ledge
+    if (xdist > 200 and ai_target_offstage){
     	jump_down = false;
     }
     
+    //Hold special to boost is to_boost is more than 0
     if (to_boost and window == 1){	
 		joy_pad_idle = true;
 	    special_down = true;
@@ -612,6 +586,7 @@ if (get_training_cpu_action() == CPU_FIGHT){
 		}
 	}
     
+    //Do not jump in the fisrt part of Fspecial boosted
     if(window == 1 and attack == AT_FSPECIAL_2){
     	jump_pressed = false;
     	jump_down = false;
@@ -619,11 +594,10 @@ if (get_training_cpu_action() == CPU_FIGHT){
     
     if can_special and !targetbusy and !wait_time > 0{
 		
-		
 		//USpecial Boosted
 		if facing and !offstage and attack != AT_USPECIAL_2 and x < 400{
 			
-			var frame = get_window_value(AT_USPECIAL, 1, AG_WINDOW_LENGTH) + get_window_value(AT_USPECIAL_2, 1, AG_WINDOW_LENGTH) + 2;
+			var frame = get_window_value(AT_USPECIAL, 1, AG_WINDOW_LENGTH) + get_window_value(AT_USPECIAL_2, 1, AG_WINDOW_LENGTH);
 			predictlocTarget(frame);
 			xdist = abs(xtrag - x);
 			
@@ -654,6 +628,7 @@ if (get_training_cpu_action() == CPU_FIGHT){
 		}
 		
 		//Fspecial
+		xdist = abs(xtrag - x);
 		if !camping and xdist > 300 and !ai_target_offstage and !attacking and !do_not_attack and ai_target.state_cat == SC_HITSTUN{
 			if x > ai_target.x{
 				Fspecial(-1);
@@ -661,9 +636,8 @@ if (get_training_cpu_action() == CPU_FIGHT){
 				Fspecial(1);
 			}
 		}
-		
 		if (move_cooldown[AT_FSPECIAL] == 0 and can_boost and ai_target.state_cat == SC_HITSTUN and soul_points >= 50){
-			var frame = get_window_value(AT_FSPECIAL, 1, AG_WINDOW_LENGTH) + get_window_value(AT_FSPECIAL_2, 1, AG_WINDOW_LENGTH);
+			var frame = get_window_value(AT_FSPECIAL, 1, AG_WINDOW_LENGTH) + get_window_value(AT_FSPECIAL_2, 1, AG_WINDOW_LENGTH)
 			predictlocTarget(frame);
 			xdist = abs(xtrag - x);
 			if ytrag < y + 10 and ytrag > y - char_height and xdist < 140{
@@ -808,36 +782,38 @@ attack_pressed = false;
 
 fprediction = argument[0];
 
-if(!free and hsp == 0){
+if(!ai_target.free and ai_target.hsp == 0){
 	xtrag = prediction_array_target[@0, 0];
 	ytrag = prediction_array_target[@0, 1];
 	return;
 }
 
+if fprediction >= stopped_at_target and stopped_at_target != -1{
+	xtrag = prediction_array_target[@stopped_at_target - 1, 0];
+	ytrag = prediction_array_target[@stopped_at_target - 1, 1];
+	return;
+}
+
 var plat = 0;
 var stage = 0;
-var len = array_length(prediction_array_target);
-var current_prediction = len - 1;
 
 var new_x_c = 0;
 var new_y_c = 0;
 var new_vsp = 0;
 var new_hsp = 0;
 
-if fprediction > current_prediction{
-	var i = current_prediction;
-	var collide = false;
-	for (i = current_prediction; i < fprediction; i++){
-		
-		
-		current_prediction++;
-		new_x_c = prediction_array_target[@current_prediction-1, 0];
-		new_y_c = prediction_array_target[@current_prediction-1, 1];
-		new_vsp = prediction_array_target[@current_prediction-1, 2];
-		new_hsp = prediction_array_target[@current_prediction-1, 3];
+if fprediction > current_prediction_target{
 	
+	var collide = false;
+	for (var i = current_prediction_target; i < fprediction; i++){
 		
 		
+		//Get values from current loop
+		new_x_c = prediction_array_target[@current_prediction_target, 0];
+		new_y_c = prediction_array_target[@current_prediction_target, 1];
+		new_vsp = prediction_array_target[@current_prediction_target, 2];
+		new_hsp = prediction_array_target[@current_prediction_target, 3];
+		current_prediction_target++;
 	
 		var project_y = new_vsp + grav;
 		
@@ -850,7 +826,7 @@ if fprediction > current_prediction{
 			}
 		}
 		
-		stage = position_meeting(new_x_c, new_y_c + project_y, solid_asset);
+		stage = place_free(new_x_c, new_y_c + project_y);
 		plat = position_meeting(new_x_c, new_y_c + project_y, plat_asset);
 		if stage or (plat and project_y > 0){
 			new_vsp = 0;
@@ -860,25 +836,31 @@ if fprediction > current_prediction{
 			new_y_c += new_vsp;
 		}
 		
+		//X manipulation, apply friction, if it would change polarity it makes it equal to 0. 
 		if new_vsp == 0 and collide{
 			if new_hsp > 0{
 				var project_x = new_hsp - ai_target.ground_friction;
 				if project_x < 0{
 					project_x = 0;
-					xtrag = prediction_array_target[@current_prediction - 1, 0];
-					ytrag = prediction_array_target[@current_prediction - 1, 1];
+					//If it's touching the ground and velocity equals 0 stop predicting and stores previous prediction frame
+					xtrag = prediction_array_target[@current_prediction_target - 1, 0];
+					ytrag = prediction_array_target[@current_prediction_target - 1, 1];
+					stopped_at_target = current_prediction_target;
 					return;
 				}
 			}else{
 				var project_x = new_hsp + ai_target.ground_friction;
 				if project_x > 0{
 					project_x = 0;
-					xtrag = prediction_array_target[@current_prediction - 1, 0];
-					ytrag = prediction_array_target[@current_prediction - 1, 1];
+					//If it's touching the ground and velocity equals 0 stop predicting and stores previous prediction frame
+					xtrag = prediction_array_target[@current_prediction_target - 1, 0];
+					ytrag = prediction_array_target[@current_prediction_target - 1, 1];
+					stopped_at_target = current_prediction_target;
 					return;
 				}
 			}
 		}else{
+			//In the air, if it would change polarity it makes it equal to 0. 
 			if new_hsp > 0{
 				var project_x = new_hsp - ai_target.air_frict;
 				if project_x < 0{
@@ -893,18 +875,22 @@ if fprediction > current_prediction{
 			
 		}
 		
-		
-		stage = position_meeting(new_x_c + project_x, new_y_c - 2, solid_asset);
+		//Test to see if X manipualtion makes it collide with walls
+		stage = place_free(new_x_c + project_x, new_y_c - 2);
 		plat = position_meeting(new_x_c + project_x, new_y_c - 2, plat_asset);
 		if stage or plat{
 			new_hsp = 0;
-			// new_x_c = new_x_c + new_hsp;
+			
 		}else{
 			new_hsp = project_x;
 			new_x_c = new_x_c + new_hsp;
 		}
 		
-		prediction_array_target[@current_prediction] = [new_x_c, new_y_c, new_vsp, new_hsp];
+		//Store values in the array
+		prediction_array_target[@current_prediction_target, 0] = new_x_c;
+		prediction_array_target[@current_prediction_target, 1] = new_y_c;
+		prediction_array_target[@current_prediction_target, 2] = new_vsp;
+		prediction_array_target[@current_prediction_target, 3] = new_hsp;
 	}
 	
 	xtrag = prediction_array_target[@fprediction, 0];
@@ -919,33 +905,36 @@ if fprediction > current_prediction{
 
 fprediction = argument[0];
 
-var plat = 0;
-var stage = 0;
-var len = array_length(prediction_array);
-var current_prediction = len - 1;
-
-var new_x_c = 0;
-var new_y_c = 0;
-var new_vsp = 0;
-var new_hsp = 0;
-
 if(!free and hsp == 0){
 	new_x = prediction_array[@0, 0];
 	new_y = prediction_array[@0, 1];
 	return;
 }
 
+if fprediction >= stopped_at and stopped_at != -1{
+	xtrag = prediction_array[@stopped_at - 1, 0];
+	ytrag = prediction_array[@stopped_at - 1, 1];
+	return;
+}
+
+var plat = 0;
+var stage = 0;
+
+var new_x_c = 0;
+var new_y_c = 0;
+var new_vsp = 0;
+var new_hsp = 0;
+
 if fprediction > current_prediction{
-	var i = current_prediction;
-	for (i = current_prediction; i < fprediction; i++){
+	var collide = false;
+	for (var i = current_prediction; i < fprediction; i++){
 		
-		
+		//Get values from current loop
+		new_x_c = prediction_array[@current_prediction, 0];
+		new_y_c = prediction_array[@current_prediction, 1];
+		new_vsp = prediction_array[@current_prediction, 2];
+		new_hsp = prediction_array[@current_prediction, 3];
 		current_prediction++;
-		new_x_c = prediction_array[@current_prediction-1, 0];
-		new_y_c = prediction_array[@current_prediction-1, 1];
-		new_vsp = prediction_array[@current_prediction-1, 2];
-		new_hsp = prediction_array[@current_prediction-1, 3];
-	
 		
 		var project_y = new_vsp + grav;
 		
@@ -958,35 +947,41 @@ if fprediction > current_prediction{
 			}
 		}
 		
-		stage = position_meeting(new_x_c, new_y_c + project_y, solid_asset);
+		stage = place_free(new_x_c, new_y_c + project_y);
 		plat = position_meeting(new_x_c, new_y_c + project_y, plat_asset);
 		if (stage or (plat and project_y > 0)){
 			new_vsp = 0;
-			
+			collide = true;
 		}else{
 			new_vsp = project_y;
 			new_y_c += new_vsp;
 		}
 		
-		if new_vsp == 0 and (stage or plat){
+		//X manipulation, apply friction, if it would change polarity it makes it equal to 0. 
+		if new_vsp == 0 and collide{
 			if new_hsp > 0{
 				var project_x = new_hsp - ground_friction;
+				//If it's touching the ground and velocity equals 0 stop predicting and stores previous prediction frame
 				if project_x < 0{
 					project_x = 0;
 					new_x = prediction_array[@current_prediction - 1, 0];
 					new_y = prediction_array[@current_prediction - 1, 1];
+					stopped_at = current_prediction;
 					return;
 				}
 			}else{
 				var project_x = new_hsp + ground_friction;
 				if project_x > 0{
+					//If it's touching the ground and velocity equals 0 stop predicting and stores previous prediction frame
 					project_x = 0;
 					new_x = prediction_array[@current_prediction - 1, 0];
 					new_y = prediction_array[@current_prediction - 1, 1];
+					stopped_at = current_prediction;
 					return;
 				}
 			}
 		}else{
+			//In the air, if it would change polarity it makes it equal to 0. 
 			if new_hsp > 0{
 				var project_x = new_hsp - air_frict;
 				if project_x < 0{
@@ -1001,7 +996,8 @@ if fprediction > current_prediction{
 			
 		}
 		
-		stage = position_meeting(new_x_c + project_x, new_y_c - 2, solid_asset);
+		//Test to see if X manipualtion makes it collide with walls
+		stage = place_free(new_x_c + project_x, new_y_c - 2);
 		plat = position_meeting(new_x_c + project_x, new_y_c - 2, plat_asset);
 		if stage or plat{
 			new_hsp = 0;
@@ -1011,8 +1007,11 @@ if fprediction > current_prediction{
 			new_x_c = new_x_c + new_hsp;
 		}
 		
-		
-		prediction_array[@current_prediction] = [new_x_c, new_y_c, new_vsp, new_hsp];
+		//Store values in the array
+		prediction_array[@current_prediction, 0] = new_x_c;
+		prediction_array[@current_prediction, 1] = new_y_c;
+		prediction_array[@current_prediction, 2] = new_vsp;
+		prediction_array[@current_prediction, 3] = new_hsp;
 	}
 	
 	new_x = prediction_array[@fprediction, 0];
@@ -1023,7 +1022,6 @@ if fprediction > current_prediction{
 	new_y = prediction_array[@fprediction, 1];
 	//print_debug("frame:" + string(fprediction) + " new_x:" + string(new_x) + " new_y:" + string(new_y) + " new_vsp:" + string(prediction_array[fprediction, 2]) + " new_hsp:" + string(prediction_array[fprediction, 3]));
 }
-
 
 #define predictlocComplex
 
@@ -1148,20 +1146,26 @@ if !(x > room_width - stagex || x < stagex){
 #define resetPredict
 
 
-// current_prediction = 0;
-// current_prediction_target = 0;
-// stopped_at = -1;
-xtrag = ai_target.x;
-ytrag = ai_target.y;
-new_x = x;
-new_y = y;
+current_prediction = 0;
+current_prediction_target = 0;
+stopped_at = -1;
+stopped_at_target = -1;
+// xtrag = ai_target.x;
+// ytrag = ai_target.y;
+// new_x = x;
+// new_y = y;
 // new_target_vsp = ai_target.vsp;
 // new_vsp = vsp;
 
-prediction_array = 0;
-prediction_array_target = 0;
-prediction_array[0] = [x, y, vsp, hsp];
-prediction_array_target[0] = [ai_target.x, ai_target.y, ai_target.vsp, ai_target.hsp];
+prediction_array[@0, 0] = x;
+prediction_array[@0, 1] = y;
+prediction_array[@0, 2] = vsp;
+prediction_array[@0, 3] = hsp;
+
+prediction_array_target[@0, 0] = ai_target.x;
+prediction_array_target[@0, 1] = ai_target.y;
+prediction_array_target[@0, 2] = ai_target.vsp;
+prediction_array_target[@0, 3] = ai_target.hsp;
 
 
 #define checkHurtboxWidth
@@ -1216,7 +1220,7 @@ for(var i = 0; i < len; i++){
 	
 	//Special condition of range of the attack (if the character moves for example)
 	if(attacke[i] == AT_DATTACK){
-		distadd_x = 160;
+		distadd_x = 120;
 		distadd_y = 0;
 	}
 	
@@ -1266,7 +1270,7 @@ for(var i = 0; i < len; i++){
 	
 	predictloc(frame);
 	predictlocTarget(frame);
-	
+		
 	//Long condition to set the boundaries of the attack (this always calcules the boundaries in rectangles for performance, if the hitbox is an ellipse it might not hit)
 	//Test if the predicted location falls inside the boundaries/range
 	if (xtrag < new_x + xpos + atkwidth or xtrag - hurtboxWidth < new_x + xpos + atkwidth) and (xtrag > new_x + xpos - atkwidth or xtrag + hurtboxWidth > new_x + xpos - atkwidth){
@@ -1286,7 +1290,7 @@ iterations = 0;
 //Chooses from the new array based on a set of conditions randomly, test are done to reroll for a new attack if a condition is not met
 if len != 0{
 	FTILTprob = random_func(3,1,false);
-	while(!reroll and iterations < 10){
+	while(!reroll and iterations < 5){
 		
 		iterations++;
 		
@@ -1309,7 +1313,7 @@ if len != 0{
 			}
 			
 			if attack == AT_FSPECIAL{
-				if random_func(6, 100, true) < 85{
+				if random_func(6, 100, true) < 95{
 					chosenAttack = noone;
 					reroll = false;
 					break;

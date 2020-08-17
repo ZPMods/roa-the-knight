@@ -3,7 +3,6 @@
 
 
 far_side_attacks[0] = AT_NSPECIAL;
-far_side_attacks[1] = AT_FSPECIAL;
 
 mid_side_attacks[0] = AT_NSPECIAL;
 
@@ -43,24 +42,24 @@ xdist = 0;
 ydist = 0;
 num_whiffs = 0;
 predict = false;
+let_parry = false;
 
 xtrag = 0;
 ytrag = 0;
 new_x = 0;
 new_y = 0;
-// current_prediction = 0;
-// current_prediction_target = 0;
-// stopped_at = 0;
-// stopped_at_target = 0;
+current_prediction = 0;
+current_prediction_target = 0;
+stopped_at = -1;
+stopped_at_target = -1;
 // new_target_vsp = 0;
 // new_vsp = 0;
 fprediction = 0;
 current_prediction = 0;
-stopped_at = -1;
 
-prediction_array = [];
-prediction_array_target = [];
-
+prediction_array = array_create(30, [0, 0, 0, 0]);
+prediction_array_target = array_create(30, [0, 0, 0, 0]);
+is_ai = true;
 targetbusy = false;
 stagex = get_stage_data(SD_X_POS);
 stagey = get_stage_data(SD_Y_POS);

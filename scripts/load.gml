@@ -15,7 +15,7 @@ sprite_change_offset("walkturn",                38, 70);
 sprite_change_offset("dash",                    18, 72);
 sprite_change_offset("dashstart",               18, 72);
 sprite_change_offset("dashstop",                18, 70);
-sprite_change_offset("dashturn",                18, 72);
+sprite_change_offset("dashturn",                30, 74);
 
 sprite_change_offset("jumpstart",               20, 70);
 sprite_change_offset("jump",                    26, 72);
@@ -36,7 +36,7 @@ sprite_change_offset("waveland",                18, 66);
 sprite_change_offset("tech",                    18, 72);
 
 sprite_change_offset("jab", 36, 70);
-sprite_change_offset("dattack", 38, 72);
+sprite_change_offset("dattack", 42, 70);
 sprite_change_offset("ftilt", 38, 70);
 sprite_change_offset("dtilt", 20, 64);
 sprite_change_offset("utilt", 48, 112);
