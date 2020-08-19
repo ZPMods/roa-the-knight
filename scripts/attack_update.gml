@@ -87,16 +87,16 @@ if (attack == AT_FSPECIAL || attack == AT_FSPECIAL_2)
 // Down Special Boosted
 if (attack == AT_DSPECIAL)
 {
-  if (window == 1)
+  if (window == 3)
   {
     if (special_down && soul_points >= SP_nspecial)
     {
       charged_time += 1;
 
-      if (charged_time == get_window_value(attack, 1, AG_WINDOW_LENGTH))
+      if (charged_time == get_window_value(attack, 3, AG_WINDOW_LENGTH) - 2)
       {
-        window = 1;
-        window_timer = 0;
+        window = 3;
+        window_timer = 3;
         attack = AT_DSPECIAL_2;
         soul_points -= SP_dspecial;
         hurtboxID.sprite_index = sprite_get("dspecial_boosted_hurt");
@@ -429,11 +429,11 @@ if (attack == AT_NSPECIAL || attack == AT_FSPECIAL || attack == AT_DSPECIAL || a
 
 //Taunt
 if (attack == AT_TAUNT)
-{	
+{
 	 if window == 1 and window_timer == 0{
 	 	sitting = true;
 	 }
-	 
+
      if (window >= 4 && window < 7 && window_timer > 60 && (shield_pressed || taunt_pressed))
      {
           /* if was_parried{
@@ -448,12 +448,12 @@ if (attack == AT_TAUNT)
         	  bench.end_anim = true;
           }
           print_debug("oi")
-		  
+
           clear_button_buffer(PC_SHIELD_PRESSED);
           clear_button_buffer(PC_TAUNT_PRESSED);
      }
-     
-     
+
+
      if hop_off{
      	hop_off = false;
 	    window = 7

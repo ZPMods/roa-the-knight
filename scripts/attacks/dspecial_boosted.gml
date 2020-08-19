@@ -31,6 +31,9 @@ set_window_value(AT_DSPECIAL_2, 3, AG_WINDOW_VSPEED_TYPE, 1);
 set_window_value(AT_DSPECIAL_2, 3, AG_WINDOW_VSPEED, 0);
 set_window_value(AT_DSPECIAL_2, 3, AG_WINDOW_HSPEED_TYPE, 1);
 set_window_value(AT_DSPECIAL_2, 3, AG_WINDOW_HSPEED, 0);
+set_window_value(AT_DSPECIAL_2, 3, AG_WINDOW_HAS_SFX, 1);
+set_window_value(AT_DSPECIAL_2, 3, AG_WINDOW_SFX, sound_get("knight_special_down_boosted_hover"));
+set_window_value(AT_DSPECIAL_2, 3, AG_WINDOW_SFX_FRAME, 3);
 
 //Descente
 set_window_value(AT_DSPECIAL_2, 4, AG_WINDOW_TYPE, 9);
@@ -49,7 +52,7 @@ set_window_value(AT_DSPECIAL_2, 5, AG_WINDOW_LENGTH, 25);
 set_window_value(AT_DSPECIAL_2, 5, AG_WINDOW_ANIM_FRAMES, 11);
 set_window_value(AT_DSPECIAL_2, 5, AG_WINDOW_ANIM_FRAME_START, 19);
 set_window_value(AT_DSPECIAL_2, 5, AG_WINDOW_HAS_SFX, 1);
-set_window_value(AT_DSPECIAL_2, 5, AG_WINDOW_SFX, sound_get("knight_special_down_boosted_impact"));
+set_window_value(AT_DSPECIAL_2, 5, AG_WINDOW_SFX, sound_get("knight_special_down_boosted_impact_2"));
 set_window_value(AT_DSPECIAL_2, 5, AG_WINDOW_HSPEED_TYPE, 1);
 set_window_value(AT_DSPECIAL_2, 5, AG_WINDOW_HSPEED, 0);
 
@@ -243,6 +246,7 @@ set_hitbox_value(AT_DSPECIAL_2, 10, HG_ANGLE, 60);
 set_hitbox_value(AT_DSPECIAL_2, 10, HG_BASE_KNOCKBACK, 10);
 set_hitbox_value(AT_DSPECIAL_2, 10, HG_KNOCKBACK_SCALING, .9);
 set_hitbox_value(AT_DSPECIAL_2, 10, HG_BASE_HITPAUSE, 10);
+set_hitbox_value(AT_DSPECIAL_2, 10, HG_HITPAUSE_SCALING, .9);
 set_hitbox_value(AT_DSPECIAL_2, 10, HG_HIT_SFX, asset_get("sfx_blow_heavy1"));
 set_hitbox_value(AT_DSPECIAL_2, 10, HG_ANGLE_FLIPPER, 3);
 set_hitbox_value(AT_DSPECIAL_2, 10, HG_HITBOX_GROUP, -1);

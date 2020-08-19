@@ -55,7 +55,7 @@ sprite_change_offset("fspecial_boosted", 102, 74);
 sprite_change_offset("uspecial", 54, 76);
 sprite_change_offset("uspecial_boosted", 78, 110);
 sprite_change_offset("dspecial", 90, 86);
-sprite_change_offset("dspecial_boosted", 98, 110);
+sprite_change_offset("dspecial_boosted", 96, 110);
 sprite_change_offset("taunt", 20, 86);
 sprite_change_offset("bench", 46, 114);
 
