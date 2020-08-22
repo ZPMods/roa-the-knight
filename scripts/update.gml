@@ -258,8 +258,10 @@ if state != PS_WALL_JUMP{
 	}
 }
 
-
-
+//bench collision check
+if instance_exists(bench) and free and (state != PS_ATTACK_GROUND and attack == AT_TAUNT){
+	bench.end_anim = true;
+}
 
 //------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
