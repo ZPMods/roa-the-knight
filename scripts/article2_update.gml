@@ -20,7 +20,7 @@ switch (phase)
 	case 3 :
 		frame_timer = 5;
 		loop = false;
-		depth = 10000;
+		depth = 7;
 	break;
 }
 
