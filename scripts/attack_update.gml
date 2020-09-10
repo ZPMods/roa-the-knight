@@ -139,6 +139,16 @@ if (attack == AT_DSPECIAL && free && window == 1 && window_timer == get_window_v
      window_timer = 0;
 }
 
+
+if(attack == AT_DSPECIAL && (window == 3 || window == 4)){
+	if (down_down){
+		fall_through = true;
+	}else{
+		fall_through = false;
+	}
+	
+}
+
 //Hitbox au sol
 if (attack == AT_DSPECIAL && !free && window == 4)
 {
@@ -148,7 +158,7 @@ if (attack == AT_DSPECIAL && !free && window == 4)
 }
 if (attack == AT_DSPECIAL && window == 5)
 {
-     if (window_timer == 18)
+     if (window_timer == (has_hit ? get_window_value(AT_DSPECIAL, 5, AG_WINDOW_LENGTH) : round(get_window_value(AT_DSPECIAL, 5, AG_WINDOW_LENGTH)*1.5)))
      {
           window = 29;
           window_timer = 0;
@@ -162,7 +172,7 @@ if (attack == AT_DSPECIAL && window == 4 && has_dspecial_air_hit == true)
   window = 6;
   window_timer = 0;
 }
-if (attack == AT_DSPECIAL && window == 7 && window_timer == 7)
+if (attack == AT_DSPECIAL && window == 7 && window_timer == 10)
 {
   window = 29;
   window_timer = 0;
@@ -175,9 +185,8 @@ if((attack == AT_DSPECIAL && window >= 4) || attack == AT_DSPECIAL_2)
     ds_timer += 1;
 }
 
-if ((attack == AT_DSPECIAL && window == 4 && window_timer >= 3) || (attack == AT_DSPECIAL && window == 5 && ds_timer > 30))
+if (attack == AT_DSPECIAL && window == 4 && ds_timer > 30)
 {
-    can_jump = true;
     can_shield = true;
 }
 if((attack == AT_DSPECIAL_2 && window == 3 && window_timer >= 3 && !hitpause) || (attack == AT_DSPECIAL_2 && window == 4 && ds_timer > 30 && !hitpause))

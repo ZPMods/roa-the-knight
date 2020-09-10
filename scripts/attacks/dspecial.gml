@@ -67,6 +67,7 @@ set_window_value(AT_DSPECIAL, 5, AG_WINDOW_HAS_SFX, 1);
 set_window_value(AT_DSPECIAL, 5, AG_WINDOW_SFX, sound_get("knight_special_down_normal_impact"));
 set_window_value(AT_DSPECIAL, 5, AG_WINDOW_HSPEED_TYPE, 1);
 set_window_value(AT_DSPECIAL, 5, AG_WINDOW_HSPEED, 0);
+set_window_value(AT_DSPECIAL, 5, AG_WINDOW_HAS_WHIFFLAG, 1);
 
 //Hitbox en l'air
 set_window_value(AT_DSPECIAL, 6, AG_WINDOW_TYPE, 1);
@@ -81,6 +82,7 @@ set_window_value(AT_DSPECIAL, 7, AG_WINDOW_ANIM_FRAMES, 3);
 set_window_value(AT_DSPECIAL, 7, AG_WINDOW_ANIM_FRAME_START, 26);
 set_window_value(AT_DSPECIAL, 7, AG_WINDOW_VSPEED, -10);
 set_window_value(AT_DSPECIAL, 7, AG_WINDOW_VSPEED_TYPE, 2);
+
 
 set_num_hitboxes(AT_DSPECIAL, 2);
 
@@ -124,6 +126,6 @@ set_hitbox_value(AT_DSPECIAL, 2, HG_BASE_KNOCKBACK, 10);
 set_hitbox_value(AT_DSPECIAL, 2, HG_KNOCKBACK_SCALING, 0.5);
 set_hitbox_value(AT_DSPECIAL, 2, HG_BASE_HITPAUSE, 6);
 set_hitbox_value(AT_DSPECIAL, 2, HG_HIT_SFX, asset_get("sfx_blow_medium1"));
-set_hitbox_value(AT_DSPECIAL, 2, HG_ANGLE_FLIPPER, 4);
+set_hitbox_value(AT_DSPECIAL, 2, HG_ANGLE_FLIPPER, 3);
 set_hitbox_value(AT_DSPECIAL, 2, HG_HITBOX_GROUP, 1);
 set_hitbox_value(AT_DSPECIAL, 2, HG_VISUAL_EFFECT, soul_hit_heavy)
