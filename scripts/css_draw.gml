@@ -40,6 +40,9 @@ flag_name[8] = "Genderqueer";
 
 if !("flags_timer" in self) flags_timer = 0;
 if !("current_flag" in self) current_flag = 0;
+if !("last_flag" in self) last_flag = array_length(flag_name) - 1;
+if !("movement_timer" in self) movement_timer = 0;
+if !("lerp_val" in self) lerp_val = 0;
 
 if (alt_cur == 8)
 {
@@ -47,6 +50,7 @@ if (alt_cur == 8)
 
      if (flags_timer >= 120)
      {
+          last_flag = current_flag;
           current_flag ++;
           if (current_flag >= array_length(flag_name))
           {
@@ -160,17 +164,34 @@ if (alt_cur == 8)
 
      draw_sprite_ext(sprite_get("flags_outline"), 0, temp_x + 4, temp_y + 34, 1, 1, 0, c_white, 1);
 
-     draw_sprite_ext(sprite_get("flags"), current_flag, temp_x + 4, temp_y + 34, 1, 1, 0, c_white, 1);
-     draw_sprite_ext(sprite_get("flags"), current_flag + 1, temp_x + 10, temp_y + 68, .75, .75, 0, c_white, 1);
-     draw_sprite_ext(sprite_get("flags"), current_flag + 2, temp_x + 17, temp_y + 93, .5, .5, 0, c_white, 1);
+     if (last_flag != current_flag)
+     {
+          movement_timer ++;
+
+          lerp_val = 1/30 * movement_timer;
+          lerp_val = bias(0.7, lerp_val);
+
+          if (movement_timer >= 30)
+          {
+               last_flag = current_flag;
+               movement_timer = 0;
+          }
+     }
+
+     draw_sprite_ext(sprite_get("flags"), current_flag-1, temp_x + 4, temp_y + lerp(34, 0, lerp_val), 1, 1, 0, c_white, lerp(1, 0, lerp_val));
+     draw_sprite_ext(sprite_get("flags"), current_flag, temp_x + lerp(10, 4, lerp_val), temp_y + lerp(68, 34, lerp_val), lerp(.75, 1, lerp_val), lerp(.75, 1, lerp_val), 0, c_white, 1);
+     draw_sprite_ext(sprite_get("flags"), current_flag + 1, temp_x + lerp(17, 10, lerp_val), temp_y + lerp(93, 68, lerp_val), lerp(.5, .75, lerp_val), lerp(.5, .75, lerp_val), 0, c_white, 1);
+     draw_sprite_ext(sprite_get("flags"), current_flag + 2, temp_x + 17,  temp_y + lerp(110, 93, lerp_val), .5, .5, 0, c_white, lerp(0, 1, lerp_val));
 }
 else
 {
      flags_timer = 0;
 }
 
-/* textDraw(temp_x + 2, temp_y + 70, "fName", c_white, 0, 1000, 1, true, 1, string(flags_timer));
-textDraw(temp_x + 2, temp_y + 90, "fName", c_white, 0, 1000, 1, true, 1, string(current_flag)); */
+//textDraw(temp_x + 10, temp_y + 50, "fName", c_white, 0, 1000, 1, true, 1, string(movement_timer));
+//textDraw(temp_x + 10, temp_y + 70, "fName", c_white, 0, 1000, 1, true, 1, string(current_flag));
+//textDraw(temp_x + 10, temp_y + 90, "fName", c_white, 0, 1000, 1, true, 1, string(last_flag));
+//textDraw(temp_x + 10, temp_y + 110, "fName", c_white, 0, 1000, 1, true, 1, string(lerp_val));
 
 // CSS Goodies
 // Seasonal
@@ -273,3 +294,6 @@ return string_width_ext(argument[9], argument[4], argument[5]);
 #define rectDraw(x1, y1, x2, y2, color)
 
 draw_rectangle_color(argument[0], argument[1], argument[2], argument[3], argument[4], argument[4], argument[4], argument[4], false);
+
+#define bias(b, x)
+return argument1 / ((1 / argument0 - 2) * (1 - argument1) + 1);
