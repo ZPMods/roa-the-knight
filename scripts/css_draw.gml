@@ -5,7 +5,7 @@ patch_ver = "";
 patch_day = "";
 patch_month = "";
 
-var num_alts = 14;
+var num_alts = 12;
 var alt_cur = get_player_color(player);
 
 
@@ -22,11 +22,9 @@ alt_name[5]  = "Godseeker";
 alt_name[6]  = "Grimm";
 alt_name[7]  = "Hollow Knight";
 alt_name[8]  = "Pride";
-alt_name[9]  = "Lesbians Rights";
-alt_name[10] = "Non Binary Rights";
-alt_name[11] = "Rainbow";
-alt_name[12] = "Early Access";
-alt_name[13] = "Abyss";
+alt_name[9] = "Rainbow";
+alt_name[10] = "Early Access";
+alt_name[11] = "Abyss";
 
 flag_name[0] = "Trans";
 flag_name[1] = "Gay";
@@ -201,11 +199,11 @@ if (alt_cur == 6){
 }
 */
 // Abyss
-if (alt_cur == 13){
+if (alt_cur == 11){
   draw_sprite_ext(sprite_get("cssextras"), 1, temp_x + 3, temp_y + 92, 1, 1, 0, c_white, 1);
 }
 // Early Access
-if (alt_cur == 12){
+if (alt_cur == 10){
   draw_sprite_ext(sprite_get("cssextras"), 3, temp_x + 3, temp_y + 92, 1, 1, 0, c_white, 1);
 }
 /*
@@ -234,23 +232,23 @@ if !("hue" in self)
      hue = 0;
 }
 
-if (get_player_color(player) = 11)
+if (get_player_color(player) = 9)
 {
 	hue+=1;
 	if hue>255 hue-=255;
 	color_rgb=make_color_rgb(167, 195, 217);
 	hue2=(color_get_hue(color_rgb)+hue) mod 255;
 	color_hsv=make_color_hsv(hue2,color_get_saturation(color_rgb),color_get_value(color_rgb));
-	set_color_profile_slot(11,0,color_get_red(color_hsv),color_get_green(color_hsv),color_get_blue(color_hsv));
+	set_color_profile_slot(9,0,color_get_red(color_hsv),color_get_green(color_hsv),color_get_blue(color_hsv));
 
 
 	color_rgb=make_color_rgb( 84, 87, 138);
 	color_hsv=make_color_hsv(hue2,color_get_saturation(color_rgb),color_get_value(color_rgb));
-	set_color_profile_slot(11,1,color_get_red(color_hsv),color_get_green(color_hsv),color_get_blue(color_hsv));
+	set_color_profile_slot(9,1,color_get_red(color_hsv),color_get_green(color_hsv),color_get_blue(color_hsv));
 
 	color_rgb=make_color_rgb(15, 15, 30);
 	color_hsv=make_color_hsv(hue2,color_get_saturation(color_rgb),color_get_value(color_rgb));
-	set_color_profile_slot(11,4,color_get_red(color_hsv),color_get_green(color_hsv),color_get_blue(color_hsv));
+	set_color_profile_slot(9,4,color_get_red(color_hsv),color_get_green(color_hsv),color_get_blue(color_hsv));
 }
 init_shader();
 //Credits Anguish (Code From Kirby)
