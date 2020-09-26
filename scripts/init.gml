@@ -267,8 +267,8 @@ dash_anim_speed = 0.35;
 pratfall_anim_speed = .25;
 
 walk_speed = 3;
-walk_accel = 0.1;
-walk_turn_time = 5;
+walk_accel = 0.2;
+walk_turn_time = 6;
 initial_dash_time = 10;
 initial_dash_speed = 7;
 dash_speed = 6.3;
@@ -293,11 +293,11 @@ air_friction = .07;
 max_djumps = 1;
 double_jump_time = 45; //the number of frames to play the djump animation. Can't be less than 31.
 walljump_hsp = 7;
-walljump_vsp = 11;
+walljump_vsp = 10;
 walljump_time = 32;
 max_fall = 9; //maximum fall speed without fastfalling
 fast_fall = 13; //fast fall speed
-gravity_speed = .64;
+gravity_speed = .65;
 hitstun_grav = .5;
 knockback_adj = 1.1; //the multiplier to KB dealt to you. 1 = default, >1 = lighter, <1 = heavier
 can_wall_cling = true;
