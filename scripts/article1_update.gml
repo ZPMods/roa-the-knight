@@ -25,7 +25,11 @@ if (shade_soul_first_hit)
 
 	}
 }
-
+if instance_exists(shade_soul_player_hit){
+	if(shade_soul_player_hit.hitpause){
+		hitstop = shade_soul_player_hit.hitstop;
+	}	
+}
 
 
 if shade_hitbox == noone and !shade_soul_first_hit{
@@ -64,19 +68,21 @@ if(!instance_exists(shade_hitbox) and !destroy_firsthit){
 
 //Animation
 image_index = nspecial_animation_frame;
+if(!hitstop){
+	nspecial_animation_timer += 1;
 
-nspecial_animation_timer += 1;
-
-if (nspecial_animation_timer == nspecial_animation_framelength)
-{
-  nspecial_animation_frame += 1;
-  nspecial_animation_timer = 0;
-
-  if (nspecial_animation_frame > 10)
-  {
-    nspecial_animation_frame = 1;
-  }
+	if (nspecial_animation_timer == nspecial_animation_framelength)
+	{
+	  nspecial_animation_frame += 1;
+	  nspecial_animation_timer = 0;
+	
+	  if (nspecial_animation_frame > 10)
+	  {
+	    nspecial_animation_frame = 1;
+	  }
+	}
 }
+
 
 //Clairen Plasma Field
 

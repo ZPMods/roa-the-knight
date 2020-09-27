@@ -76,6 +76,15 @@ if (attack == AT_USPECIAL)
 if (attack == AT_USPECIAL_2)
 {
     can_wall_jump = true;
+    if(window == 2 and !hitpause){
+    	if (window_timer % 2 == 0) {
+    		//Make it able to hit again and respawn the hitboxes
+    		attack_end();
+    		create_hitbox(AT_USPECIAL_2, 1, 0, 0);
+    		create_hitbox(AT_USPECIAL_2, 2, 0, 0);
+    		create_hitbox(AT_USPECIAL_2, 3, 0, 0);
+    	}
+    }
 }
 
 //FSPECIAL

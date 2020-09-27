@@ -2,7 +2,7 @@ set_attack_value(AT_BAIR, AG_CATEGORY, 1);
 set_attack_value(AT_BAIR, AG_SPRITE, sprite_get("bair"));
 set_attack_value(AT_BAIR, AG_NUM_WINDOWS, 5);
 set_attack_value(AT_BAIR, AG_HAS_LANDING_LAG, 1);
-set_attack_value(AT_BAIR, AG_LANDING_LAG, 9);
+set_attack_value(AT_BAIR, AG_LANDING_LAG, 6);
 set_attack_value(AT_BAIR, AG_HURTBOX_SPRITE, sprite_get("bair_hurt"));
 
 //Startup
@@ -40,7 +40,7 @@ set_window_value(AT_BAIR, 5, AG_WINDOW_ANIM_FRAMES, 2);
 set_window_value(AT_BAIR, 5, AG_WINDOW_ANIM_FRAME_START, 8);
 set_window_value(AT_BAIR, 5, AG_WINDOW_HAS_WHIFFLAG, 1);
 
-set_num_hitboxes(AT_BAIR,4);
+set_num_hitboxes(AT_BAIR, 4);
 
 set_hitbox_value(AT_BAIR, 1, HG_PARENT_HITBOX, 1);
 set_hitbox_value(AT_BAIR, 1, HG_HITBOX_TYPE, 1 );

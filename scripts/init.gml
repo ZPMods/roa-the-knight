@@ -274,7 +274,7 @@ walk_accel = 0.2;
 walk_turn_time = 6;
 initial_dash_time = 10;
 initial_dash_speed = 7;
-dash_speed = 6.3;
+dash_speed = 6.25;
 dash_turn_time = 10;
 dash_turn_accel = 1.5;
 dash_stop_time = 7;
@@ -300,7 +300,7 @@ walljump_vsp = 10;
 walljump_time = 32;
 max_fall = 9; //maximum fall speed without fastfalling
 fast_fall = 13; //fast fall speed
-gravity_speed = .65;
+gravity_speed = .60;
 hitstun_grav = .5;
 knockback_adj = 1.1; //the multiplier to KB dealt to you. 1 = default, >1 = lighter, <1 = heavier
 can_wall_cling = true;
