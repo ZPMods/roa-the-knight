@@ -2,36 +2,36 @@
 //soul_points = 100;
 //debug = 0;
 //Rainbow Color
-if get_player_color(player) = 11 {
+if get_player_color(player) == rainbow_alt {
 	hue+=1 if hue>255 hue-=255;
 	//make hue shift every step + loop around
 
 	color_rgb=make_color_rgb(167, 195, 217);
 	hue2=(color_get_hue(color_rgb)+hue) mod 255;
 	color_hsv=make_color_hsv(hue2,color_get_saturation(color_rgb),color_get_value(color_rgb));
-	set_color_profile_slot(11,0,color_get_red(color_hsv),color_get_green(color_hsv),color_get_blue(color_hsv));
+	set_color_profile_slot(rainbow_alt,0,color_get_red(color_hsv),color_get_green(color_hsv),color_get_blue(color_hsv));
 
 
 
 	color_rgb=make_color_rgb(84, 87, 138);
 	hue3=(color_get_hue(color_rgb)+hue) mod 255;
 	color_hsv=make_color_hsv(hue3,color_get_saturation(color_rgb),color_get_value(color_rgb));
-	set_color_profile_slot(11,1,color_get_red(color_hsv),color_get_green(color_hsv),color_get_blue(color_hsv));
+	set_color_profile_slot(rainbow_alt, 1,color_get_red(color_hsv),color_get_green(color_hsv),color_get_blue(color_hsv));
 
 	color_rgb=make_color_rgb(110, 106, 131);
 	hue4=(color_get_hue(color_rgb)+hue) mod 255;
 	color_hsv=make_color_hsv(hue4,color_get_saturation(color_rgb),color_get_value(color_rgb));
-	set_color_profile_slot(11,2,color_get_red(color_hsv),color_get_green(color_hsv),color_get_blue(color_hsv));
+	set_color_profile_slot(rainbow_alt, 2,color_get_red(color_hsv),color_get_green(color_hsv),color_get_blue(color_hsv));
 
 	color_rgb=make_color_rgb(24, 23, 33);
 	hue5=(color_get_hue(color_rgb)+hue) mod 255;
 	color_hsv=make_color_hsv(hue5,color_get_saturation(color_rgb),color_get_value(color_rgb));
-	set_color_profile_slot(11,3,color_get_red(color_hsv),color_get_green(color_hsv),color_get_blue(color_hsv));
+	set_color_profile_slot(rainbow_alt, 3,color_get_red(color_hsv),color_get_green(color_hsv),color_get_blue(color_hsv));
 
 	color_rgb=make_color_rgb(84, 87, 138);
 	hue6=(color_get_hue(color_rgb)+hue) mod 255;
 	color_hsv=make_color_hsv(hue6,color_get_saturation(color_rgb),color_get_value(color_rgb));
-	set_color_profile_slot(11,4,color_get_red(color_hsv),color_get_green(color_hsv),color_get_blue(color_hsv));
+	set_color_profile_slot(rainbow_alt, 4,color_get_red(color_hsv),color_get_green(color_hsv),color_get_blue(color_hsv));
 	}
 init_shader();
 //Credits Anguish (Code From Kirby)
@@ -88,8 +88,11 @@ if (get_player_color(player) == 1 && get_gameplay_time() <= 3 )
 if(free && hsp > air_max_speed)
 {
 }
-if (get_player_color(player) == 12){
-    for(i = 0; i < 5; i++){
+//Early access
+if (get_player_color(player) == early_access_alt)
+{
+    for(i = 0; i < 5; i++)
+    {
         set_character_color_shading(i, 0);
     }
 }
@@ -703,7 +706,7 @@ if get_btt_data { //Get data for Break The Targets
 	//Set the spawn properties
 	respawn_point = [[155,60],[0,0],1];
 	//Set the collision of the solid sprites to precise
-	sprite_change_collision_mask("btt_solid",true, 1, 0, 0, 0, 0, 0 );  
+	sprite_change_collision_mask("btt_solid",true, 1, 0, 0, 0, 0, 0 );
 	room_add(1,[
 	    [ //Each Cell
 	        [0,0], //Cell Coordinates
@@ -713,10 +716,10 @@ if get_btt_data { //Get data for Break The Targets
 		        //[10, 40, 30.5, 0, -5, [1, 0, 60, [[-10,0],[5,0]], 0, 0, 0, 0], [0]],
 		        [10, 96, 55, 0, -5, [1, 0, 0, 0, 0, 0, 0, 0], [0]], //Pogo Duo 1
 		        [10, 83, 55, 0, -5, [2, 0, 0, 0, 0, 0, 0, 0], [0]], //Pogo Duo 2
-		        [10, 132,55, 0, -5, [3, 0, 0, 0, 0, 0, 0, 0], [0]], //Pogo Start 
-		        [10, 115,20, 0, -5, [4, 0, 0, 0, 0, 0, 0, 0], [0]], 
+		        [10, 132,55, 0, -5, [3, 0, 0, 0, 0, 0, 0, 0], [0]], //Pogo Start
+		        [10, 115,20, 0, -5, [4, 0, 0, 0, 0, 0, 0, 0], [0]],
 		        [10, 108,38, 0, -5, [5, 0, 0, 0, 0, 0, 0, 0], [0]], //NSpecial
-		        [10, 89,20, 0, -5, [6, 0, 0, 0, 0, 0, 0, 0], [0]], 
+		        [10, 89,20, 0, -5, [6, 0, 0, 0, 0, 0, 0, 0], [0]],
 		        //Solid Ground
 		    	[1, 2, 2, 2, 0, [sprite_get("btt_solid"), 0, 0, 0, 0, 0, 0, 0], [0]],
 		    	//Plats

@@ -1,4 +1,4 @@
-set_num_palettes(12);
+set_num_palettes(13);
 
 //DEFAULT COLOR (R,G,B)
 set_color_profile_slot(0, 0, 167, 195, 217); //Helmet - White/Blue
@@ -64,30 +64,37 @@ set_color_profile_slot(7, 2, 138, 145, 136); //Nail - Green Grey
 set_color_profile_slot(7, 3, 24, 23, 33); //Body - Dark Grey/Orange
 set_color_profile_slot(7, 4, 212, 111, 62); //Eyes - Orange
 
+//ZP Mods
+set_color_profile_slot(8, 0, 216, 208, 252); //Helmet
+set_color_profile_slot(8, 1, 91, 58, 128); //Cape
+set_color_profile_slot(8, 2, 212, 118, 116); //Nail
+set_color_profile_slot(8, 3, 11, 19, 47); //Body
+set_color_profile_slot(8, 4, 31, 11, 47); //Eyes
+
 //Pride
-set_color_profile_slot(8, 0, 232, 181, 182); // Helmet
-set_color_profile_slot(8, 1, 211, 129, 189); // Cape
-set_color_profile_slot(8, 2, 67, 174, 216); // Nail
-set_color_profile_slot(8, 3, 40, 40, 40); // Body
-set_color_profile_slot(8, 4, 15, 15, 30); // Eyes
+set_color_profile_slot(9, 0, 232, 181, 182); // Helmet
+set_color_profile_slot(9, 1, 211, 129, 189); // Cape
+set_color_profile_slot(9, 2, 67, 174, 216); // Nail
+set_color_profile_slot(9, 3, 40, 40, 40); // Body
+set_color_profile_slot(9, 4, 15, 15, 30); // Eyes
 
 //Rainbow
-set_color_profile_slot(9, 0, 167, 195, 217); //Helmet - White/Blue
-set_color_profile_slot(9, 1, 84, 87, 138); //Cape - Purple
-set_color_profile_slot(9, 2, 110, 106, 131); //Nail - Grey
-set_color_profile_slot(9, 3, 24, 23, 33); //Body - Dark Grey/Blue
-set_color_profile_slot(9, 4, 167, 195, 217); //Eyes - Pink
+set_color_profile_slot(10, 0, 167, 195, 217); //Helmet - White/Blue
+set_color_profile_slot(10, 1, 84, 87, 138); //Cape - Purple
+set_color_profile_slot(10, 2, 110, 106, 131); //Nail - Grey
+set_color_profile_slot(10, 3, 24, 23, 33); //Body - Dark Grey/Blue
+set_color_profile_slot(10, 4, 167, 195, 217); //Eyes - Pink
 
 //Early Access
-set_color_profile_slot(10, 0, 167, 186, 74); //Helmet
-set_color_profile_slot(10, 1, 35, 67, 49); //Cape
-set_color_profile_slot(10, 2, 167, 186, 74); //Nail
-set_color_profile_slot(10, 3, 167, 186, 74); //Body
-set_color_profile_slot(10, 4, 35, 67, 49) //Eyes
+set_color_profile_slot(11, 0, 167, 186, 74); //Helmet
+set_color_profile_slot(11, 1, 35, 67, 49); //Cape
+set_color_profile_slot(11, 2, 167, 186, 74); //Nail
+set_color_profile_slot(11, 3, 167, 186, 74); //Body
+set_color_profile_slot(11, 4, 35, 67, 49) //Eyes
 
 //Abyss
-set_color_profile_slot(11, 0, 181, 183, 207); //Helmet
-set_color_profile_slot(11, 1, 94, 73, 112); //Cape
-set_color_profile_slot(11, 2, 64, 26, 93); //Nail
-set_color_profile_slot(11, 3, 24, 23, 33); //Body
-set_color_profile_slot(11, 4, 64, 26, 93); //Eyes
+set_color_profile_slot(12, 0, 181, 183, 207); //Helmet
+set_color_profile_slot(12, 1, 94, 73, 112); //Cape
+set_color_profile_slot(12, 2, 64, 26, 93); //Nail
+set_color_profile_slot(12, 3, 24, 23, 33); //Body
+set_color_profile_slot(12, 4, 64, 26, 93); //Eyes

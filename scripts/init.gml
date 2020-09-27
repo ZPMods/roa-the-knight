@@ -42,6 +42,9 @@ get_btt_data = false;
 //Custom Variables
 //----------------------------------------------------------
 
+rainbow_alt = 10;
+early_access_alt = 11;
+
 bench_timer = 0;
 bench_phase = 0;
 bench = noone;
