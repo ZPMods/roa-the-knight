@@ -7,13 +7,14 @@ patch_ver = "";
 patch_day = "";
 patch_month = "";
 
-var num_alts = 13;
+var num_alts = 14;
 var alt_cur = get_player_color(player);
 
 var pride_alt = 9;
 var rainbow_alt = 10;
 var early_access_alt = 11;
 var abyss_alt = 12;
+var infamous_alt = 13;
 
 
 //Alt name init. var doesn't work with arrays lol
@@ -31,6 +32,7 @@ alt_name[9] = "Pride";
 alt_name[10] = "Rainbow";
 alt_name[11] = "Early Access";
 alt_name[12] = "Abyss";
+alt_name[13] = "Infamous";
 
 flag_name[0] = "Trans";
 flag_name[1] = "Gay";
@@ -212,16 +214,16 @@ if (alt_cur == abyss_alt){
 if (alt_cur == early_access_alt){
   draw_sprite_ext(sprite_get("cssextras"), 3, temp_x + 3, temp_y + 92, 1, 1, 0, c_white, 1);
 }
-/*
+
 // Little Star
-if (alt_cur == 15){
+if (alt_cur == infamous_alt){
   draw_sprite_ext(sprite_get("cssextras"), 0, temp_x + 3, temp_y + 92, 1, 1, 0, c_white, 1);
 }
-// Show Nothing
+/* // Show Nothing
 if (alt_cur != 6 and alt_cur != 7 and alt_cur != 8 and alt_cur != 15){
   draw_sprite_ext(sprite_get("cssextras"), 2, temp_x + 3, temp_y + 92, 1, 1, 0, c_white, 0);
-}
-*/
+} */
+
 //Patch
 
 draw_set_halign(fa_left);

@@ -1,4 +1,4 @@
-set_num_palettes(13);
+set_num_palettes(14);
 
 //DEFAULT COLOR (R,G,B)
 set_color_profile_slot(0, 0, 167, 195, 217); //Helmet - White/Blue
@@ -98,3 +98,10 @@ set_color_profile_slot(12, 1, 94, 73, 112); //Cape
 set_color_profile_slot(12, 2, 64, 26, 93); //Nail
 set_color_profile_slot(12, 3, 24, 23, 33); //Body
 set_color_profile_slot(12, 4, 64, 26, 93); //Eyes
+
+//Infamous
+set_color_profile_slot(13, 0, 210, 238, 255); //Helmet
+set_color_profile_slot(13, 1, 29, 178, 183); //Cape
+set_color_profile_slot(13, 2, 0, 255, 168); //Nail
+set_color_profile_slot(13, 3, 12, 19, 35); //Body
+set_color_profile_slot(13, 4, 212, 91, 248); //Eyes
