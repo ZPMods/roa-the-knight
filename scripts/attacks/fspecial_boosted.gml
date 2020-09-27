@@ -53,7 +53,7 @@ set_hitbox_value(AT_FSPECIAL_2, 1, HG_PRIORITY, 6);
 set_hitbox_value(AT_FSPECIAL_2, 1, HG_DAMAGE, 2);
 set_hitbox_value(AT_FSPECIAL_2, 1, HG_ANGLE, 36);
 set_hitbox_value(AT_FSPECIAL_2, 1, HG_BASE_KNOCKBACK, 6);
-set_hitbox_value(AT_FSPECIAL_2, 1, HG_BASE_HITPAUSE, 2);
+set_hitbox_value(AT_FSPECIAL_2, 1, HG_BASE_HITPAUSE, 3);
 set_hitbox_value(AT_FSPECIAL_2, 1, HG_HIT_SFX, asset_get("sfx_absa_singlezap2"));
 set_hitbox_value(AT_FSPECIAL_2, 1, HG_IGNORES_PROJECTILES, 1);
 
