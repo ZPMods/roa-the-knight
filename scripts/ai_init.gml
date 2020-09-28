@@ -55,17 +55,18 @@ stopped_at_target = -1;
 // new_target_vsp = 0;
 // new_vsp = 0;
 fprediction = 0;
-current_prediction = 0;
 
-prediction_array = array_create(30, [0, 0, 0, 0]);
-prediction_array_target = array_create(30, [0, 0, 0, 0]);
+prediction_array = array_create(30, 0);
+prediction_array_target = array_create(30, 0);
+for(var i = 0; i < array_length_1d(prediction_array); i++){
+    prediction_array[@i] = [0, 0, 0, 0];
+    prediction_array_target[@i] = [0, 0, 0, 0];
+}
 is_ai = true;
 targetbusy = false;
 stagex = get_stage_data(SD_X_POS);
 stagey = get_stage_data(SD_Y_POS);
 top_blastzone = get_stage_data(SD_TOP_BLASTZONE);
-new_x = x;
-new_y = y;
 chasing = 0;
 to_boost = 0;
 strongPercent = 0;
