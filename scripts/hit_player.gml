@@ -46,7 +46,6 @@ if (my_hitboxID.attack == AT_DSPECIAL_2 && window == 4)
     hit_player_obj.should_make_shockwave = true;
 }
 
-
 //          CHANGE --------- CHANGE
 //Neutral Special Boosted Multihit
 if (my_hitboxID.attack == AT_NSPECIAL_2)
@@ -63,7 +62,7 @@ if (my_hitboxID.attack == AT_NSPECIAL_2)
      	  //multi-hit moved to article
      	  if(hit_player_obj.player != 0){
      	  	 shade_soul.shade_soul_player_hit = hit_player_obj;
-        	 shade_soul.newhit_hsp = shade_soul.hsp + (shade_soul.spr_dir * hit_player_obj.air_friction * 3);
+        	 shade_soul.newhit_hsp = 10*shade_soul.spr_dir + (shade_soul.spr_dir * hit_player_obj.air_friction * 3);
          	 shade_soul.newhit_vsp = -1 * hit_player_obj.hitstun_grav * 3;
         	 shade_soul.shade_soul_hit = true;
         	 shade_soul.destroy_firsthit = true;

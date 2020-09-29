@@ -16,6 +16,7 @@ timer_boom = 14;
 stage_left = get_stage_data(SD_X_POS) - get_stage_data(SD_SIDE_BLASTZONE);
 stage_right = (room_width - get_stage_data(SD_X_POS)) + get_stage_data(SD_SIDE_BLASTZONE);
 owner = player_id;
+destroy_this = false;
 
 //          CHANGE --------- CHANGE
 shade_soul_player_hit = noone;

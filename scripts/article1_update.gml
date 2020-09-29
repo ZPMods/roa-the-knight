@@ -8,10 +8,10 @@ if (destroy_firsthit){
 }
 
 //timer
-if (shade_soul_first_hit)
+if (shade_soul_first_hit and !hitstop)
 {
     timer ++;
-
+	
     //          CHANGE --------- CHANGE
     if(shade_soul_player_hit != noone and (newhit_vsp != 0 or newhit_hsp != 0)){
 	    if ((shade_soul_player_hit.state == PS_HITSTUN or shade_soul_player_hit.state == PS_HITSTUN_LAND) and !shade_soul_player_hit.hitpause){
@@ -41,9 +41,9 @@ if shade_hitbox == noone and !shade_soul_first_hit{
 // player_id.shade_soul_x = x;
 // player_id.shade_soul_y = y;
 
-if (shade_soul_first_hit && timer % 5 == 0 && !hit_wall && timer_boom > 1)
+if (shade_soul_first_hit && timer_boom % 5 == 0 && !hit_wall && timer_boom > 1)
 {
-
+	
     shade_drag = create_hitbox(AT_NSPECIAL_2, 1, x + 14 * spr_dir, y - 33);
 
 }
@@ -54,7 +54,7 @@ if (shade_soul_hit)
      shade_soul_hit = false;
 }
 
-if (shade_soul_first_hit)
+if (shade_soul_first_hit and !hitstop)
 {
      timer_boom --;
 }
@@ -131,17 +131,7 @@ if (hit_wall || x < stage_left || x > stage_right)
     return;
 }
 
-if(timer_boom) == 0{
-
-	if (shade_soul_first_hit)
-    {
-    	create_hitbox(AT_NSPECIAL_2, 2, x + 10 * spr_dir, y - 33);
-
-    }
-
-}
-
-if timer_boom == -1{
+if destroy_this{
 	owner.move_cooldown[AT_NSPECIAL] = 0;
     shade_soul_first_hit = false;
     sound_stop(audio);
@@ -149,6 +139,17 @@ if timer_boom == -1{
     instance_destroy();
     return;
 }
+
+if(timer_boom) == 0{
+
+	if (shade_soul_first_hit)
+    {
+    	create_hitbox(AT_NSPECIAL_2, 2, x + 10 * spr_dir, y - 33);
+
+    }
+	destroy_this = true;
+}
+
 #define spawnShadeBubbles
 var id = random_func(0, 5, true);
 var toSpawn = owner.shade_bubbles_1;
