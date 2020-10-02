@@ -1,16 +1,3 @@
-/* if abyssEnabled {
-	if "runesUpdated" in self && runesUpdated {
-		//attribute changes and things that don't have to run every frame go in here
-		if runeL {
-
-		} else {
-
-		}
-	}
-
-	//everything that should run every frame goes here.
-} */
-
 //EFFECTS ANIMATIONS -----------------------------------------------------------
 
 //Normal to Shade Effect
