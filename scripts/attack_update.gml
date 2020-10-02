@@ -156,7 +156,7 @@ if(attack == AT_DSPECIAL && (window == 3 || window == 4)){
 	}else{
 		fall_through = false;
 	}
-	
+
 }
 
 //Hitbox au sol
@@ -307,7 +307,7 @@ if (attack == AT_NSPECIAL_2)
 }
 
 //Effect
-if (attack == AT_NSPECIAL && window == 2 && window_timer == 8)
+if (attack == AT_NSPECIAL && window == 2 && window_timer == 2)
 {
      nspecial_effect_show = true;
 }

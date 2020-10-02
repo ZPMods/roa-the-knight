@@ -1,4 +1,4 @@
-if abyssEnabled {
+/* if abyssEnabled {
 	if "runesUpdated" in self && runesUpdated {
 		//attribute changes and things that don't have to run every frame go in here
 		if runeL {
@@ -9,7 +9,7 @@ if abyssEnabled {
 	}
 
 	//everything that should run every frame goes here.
-}
+} */
 
 //EFFECTS ANIMATIONS -----------------------------------------------------------
 
@@ -53,7 +53,6 @@ if (nspecial_effect_show == true)
           nspecial_effect_x = x + (spr_dir * -6);
           nspecial_effect_y = y - 86;
           nspecial_effect_freeze = true;
-
      }
 
      shader_start();
