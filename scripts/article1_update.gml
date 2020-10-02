@@ -11,7 +11,7 @@ if (destroy_firsthit){
 if (shade_soul_first_hit and !hitstop)
 {
     timer ++;
-	
+
     //          CHANGE --------- CHANGE
     if(shade_soul_player_hit != noone and (newhit_vsp != 0 or newhit_hsp != 0)){
 	    if ((shade_soul_player_hit.state == PS_HITSTUN or shade_soul_player_hit.state == PS_HITSTUN_LAND) and !shade_soul_player_hit.hitpause){
@@ -28,7 +28,7 @@ if (shade_soul_first_hit and !hitstop)
 if instance_exists(shade_soul_player_hit){
 	if(shade_soul_player_hit.hitpause){
 		hitstop = shade_soul_player_hit.hitstop;
-	}	
+	}
 }
 
 
@@ -43,7 +43,7 @@ if shade_hitbox == noone and !shade_soul_first_hit{
 
 if (shade_soul_first_hit && timer_boom % 5 == 0 && !hit_wall && timer_boom > 1)
 {
-	
+
     shade_drag = create_hitbox(AT_NSPECIAL_2, 1, x + 14 * spr_dir, y - 33);
 
 }
@@ -75,7 +75,7 @@ if(!hitstop){
 	{
 	  nspecial_animation_frame += 1;
 	  nspecial_animation_timer = 0;
-	
+
 	  if (nspecial_animation_frame > 10)
 	  {
 	    nspecial_animation_frame = 1;
@@ -110,6 +110,12 @@ if (shade_bubbles_play = 1)
 
 if (hit_wall || x < stage_left || x > stage_right)
 {
+	if (timer_boom == 14)
+	{
+		spawn_hit_fx(x - 20, y - 74, owner.nts_hit);
+		spawn_hit_fx(x + 20, y - 40, owner.shade_burst_1);
+	}
+
      if timer_boom > 0{
      	timer_boom = 0;
      }

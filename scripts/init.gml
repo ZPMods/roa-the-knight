@@ -220,6 +220,8 @@ feathers_play = 0;
 
 dash_burst = hit_fx_create(sprite_get("dash_burst"), 13);
 
+nts_hit = hit_fx_create(sprite_get("normal_to_shade_effect"), 20)
+
 //----------------------------------------------------------
 
 //Common Variables
