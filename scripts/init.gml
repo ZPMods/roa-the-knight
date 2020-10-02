@@ -1,37 +1,4 @@
-//this var makes f5 not break the buddy if developing with more than one
-//workshop character or buddy in the match
-//abyss_devmode = true;
-//
-abyssEnabled = false;
-enum runes {A = 1,B = 2,C = 3,D = 4,E = 5,F = 6,G = 7,H = 8,I = 9,J = 10,K = 11,L = 12,M = 13,N = 14,O = 15}
-ab_hud_x = 0;
-ab_hud_y = 0;
 
-//abyssMods[1 to 15] = [type, description];
-//types are: -1 - disabled
-// 0 - object mod: Modifies a static object left behind after an attack.
-// 1 - ranged mod: Modifies a projectile attack.
-// 2 - hit mod: Modifies a direct physical interaction with an opponent.
-// 3 - ability boost: Powers up a character attribute or action.
-abyssMods = array_create(16,[-1,"Not Implemented."]);
-//example rune definition:
-abyssMods[@ runes.A] = [3,"The Knight can wallcling. "];
-//abyssMods[@ runes.B] = [3,"Ground speed is faster."];
-abyssMods[@ runes.C] = [3,"Boosted Special cost 10 less soul."];
-abyssMods[@ runes.D] = [2,"Special Moves burn the enemy."];
-abyssMods[@ runes.E] = [3,"Ground speed is faster."];
-//abyssMods[@ runes.F] = [3,"Ground speed is faster."];
-
-abyssMods[@ runes.G] = [3,"Sandbert's Values"];
-abyssMods[@ runes.H] = [3,"Up Special cover more distance."];
-abyssMods[@ runes.I] = [3,"Up Special Boosted doesn't put you in pratfall."];
-abyssMods[@ runes.J] = [3,"Second Double Jump."];
-//abyssMods[@ runes.K] = [3,"Ground speed is faster."];
-
-//abyssMods[@ runes.L] = [2,"Charm Wheel babyyyy!"];
-abyssMods[@ runes.M] = [3,"Special Boosted cost no soul"];
-abyssMods[@ runes.N] = [3,"WAVEDAAAASH!"];
-abyssMods[@ runes.O] = [3,"Ground speed is faster."];
 
 //abyss init code over
 
@@ -422,6 +389,22 @@ dream_nail_ori[2] = "Debug Ori 3";
 dream_nail_shovel[0] = "Debug Shovel 1";
 dream_nail_shovel[1] = "Debug Shovel 2";
 dream_nail_shovel[2] = "Debug Shovel 3";
+
+//Abyss Runes
+if has_rune("A"){
+    max_djumps = 2;
+}
+
+if has_rune("B"){
+    walk_speed = 4;
+    walk_accel = 0.3;
+    walk_turn_time = 5;
+    initial_dash_time = 8;
+    initial_dash_speed = 7.75;
+    dash_speed = 7;
+    dash_turn_time = 8;
+    dash_turn_accel = 1.5;
+}
 
 //TP related branch
 //          CHANGE --------- CHANGE

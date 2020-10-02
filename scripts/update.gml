@@ -514,188 +514,35 @@ if trummelcodecneeded{
     trummelcodecline[5,4] = "";
 }
 
+//Abyss Runes
 
-// RUNES
-if abyssEnabled {
-	#region // LEVEL ONE RUNES
+//Get a damage boost while at 100% or higher
+if has_rune("D"){ 
+	
+}
 
-	#region // RUNE A
-	if runeA {
-		can_wall_cling = true;
-	} else {
-		can_wall_cling = false;
-	}
-	#endregion
-	#region // RUNE B
-	if runeB {
+//Neutral Special travel twice as fast
+if has_rune("E"){
+	set_hitbox_value(AT_NSPECIAL, 1, HG_PROJECTILE_HSPEED, 20);
+}
 
-	} else {
-		//default attributes. this part is optional but you should have it for compatibility with
-		//the random rune mode.
+//Down Special will leave a soul mark on the ground
+if has_rune("F"){
+	
+}
 
-	}
-	#endregion
-	#region // RUNE C
-	if (runeC && !runeM) {
-		SP_nspecial = 20;
-		SP_fspecial = 20;
-		SP_dspecial = 20;
-		SP_uspecial = 20;
-	} else {
-
-	}
-	#endregion
-	#region // RUNE D
-	if runeD {
-		set_hitbox_value(AT_USPECIAL_2, 7, HG_EFFECT, 1);
-
-		set_hitbox_value(AT_FSPECIAL_2, 1, HG_EFFECT, 1);
-
-		set_hitbox_value(AT_NSPECIAL_2, 2, HG_EFFECT, 1);
-		set_hitbox_value(AT_NSPECIAL, 1, HG_EFFECT, 1);
-
-		set_hitbox_value(AT_DSPECIAL, 2, HG_EFFECT, 1);
-		set_hitbox_value(AT_DSPECIAL, 1, HG_EFFECT, 1);
-		set_hitbox_value(AT_DSPECIAL_2, 2, HG_EFFECT, 1);
+//Up Special doesn't put you into freefall
+if has_rune("G"){
+	set_window_value(AT_USPECIAL, 4, AG_WINDOW_TYPE, 0);
+	set_window_value(AT_USPECIAL_2, 4, AG_WINDOW_LENGTH, 8);
+	set_window_value(AT_USPECIAL_2, 4, AG_WINDOW_TYPE, 0);
+}
 
 
-	} else {
-		//default attributes. this part is optional but you should have it for compatibility with
-		//the random rune mode.
-
-	}
-	#endregion
-	#region // RUNE E
-	if runeE {
-		dash_speed = 7;
-		dash_turn_time = 12;
-	} else {
-		dash_speed = 5.5;
-		dash_turn_time = 10;
-		//default attributes. this part is optional but you should have it for compatibility with
-		//the random rune mode.
-
-	}
-	#endregion
-	#region // RUNE F
-	if runeF {
-
-	} else {
-		//default attributes. this part is optional but you should have it for compatibility with
-		//the random rune mode.
-
-	}
-	#endregion
-
-	#endregion
-
-	#region // LEVEL TWO RUNES
-	#region // RUNE G
-	if runeG {
-
-	} else {
-		//default attributes. this part is optional but you should have it for compatibility with
-		//the random rune mode.
-
-	}
-	#endregion
-	#region // RUNE H
-	if runeH {
-		set_window_value(AT_USPECIAL, 3, AG_WINDOW_VSPEED, -20);
-	} else {
-		set_window_value(AT_USPECIAL, 3, AG_WINDOW_VSPEED, -14);
-		//default attributes. this part is optional but you should have it for compatibility with
-		//the random rune mode.
-
-	}
-	#endregion
-	#region // RUNE I
-	if runeI {
-		set_window_value(AT_USPECIAL_2, 3, AG_WINDOW_TYPE, 0);
-	} else {
-		set_window_value(AT_USPECIAL_2, 3, AG_WINDOW_TYPE, 7);
-	}
-	#endregion
-	#region // RUNE J
-	if runeJ {
-		max_djumps = 2;
-	} else {
-
-		max_djumps = 1;
-		//default attributes. this part is optional but you should have it for compatibility with
-		//the random rune mode.
-
-	}
-	#endregion
-	#region // RUNE K
-	if runeK {
-
-	} else {
-		//default attributes. this part is optional but you should have it for compatibility with
-		//the random rune mode.
-
-	}
-	#endregion
-
-	#endregion
-
-	#region // LEVEL THREE RUNES
-	#region // RUNE L
-	if runeL {
-
-
-	} else {
-		//default attributes. this part is optional but you should have it for compatibility with
-		//the random rune mode.
-
-	}
-	#endregion
-	#region // RUNE M
-	if runeM {
-		SP_nspecial = 0;
-		SP_fspecial = 0;
-		SP_dspecial = 0;
-		SP_uspecial = 0;
-
-	} else {
-
-		//default attributes. this part is optional but you should have it for compatibility with
-		//the random rune mode.
-
-	}
-	#endregion
-	#region // RUNE N
-	if runeN {
-
-		wave_land_adj = 2.45;
-
-	} else {
-		//default attributes. this part is optional but you should have it for compatibility with
-		//the random rune mode.
-		wave_land_adj = 1.45;
-
-	}
-	#endregion
-	#region // RUNE O
-	if runeO {
-		if(PS_STATE == PS_AIR_DODGE)
-		{
-			can_attack = true;
-		}
-	} else {
-		//default attributes. this part is optional but you should have it for compatibility with
-		//the random rune mode.
-
-	}
-	#endregion
-
-	#endregion
-	if (!runeC & !runeM){
-		SP_nspecial = 25;
-		SP_fspecial = 25;
-		SP_dspecial = 25;
-		SP_uspecial = 25;
-	}
+//Forward Special travels much farther
+if has_rune("H"){
+	set_window_value(AT_FSPECIAL, 2, AG_WINDOW_HSPEED, 18);
+	set_window_value(AT_FSPECIAL_2, 2, AG_WINDOW_HSPEED, 22);
 }
 
 // Break the target

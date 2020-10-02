@@ -1,3 +1,4 @@
+
 //STRONG MOVEMENT
 if((attack == AT_FSTRONG && window == 1)|| (attack == AT_DSTRONG && window == 1))
 {
@@ -337,7 +338,19 @@ if (attack == AT_NSPECIAL_2 && window == 1 && window_timer == 8)
 //Forward Special Cooldown
 if (attack == AT_FSPECIAL || attack == AT_FSPECIAL_2)
 {
-     if (free)
+	if has_rune("I")
+	{
+		if (free)
+     {
+          move_cooldown[AT_FSPECIAL] = 5;
+     }
+     else
+     {
+          move_cooldown[AT_FSPECIAL] = 5;
+     }
+	}
+	else{
+		     if (free)
      {
           move_cooldown[AT_FSPECIAL] = 999;
      }
@@ -345,6 +358,8 @@ if (attack == AT_FSPECIAL || attack == AT_FSPECIAL_2)
      {
           move_cooldown[AT_FSPECIAL] = 25;
      }
+	}
+
 }
 
 /* if (attack == AT_FSPECIAL && window == 1 && window_timer == 8)
