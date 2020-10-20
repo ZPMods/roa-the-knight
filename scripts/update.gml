@@ -144,6 +144,7 @@ if (practice)
         clear_button_buffer(PC_TAUNT_PRESSED);
 	}
 }
+
 if(shade_mod)
 {
 	soul_points ++;
@@ -545,6 +546,15 @@ if has_rune("H"){
 	set_window_value(AT_FSPECIAL_2, 2, AG_WINDOW_HSPEED, 22);
 }
 
+//100 Soul h24
+if has_rune("L"){
+	shade_mod = true;
+}
+
+//Neutral Special stuns
+if has_rune("M"){
+	set_hitbox_value(AT_NSPECIAL, 1,HG_EFFECT, 8);
+}
 // Break the target
 
 if get_btt_data { //Get data for Break The Targets
