@@ -218,7 +218,7 @@ if(attack == AT_DSPECIAL_2 && window == 4 && window != 5)
         set_window_value(AT_DSPECIAL_2, 6, AG_WINDOW_HAS_SFX, 1);
         set_window_value(AT_DSPECIAL_2, 6, AG_WINDOW_SFX, sound_get("knight_special_up_boosted"));
         set_hitbox_value(AT_DSPECIAL_2, 10, HG_ANGLE, 75);
-        set_hitbox_value(AT_DSPECIAL_2, 10, HG_BASE_KNOCKBACK, 13);
+        set_hitbox_value(AT_DSPECIAL_2, 10, HG_BASE_KNOCKBACK, 7);
         set_window_value(AT_DSPECIAL_2, 7, AG_WINDOW_LENGTH, 7);
         set_hitbox_value(AT_DSPECIAL_2, 10, HG_KNOCKBACK_SCALING, 0);
         window = 6;
