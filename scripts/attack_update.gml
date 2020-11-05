@@ -158,6 +158,15 @@ if(attack == AT_DSPECIAL && (window == 3 || window == 4)){
 	}
 
 }
+if (attack == AT_DSPECIAL_2 && window == 4)
+{
+	if (down_down){
+		fall_through = true;
+	}
+	else{
+		fall_through = false;
+	}
+}
 
 //Hitbox au sol
 if (attack == AT_DSPECIAL && !free && window == 4)
