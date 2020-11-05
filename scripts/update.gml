@@ -2,6 +2,7 @@
 //soul_points = 100;
 //debug = 0;
 //Rainbow Color
+//print_debug(string(fps_real));
 if get_player_color(player) == rainbow_alt {
 	hue+=1 if hue>255 hue-=255;
 	//make hue shift every step + loop around

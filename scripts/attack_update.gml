@@ -511,14 +511,14 @@ if (attack == AT_DAIR)
           pogo = 0;
      }
 
-     if (has_hit)
+     if (has_hit and pogo != -1)
      {
           pogo = 10;
      }
 
      if (down_hard_pressed)
      {
-          pogo = 0;
+          pogo = -1;
      }
 
      if (window == 3 && window_timer == 1)
