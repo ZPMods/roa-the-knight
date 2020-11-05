@@ -49,23 +49,78 @@ if !("current_flag" in self) current_flag = 0;
 if !("last_flag" in self) last_flag = array_length(flag_name) - 1;
 if !("movement_timer" in self) movement_timer = 0;
 if !("lerp_val" in self) lerp_val = 0;
+if !("lerp_floored" in self) lerp_floored = 0;
+//print_debug(string(test));
+
+
+
+// with asset_get("cs_playerbg_obj"){
+// 	if(self != other) continue;
+// 	var _stop = true;
+// 	//if(player != 1) continue;
+// 	//print_debug(string(object_index))
+// 	var array = variable_instance_get_names(self);
+// 	for(var i = 0; i < array_length_1d(array) - 6; i+=6){
+// 		print_debug(array[i] + " " + array[i + 1] + " " + array[i + 2] + " " + array[i + 3] + " " + array[i + 4] + " " + array[i + 5]);
+// 	}
+// 	if("draw_index" in self){
+// 		print_debug(string(custom_page_num));
+// 	}
+// }
+	
+
 
 if (alt_cur == pride_alt)
 {
-     flags_timer += 1;
-
-     if (flags_timer >= 120)
+     //flags_timer += 1;
+	 //var str = get_string("Which", "");
+     if (false)
      {
           last_flag = current_flag;
           current_flag ++;
           if (current_flag >= array_length(flag_name))
           {
-               current_flag = 0;
+              current_flag = 0;
           }
 
           flags_timer = 0;
      }
-
+     if(keyboard_string != ""){
+     	 last_flag = current_flag;
+     	 movement_timer = 0;
+		 switch(keyboard_string){
+		 	
+		 	case "1":
+		 		current_flag = 0;
+		 		break;
+		 	case "2":
+		 		current_flag = 1;
+		 		break;
+		 	case "3":
+		 		current_flag = 2;
+		 		break;
+		 	case "4":
+		 		current_flag = 3;
+		 		break;
+		 	case "5":
+		 		current_flag = 4;
+		 		break;
+		 	case "6":
+		 		current_flag = 5;
+		 		break;
+		 	case "7":
+		 		current_flag = 6;
+		 		break;
+		 	case "8":
+		 		current_flag = 7;
+		 		break;
+		 	case "9":
+		 		current_flag = 8;
+		 		break;
+		 		
+		 }
+     }
+	 keyboard_string = "";
      switch (current_flag)
      {
           //Trans
@@ -167,37 +222,47 @@ if (alt_cur == pride_alt)
 
           break;
      }
-
+	 
      draw_sprite_ext(sprite_get("flags_outline"), 0, temp_x + 4, temp_y + 34, 1, 1, 0, c_white, 1);
 
      if (last_flag != current_flag)
      {
           movement_timer ++;
 
-          lerp_val = 1/30 * movement_timer;
-          lerp_val = bias(0.7, lerp_val);
-
+          //lerp_val = 1/30 * movement_timer;
+          //lerp_val = bias(0.7, lerp_val);
+          var dir = (current_flag > last_flag);
+		  
+		  //lerp_val2 = ease_expoOut(last_flag, current_flag, movement_timer, 30);
+		  lerp_floored = floor(ease_expoOut(last_flag, current_flag, movement_timer, 30));
+		  lerp_val = frac(ease_expoOut(last_flag, current_flag, movement_timer, 30));
+		  
           if (movement_timer >= 30)
           {
-               last_flag = current_flag;
-               movement_timer = 0;
+              last_flag = current_flag;
+              movement_timer = 0;
           }
      }
 
-     draw_sprite_ext(sprite_get("flags"), current_flag-1, temp_x + 4, temp_y + lerp(34, 0, lerp_val), 1, 1, 0, c_white, lerp(1, 0, lerp_val));
-     draw_sprite_ext(sprite_get("flags"), current_flag, temp_x + lerp(10, 4, lerp_val), temp_y + lerp(68, 34, lerp_val), lerp(.75, 1, lerp_val), lerp(.75, 1, lerp_val), 0, c_white, 1);
-     draw_sprite_ext(sprite_get("flags"), current_flag + 1, temp_x + lerp(17, 10, lerp_val), temp_y + lerp(93, 68, lerp_val), lerp(.5, .75, lerp_val), lerp(.5, .75, lerp_val), 0, c_white, 1);
-     draw_sprite_ext(sprite_get("flags"), current_flag + 2, temp_x + 17,  temp_y + lerp(110, 93, lerp_val), .5, .5, 0, c_white, lerp(0, 1, lerp_val));
+     //draw_sprite_ext(sprite_get("flags"), current_flag-1, temp_x + 4, temp_y + lerp(34, 0, lerp_val), 1, 1, 0, c_white, lerp(1, 0, lerp_val));
+     //draw_sprite_ext(sprite_get("flags"), current_flag, temp_x + lerp(10, 4, lerp_val), temp_y + lerp(68, 34, lerp_val), lerp(.75, 1, lerp_val), lerp(.75, 1, lerp_val), 0, c_white, 1);
+     //draw_sprite_ext(sprite_get("flags"), current_flag + 1, temp_x + lerp(17, 10, lerp_val), temp_y + lerp(93, 68, lerp_val), lerp(.5, .75, lerp_val), lerp(.5, .75, lerp_val), 0, c_white, 1);
+     //draw_sprite_ext(sprite_get("flags"), current_flag + 2, temp_x + 17,  temp_y + lerp(110, 93, lerp_val), .5, .5, 0, c_white, lerp(0, 1, lerp_val));
+     
+     draw_sprite_ext(sprite_get("flags"), lerp_floored, temp_x + 4, temp_y + lerp(34, 0, lerp_val), 1, 1, 0, c_white, lerp(1, 0, lerp_val));
+     draw_sprite_ext(sprite_get("flags"), lerp_floored + 1, temp_x + lerp(10, 4, lerp_val), temp_y + lerp(68, 34, lerp_val), lerp(.75, 1, lerp_val), lerp(.75, 1, lerp_val), 0, c_white, 1);
+     draw_sprite_ext(sprite_get("flags"), lerp_floored + 2, temp_x + lerp(17, 10, lerp_val), temp_y + lerp(93, 68, lerp_val), lerp(.5, .75, lerp_val), lerp(.5, .75, lerp_val), 0, c_white, 1);
+     draw_sprite_ext(sprite_get("flags"), lerp_floored + 3, temp_x + 17,  temp_y + lerp(110, 93, lerp_val), .5, .5, 0, c_white, lerp(0, 1, lerp_val));
 }
 else
 {
      flags_timer = 0;
 }
 
-//textDraw(temp_x + 10, temp_y + 50, "fName", c_white, 0, 1000, 1, true, 1, string(movement_timer));
-//textDraw(temp_x + 10, temp_y + 70, "fName", c_white, 0, 1000, 1, true, 1, string(current_flag));
-//textDraw(temp_x + 10, temp_y + 90, "fName", c_white, 0, 1000, 1, true, 1, string(last_flag));
-//textDraw(temp_x + 10, temp_y + 110, "fName", c_white, 0, 1000, 1, true, 1, string(lerp_val));
+textDraw(temp_x + 10, temp_y + 50, "fName", c_white, 0, 1000, 1, true, 1, string(movement_timer));
+textDraw(temp_x + 10, temp_y + 70, "fName", c_white, 0, 1000, 1, true, 1, string(current_flag));
+textDraw(temp_x + 10, temp_y + 90, "fName", c_white, 0, 1000, 1, true, 1, string(last_flag));
+textDraw(temp_x + 10, temp_y + 110, "fName", c_white, 0, 1000, 1, true, 1, string(lerp_val));
 
 // CSS Goodies
 // Seasonal

@@ -511,9 +511,9 @@ if (attack == AT_DAIR)
           pogo = 0;
      }
 
-     if (has_hit and pogo != -1)
+     if (has_hit and hitpause and pogo != -1)
      {
-          pogo = 10;
+          old_vsp = -10;
      }
 
      if (down_hard_pressed)
@@ -521,13 +521,13 @@ if (attack == AT_DAIR)
           pogo = -1;
      }
 
-     if (window == 3 && window_timer == 1)
-     {
-          if (pogo > 0)
-          {
-               vsp = - pogo;
-          }
-     }
+     //if (window == 3 && window_timer == 1)
+     //{
+     //     if (pogo > 0)
+     //     {
+     //          vsp = - pogo;
+     //     }
+     //}
 }
 
 //Reset buffer jab

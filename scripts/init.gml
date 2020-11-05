@@ -1,5 +1,4 @@
 
-
 //abyss init code over
 
 // Break the target
@@ -9,6 +8,7 @@ get_btt_data = false;
 //Custom Variables
 //----------------------------------------------------------
 
+alt_change_cooldown = 0;
 rainbow_alt = 10;
 early_access_alt = 11;
 

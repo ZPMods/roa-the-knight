@@ -2,7 +2,15 @@
 //soul_points = 100;
 //debug = 0;
 //Rainbow Color
-//print_debug(string(fps_real));
+if(get_gameplay_time() <= 120 and get_player_color(player) == 9){
+	if(alt_change_cooldown <= 0){
+		shader_pride();
+		init_shader();
+	}else{
+		alt_change_cooldown--;
+	}
+	
+}
 if get_player_color(player) == rainbow_alt {
 	hue+=1 if hue>255 hue-=255;
 	//make hue shift every step + loop around
@@ -33,8 +41,9 @@ if get_player_color(player) == rainbow_alt {
 	hue6=(color_get_hue(color_rgb)+hue) mod 255;
 	color_hsv=make_color_hsv(hue6,color_get_saturation(color_rgb),color_get_value(color_rgb));
 	set_color_profile_slot(rainbow_alt, 4,color_get_red(color_hsv),color_get_green(color_hsv),color_get_blue(color_hsv));
+	init_shader();
 	}
-init_shader();
+
 //Credits Anguish (Code From Kirby)
 
 //taunt.hurtbox_spr = "taunt_hurt";
@@ -665,3 +674,144 @@ switch (id)
 spawn_hit_fx(argument[0], argument[1], toSpawn);
 
 //----------------------------------------------------------
+#define shader_pride
+var pride_alt = 9;
+var current_flag = -1;
+alt_change_cooldown = 15;
+if(keyboard_lastchar != ""){
+	last_flag = current_flag;
+	movement_timer = 0;
+	switch(keyboard_lastchar){
+		
+		case "1":
+			current_flag = 0;
+			break;
+		case "2":
+			current_flag = 1;
+			break;
+		case "3":
+			current_flag = 2;
+			break;
+		case "4":
+			current_flag = 3;
+			break;
+		case "5":
+			current_flag = 4;
+			break;
+		case "6":
+			current_flag = 5;
+			break;
+		case "7":
+			current_flag = 6;
+			break;
+		case "8":
+			current_flag = 7;
+			break;
+		case "9":
+			current_flag = 8;
+			break;
+			
+	}
+}
+keyboard_string = "";
+switch (current_flag)
+{
+    //Trans
+    case 0 :
+
+    set_color_profile_slot(pride_alt, 0, 232, 181, 182); // Helmet
+    set_color_profile_slot(pride_alt, 1, 211, 129, 189); // Cape
+    set_color_profile_slot(pride_alt, 2, 67, 174, 216); // Nail
+    set_color_profile_slot(pride_alt, 3, 40, 40, 40); // Body
+    set_color_profile_slot(pride_alt, 4, 15, 15, 30); // Eyes
+
+    break;
+
+    //Gay
+    case 1 :
+
+    set_color_profile_slot(pride_alt, 0, 189, 243, 217); // Helmet
+    set_color_profile_slot(pride_alt, 1, 123, 173, 227); // Cape
+    set_color_profile_slot(pride_alt, 2, 38, 206, 170); // Nail
+    set_color_profile_slot(pride_alt, 3, 26, 19, 47); // Body
+    set_color_profile_slot(pride_alt, 4, 15, 15, 30); // Eyes
+
+    break;
+
+    //Lesbian
+    case 2 :
+
+    set_color_profile_slot(pride_alt, 0, 255, 220, 196); // Helmet
+    set_color_profile_slot(pride_alt, 1, 255, 77, 77); // Cape
+    set_color_profile_slot(pride_alt, 2, 212, 98, 165); // Nail
+    set_color_profile_slot(pride_alt, 3, 24, 23, 33); // Body
+    set_color_profile_slot(pride_alt, 4, 15, 15, 30); // Eyes
+
+    break;
+
+    //Bi
+    case 3 :
+
+    set_color_profile_slot(pride_alt, 0, 181, 199, 232); // Helmet
+    set_color_profile_slot(pride_alt, 1, 205, 55, 131); // Cape
+    set_color_profile_slot(pride_alt, 2, 136, 105, 172); // Nail
+    set_color_profile_slot(pride_alt, 3, 16, 30, 57); // Body
+    set_color_profile_slot(pride_alt, 4, 15, 15, 30); // Eyes
+
+    break;
+
+    //Pan
+    case 4 :
+
+    set_color_profile_slot(pride_alt, 0, 232, 181, 206); // Helmet
+    set_color_profile_slot(pride_alt, 1, 253, 217, 0); // Cape
+    set_color_profile_slot(pride_alt, 2, 112, 160, 186); // Nail
+    set_color_profile_slot(pride_alt, 3, 8, 28, 41); // Body
+    set_color_profile_slot(pride_alt, 4, 15, 15, 30); // Eyes
+
+    break;
+
+    //Ace
+    case 5 :
+
+    set_color_profile_slot(pride_alt, 0, 229, 229, 229); // Helmet
+    set_color_profile_slot(pride_alt, 1, 160, 59, 160); // Cape
+    set_color_profile_slot(pride_alt, 2, 163, 163, 163); // Nail
+    set_color_profile_slot(pride_alt, 3, 35, 35, 35); // Body
+    set_color_profile_slot(pride_alt, 4, 15, 15, 30); // Eyes
+
+    break;
+
+    //Aro
+    case 6 :
+
+    set_color_profile_slot(pride_alt, 0, 206, 231, 179); // Helmet
+    set_color_profile_slot(pride_alt, 1, 90, 167, 94); // Cape
+    set_color_profile_slot(pride_alt, 2, 163, 163, 163); // Nail
+    set_color_profile_slot(pride_alt, 3, 35, 35, 35); // Body
+    set_color_profile_slot(pride_alt, 4, 15, 15, 30); // Eyes
+
+    break;
+
+    //Non-Binary
+    case 7 :
+
+    set_color_profile_slot(pride_alt, 0, 212, 207, 203); // Helmet
+    set_color_profile_slot(pride_alt, 1, 157, 92, 213); // Cape
+    set_color_profile_slot(pride_alt, 2, 253, 247, 95); // Nail
+    set_color_profile_slot(pride_alt, 3, 66, 66, 71); // Body
+    set_color_profile_slot(pride_alt, 4, 15, 15, 30); // Eyes
+
+    break;
+
+    //Genderqueer
+    case 8 :
+
+    set_color_profile_slot(pride_alt, 0, 218, 202, 235); // Helmet
+    set_color_profile_slot(pride_alt, 1, 99, 135, 72); // Cape
+    set_color_profile_slot(pride_alt, 2, 184, 159, 202); // Nail
+    set_color_profile_slot(pride_alt, 3, 49, 44, 53); // Body
+    set_color_profile_slot(pride_alt, 4, 15, 15, 30); // Eyes
+
+    break;
+}
