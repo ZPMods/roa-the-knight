@@ -449,7 +449,7 @@ if ((attack == AT_FSPECIAL_2 && hitpause) || attack == AT_FSPECIAL_2)
      {
           can_jump = true;
 
-          if (jump_pressed && djumps == 0)
+          if (jump_pressed && djumps == 0 && !was_parried)
           {
                set_state(PS_FIRST_JUMP);
                hsp = 10 * spr_dir;
