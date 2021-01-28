@@ -213,6 +213,10 @@ if (!free && move_cooldown[AT_FSPECIAL] > 25)
 {
      move_cooldown[AT_FSPECIAL] = 0;
 }
+if(state == PS_WALL_JUMP)
+{
+	move_cooldown[AT_FSPECIAL] = 0;
+}
 
 //Soul Full Effect
 if (soul_full_play == 0)
