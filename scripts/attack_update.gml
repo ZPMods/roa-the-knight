@@ -45,6 +45,9 @@ if (attack == AT_FSPECIAL)
       }
     }
   }
+  if(window == 2 and window_timer == 1){
+  	spawn_hit_fx(x,y, dash_fx);
+  }
 }
 
 
@@ -326,12 +329,12 @@ if (attack == AT_NSPECIAL && window == 2 && window_timer == 2)
 //Faire spawn l'article
 if (attack == AT_NSPECIAL_2 && window == 2 && window_timer == 1)
 {
-     shade_soul = instance_create(x + 20 * spr_dir, y + 10, "obj_article1");
+     shade_soul = create_hitbox(AT_NSPECIAL_2, 3, x + 20 * spr_dir, y - char_height/2);
      shade_soul.shade_soul_hit = false;
      shade_soul.shade_soul_first_hit = false;
      nbs_parried = false;
-     shade_soul.spr_dir = spr_dir;
-     shade_soul.hsp *= spr_dir;
+     //shade_soul.spr_dir = spr_dir;
+     //shade_soul.hsp *= spr_dir;
 }
 
 //Effect
@@ -449,7 +452,7 @@ if ((attack == AT_FSPECIAL_2 && hitpause) || attack == AT_FSPECIAL_2)
      {
           can_jump = true;
 
-          if (jump_pressed && djumps == 0 && !was_parried)
+          if (jump_pressed && djumps == 0)
           {
                set_state(PS_FIRST_JUMP);
                hsp = 10 * spr_dir;

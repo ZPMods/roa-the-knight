@@ -126,11 +126,11 @@ if (vanillachar <= 14 && vanillachar != 0)
 
 
 //abyss gui code
-ab_hud_x = temp_x;
-ab_hud_y = temp_y;
-//this is for the outdated warning message
-if ("depNotice" not in self) depNotice = 0;
-if (abyssEnabled && (menuActive || timerActive)) abyssDraw();
+// ab_hud_x = temp_x;
+// ab_hud_y = temp_y;
+// //this is for the outdated warning message
+// if ("depNotice" not in self) depNotice = 0;
+// if (abyssEnabled && (menuActive || timerActive)) abyssDraw();
 #define abyssDraw
 /// abyssDraw()
 /// draws text and images the player recieved from the abyss buddy.

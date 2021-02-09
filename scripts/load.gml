@@ -62,7 +62,7 @@ sprite_change_offset("bench", 46, 114);
 sprite_change_offset("plat", 160, 190);
 
 sprite_change_offset("nspecial_proj", 64, 0);
-sprite_change_offset("nspecial_boosted_proj",  52, 56);
+sprite_change_offset("nspecial_boosted_proj",  52, 22);
 sprite_change_offset("nspecial_explosion", 64, 64);
 sprite_change_offset("nspecial_boosted_explosion", 128, 128);
 sprite_change_offset("dspecial_hiteffect", 128, 128);

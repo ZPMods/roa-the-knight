@@ -163,13 +163,12 @@ if (get_training_cpu_action() == CPU_FIGHT){
 	 		
 	}
 	
-	var plat_near = collision_point(x, y+6, plat_asset, false, false);
-    if free and plat_near and (chasing or camping) and vsp < -1 and !(ai_target.y < y and xdist < 50) and !ai_target_offstage{
+    if free and (chasing or camping) and vsp < -1 and !(ai_target.y < y and xdist < 50) and !ai_target_offstage and position_meeting(x, y+6, plat_asset){
     	shield_pressed = true;
     	wavelanding = true;
     }
     
-    if (state == PS_AIR_DODGE and plat_near){
+    if (state == PS_AIR_DODGE and position_meeting(x, y+6, plat_asset)){
     	if chasing{
     		if x < ai_target.x{
 				left_down = false;
@@ -223,7 +222,7 @@ if (get_training_cpu_action() == CPU_FIGHT){
     	
 		if player != other.player and type == 2 and (other.state_cat == SC_GROUND_NEUTRAL or other.state_cat == SC_AIR_NEUTRAL){
     		//print_debug("help");
-    		if collision_line(x, y, x + (10 * hsp), y + (10 * vsp), other, false, true){
+    		if position_meeting(x + (10 * hsp), y + (10 * vsp), other){
     			other.shield_pressed = true;
 	    		if !other.free{
 	    			other.let_parry = true;
@@ -253,7 +252,7 @@ if (get_training_cpu_action() == CPU_FIGHT){
    
 	if(free and has_hit and state == PS_ATTACK_AIR and !offstage){
 		
-		if ((y > stagey - char_height and y < stagey) or collision_line(x, y, x, y+char_height, plat_asset, false, true)){
+		if ((y > stagey - char_height and y < stagey) or collision_point(x, y+char_height, plat_asset, false, true)){
 			down_hard_pressed = true;
 		}
 		
@@ -1157,7 +1156,7 @@ stopped_at_target = -1;
 // new_y = y;
 // new_target_vsp = ai_target.vsp;
 // new_vsp = vsp;
-print_debug(string(prediction_array))
+//print_debug(string(prediction_array))
 prediction_array[@0][@ 0] = x;
 prediction_array[@0][@ 1] = y;
 prediction_array[@0][@ 2] = vsp;

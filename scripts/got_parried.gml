@@ -15,9 +15,9 @@ if (my_hitboxID.attack == AT_NSPECIAL_2)
 if (my_hitboxID.attack == AT_NSPECIAL_2 && my_hitboxID.hbox_num == 3) 
 {
     my_hitboxID.player = hit_player;
-    shade_soul.parried = true;
-    shade_soul.shade_player_id = hit_player_obj;
-    shade_soul.hsp *= -1;
-    shade_soul.spr_dir *= -1;
-    
+    my_hitboxID.parried = true;
+    my_hitboxID.shade_player_id = hit_player_obj;
+    my_hitboxID.length += get_hitbox_value(AT_NSPECIAL_2, 3, HG_LIFETIME);
+    // my_hitboxID.hsp *= -1;
+    // my_hitboxID.spr_dir *= -1;
 }

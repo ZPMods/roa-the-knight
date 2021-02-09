@@ -23,6 +23,8 @@ easing_enabled = true;
 do_easing = false;
 hop_off = false;
 
+dash_fx = hit_fx_create(sprite_get("dash_burst"), 9);
+
 // Kirby
 kirbyability = 16;
 kirb_used = 0;
