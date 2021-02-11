@@ -259,10 +259,11 @@ else
      flags_timer = 0;
 }
 
-textDraw(temp_x + 10, temp_y + 50, "fName", c_white, 0, 1000, 1, true, 1, string(movement_timer));
-textDraw(temp_x + 10, temp_y + 70, "fName", c_white, 0, 1000, 1, true, 1, string(current_flag));
-textDraw(temp_x + 10, temp_y + 90, "fName", c_white, 0, 1000, 1, true, 1, string(last_flag));
-textDraw(temp_x + 10, temp_y + 110, "fName", c_white, 0, 1000, 1, true, 1, string(lerp_val));
+//Debug
+// textDraw(temp_x + 10, temp_y + 50, "fName", c_white, 0, 1000, 1, true, 1, string(movement_timer));
+// textDraw(temp_x + 10, temp_y + 70, "fName", c_white, 0, 1000, 1, true, 1, string(current_flag));
+// textDraw(temp_x + 10, temp_y + 90, "fName", c_white, 0, 1000, 1, true, 1, string(last_flag));
+// textDraw(temp_x + 10, temp_y + 110, "fName", c_white, 0, 1000, 1, true, 1, string(lerp_val));
 
 // CSS Goodies
 // Seasonal
