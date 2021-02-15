@@ -60,6 +60,7 @@ set_hitbox_value(AT_NSPECIAL_2, 1, HG_PROJECTILE_MASK, -1);
 set_hitbox_value(AT_NSPECIAL_2, 1, HG_PROJECTILE_WALL_BEHAVIOR, 0);
 set_hitbox_value(AT_NSPECIAL_2, 1, HG_PROJECTILE_PARRY_STUN, 1);
 set_hitbox_value(AT_NSPECIAL_2, 1, HG_VISUAL_EFFECT, shade_hit_weak);
+set_hitbox_value(AT_NSPECIAL_2, 1, HG_TECHABLE, 3);
 
 //Hitbox Boom
 set_hitbox_value(AT_NSPECIAL_2, 2, HG_PARENT_HITBOX, 2);

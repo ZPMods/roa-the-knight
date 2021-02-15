@@ -57,6 +57,7 @@ set_hitbox_value(AT_FSPECIAL_2, 1, HG_BASE_HITPAUSE, 3);
 set_hitbox_value(AT_FSPECIAL_2, 1, HG_TECHABLE, 3);
 set_hitbox_value(AT_FSPECIAL_2, 1, HG_HIT_SFX, asset_get("sfx_absa_singlezap2"));
 set_hitbox_value(AT_FSPECIAL_2, 1, HG_IGNORES_PROJECTILES, 1);
+set_hitbox_value(AT_FSPECIAL_2, 1, HG_TECHABLE, 3);
 
 set_hitbox_value(AT_FSPECIAL_2, 2, HG_PARENT_HITBOX, 1);
 set_hitbox_value(AT_FSPECIAL_2, 2, HG_HITBOX_TYPE, 1);
@@ -66,6 +67,7 @@ set_hitbox_value(AT_FSPECIAL_2, 2, HG_LIFETIME, 1);
 set_hitbox_value(AT_FSPECIAL_2, 2, HG_HITBOX_X, -2);
 set_hitbox_value(AT_FSPECIAL_2, 2, HG_HITBOX_Y, -25);
 set_hitbox_value(AT_FSPECIAL_2, 2, HG_HITBOX_GROUP, -1);
+set_hitbox_value(AT_FSPECIAL_2, 1, HG_TECHABLE, 3);
 
 set_hitbox_value(AT_FSPECIAL_2, 3, HG_PARENT_HITBOX, 1);
 set_hitbox_value(AT_FSPECIAL_2, 3, HG_HITBOX_TYPE, 1);
@@ -75,6 +77,7 @@ set_hitbox_value(AT_FSPECIAL_2, 3, HG_LIFETIME, 1);
 set_hitbox_value(AT_FSPECIAL_2, 3, HG_HITBOX_X, -2);
 set_hitbox_value(AT_FSPECIAL_2, 3, HG_HITBOX_Y, -25);
 set_hitbox_value(AT_FSPECIAL_2, 3, HG_HITBOX_GROUP, -1);
+set_hitbox_value(AT_FSPECIAL_2, 1, HG_TECHABLE, 3);
 
 set_hitbox_value(AT_FSPECIAL_2, 4, HG_PARENT_HITBOX, 4);
 set_hitbox_value(AT_FSPECIAL_2, 4, HG_HITBOX_TYPE, 1);
@@ -94,3 +97,4 @@ set_hitbox_value(AT_FSPECIAL_2, 4, HG_BASE_HITPAUSE, 9);
 set_hitbox_value(AT_FSPECIAL_2, 4, HG_HITPAUSE_SCALING, 0.6);
 set_hitbox_value(AT_FSPECIAL_2, 4, HG_HIT_SFX, asset_get("sfx_blow_heavy1"));
 set_hitbox_value(AT_FSPECIAL_2, 4, HG_IGNORES_PROJECTILES, 1);
+set_hitbox_value(AT_FSPECIAL_2, 1, HG_TECHABLE, 3);
