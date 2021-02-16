@@ -221,7 +221,7 @@ if(attack == AT_DSPECIAL_2 && window == 4 && window != 5)
     can_jump = false;
     can_shield = false;
 
-    if(jump_pressed || shield_pressed)
+    if(jump_pressed || shield_pressed || attack_pressed || special_pressed)
     {
         set_window_value(AT_DSPECIAL_2, 6, AG_WINDOW_HSPEED, 0);
         set_window_value(AT_DSPECIAL_2, 6, AG_WINDOW_VSPEED, 0);
