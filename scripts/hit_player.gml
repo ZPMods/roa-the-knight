@@ -3,7 +3,7 @@ if (isNailAttack())
 {
 	if (soul_points < 100)
 	{
-		old_soul_points = soul_points
+		old_soul_points = soul_points;
 		
 		soul_points += round((my_hitboxID.damage));
 		
@@ -18,10 +18,21 @@ if (isNailAttack())
 	}
 }else{
 	if(isBoostedSpell()){
-		if has_charm(SPELL_TWISTER) and refund{
-			soul_points += 15; // 3/5 of the average SP per spell
-			correct_soul();
-			refund = false;
+		if has_charm(SPELL_TWISTER){
+			if(attack != AT_NSPECIAL_2 and can_refund){
+				
+				old_soul_points = soul_points;
+				soul_points += 15; // 3/5 of the average SP per spell
+				correct_soul();
+				can_refund = false;
+			}else if (attack == AT_NSPECIAL_2 and can_refund_nspecial){
+				
+				old_soul_points = soul_points;
+				can_refund_nspecial = false;
+				soul_points += 15;
+				correct_soul();
+				
+			}
 		}
 	}
 }
@@ -130,9 +141,16 @@ if (my_hitboxID.attack == AT_DSPECIAL_2)
      }
 }
 
+//Custom hit sound
+if (my_hitboxID.attack == AT_USPECIAL_2 && my_hitboxID.hbox_num == 4)
+{
+	sound_play(sound_get("knight_special_up_boosted_impact"));
+}
 
-
-
+if (my_hitboxID.attack == AT_DSPECIAL_2 && my_hitboxID.hbox_num == 10)
+{
+	sound_play(sound_get("knight_special_up_boosted_impact"));
+}
 
 /*
 // Dream Nail
@@ -241,7 +259,7 @@ if (my_hitboxID.attack == AT_NSPECIAL_2 && my_hitboxID.hbox_num == 2)
      shade_burst_y = hit_player_obj.y - 35;
 }
 
-if (my_hitboxID.attack == AT_USPECIAL_2 && my_hitboxID.hbox_num == 7)
+if (my_hitboxID.attack == AT_USPECIAL_2 && my_hitboxID.hbox_num == 4)
 {
      shade_burst_play = 1;
      shade_burst_x = hit_player_obj.x;

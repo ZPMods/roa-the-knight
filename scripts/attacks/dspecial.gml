@@ -103,7 +103,7 @@ set_hitbox_value(AT_DSPECIAL, 1, HG_BASE_KNOCKBACK, 6);
 set_hitbox_value(AT_DSPECIAL, 1, HG_KNOCKBACK_SCALING, 0.5);
 set_hitbox_value(AT_DSPECIAL, 1, HG_BASE_HITPAUSE, 13);
 set_hitbox_value(AT_DSPECIAL, 1, HG_HITPAUSE_SCALING, 0);
-set_hitbox_value(AT_DSPECIAL, 1, HG_HIT_SFX, asset_get("sfx_blow_medium1"));
+set_hitbox_value(AT_DSPECIAL, 1, HG_HIT_SFX, asset_get("sfx_blow_medium2"));
 set_hitbox_value(AT_DSPECIAL, 1, HG_ANGLE_FLIPPER, 0);
 set_hitbox_value(AT_DSPECIAL, 1, HG_HITBOX_GROUP, 1);
 set_hitbox_value(AT_DSPECIAL, 1, HG_VISUAL_EFFECT, soul_hit_heavy)
@@ -124,7 +124,7 @@ set_hitbox_value(AT_DSPECIAL, 2, HG_ANGLE, 80);
 set_hitbox_value(AT_DSPECIAL, 2, HG_BASE_KNOCKBACK, 10);
 set_hitbox_value(AT_DSPECIAL, 2, HG_KNOCKBACK_SCALING, 0.5);
 set_hitbox_value(AT_DSPECIAL, 2, HG_BASE_HITPAUSE, 6);
-set_hitbox_value(AT_DSPECIAL, 2, HG_HIT_SFX, asset_get("sfx_blow_medium1"));
+set_hitbox_value(AT_DSPECIAL, 2, HG_HIT_SFX, asset_get("sfx_ori_charged_flame_hit"));
 set_hitbox_value(AT_DSPECIAL, 2, HG_ANGLE_FLIPPER, 3);
 set_hitbox_value(AT_DSPECIAL, 2, HG_HITBOX_GROUP, 1);
 set_hitbox_value(AT_DSPECIAL, 2, HG_VISUAL_EFFECT, soul_hit_heavy)

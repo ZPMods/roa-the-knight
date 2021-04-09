@@ -1,4 +1,7 @@
+//NSpecial boosted
 if(attack == AT_NSPECIAL_2 and hbox_num == 3){
+
+
     if was_parried{
     	owner.nsb_parried = true;
     }
@@ -78,27 +81,26 @@ if(attack == AT_NSPECIAL_2 and hbox_num == 3){
          }
     
         if(timer_boom) == 0{
-    
+    		
     		if (shade_soul_first_hit)
     	    {
     	    	var temp = create_hitbox(AT_NSPECIAL_2, 2, x, y);
     			temp.was_parried = was_parried;
     			temp.player = player;
+    			
     	    }
     
     	}
-    
-    	sound_stop(audio);
-        instance_destroy(shade_hitbox);
-        instance_destroy();
-        //sprite_index = asset_get("empty_sprite");
-        return;
+    	destroy_this = true;
+    	
     }
     
     if destroy_this{
     	owner.move_cooldown[AT_NSPECIAL] = 0;
         shade_soul_first_hit = false;
+        with player_id can_refund_nspecial = true;
         sound_stop(audio);
+        instance_destroy(shade_hitbox);
         instance_destroy();
         return;
     }
@@ -110,9 +112,39 @@ if(attack == AT_NSPECIAL_2 and hbox_num == 3){
     		var temp = create_hitbox(AT_NSPECIAL_2, 2, x, y);
 			temp.was_parried = was_parried;
 			temp.player = player;
+			
+			
         }
     	destroy_this = true;
     }
+}
+
+
+#define has_charm(charm)
+
+// 1<<charm shifts the one to the charm flag location, example [1 << MARK_OF_PRIDE (mark of pride is 3)] === [0000 0100],
+var shift = (1<<charm);
+
+// then it performs AND, if equipped then must be equal to the charm number
+return is_charm_equipped & shift == shift;
+
+#define isBoostedSpell
+
+return (my_hitboxID.attack == AT_FSPECIAL_2 or my_hitboxID.attack == AT_USPECIAL_2 or my_hitboxID.attack == AT_DSPECIAL_2 or my_hitboxID.attack == AT_NSPECIAL_2)
+
+#define correct_soul()
+if (soul_points > 100)
+{
+   soul_points = 100;
+}
+
+var i;
+for (i = 25; i < 125; i += 25)
+{
+   if (old_soul_points < i && soul_points >= i)
+   {
+        soul_full_play = 0;
+   }
 }
 #define spawnShadeBubbles
 var id = random_func(0, 5, true);

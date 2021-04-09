@@ -89,6 +89,13 @@ if (attack == AT_FSPECIAL)
   if(window == 2 and window_timer == 1){
   	spawn_hit_fx(x,y, dash_fx);
   }
+  if(window == 3 and window_timer > 4){
+  	if(has_charm(DASHMASTER)){
+  		can_attack = true;
+  		can_jump = true;
+  		can_special = true;
+  	}
+  }
 }
 
 

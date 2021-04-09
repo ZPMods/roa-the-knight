@@ -68,6 +68,7 @@ dspecial_boosted_got_out = false;
 
 //Soul points, Boosted Attacks
 soul_points = 0;
+old_soul_points = 0;
 
 SP_nspecial = 25;
 SP_fspecial = 25;
@@ -430,10 +431,10 @@ LIFEBLOOD_HEART = C.LIFEBLOOD_HEART;// coded
 MARK_OF_PRIDE = C.MARK_OF_PRIDE;// i need to dig the old knight normals
 FLUKENEST = C.FLUKENEST;// I need to draw the flukemarms
 GLUBBERFLY = C.GLUBBERFLY;// should be easy
-SPELL_TWISTER = C.SPELL_TWISTER;// WIP
+SPELL_TWISTER = C.SPELL_TWISTER;// coded
 DASHMASTER = C.DASHMASTER;// not coded
 
-is_charm_equipped = 01000000; //flags for bitwise variable operations ---- 0000 0000 ---- first charm start on the right, the bit is 1 when equipped
+is_charm_equipped = 00000000; //flags for bitwise variable operations ---- 0000 0000 ---- first charm start on the right, the bit is 1 when equipped
 charm_equipped_num = 0;
 charm_equipped = [];
 charm_notches = 1;
@@ -454,6 +455,13 @@ nailart_triggered = 0;
 
 //lifebloods
 lifeblood_pool = 10;
+
+//spelltwister
+can_refund = true;
+can_refund_nspecial = true;
+
+//USE add_charm([name of the charm]) TO EQUIP THE CHARM AND BEGIN TESTING IT
+
 
 //CHARMS-------------
 
@@ -478,3 +486,26 @@ practice = false;      //Whether you're in Practice Mode or not.
 shade_mod = false;
 timer1 = get_game_timer();      //The initial game timer.
 timer2 = 0;                     //The game timer after a couple seconds pass.
+
+
+#define has_charm(charm)
+
+// 1<<charm shifts the one to the charm flag location, example [1 << MARK_OF_PRIDE (mark of pride is 3)] === [0000 0100],
+var shift = (1<<charm);
+
+// then it performs AND, if equipped then must be equal to the charm number
+return is_charm_equipped & shift == shift;
+
+#define remove_charm(charm)
+
+// charm_equipped_num--;
+// if(charm_equipped_num < 0) charm_equipped_num = 0;
+if(has_charm(charm))
+	is_charm_equipped = is_charm_equipped & ~(1<<charm); // 1<<charm shifts the one to the charm flag location, it creates the mask with negation, then it performs AND, is_charm_equipped will no longer have 1 at the charm number
+
+#define add_charm(charm)
+
+// charm_equipped_num++;
+// if(charm_equipped_num > max_charms) charm_equipped_num = max_charms;
+if(has_charm(charm)) return;
+is_charm_equipped = is_charm_equipped | (1<<charm); // 1<<charm shifts the one to the charm flag location, then it performs OR, is_charm_equipped will have 1 at the charm number

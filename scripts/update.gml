@@ -201,7 +201,7 @@ if(has_charm(LIFEBLOOD_HEART)){
 
 //refund spell twister reset
 if(!(state == PS_ATTACK_GROUND or state == PS_ATTACK_AIR)){
-	refund = true;
+	can_refund = true;
 }
 
 compatibility();
