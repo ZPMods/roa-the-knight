@@ -1,11 +1,52 @@
 
 //STRONG MOVEMENT
-if((attack == AT_FSTRONG && window == 1)|| (attack == AT_DSTRONG && window == 1))
+if((attack == AT_FSTRONG) || (attack == AT_DSTRONG))
 {
-    var mov_value = lengthdir_x(0.4, joy_dir);
-    if (joy_pad_idle == false and hsp/mov_value <= 1)
-    {
-        hsp = mov_value;
+	if(nailart_triggered and !nail_charging) can_move = false;
+	if(window == 1 and !nailart_triggered){
+		
+		var mov_value = lengthdir_x(0.4, joy_dir);
+	    if (joy_pad_idle == false and hsp/mov_value <= 1)
+	    {
+	        hsp = mov_value;
+	    }
+	    
+	    //Charge sound
+	    if(window_timer == 1){
+	    	sound_play(nailart_sound_charge);
+	    }
+	}
+    if(window == 3){
+    	can_move = false;
+    	if(window_timer == 1) sound_stop(nailart_sound_charge);
+    	if(attack == AT_DSTRONG){
+    		hsp /= 1.15;
+    		vsp /= 1.15;
+    	}
+    }
+    if(window < 4 and strong_charge == 60 and has_charm(NAILMASTER) and !nailart_triggered){
+    	nail_charging = true;
+    	nailart_triggered = 1;
+    	old_max_djumps = max_djumps;
+    	window = 4;
+    	window_timer = 0;
+    	custom_state = !free ? "walk" : "jump";
+    	sound_play(nailart_complete_sound);
+    	// sound_play(nailart_loop_sound, true);
+    }
+    
+    //Custom idle
+    if(window == 4){
+    	
+    	custom_states();
+    	if(!strong_down){
+    		set_attack(attack);
+    		nail_charging = false;
+    	}
+    }
+    if(window == 5){
+    	nailart_triggered = 0;
+    	can_move = false;
     }
 }
 
@@ -19,7 +60,7 @@ if((attack == AT_DSPECIAL && window >= 6 && !hitpause) || attack == AT_DSPECIAL_
 }
 //DACUS
 
-if (attack == AT_DATTACK && window <= 2 && window_timer <= 3)
+if (attack == AT_DATTACK && window <= 2 && window_timer <= 2)
 {
     can_ustrong = true;
 }
@@ -180,7 +221,7 @@ if (attack == AT_DSPECIAL && !free && window == 4)
 }
 if (attack == AT_DSPECIAL && window == 5)
 {
-     if (window_timer == (has_hit ? get_window_value(AT_DSPECIAL, 5, AG_WINDOW_LENGTH) : round(get_window_value(AT_DSPECIAL, 5, AG_WINDOW_LENGTH)*1.5)))
+     if (window_timer == get_window_value(AT_DSPECIAL, 5, AG_WINDOW_LENGTH))
      {
           window = 29;
           window_timer = 0;
@@ -606,6 +647,119 @@ if (shade_bubbles_play == 1)
     shade_bubbles_play = 0;
 	spawnShadeBubbles(shade_bubbles_x, shade_bubbles_y);
 }
+
+#define custom_states()
+if(!free){
+	switch(custom_state){
+		case "walk":
+			//Acceleration and no frict
+			off_edge = true;
+			
+			if(jump_pressed){
+	    		custom_state = "jumpstart";
+	    		break;
+	    	}
+			if(left_down or right_down){
+				
+				if(left_down and spr_dir > 0){
+    				custom_state = "walkturn";
+    				spr_dir *= -1;
+    				break;
+    			}else if(right_down and spr_dir < 0){
+    				custom_state = "walkturn";
+    				spr_dir *= -1;
+    				break;
+    			}
+    			
+				if(hsp/walk_speed != 1){
+    				hsp += -walk_speed*left_down + walk_speed*right_down;
+    				ground_friction = 0;
+    			}
+			}else{//idle
+				ground_friction = 0.5;
+			}
+			hsp = clamp(hsp, -walk_speed + walk_accel, walk_speed - walk_accel);
+		break;
+		
+		case "walkturn":
+			ground_friction = 0.5;
+			if(custom_state_timer == 0){
+				
+				print("spr_dir")
+			}
+			if(custom_state_timer >= walk_turn_time - 1){
+				print("walk_turn_time")
+				custom_state = "walk";
+			}
+			
+			if(jump_pressed){
+	    		custom_state = "jumpstart";
+	    	}
+		break;
+		case "jumpstart":
+			ground_friction = 0.5;
+			if(custom_state_timer >= jump_start_time - 1){
+					
+				
+					hsp += left_down or right_down ? -jump_change*left_down + jump_change*right_down : 0;
+					vsp = jump_down ? -jump_speed : -short_hop_speed;
+				
+				custom_state = "jump";
+			}
+		break;
+		case "jump":
+			//touches the ground after jumping
+			custom_state = "landing";
+			
+		break;
+		case "landing":
+			if(custom_state_timer >= land_time - 1){
+				custom_state = "walk";
+			}
+			
+		break;
+	}
+	
+}else{
+	switch(custom_state){
+		
+		case "jump":
+			hsp = clamp(hsp, -3, 3);
+		break;
+	}
+}
+
+
+
+custom_state_timer++;
+if(old_custom_state != custom_state){
+	custom_state_timer = 0;
+}
+old_custom_state = custom_state;
+
+if (window_timer >= get_window_value(attack, window, AG_WINDOW_LENGTH) - 2) window_timer = 0;
+
+#define has_charm(charm)
+
+// 1<<charm shifts the one to the charm flag location, example [1 << MARK_OF_PRIDE (mark of pride is 3)] === [0000 0100],
+var shift = (1<<charm);
+
+// then it performs AND, if equipped then must be equal to the charm number
+return is_charm_equipped & shift == shift;
+
+#define remove_charm(charm)
+
+// charm_equipped_num--;
+// if(charm_equipped_num < 0) charm_equipped_num = 0;
+if(has_charm(charm))
+	is_charm_equipped = is_charm_equipped & ~(1<<charm); // 1<<charm shifts the one to the charm flag location, it creates the mask with negation, then it performs AND, is_charm_equipped will no longer have 1 at the charm number
+
+#define add_charm(charm)
+
+// charm_equipped_num++;
+// if(charm_equipped_num > max_charms) charm_equipped_num = max_charms;
+if(has_charm(charm)) return;
+is_charm_equipped = is_charm_equipped | (1<<charm); // 1<<charm shifts the one to the charm flag location, then it performs OR, is_charm_equipped will have 1 at the charm number
 
 #define spawnShadeBubbles
 var id = random_func(0, 5, true);

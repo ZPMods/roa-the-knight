@@ -1,11 +1,12 @@
-/*draw_debug_text( temp_x+60, temp_y-15, "state : " + get_state_name(state));
-draw_debug_text( temp_x+60, temp_y-30, "state timer : " + string(state_timer));
-draw_debug_text( temp_x+60, temp_y-60, "window : " + string(window));
-draw_debug_text( temp_x+60, temp_y-75, "window timer : " + string(window_timer));
-draw_debug_text( temp_x+60, temp_y-90, "bench img index : " + string(colliding_bench));
-draw_debug_text( temp_x+60, temp_y-105, "bench timer : " + string(bench_timer));
-draw_debug_text( temp_x+60, temp_y-120, "bench phase : " + string(bench_phase));
-draw_debug_text( 10, 10, "FPS : " + string(fps_real)); */
+draw_debug_text( temp_x+60, temp_y-15, "window : " + string(window));
+draw_debug_text( temp_x+60, temp_y-30, "window timer : " + string(window_timer));
+draw_debug_text( temp_x+60, temp_y-45, "spr_dir : " + string(spr_dir));
+draw_debug_text( temp_x+60, temp_y-60, "custom state timer : " + string(custom_state_timer));
+draw_debug_text( temp_x+60, temp_y-75, "custom state : " + string(custom_state));
+draw_debug_text( temp_x+60, temp_y-90, "frict : " + string(frict));
+draw_debug_text( temp_x+60, temp_y-105, "vsp : " + string(vsp));
+draw_debug_text( temp_x+60, temp_y-120, "hsp : " + string(hsp));
+draw_debug_text( 10, 10, "FPS : " + string(fps_real));
 
 //Affiche le nombre de Soul Points sur le HUD
 //draw_debug_text( temp_x+150, temp_y-14, "Soul : " + string( soul_points ));

@@ -99,3 +99,12 @@ if (nspecial_boosted_effect_show == true)
           }
      }
 }
+
+//nailart aura
+if (state == PS_ATTACK_GROUND or state == PS_ATTACK_AIR) and (attack == AT_FSTRONG or attack == AT_DSTRONG) and (window == 1 or window == 2 or window == 4){
+    shader_start();
+    var time = get_gameplay_time();
+    var index = time%12 / 4;
+    draw_sprite_ext(nailart_aura, index, x, y - char_height/2, 2, 2, 0, c_white, 1);
+    shader_end();
+}

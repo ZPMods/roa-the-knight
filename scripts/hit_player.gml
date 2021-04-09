@@ -1,26 +1,29 @@
 // Soul system
-if (my_hitboxID.attack == AT_JAB || my_hitboxID.attack == AT_DATTACK || my_hitboxID.attack == AT_FTILT || my_hitboxID.attack == AT_DTILT || my_hitboxID.attack == AT_UTILT || my_hitboxID.attack == AT_FSTRONG || my_hitboxID.attack == AT_DSTRONG || my_hitboxID.attack == AT_USTRONG || my_hitboxID.attack == AT_FAIR || my_hitboxID.attack == AT_BAIR || my_hitboxID.attack == AT_DAIR || my_hitboxID.attack == AT_UAIR|| my_hitboxID.attack == AT_NAIR )
+if (isNailAttack())
 {
-     if (soul_points < 100)
-     {
-          old_soul_points = soul_points
-
-          soul_points += round((my_hitboxID.damage));
-
-          if (soul_points > 100)
-          {
-               soul_points = 100;
-          }
-
-          var i;
-          for (i = 25; i < 125; i += 25)
-          {
-               if (old_soul_points < i && soul_points >= i)
-               {
-                    soul_full_play = 0;
-               }
-          }
-     }
+	if (soul_points < 100)
+	{
+		old_soul_points = soul_points
+		
+		soul_points += round((my_hitboxID.damage));
+		
+		correct_soul();
+	}
+    if(splash){
+		var random_pitch = (random_func(0, 2, false) - 1)*0.2 + 1;
+		sound_play(damage_sound, false, noone, 1, random_pitch);
+	}
+	if(has_charm(FURY_OF_THE_FALLEN) and get_player_damage( player ) > 90){
+		take_damage(hit_player_obj.player, player, 1);
+	}
+}else{
+	if(isBoostedSpell()){
+		if has_charm(SPELL_TWISTER) and refund{
+			soul_points += 15; // 3/5 of the average SP per spell
+			correct_soul();
+			refund = false;
+		}
+	}
 }
 
 if (my_hitboxID.attack == AT_DAIR && window == 2)
@@ -126,6 +129,11 @@ if (my_hitboxID.attack == AT_DSPECIAL_2)
           djumps = 0;
      }
 }
+
+
+
+
+
 /*
 // Dream Nail
 if (attack == AT_TAUNT_2) {
@@ -252,4 +260,57 @@ if (my_hitboxID.attack == AT_DSPECIAL_2 && my_hitboxID.hbox_num == 10)
      shade_burst_play = 1;
      shade_burst_x = hit_player_obj.x;
      shade_burst_y = hit_player_obj.y - 35;
+}
+
+#define has_charm(charm)
+
+// 1<<charm shifts the one to the charm flag location, example [1 << MARK_OF_PRIDE (mark of pride is 3)] === [0000 0100],
+var shift = (1<<charm);
+
+// then it performs AND, if equipped then must be equal to the charm number
+return is_charm_equipped & shift == shift;
+
+#define remove_charm(charm)
+
+// charm_equipped_num--;
+// if(charm_equipped_num < 0) charm_equipped_num = 0;
+if(has_charm(charm))
+	is_charm_equipped = is_charm_equipped & ~(1<<charm); // 1<<charm shifts the one to the charm flag location, it creates the mask with negation, then it performs AND, is_charm_equipped will no longer have 1 at the charm number
+
+#define add_charm(charm)
+
+// charm_equipped_num++;
+// if(charm_equipped_num > max_charms) charm_equipped_num = max_charms;
+if(has_charm(charm)) return;
+is_charm_equipped = is_charm_equipped | (1<<charm); // 1<<charm shifts the one to the charm flag location, then it performs OR, is_charm_equipped will have 1 at the charm number
+
+#define isNailAttack
+
+return (my_hitboxID.attack == AT_JAB || my_hitboxID.attack == AT_DATTACK || my_hitboxID.attack == AT_FTILT || my_hitboxID.attack == AT_DTILT || my_hitboxID.attack == AT_UTILT || 
+	my_hitboxID.attack == AT_FSTRONG || my_hitboxID.attack == AT_DSTRONG || my_hitboxID.attack == AT_USTRONG || my_hitboxID.attack == AT_FAIR || my_hitboxID.attack == AT_BAIR || 
+	my_hitboxID.attack == AT_DAIR || my_hitboxID.attack == AT_UAIR|| my_hitboxID.attack == AT_NAIR)
+	
+#define isSpell
+
+return (my_hitboxID.attack == AT_FSPECIAL or my_hitboxID.attack == AT_FSPECIAL_2 or my_hitboxID.attack == AT_USPECIAL or my_hitboxID.attack == AT_USPECIAL_2 or my_hitboxID.attack == AT_DSPECIAL or
+	my_hitboxID.attack == AT_DSPECIAL_2 or my_hitboxID.attack == AT_NSPECIAL or my_hitboxID.attack == AT_NSPECIAL_2)
+
+#define isBoostedSpell
+
+return (my_hitboxID.attack == AT_FSPECIAL_2 or my_hitboxID.attack == AT_USPECIAL_2 or 
+	my_hitboxID.attack == AT_DSPECIAL_2 or my_hitboxID.attack == AT_NSPECIAL_2)
+
+#define correct_soul()
+if (soul_points > 100)
+{
+   soul_points = 100;
+}
+
+var i;
+for (i = 25; i < 125; i += 25)
+{
+   if (old_soul_points < i && soul_points >= i)
+   {
+        soul_full_play = 0;
+   }
 }

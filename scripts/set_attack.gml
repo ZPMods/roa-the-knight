@@ -33,9 +33,20 @@ if (attack == AT_DSPECIAL)
      if (free)
      {
           set_window_value(AT_DSPECIAL, 1, AG_WINDOW_ANIM_FRAME_START, 5);
+          set_window_value(AT_DSPECIAL, 3, AG_WINDOW_LENGTH, 17);
      }
      else
      {
           set_window_value(AT_DSPECIAL, 1, AG_WINDOW_ANIM_FRAME_START, 0);
+          set_window_value(AT_DSPECIAL, 3, AG_WINDOW_LENGTH, 10);
      }
+}
+if(attack == AT_FSTRONG or attack == AT_DSTRONG){
+	if (nailart_triggered){
+		set_attack_value(attack, AG_STRONG_CHARGE_WINDOW, 0);
+		set_window_value(attack, 5, AG_WINDOW_TYPE, 7);
+	}else{
+		set_attack_value(attack, AG_STRONG_CHARGE_WINDOW, 1);
+		set_window_value(attack, 5, AG_WINDOW_TYPE, 0);
+	}
 }

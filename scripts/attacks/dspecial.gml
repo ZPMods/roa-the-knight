@@ -37,7 +37,7 @@ set_window_value(AT_DSPECIAL, 2, AG_WINDOW_VSPEED, -9);
 
 //Hover
 set_window_value(AT_DSPECIAL, 3, AG_WINDOW_TYPE, 1);
-set_window_value(AT_DSPECIAL, 3, AG_WINDOW_LENGTH, 13);
+set_window_value(AT_DSPECIAL, 3, AG_WINDOW_LENGTH, 10);
 set_window_value(AT_DSPECIAL, 3, AG_WINDOW_ANIM_FRAMES, 10);
 set_window_value(AT_DSPECIAL, 3, AG_WINDOW_ANIM_FRAME_START, 5);
 set_window_value(AT_DSPECIAL, 3, AG_WINDOW_HAS_SFX, 1);
@@ -60,14 +60,13 @@ set_window_value(AT_DSPECIAL, 4, AG_WINDOW_HSPEED, 0);
 
 //Hitbox au sol
 set_window_value(AT_DSPECIAL, 5, AG_WINDOW_TYPE, 1);
-set_window_value(AT_DSPECIAL, 5, AG_WINDOW_LENGTH, 18);
+set_window_value(AT_DSPECIAL, 5, AG_WINDOW_LENGTH, 25);
 set_window_value(AT_DSPECIAL, 5, AG_WINDOW_ANIM_FRAMES, 7);
 set_window_value(AT_DSPECIAL, 5, AG_WINDOW_ANIM_FRAME_START, 19);
 set_window_value(AT_DSPECIAL, 5, AG_WINDOW_HAS_SFX, 1);
 set_window_value(AT_DSPECIAL, 5, AG_WINDOW_SFX, sound_get("knight_special_down_normal_impact"));
 set_window_value(AT_DSPECIAL, 5, AG_WINDOW_HSPEED_TYPE, 1);
 set_window_value(AT_DSPECIAL, 5, AG_WINDOW_HSPEED, 0);
-set_window_value(AT_DSPECIAL, 5, AG_WINDOW_HAS_WHIFFLAG, 1);
 
 //Hitbox en l'air
 set_window_value(AT_DSPECIAL, 6, AG_WINDOW_TYPE, 1);

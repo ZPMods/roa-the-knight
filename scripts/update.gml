@@ -1,113 +1,12 @@
 // Test Nul
 //soul_points = 100;
 //debug = 0;
-//Rainbow Color
-if(get_gameplay_time() <= 120 and get_player_color(player) == 9){
-	if(alt_change_cooldown <= 0){
-		shader_pride();
-		init_shader();
-	}else{
-		alt_change_cooldown--;
-	}
-	
-}
-if get_player_color(player) == rainbow_alt {
-	hue+=1 if hue>255 hue-=255;
-	//make hue shift every step + loop around
 
-	color_rgb=make_color_rgb(167, 195, 217);
-	hue2=(color_get_hue(color_rgb)+hue) mod 255;
-	color_hsv=make_color_hsv(hue2,color_get_saturation(color_rgb),color_get_value(color_rgb));
-	set_color_profile_slot(rainbow_alt,0,color_get_red(color_hsv),color_get_green(color_hsv),color_get_blue(color_hsv));
-
-
-
-	color_rgb=make_color_rgb(84, 87, 138);
-	hue3=(color_get_hue(color_rgb)+hue) mod 255;
-	color_hsv=make_color_hsv(hue3,color_get_saturation(color_rgb),color_get_value(color_rgb));
-	set_color_profile_slot(rainbow_alt, 1,color_get_red(color_hsv),color_get_green(color_hsv),color_get_blue(color_hsv));
-
-	color_rgb=make_color_rgb(110, 106, 131);
-	hue4=(color_get_hue(color_rgb)+hue) mod 255;
-	color_hsv=make_color_hsv(hue4,color_get_saturation(color_rgb),color_get_value(color_rgb));
-	set_color_profile_slot(rainbow_alt, 2,color_get_red(color_hsv),color_get_green(color_hsv),color_get_blue(color_hsv));
-
-	color_rgb=make_color_rgb(24, 23, 33);
-	hue5=(color_get_hue(color_rgb)+hue) mod 255;
-	color_hsv=make_color_hsv(hue5,color_get_saturation(color_rgb),color_get_value(color_rgb));
-	set_color_profile_slot(rainbow_alt, 3,color_get_red(color_hsv),color_get_green(color_hsv),color_get_blue(color_hsv));
-
-	color_rgb=make_color_rgb(84, 87, 138);
-	hue6=(color_get_hue(color_rgb)+hue) mod 255;
-	color_hsv=make_color_hsv(hue6,color_get_saturation(color_rgb),color_get_value(color_rgb));
-	set_color_profile_slot(rainbow_alt, 4,color_get_red(color_hsv),color_get_green(color_hsv),color_get_blue(color_hsv));
-	init_shader();
-	}
-
-//Credits Anguish (Code From Kirby)
-
-//taunt.hurtbox_spr = "taunt_hurt";
-
-if (get_player_color(player) == 1 && get_gameplay_time() <= 3 )
-{
-	if (jump_pressed && attack_pressed)
-	{
-		//Shayd
-		set_color_profile_slot(1, 0, 35, 41, 67); //Helmet
-		set_color_profile_slot(1, 1, 152, 14, 3); //Cape
-		set_color_profile_slot(1, 2, 152, 14, 3); //Nail
-		set_color_profile_slot(1, 3, 35, 41, 67); //Body
-		set_color_profile_slot(1, 4, 8, 194, 109); //Eyes */
-
-	}
-	if (special_pressed && jump_pressed)
-	{
-		//Uki
-		set_color_profile_slot(1, 0, 175, 221, 239); //Helmet
-		set_color_profile_slot(1, 1, 67, 174, 216); //Cape
-		set_color_profile_slot(1, 2, 226, 240, 245); //Nail
-		set_color_profile_slot(1, 3, 64, 26, 93); //Body
-		set_color_profile_slot(1, 4, 245, 90, 204); //Eyes */
-	}
-	if (jump_pressed && taunt_pressed)
-	{
-		//Bumble
-		set_color_profile_slot(1, 0, 229, 229, 229); //Helmet
-		set_color_profile_slot(1, 1, 37, 158, 37); //Cape
-		set_color_profile_slot(1, 2, 65, 67, 80); //Nail
-		set_color_profile_slot(1, 3, 40, 40, 40); //Body
-		set_color_profile_slot(1, 4, 30, 30, 30); //Eyes */
-
-	}
-	if(attack_pressed && special_pressed)
-	{
-		//Yg
-		set_color_profile_slot(1, 0, 136, 136, 136); //Helmet
-		set_color_profile_slot(1, 1, 254, 254, 254); //Cape
-		set_color_profile_slot(1, 2, 136, 136, 136); //Nail
-		set_color_profile_slot(1, 3, 75, 77, 86); //Body
-		set_color_profile_slot(1, 4, 55, 56, 61); //Eyes */
-	}
-	init_shader();
-
-}
+colors_and_shaders();
 
 //----------------------------------------------------------
 // GAMEPLAY
 //----------------------------------------------------------
-if(free && hsp > air_max_speed)
-{
-}
-//Early access
-if (get_player_color(player) == early_access_alt)
-{
-    for(i = 0; i < 5; i++)
-    {
-        set_character_color_shading(i, 0);
-    }
-}
-
-
 
 //NTS Effect
 if (state == PS_AIR_DODGE && window == 2 && window_timer == 9)
@@ -241,18 +140,17 @@ if (soul_full_play == 30)
 }
 
 //Particle effects triggers from other scripts, 'cause you can't call a function from other scripts for some godforsaken reason, @dan plz fix
-if (soul_burst_play = 1)
+if (soul_burst_play == 1)
 {
 	soul_burst_play = 0;
 	spawnSoulBurst(soul_burst_x, soul_burst_y);
 }
 
-if (shade_burst_play = 1)
+if (shade_burst_play == 1)
 {
 	shade_burst_play = 0;
 	spawnShadeBurst(shade_burst_x, shade_burst_y);
 }
-
 
 //Mantis Claw
 if state != PS_WALL_JUMP{
@@ -265,13 +163,13 @@ if state != PS_WALL_JUMP{
 		if clinging_timer == 1 { sound_play(sound_get("knight_wall_slide")) }
 
 
-		vsp = clinging_timer * 0.2;
+		vsp = clinging_timer * 0.1;
 		if vsp > max_fall { vsp = max_fall; }
 		clinging_timer++;
 	}else{
 
 		sound_stop(sound_get("knight_wall_slide"));
-		if clinging_timer == state_timer - 1{ sound_play(sound_get("knight_wall_jump")); }
+		if clinging_timer == state_timer - 1 { sound_play(sound_get("knight_wall_jump")); }
 
 	}
 }
@@ -281,99 +179,138 @@ if instance_exists(bench) and free and (state != PS_ATTACK_GROUND and attack == 
 	bench.end_anim = true;
 }
 
-//------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+if(nail_charging){
+	set_nailart_state();
+	if !((attack == AT_FSTRONG or attack == AT_DSTRONG)and (state == PS_ATTACK_GROUND or state == PS_ATTACK_AIR)){
+		reset_nailart_state();
+	}
+}else{
+	reset_nailart_state();
+}
 
-//----------------------------------------------------------
-// WORKSHOP, EASTER EGGS AND MORE
-//----------------------------------------------------------
+if(has_charm(LIFEBLOOD_HEART)){
+	if(lifeblood_pool > 0){
+		outline_color = [24, 167, 244];
+		init_shader();
+	}else{
+		outline_color = [0, 0, 0];
+		init_shader();
+	}
+	
+}
 
-//Kirby Ability
-/*if swallowed{
+//refund spell twister reset
+if(!(state == PS_ATTACK_GROUND or state == PS_ATTACK_AIR)){
+	refund = true;
+}
 
-    swallowed = 0;
-    kirby_used = 0;
+compatibility();
 
-    var ability_spr = sprite_get("nspecial");
-    var ability_air_spr = sprite_get("nspecial");
-    var hurtbox_spr = sprite_get("nspecial_hurt");
-    var ability_proj_spr = sprite_get("nspecial_proj");
+#define colors_and_shaders()
+//Rainbow Color
+if(get_gameplay_time() <= 120 and get_player_color(player) == 9){
+	if(alt_change_cooldown <= 0){
+		shader_pride();
+		init_shader();
+	}else{
+		alt_change_cooldown--;
+	}
+	
+}
+if get_player_color(player) == rainbow_alt {
+	hue+=1 if hue>255 hue-=255;
+	//make hue shift every step + loop around
 
-    with enemykirby{
-    set_attack_value(AT_EXTRA_3, AG_CATEGORY, 2);
-    set_attack_value(AT_EXTRA_3, AG_SPRITE,ability_spr);
-    set_attack_value(AT_EXTRA_3, AG_NUM_WINDOWS, 3);
-    set_attack_value(AT_EXTRA_3, AG_HAS_LANDING_LAG, 4);
-    set_attack_value(AT_EXTRA_3, AG_OFF_LEDGE, 1);
-    set_attack_value(AT_EXTRA_3, AG_AIR_SPRITE, ability_air_spr);
-    set_attack_value(AT_EXTRA_3, AG_HURTBOX_SPRITE, hurtbox_spr);
-
-    set_window_value(AT_EXTRA_3, 1, AG_WINDOW_TYPE, 1);
-    set_window_value(AT_EXTRA_3, 1, AG_WINDOW_LENGTH, 15);
-    set_window_value(AT_EXTRA_3, 1, AG_WINDOW_ANIM_FRAMES, 3);
-    set_window_value(AT_EXTRA_3, 1, AG_WINDOW_HAS_SFX, 1);
-    set_window_value(AT_EXTRA_3, 1, AG_WINDOW_SFX_FRAME, 4);
-    set_window_value(AT_EXTRA_3, 1, AG_WINDOW_HSPEED, 0);
-    set_window_value(AT_EXTRA_3, 1, AG_WINDOW_VSPEED, 0);
-    set_window_value(AT_EXTRA_3, 1, AG_WINDOW_HSPEED_TYPE, 1);
-    set_window_value(AT_EXTRA_3, 1, AG_WINDOW_VSPEED_TYPE, 1);
-
-    set_window_value(AT_EXTRA_3, 2, AG_WINDOW_TYPE, 1);
-    set_window_value(AT_EXTRA_3, 2, AG_WINDOW_LENGTH, 4);
-    set_window_value(AT_EXTRA_3, 2, AG_WINDOW_ANIM_FRAMES, 1);
-    set_window_value(AT_EXTRA_3, 2, AG_WINDOW_ANIM_FRAME_START, 3);
-    set_window_value(AT_EXTRA_3, 2, AG_WINDOW_HSPEED, 0);
-    set_window_value(AT_EXTRA_3, 2, AG_WINDOW_VSPEED, 0);
-    set_window_value(AT_EXTRA_3, 2, AG_WINDOW_HSPEED_TYPE, 1);
-    set_window_value(AT_EXTRA_3, 2, AG_WINDOW_VSPEED_TYPE, 1);
-
-    set_window_value(AT_EXTRA_3, 3, AG_WINDOW_TYPE, 1);
-    set_window_value(AT_EXTRA_3, 3, AG_WINDOW_LENGTH, 12);
-    set_window_value(AT_EXTRA_3, 3, AG_WINDOW_ANIM_FRAMES, 2);
-    set_window_value(AT_EXTRA_3, 3, AG_WINDOW_ANIM_FRAME_START, 4);
-    set_window_value(AT_EXTRA_3, 3, AG_WINDOW_HSPEED, 0);
-    set_window_value(AT_EXTRA_3, 3, AG_WINDOW_VSPEED, 0);
-    set_window_value(AT_EXTRA_3, 3, AG_WINDOW_HSPEED_TYPE, 1);
-    set_window_value(AT_EXTRA_3, 3, AG_WINDOW_VSPEED_TYPE, 1);
+	color_rgb=make_color_rgb(167, 195, 217);
+	hue2=(color_get_hue(color_rgb)+hue) mod 255;
+	color_hsv=make_color_hsv(hue2,color_get_saturation(color_rgb),color_get_value(color_rgb));
+	set_color_profile_slot(rainbow_alt,0,color_get_red(color_hsv),color_get_green(color_hsv),color_get_blue(color_hsv));
 
 
-    set_num_hitboxes(AT_EXTRA_3, 1);
 
-    set_hitbox_value(AT_EXTRA_3, 1, HG_PARENT_HITBOX, 0);
-    set_hitbox_value(AT_EXTRA_3, 1, HG_HITBOX_TYPE, 2);
-    set_hitbox_value(AT_EXTRA_3, 1, HG_WINDOW, 2);
-    set_hitbox_value(AT_EXTRA_3, 1, HG_LIFETIME, 40);
-    set_hitbox_value(AT_EXTRA_3, 1, HG_HITBOX_X, 14);
-    set_hitbox_value(AT_EXTRA_3, 1, HG_WIDTH, 90);
-    set_hitbox_value(AT_EXTRA_3, 1, HG_HEIGHT, 60);
-    set_hitbox_value(AT_EXTRA_3, 1, HG_PRIORITY, 3);
-    set_hitbox_value(AT_EXTRA_3, 1, HG_DAMAGE, 6);
+	color_rgb=make_color_rgb(84, 87, 138);
+	hue3=(color_get_hue(color_rgb)+hue) mod 255;
+	color_hsv=make_color_hsv(hue3,color_get_saturation(color_rgb),color_get_value(color_rgb));
+	set_color_profile_slot(rainbow_alt, 1,color_get_red(color_hsv),color_get_green(color_hsv),color_get_blue(color_hsv));
 
-    set_hitbox_value(AT_EXTRA_3, 1, HG_BASE_KNOCKBACK, 8);
-    set_hitbox_value(AT_EXTRA_3, 1, HG_KNOCKBACK_SCALING, 0.3);
-    set_hitbox_value(AT_EXTRA_3, 1, HG_BASE_HITPAUSE, 9);
-    set_hitbox_value(AT_EXTRA_3, 1, HG_ANGLE, 75);
-    set_hitbox_value(AT_EXTRA_3, 1, HG_VISUAL_EFFECT_Y_OFFSET, -16);
-    set_hitbox_value(AT_EXTRA_3, 1, HG_PROJECTILE_SPRITE, ability_proj_spr);
-    set_hitbox_value(AT_EXTRA_3, 1, HG_PROJECTILE_MASK, ability_proj_spr);
-    set_hitbox_value(AT_EXTRA_3, 1, HG_PROJECTILE_ANIM_SPEED, .2);
-    set_hitbox_value(AT_EXTRA_3, 1, HG_PROJECTILE_HSPEED, 10);
-    }
+	color_rgb=make_color_rgb(110, 106, 131);
+	hue4=(color_get_hue(color_rgb)+hue) mod 255;
+	color_hsv=make_color_hsv(hue4,color_get_saturation(color_rgb),color_get_value(color_rgb));
+	set_color_profile_slot(rainbow_alt, 2,color_get_red(color_hsv),color_get_green(color_hsv),color_get_blue(color_hsv));
+
+	color_rgb=make_color_rgb(24, 23, 33);
+	hue5=(color_get_hue(color_rgb)+hue) mod 255;
+	color_hsv=make_color_hsv(hue5,color_get_saturation(color_rgb),color_get_value(color_rgb));
+	set_color_profile_slot(rainbow_alt, 3,color_get_red(color_hsv),color_get_green(color_hsv),color_get_blue(color_hsv));
+
+	color_rgb=make_color_rgb(84, 87, 138);
+	hue6=(color_get_hue(color_rgb)+hue) mod 255;
+	color_hsv=make_color_hsv(hue6,color_get_saturation(color_rgb),color_get_value(color_rgb));
+	set_color_profile_slot(rainbow_alt, 4,color_get_red(color_hsv),color_get_green(color_hsv),color_get_blue(color_hsv));
+	init_shader();
+	}
+
+//Credits Anguish (Code From Kirby)
+
+//taunt.hurtbox_spr = "taunt_hurt";
+
+if (get_player_color(player) == 1 && get_gameplay_time() <= 3 )
+{
+	if (jump_pressed && attack_pressed)
+	{
+		//Shayd
+		set_color_profile_slot(1, 0, 35, 41, 67); //Helmet
+		set_color_profile_slot(1, 1, 152, 14, 3); //Cape
+		set_color_profile_slot(1, 2, 152, 14, 3); //Nail
+		set_color_profile_slot(1, 3, 35, 41, 67); //Body
+		set_color_profile_slot(1, 4, 8, 194, 109); //Eyes */
+
+	}
+	if (special_pressed && jump_pressed)
+	{
+		//Uki
+		set_color_profile_slot(1, 0, 175, 221, 239); //Helmet
+		set_color_profile_slot(1, 1, 67, 174, 216); //Cape
+		set_color_profile_slot(1, 2, 226, 240, 245); //Nail
+		set_color_profile_slot(1, 3, 64, 26, 93); //Body
+		set_color_profile_slot(1, 4, 245, 90, 204); //Eyes */
+	}
+	if (jump_pressed && taunt_pressed)
+	{
+		//Bumble
+		set_color_profile_slot(1, 0, 229, 229, 229); //Helmet
+		set_color_profile_slot(1, 1, 37, 158, 37); //Cape
+		set_color_profile_slot(1, 2, 65, 67, 80); //Nail
+		set_color_profile_slot(1, 3, 40, 40, 40); //Body
+		set_color_profile_slot(1, 4, 30, 30, 30); //Eyes */
+
+	}
+	if(attack_pressed && special_pressed)
+	{
+		//Yg
+		set_color_profile_slot(1, 0, 136, 136, 136); //Helmet
+		set_color_profile_slot(1, 1, 254, 254, 254); //Cape
+		set_color_profile_slot(1, 2, 136, 136, 136); //Nail
+		set_color_profile_slot(1, 3, 75, 77, 86); //Body
+		set_color_profile_slot(1, 4, 55, 56, 61); //Eyes */
+	}
+	init_shader();
 
 }
-if enemykirby != undefined { //if kirby is in a match & swallowed
-    with oPlayer { //Run through all players
-        if (state_cat == SC_GROUND_COMMITTED || state_cat == SC_GROUND_NEUTRAL) && move_cooldown[AT_EXTRA_3] == 0 {
-            kirb_used_Theknight = 0;
-        }
-        if ((state == PS_ATTACK_AIR || state == PS_ATTACK_GROUND) && attack == AT_EXTRA_3) {
-            if (kirb_used_Theknight == 0) {
-                kirb_used_Theknight = 1;
-                move_cooldown[AT_EXTRA_3] = 20;
-            }
 
-        }
+//Early access
+if (get_player_color(player) == early_access_alt)
+{
+    for(i = 0; i < 5; i++)
+    {
+        set_character_color_shading(i, 0);
     }
-}*/
+}
+
+
+#define compatibility()
+// WORKSHOP, EASTER EGGS AND MORE
+//Kirby Ability
 
 if swallowed {
     swallowed = 0;
@@ -618,11 +555,39 @@ if get_btt_data { //Get data for Break The Targets
 	        ]
 	    ]);
 }
+#define set_nailart_state()
+
+max_djumps = 0;
 
 
+#define reset_nailart_state()
 
+ground_friction = 0.5;
+max_djumps = old_max_djumps;
+sound_stop(nailart_loop_sound);
+nail_charging = false;
 
+#define has_charm(charm)
 
+// 1<<charm shifts the one to the charm flag location, example [1 << MARK_OF_PRIDE (mark of pride is 3)] === [0000 0100],
+var shift = (1<<charm);
+
+// then it performs AND, if equipped then must be equal to the charm number
+return is_charm_equipped & shift == shift;
+
+#define remove_charm(charm)
+
+// charm_equipped_num--;
+// if(charm_equipped_num < 0) charm_equipped_num = 0;
+if(has_charm(charm))
+	is_charm_equipped = is_charm_equipped & ~(1<<charm); // 1<<charm shifts the one to the charm flag location, it creates the mask with negation, then it performs AND, is_charm_equipped will no longer have 1 at the charm number
+
+#define add_charm(charm)
+
+// charm_equipped_num++;
+// if(charm_equipped_num > max_charms) charm_equipped_num = max_charms;
+if(has_charm(charm)) return;
+is_charm_equipped = is_charm_equipped | (1<<charm); // 1<<charm shifts the one to the charm flag location, then it performs OR, is_charm_equipped will have 1 at the charm number
 #define room_add(_room_id,room_data) //Adds a new room to the scene
 with obj_stage_article if num == 5 {
 	var _room_id_ind = array_find_index(array_room_ID,_room_id);

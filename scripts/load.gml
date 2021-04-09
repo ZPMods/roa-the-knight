@@ -45,7 +45,7 @@ sprite_change_offset("fair", 46, 80);
 sprite_change_offset("bair", 54, 74);
 sprite_change_offset("uair", 46, 114);
 sprite_change_offset("dair", 42, 74);
-sprite_change_offset("fstrong", 40, 74);
+sprite_change_offset("fstrong", 66, 80);
 sprite_change_offset("ustrong", 66, 132);
 sprite_change_offset("dstrong", 74, 72);
 sprite_change_offset("nspecial", 22, 76);
@@ -98,6 +98,7 @@ sprite_change_offset("feathers_falling_2", 100, 86);
 sprite_change_offset("feathers_falling_3", 100, 86);
 
 sprite_change_offset("dash_burst", 146, 192);
+sprite_change_offset("strong_aura", 31, 27);
 
 set_victory_theme( sound_get("Hollow_Knight_Victory_Theme"));
 set_victory_bg( sprite_get( "victory_bg" ));

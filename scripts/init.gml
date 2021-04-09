@@ -24,6 +24,8 @@ do_easing = false;
 hop_off = false;
 
 dash_fx = hit_fx_create(sprite_get("dash_burst"), 9);
+damage_sound = sound_get("damage");
+splash = true;
 
 // Kirby
 kirbyability = 16;
@@ -409,6 +411,51 @@ if has_rune("B"){
     dash_turn_time = 8;
     dash_turn_accel = 1.5;
 }
+
+//-------------CHARMS
+enum C{
+    NAILMASTER,
+    FURY_OF_THE_FALLEN,
+    LIFEBLOOD_HEART,
+    MARK_OF_PRIDE,
+    FLUKENEST,
+    GLUBBERFLY,
+    SPELL_TWISTER,
+    DASHMASTER,
+}
+//enum to constant
+NAILMASTER = C.NAILMASTER; // coded
+FURY_OF_THE_FALLEN = C.FURY_OF_THE_FALLEN;// coded
+LIFEBLOOD_HEART = C.LIFEBLOOD_HEART;// coded
+MARK_OF_PRIDE = C.MARK_OF_PRIDE;// i need to dig the old knight normals
+FLUKENEST = C.FLUKENEST;// I need to draw the flukemarms
+GLUBBERFLY = C.GLUBBERFLY;// should be easy
+SPELL_TWISTER = C.SPELL_TWISTER;// WIP
+DASHMASTER = C.DASHMASTER;// not coded
+
+is_charm_equipped = 01000000; //flags for bitwise variable operations ---- 0000 0000 ---- first charm start on the right, the bit is 1 when equipped
+charm_equipped_num = 0;
+charm_equipped = [];
+charm_notches = 1;
+max_charms = 8;
+overcharmed = false;
+
+//nailarts
+nail_charging = false;
+old_max_djumps = max_djumps;
+custom_state = "";
+custom_state_timer = 0;
+old_custom_state = "";
+nailart_loop_sound = sound_get("nailart_charge_loop");
+nailart_complete_sound = sound_get("nailart_charge_complete");
+nailart_aura = sprite_get("strong_aura");
+nailart_sound_charge = sound_get("knight_strong_charge");
+nailart_triggered = 0;
+
+//lifebloods
+lifeblood_pool = 10;
+
+//CHARMS-------------
 
 //TP related branch
 //          CHANGE --------- CHANGE

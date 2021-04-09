@@ -9,7 +9,7 @@ if(attack == AT_NSPECIAL_2 and hbox_num == 3){
         timer ++;
     
         //          CHANGE --------- CHANGE
-        if(shade_soul_player_hit != noone and (newhit_vsp != 0 or newhit_hsp != 0)){
+        if(instance_exists(shade_soul_player_hit) and (newhit_vsp != 0 or newhit_hsp != 0)){
     	    if ((shade_soul_player_hit.state == PS_HITSTUN or shade_soul_player_hit.state == PS_HITSTUN_LAND) and !shade_soul_player_hit.hitpause){
     
     	        shade_soul_player_hit.vsp = newhit_vsp;
