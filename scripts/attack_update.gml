@@ -1,3 +1,13 @@
+if(isNailAttack() and attack != AT_JAB and attack != AT_DTILT and attack != AT_DATTACK){
+	if(window == 1 and window_timer == 1){
+		if(has_charm(GLUBBERFLY) and get_player_damage(player) == 0){
+			set_num_hitboxes(attack, get_attack_value(attack, AG_NUM_HITBOXES) + 1)//change the number of hitboxes to include the projectile
+		}else{
+			set_num_hitboxes(attack, get_attack_value(attack, AG_NUM_HITBOXES));
+		}
+			
+	}
+}
 
 //STRONG MOVEMENT
 if((attack == AT_FSTRONG) || (attack == AT_DSTRONG))
@@ -186,6 +196,14 @@ if (attack == AT_NSPECIAL)
         nts_effect_show = true;
       }
     }
+    
+  }
+  if(window == 2){
+	if(has_charm(FLUKENEST) and window_timer < 7){
+	  var hitb = create_hitbox(attack, 1, x + spr_dir*get_hitbox_value(attack, 1, HG_HITBOX_X), y + get_hitbox_value(attack, 1, HG_HITBOX_Y) + random_func(1, 40, true) - 20);
+	  hitb.hsp = hitb.hsp + random_func(hitb.hsp, 3, false) - 1.5;
+	  hitb.vsp = hitb.vsp + random_func(hitb.vsp, 4, false) - 2;
+	}
   }
 }
 
@@ -377,12 +395,17 @@ if (attack == AT_NSPECIAL && window == 2 && window_timer == 2)
 //Faire spawn l'article
 if (attack == AT_NSPECIAL_2 && window == 2 && window_timer == 1)
 {
-     shade_soul = create_hitbox(AT_NSPECIAL_2, 3, x + 20 * spr_dir, y - char_height/2);
-     shade_soul.shade_soul_hit = false;
-     shade_soul.shade_soul_first_hit = false;
-     nbs_parried = false;
-     //shade_soul.spr_dir = spr_dir;
-     //shade_soul.hsp *= spr_dir;
+	if(has_charm(FLUKENEST)){
+		create_hitbox(AT_NSPECIAL_2, 1, x + 20 * spr_dir, y - char_height/2);
+	}else{
+		shade_soul = create_hitbox(AT_NSPECIAL_2, 3, x + 20 * spr_dir, y - char_height/2);
+	    shade_soul.shade_soul_hit = false;
+	    shade_soul.shade_soul_first_hit = false;
+	    nbs_parried = false;
+	    //shade_soul.spr_dir = spr_dir;
+	    //shade_soul.hsp *= spr_dir;
+	}
+    
 }
 
 //Effect
@@ -767,6 +790,11 @@ if(has_charm(charm))
 // if(charm_equipped_num > max_charms) charm_equipped_num = max_charms;
 if(has_charm(charm)) return;
 is_charm_equipped = is_charm_equipped | (1<<charm); // 1<<charm shifts the one to the charm flag location, then it performs OR, is_charm_equipped will have 1 at the charm number
+
+#define isNailAttack()
+
+return (attack == AT_JAB || attack == AT_DATTACK || attack == AT_FTILT || attack == AT_DTILT || attack == AT_UTILT 
+	|| attack == AT_FAIR || attack == AT_DAIR || attack == AT_UAIR);
 
 #define spawnShadeBubbles
 var id = random_func(0, 5, true);

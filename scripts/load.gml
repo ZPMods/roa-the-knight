@@ -99,6 +99,11 @@ sprite_change_offset("feathers_falling_3", 100, 86);
 
 sprite_change_offset("dash_burst", 146, 192);
 sprite_change_offset("strong_aura", 31, 27);
+sprite_change_offset("glubberfly_up_proj",      30, 28);
+sprite_change_offset("glubberfly_down_proj",    30, 28);
+sprite_change_offset("glubberfly_proj",         30, 28);
+sprite_change_offset("flukeling",               14, 12);
+sprite_change_offset("flukeling_void",          28, 20);
 
 set_victory_theme( sound_get("Hollow_Knight_Victory_Theme"));
 set_victory_bg( sprite_get( "victory_bg" ));

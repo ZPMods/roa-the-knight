@@ -36,6 +36,13 @@ if(attack == AT_NSPECIAL_2 and hbox_num == 3){
     sound_play(audio);
 
 }
+
+if(attack == AT_NSPECIAL and hbox_num == 1){
+    spr_dir = player_id.spr_dir;
+}
+
+
+
 // if player_id.nsb_parried and attack == AT_NSPECIAL_2 and hbox_num != 3{
 //     if(instance_exists(player_id.shade_soul)){
 //         var hbox = player_id.shade_soul;

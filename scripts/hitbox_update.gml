@@ -119,6 +119,23 @@ if(attack == AT_NSPECIAL_2 and hbox_num == 3){
     }
 }
 
+if(attack == AT_DAIR and hbox_num == 3){
+	if(place_meeting(x, y, asset_get("par_block") )){
+		destroyed = true;
+	}
+}
+
+//FLUKENEST
+if((attack == AT_NSPECIAL or attack == AT_NSPECIAL_2) and hbox_num == 1){
+	if(place_meeting(x + hsp, y + vsp, asset_get("par_block")) or place_plat_from_above() ){
+		vsp /=  1.07;
+		vsp = clamp(vsp, -6, 6);
+		var rand = random_func(3, 12, true) + 1;
+		sound_play(sound_get(`hero_fluke_bounce_${rand}`), false, noone, 0.4);
+	}
+	proj_angle = point_direction(0,0, hsp, vsp) + (spr_dir < 1)*180;
+	vsp = clamp(vsp, -18, 8);
+}
 
 #define has_charm(charm)
 
@@ -160,3 +177,9 @@ switch (id)
 }
 
 spawn_hit_fx(argument[0], argument[1], toSpawn);
+
+#define place_plat_from_above()
+
+var plat = instance_place(x + hsp, y + vsp, asset_get("par_jumpthrough"));
+
+return vsp > 0 and plat != noone and get_instance_y(plat) > y;

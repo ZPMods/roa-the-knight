@@ -1,5 +1,5 @@
 // Soul system
-if (isNailAttack())
+if (GiveSoulAttack())
 {
 	if (soul_points < 100)
 	{
@@ -152,6 +152,11 @@ if (my_hitboxID.attack == AT_DSPECIAL_2 && my_hitboxID.hbox_num == 10)
 	sound_play(sound_get("knight_special_up_boosted_impact"));
 }
 
+if (my_hitboxID.attack == AT_NSPECIAL && my_hitboxID.hbox_num == 1)
+{
+	var random_pitch = (random_func(7, 2, false) - 1)*0.2 + 1;
+	sound_play(sound_get("hive_zombie_give_birth"), false, noone, 0.4, random_pitch);
+}
 /*
 // Dream Nail
 if (attack == AT_TAUNT_2) {
@@ -302,12 +307,12 @@ if(has_charm(charm))
 if(has_charm(charm)) return;
 is_charm_equipped = is_charm_equipped | (1<<charm); // 1<<charm shifts the one to the charm flag location, then it performs OR, is_charm_equipped will have 1 at the charm number
 
-#define isNailAttack
+#define GiveSoulAttack
 
 return (my_hitboxID.attack == AT_JAB || my_hitboxID.attack == AT_DATTACK || my_hitboxID.attack == AT_FTILT || my_hitboxID.attack == AT_DTILT || my_hitboxID.attack == AT_UTILT || 
 	my_hitboxID.attack == AT_FSTRONG || my_hitboxID.attack == AT_DSTRONG || my_hitboxID.attack == AT_USTRONG || my_hitboxID.attack == AT_FAIR || my_hitboxID.attack == AT_BAIR || 
 	my_hitboxID.attack == AT_DAIR || my_hitboxID.attack == AT_UAIR|| my_hitboxID.attack == AT_NAIR)
-	
+
 #define isSpell
 
 return (my_hitboxID.attack == AT_FSPECIAL or my_hitboxID.attack == AT_FSPECIAL_2 or my_hitboxID.attack == AT_USPECIAL or my_hitboxID.attack == AT_USPECIAL_2 or my_hitboxID.attack == AT_DSPECIAL or

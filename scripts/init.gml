@@ -429,10 +429,10 @@ NAILMASTER = C.NAILMASTER; // coded
 FURY_OF_THE_FALLEN = C.FURY_OF_THE_FALLEN;// coded
 LIFEBLOOD_HEART = C.LIFEBLOOD_HEART;// coded
 MARK_OF_PRIDE = C.MARK_OF_PRIDE;// i need to dig the old knight normals
-FLUKENEST = C.FLUKENEST;// I need to draw the flukemarms
-GLUBBERFLY = C.GLUBBERFLY;// should be easy
+FLUKENEST = C.FLUKENEST;// coded
+GLUBBERFLY = C.GLUBBERFLY;// horrendous, I feel ashamed. this is broken
 SPELL_TWISTER = C.SPELL_TWISTER;// coded
-DASHMASTER = C.DASHMASTER;// not coded
+DASHMASTER = C.DASHMASTER;// coded
 
 is_charm_equipped = 00000000; //flags for bitwise variable operations ---- 0000 0000 ---- first charm start on the right, the bit is 1 when equipped
 charm_equipped_num = 0;
@@ -456,10 +456,17 @@ nailart_triggered = 0;
 //lifebloods
 lifeblood_pool = 10;
 
+//glubberfly
+AG_NUM_HITBOXES = 5;
+
 //spelltwister
 can_refund = true;
 can_refund_nspecial = true;
 
+
+
+
+add_charm(FLUKENEST);
 //USE add_charm([name of the charm]) TO EQUIP THE CHARM AND BEGIN TESTING IT
 
 

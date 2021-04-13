@@ -7,7 +7,6 @@ set_window_value(AT_UTILT, 1, AG_WINDOW_LENGTH, 8);
 set_window_value(AT_UTILT, 1, AG_WINDOW_ANIM_FRAMES, 2);
 set_window_value(AT_UTILT, 1, AG_WINDOW_HAS_SFX, 1);
 set_window_value(AT_UTILT, 1, AG_WINDOW_SFX, asset_get("sfx_swipe_medium2"));
-
 set_window_value(AT_UTILT, 1, AG_WINDOW_SFX_FRAME, 6);
 
 set_window_value(AT_UTILT, 2, AG_WINDOW_TYPE, 1);
@@ -40,3 +39,34 @@ set_hitbox_value(AT_UTILT, 1, HG_KNOCKBACK_SCALING, .4);
 set_hitbox_value(AT_UTILT, 1, HG_BASE_HITPAUSE, 7);
 set_hitbox_value(AT_UTILT, 1, HG_HITPAUSE_SCALING, .2);
 set_hitbox_value(AT_UTILT, 1, HG_HIT_SFX, asset_get("sfx_blow_medium2"));
+set_hitbox_value(AT_UTILT, 1, HG_HIT_LOCKOUT, 10);
+
+//This is the attack that holds Glubberfly's projectile
+set_hitbox_value(AT_UTILT, 2, HG_HITBOX_TYPE, 2);
+set_hitbox_value(AT_UTILT, 2, HG_WINDOW, 2);
+set_hitbox_value(AT_UTILT, 2, HG_WINDOW_CREATION_FRAME, 1);
+set_hitbox_value(AT_UTILT, 2, HG_LIFETIME, 15);
+set_hitbox_value(AT_UTILT, 2, HG_HITBOX_X, 0);
+set_hitbox_value(AT_UTILT, 2, HG_HITBOX_Y, -70);
+set_hitbox_value(AT_UTILT, 2, HG_WIDTH, 60);
+set_hitbox_value(AT_UTILT, 2, HG_HEIGHT, 40);
+set_hitbox_value(AT_UTILT, 2, HG_SHAPE, 2);
+set_hitbox_value(AT_UTILT, 2, HG_PRIORITY, 9);
+set_hitbox_value(AT_UTILT, 2, HG_DAMAGE, 6);
+set_hitbox_value(AT_UTILT, 2, HG_BASE_KNOCKBACK, 5);
+set_hitbox_value(AT_UTILT, 2, HG_KNOCKBACK_SCALING, 0.4);
+set_hitbox_value(AT_UTILT, 2, HG_BASE_HITPAUSE, 10);
+set_hitbox_value(AT_UTILT, 2, HG_ANGLE, 60);
+set_hitbox_value(AT_UTILT, 2, HG_VISUAL_EFFECT, soul_hit_heavy);
+set_hitbox_value(AT_UTILT, 2, HG_HIT_SFX, sound_get("knight_special_neutral_normal_impact"));
+set_hitbox_value(AT_UTILT, 2, HG_PROJECTILE_SPRITE, sprite_get("glubberfly_up_proj"));
+set_hitbox_value(AT_UTILT, 2, HG_PROJECTILE_MASK, -1);
+set_hitbox_value(AT_UTILT, 2, HG_PROJECTILE_COLLISION_SPRITE, -1);
+set_hitbox_value(AT_UTILT, 2, HG_PROJECTILE_HSPEED, 0);
+set_hitbox_value(AT_UTILT, 2, HG_PROJECTILE_VSPEED, -10);
+set_hitbox_value(AT_UTILT, 2, HG_PROJECTILE_AIR_FRICTION, .2);
+set_hitbox_value(AT_UTILT, 2, HG_PROJECTILE_GROUND_FRICTION, .2);
+set_hitbox_value(AT_UTILT, 2, HG_PROJECTILE_GRAVITY, .6);
+set_hitbox_value(AT_UTILT, 2, HG_PROJECTILE_GROUND_BEHAVIOR, 1);
+
+set_attack_value(AT_UTILT, AG_NUM_HITBOXES, get_num_hitboxes(AT_UTILT));
