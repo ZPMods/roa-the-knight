@@ -6,8 +6,17 @@
 // draw_debug_text( temp_x+60, temp_y-90, "frict : " + string(frict));
 // draw_debug_text( temp_x+60, temp_y-105, "vsp : " + string(vsp));
 // draw_debug_text( temp_x+60, temp_y-120, "hsp : " + string(hsp));
-draw_debug_text( 10, 10, "FPS : " + string(fps_real));
-
+// draw_debug_text( 10, 10, "FPS : " + string(fps_real));
+if(practice or strong_down){
+    draw_debug_text( 10, 10, "0 (nailmaster): Fully charging strongs = walking strongs" );
+    draw_debug_text( 10, 10 + 15, "1 (fury of the fallen): >90% knight = +1% per hit dealt" );
+    draw_debug_text( 10, 10 + 30, "2 (lifeblood heart): prevents 10% damage that is spent" );
+    draw_debug_text( 10, 10 + 45, "3 (shape of unn): planking and crawling, cc fiesta" );
+    draw_debug_text( 10, 10 + 60, "4 (flukenest): disgusting worms as nspecial" );
+    draw_debug_text( 10, 10 + 75, "5 (glubberfly's elegy): knight at 0% = proj normals, op" );
+    draw_debug_text( 10, 10 + 90, "6 (spell twister): refunds 3/5 of boosted specials if hits" );
+    draw_debug_text( 10, 10 + 105, "7 (dashmaster): fspecial endlag cancel"  );
+}
 //Charms
 var text = "";
 switch(charm_equipped[0]){

@@ -13,7 +13,7 @@ if (GiveSoulAttack())
 		var random_pitch = (random_func(0, 2, false) - 1)*0.2 + 1;
 		sound_play(damage_sound, false, noone, 1, random_pitch);
 	}
-	if(has_charm(FURY_OF_THE_FALLEN) and get_player_damage( player ) > 90){
+	if(has_charm(FURY_OF_THE_FALLEN) and get_player_damage( player ) >= 90){
 		take_damage(hit_player_obj.player, player, 1);
 	}
 }else{
