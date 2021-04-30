@@ -1,9 +1,37 @@
 //EFFECTS ANIMATIONS -----------------------------------------------------------
 
 //Normal to Shade Effect
+nts();
+//nailart aura
+if (state == PS_ATTACK_GROUND or state == PS_ATTACK_AIR) and (attack == AT_FSTRONG or attack == AT_DSTRONG) and (window == 1 or window == 2 or window == 4){
+    shader_start();
+    var time = get_gameplay_time();
+    var index = time%12 / 4;
+    draw_sprite_ext(nailart_aura, index, x, y - char_height/2, 2, 2, 0, c_white, 1);
+    shader_end();
+}
+
+if(state == PS_ATTACK_GROUND and attack == AT_TAUNT){
+    // if(draw_wheel)
+    //     charm_selection()
+}
+
+#define charm_selection()
+var t = get_window_value(AT_TAUNT, 3, AG_WINDOW_LENGTH);
+// var offset = (sitting_bench.x - charm_wheel_width*(sitting_num+1)/2) + (sitting_pos + 1)*charm_wheel_width;
+
+var alpha = (window == 3)*(window_timer/t) + (window > 3 and window < 7) - (window == 6)*(sleepy_time/90);
+if(sitting_pos == 0){
+    draw_sprite_ext(charm_wheel_spr, 0, sitting_bench.x, y-char_height, 1, 1, 0, c_white, 1);
+}
+
+
+#define nts()
+
 
 if (nts_effect_show == true)
 {
+
      if (nts_effect_freeze == false)
      {
           nts_effect_x = x - 40;
@@ -70,7 +98,7 @@ if (nspecial_boosted_effect_show == true)
           nspecial_boosted_effect_y = y - 84;
           nspecial_boosted_effect_freeze = true;
 
-          if (spr_dir = 1)
+          if (spr_dir == 1)
           {
                nspecial_boosted_effect_dir = "right";
           }
@@ -98,13 +126,4 @@ if (nspecial_boosted_effect_show == true)
                nspecial_boosted_effect_freeze = false;
           }
      }
-}
-
-//nailart aura
-if (state == PS_ATTACK_GROUND or state == PS_ATTACK_AIR) and (attack == AT_FSTRONG or attack == AT_DSTRONG) and (window == 1 or window == 2 or window == 4){
-    shader_start();
-    var time = get_gameplay_time();
-    var index = time%12 / 4;
-    draw_sprite_ext(nailart_aura, index, x, y - char_height/2, 2, 2, 0, c_white, 1);
-    shader_end();
 }

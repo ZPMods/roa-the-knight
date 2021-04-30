@@ -18,7 +18,38 @@ switch (state){
         }else{
             image_index = floor(image_number*(state_timer - clinging_timer)/(image_number*2.5));
         }
-    break;    
+    break; 
+    case PS_CROUCH:
+        if(has_charm(SHAPE_OF_UNN)){
+            sprite_index = crouch_worm_spr;
+            if(cr_window == 1){
+                
+                image_index = ease_linear(0, 2, cr_window_timer, 4);
+            }else if(cr_window == 2){
+                
+                if(hsp == 0){
+                    image_index = 6;
+                    crouch_anim_index = 0;
+                }else if(hsp > 0){
+                    
+                    crouch_anim_index +=  crouch_anim_speed * spr_dir;
+                    crouch_anim_index = crouch_anim_index % 6;
+                    
+                    if(crouch_anim_index < 0) crouch_anim_index = 5;
+                    image_index = crouch_anim_index + 3;
+                }else{
+                    
+                    crouch_anim_index +=  crouch_anim_speed * spr_dir;
+                    crouch_anim_index = crouch_anim_index % 6;
+                    
+                    if(crouch_anim_index < 0) crouch_anim_index = 5;
+                    image_index = crouch_anim_index + 3;
+                }
+            }else{
+                image_index = ease_linear(2, 0, cr_window_timer, 4);
+            }
+        }
+    break;
 }
 if(nail_charging){
     print("gawerg")
@@ -55,3 +86,10 @@ if(nail_charging){
         break;
     }
 }
+
+
+#define has_charm(charm)
+
+// is_charm_equipped >> charm shifts the charm flag location one to the most right flag
+// then it performs AND, if equipped then must be a one
+return (is_charm_equipped >> charm) & 1;

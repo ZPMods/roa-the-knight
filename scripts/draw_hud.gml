@@ -1,12 +1,43 @@
-draw_debug_text( temp_x+60, temp_y-15, "window : " + string(window));
-draw_debug_text( temp_x+60, temp_y-30, "window timer : " + string(window_timer));
-draw_debug_text( temp_x+60, temp_y-45, "spr_dir : " + string(spr_dir));
-draw_debug_text( temp_x+60, temp_y-60, "custom state timer : " + string(custom_state_timer));
-draw_debug_text( temp_x+60, temp_y-75, "custom state : " + string(custom_state));
-draw_debug_text( temp_x+60, temp_y-90, "frict : " + string(frict));
-draw_debug_text( temp_x+60, temp_y-105, "vsp : " + string(vsp));
-draw_debug_text( temp_x+60, temp_y-120, "hsp : " + string(hsp));
+// draw_debug_text( temp_x+60, temp_y-15, "window : " + string(window));
+// draw_debug_text( temp_x+60, temp_y-30, "window timer : " + string(window_timer));
+// draw_debug_text( temp_x+60, temp_y-45, "state : " + string(custom_state));
+// draw_debug_text( temp_x+60, temp_y-60, "state timer : " + string(custom_state_timer));
+// draw_debug_text( temp_x+60, temp_y-75, "custom state : " + string(custom_state));
+// draw_debug_text( temp_x+60, temp_y-90, "frict : " + string(frict));
+// draw_debug_text( temp_x+60, temp_y-105, "vsp : " + string(vsp));
+// draw_debug_text( temp_x+60, temp_y-120, "hsp : " + string(hsp));
 draw_debug_text( 10, 10, "FPS : " + string(fps_real));
+
+//Charms
+var text = "";
+switch(charm_equipped[0]){
+    case 0:
+        text = "nailmaster's glory";
+        break;
+    case 1:
+        text = "fury of the fallen";
+        break;
+    case 2:
+        text = "lifeblood heart";
+        break;
+    case 3:
+        text = "shape of unn";
+        break;
+    case 4:
+        text = "flukenest";
+        break;
+    case 5:
+        text = "glubberfly's elegy";
+        break;
+    case 6:
+        text = "spell twister";
+        break;
+    case 7:
+        text = "dashmaster";
+        break;
+    
+}
+draw_debug_text( temp_x+60, temp_y-15, text);
 
 //Affiche le nombre de Soul Points sur le HUD
 //draw_debug_text( temp_x+150, temp_y-14, "Soul : " + string( soul_points ));
@@ -110,7 +141,6 @@ if (soulmeter_animation_timer == soulmeter_animation_framelength)
     soulmeter_animation_frame = 0;
   }
 }
-
 
 
 // Dream Nail

@@ -119,6 +119,7 @@ if(attack == AT_NSPECIAL_2 and hbox_num == 3){
     }
 }
 
+//GLUBBERFLY
 if(attack == AT_DAIR and hbox_num == 3){
 	if(place_meeting(x, y, asset_get("par_block") )){
 		destroyed = true;

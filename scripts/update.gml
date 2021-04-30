@@ -108,7 +108,7 @@ if(state == PS_AIR_DODGE || state == PS_DOUBLE_JUMP || state == PS_IDLE)
 }
 
 //Forward Special Cooldown Reset
-if (!free && move_cooldown[AT_FSPECIAL] > 25)
+if (!free && move_cooldown[@ AT_FSPECIAL] > 25)
 {
      move_cooldown[AT_FSPECIAL] = 0;
 }
@@ -174,34 +174,13 @@ if state != PS_WALL_JUMP{
 	}
 }
 
+charms_logic();
+
+
+
 //bench collision check
 if instance_exists(bench) and free and (state != PS_ATTACK_GROUND and attack == AT_TAUNT){
 	bench.end_anim = true;
-}
-
-if(nail_charging){
-	set_nailart_state();
-	if !((attack == AT_FSTRONG or attack == AT_DSTRONG)and (state == PS_ATTACK_GROUND or state == PS_ATTACK_AIR)){
-		reset_nailart_state();
-	}
-}else{
-	reset_nailart_state();
-}
-
-if(has_charm(LIFEBLOOD_HEART)){
-	if(lifeblood_pool > 0){
-		outline_color = [24, 167, 244];
-		init_shader();
-	}else{
-		outline_color = [0, 0, 0];
-		init_shader();
-	}
-	
-}
-
-//refund spell twister reset
-if(!(state == PS_ATTACK_GROUND or state == PS_ATTACK_AIR)){
-	can_refund = true;
 }
 
 compatibility();
@@ -308,6 +287,104 @@ if (get_player_color(player) == early_access_alt)
 }
 
 
+#define charms_logic()
+//Nailart state reset
+if(nail_charging){
+	set_nailart_state();
+	if !((attack == AT_FSTRONG or attack == AT_DSTRONG) and (state == PS_ATTACK_GROUND or state == PS_ATTACK_AIR)){
+		reset_nailart_state();
+	}
+}else{
+	reset_nailart_state();
+}
+
+//Outline lifeblood color
+if(has_charm(LIFEBLOOD_HEART)){
+	if(lifeblood_pool > 0){
+		outline_color = [24, 167, 244];
+		init_shader();
+	}else{
+		outline_color = [0, 0, 0];
+		init_shader();
+	}
+	
+}else{
+	outline_color = [0, 0, 0];
+	init_shader();
+}
+
+//refund spell twister reset
+if(!(state == PS_ATTACK_GROUND or state == PS_ATTACK_AIR)){
+	can_refund = true;
+}
+
+//Shape of Unn
+if(state == PS_CROUCH){
+	if(has_charm(SHAPE_OF_UNN)){
+		crouchbox_spr = crouch_wormbox_spr;
+		if(state_timer == 0) c_window = 1;
+		
+		if(right_down){
+			cr_hsp = hsp < 0 ? 0 : cr_hsp+crouch_accel;
+		}
+		if(left_down){
+			cr_hsp = hsp > 0 ? 0 : cr_hsp+crouch_accel;
+		}
+		hsp = right_down*cr_hsp + left_down*-cr_hsp;
+		cr_hsp = clamp(cr_hsp, 0, 2.8);
+		
+		//Handle custom window for animation purposes
+		if(cr_window == 1){
+			if(cr_window_timer > 4){
+				cr_window++;
+				cr_window_timer = 0;
+			}
+		}
+		if(cr_window == 2){
+			if(!down_down){
+				cr_window++;
+				cr_window_timer = 0;
+			}
+			if(hsp != 0){
+				
+				if(!crawl_audio_playing or crawl_audio_time > crawl_audio_cycle){
+					
+					crawl_audio_playing = true;
+					sound_play(slug_crawl);
+					if(crawl_audio_time > crawl_audio_cycle) crawl_audio_time = -1;
+				}
+				crawl_audio_time++;	
+			}else if(crawl_audio_playing){
+				sound_stop(slug_crawl);
+				crawl_audio_playing = false;
+				crawl_audio_time = 0;
+			}
+		}		
+		if(cr_window == 3){
+			if(down_down){
+				cr_window = 1;
+				cr_window_timer = 0;
+			}
+			sound_stop(slug_crawl);
+		}
+		cr_window_timer++;
+		
+		
+		if(hsp == 0) cr_hsp = 0;
+	}else{
+		crouchbox_spr = base_crouchbox_spr;
+		cr_window = 1;
+		
+	}
+	
+}else{
+	cr_window = 1;
+	cr_window_timer = 0;
+	if(crawl_audio_playing){
+		sound_stop(slug_crawl);
+		crawl_audio_playing = false;
+	}
+}
 #define compatibility()
 // WORKSHOP, EASTER EGGS AND MORE
 //Kirby Ability
@@ -569,17 +646,16 @@ nail_charging = false;
 
 #define has_charm(charm)
 
-// 1<<charm shifts the one to the charm flag location, example [1 << MARK_OF_PRIDE (mark of pride is 3)] === [0000 0100],
-var shift = (1<<charm);
-
+// is_charm_equipped >> charm shifts the charm flag location one to the most right flag
 // then it performs AND, if equipped then must be equal to the charm number
-return is_charm_equipped & shift == shift;
+return (is_charm_equipped >> charm) & 1;
 
 #define remove_charm(charm)
 
 // charm_equipped_num--;
 // if(charm_equipped_num < 0) charm_equipped_num = 0;
 if(has_charm(charm))
+	charm_equipped_num--;
 	is_charm_equipped = is_charm_equipped & ~(1<<charm); // 1<<charm shifts the one to the charm flag location, it creates the mask with negation, then it performs AND, is_charm_equipped will no longer have 1 at the charm number
 
 #define add_charm(charm)
@@ -587,6 +663,7 @@ if(has_charm(charm))
 // charm_equipped_num++;
 // if(charm_equipped_num > max_charms) charm_equipped_num = max_charms;
 if(has_charm(charm)) return;
+charm_equipped_num++;
 is_charm_equipped = is_charm_equipped | (1<<charm); // 1<<charm shifts the one to the charm flag location, then it performs OR, is_charm_equipped will have 1 at the charm number
 #define room_add(_room_id,room_data) //Adds a new room to the scene
 with obj_stage_article if num == 5 {

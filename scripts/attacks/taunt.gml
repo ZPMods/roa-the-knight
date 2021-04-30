@@ -46,7 +46,7 @@ set_window_value(AT_TAUNT, 6, AG_WINDOW_ANIM_FRAME_START, 21);
 
 //Knight getting off the bench
 set_window_value(AT_TAUNT, 7, AG_WINDOW_TYPE, 0);
-set_window_value(AT_TAUNT, 7, AG_WINDOW_LENGTH, 50);
+set_window_value(AT_TAUNT, 7, AG_WINDOW_LENGTH, 35);
 set_window_value(AT_TAUNT, 7, AG_WINDOW_ANIM_FRAMES, 12);
 set_window_value(AT_TAUNT, 7, AG_WINDOW_ANIM_FRAME_START, 23);
 set_window_value(AT_TAUNT, 7, AG_WINDOW_HAS_SFX, 1);

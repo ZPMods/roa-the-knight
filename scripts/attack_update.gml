@@ -34,7 +34,8 @@ if((attack == AT_FSTRONG) || (attack == AT_DSTRONG))
     		vsp /= 1.15;
     	}
     }
-    if(window < 4 and strong_charge == 60 and has_charm(NAILMASTER) and !nailart_triggered){
+    //Set nailart charge custom state
+    if(has_charm(NAILMASTER) and window < 4 and strong_charge == 60 and !nailart_triggered){
     	nail_charging = true;
     	nailart_triggered = 1;
     	old_max_djumps = max_djumps;
@@ -49,9 +50,12 @@ if((attack == AT_FSTRONG) || (attack == AT_DSTRONG))
     if(window == 4){
     	
     	custom_states();
-    	if(!strong_down){
-    		set_attack(attack);
+    	print(strong_down)
+    	if(!strong_down_func()){
     		nail_charging = false;
+    		set_attack(attack);
+    		
+    		
     	}
     }
     if(window == 5){
@@ -547,35 +551,91 @@ if (attack == AT_NSPECIAL || attack == AT_FSPECIAL || attack == AT_DSPECIAL || a
 //Taunt
 if (attack == AT_TAUNT)
 {
-	 if window == 1 and window_timer == 0{
-	 	sitting = true;
-	 }
+	if window == 1 and window_timer == 1{
+		if(!can_sit){
+			sitting = false;
+			set_state(PS_IDLE);
+			exit;
+		}
+		sitting = true;
+		sleepy_time = -1;
+	}
+	
+	if(window >= 3 and window < 7){
+		if(window < 6 and charm_wheel_fade_value < 10){
+			charm_wheel_fade_value++;
+			// print(charm_wheel_fade_value)
+		}
+		force_depth = 1;
+		depth = sitting_bench.depth - 1;
+		draw_indicator = false;
+		
+		//Charm selector position;
+		if(!joy_pad_idle){
+			var div_joy = (joy_dir + 22.5)/45;
 
-     if (window >= 4 && window < 7 && window_timer > 60 && (shield_pressed || taunt_pressed))
-     {
-          /* if was_parried{
-               set_state(PS_PRATFALL);
-          }else{
-          	   set_state(PS_LAND);
-          } */
+		    charm_dir = floor(div_joy) % 8;
 
-          window = 7;
-          window_timer = 0;
-          if instance_exists(bench){
-        	  bench.end_anim = true;
-          }
-          print_debug("oi")
+		}
+		if(is_ai and get_gameplay_time() % 10 == 0){
+			var div_joy = (random_func(0, 360, true) + 22.5)/45;
+			charm_dir = floor(div_joy) % 8;
+		}
+		
+		
+		if(attack_down){
+			if(!select_lock){
+				print(charm_dir)
+				if(has_charm(charm_dir)){
+					remove_charm(charm_dir);
+				}else{
 
-          clear_button_buffer(PC_SHIELD_PRESSED);
-          clear_button_buffer(PC_TAUNT_PRESSED);
-     }
-
-
-     if hop_off{
-     	hop_off = false;
-	    window = 7
-	    window_timer = 0;
-     }
+					add_charm(charm_dir);
+					
+				}
+				select_lock = true;
+			}
+			
+		}else{
+			select_lock = false;
+		}
+	}
+	if(window >= 6 and charm_wheel_fade_value > 0){
+		charm_wheel_fade_value--;
+		// print(charm_wheel_fade_value)
+	}
+	
+	if (window >= 4 && window < 7 && window_timer > 5 && (shield_pressed || taunt_pressed))
+	{
+		/* if was_parried{
+		   set_state(PS_PRATFALL);
+		}else{
+		     set_state(PS_LAND);
+		} */
+		
+		window = 7;
+		window_timer = 0;
+	if instance_exists(bench){
+	  bench.end_anim = true;
+	}
+		print_debug("oi")
+	
+		clear_button_buffer(PC_SHIELD_PRESSED);
+		clear_button_buffer(PC_TAUNT_PRESSED);
+	}
+	
+	if(window == 6){
+		sleepy_time++;
+	}
+	if hop_off{
+		hop_off = false;
+		window = 7
+		window_timer = 0;
+	}
+	if(window == 7){
+		sitting = false;
+	
+	}
 }
 
 //Pogo dair
@@ -708,6 +768,12 @@ if(!free){
 			}else{//idle
 				ground_friction = 0.5;
 			}
+			if(down_hard_pressed and ground_type == 2){
+				y = y + 5;
+				custom_state = "jump"
+				fall_through = true;
+				clear_button_buffer(PC_DOWN_HARD_PRESSED);
+			}
 			hsp = clamp(hsp, -walk_speed + walk_accel, walk_speed - walk_accel);
 		break;
 		
@@ -755,6 +821,7 @@ if(!free){
 		
 		case "jump":
 			hsp = clamp(hsp, -3, 3);
+			if(down_down) fall_through = true;
 		break;
 	}
 }
@@ -769,27 +836,36 @@ old_custom_state = custom_state;
 
 if (window_timer >= get_window_value(attack, window, AG_WINDOW_LENGTH) - 2) window_timer = 0;
 
+#define strong_down_func()
+
+return strong_down or left_strong_down or right_strong_down or down_strong_down;
+
 #define has_charm(charm)
 
-// 1<<charm shifts the one to the charm flag location, example [1 << MARK_OF_PRIDE (mark of pride is 3)] === [0000 0100],
-var shift = (1<<charm);
-
+// is_charm_equipped >> charm shifts the charm flag location one to the most right flag
 // then it performs AND, if equipped then must be equal to the charm number
-return is_charm_equipped & shift == shift;
+return (is_charm_equipped >> charm) & 1;
 
 #define remove_charm(charm)
 
-// charm_equipped_num--;
-// if(charm_equipped_num < 0) charm_equipped_num = 0;
-if(has_charm(charm))
-	is_charm_equipped = is_charm_equipped & ~(1<<charm); // 1<<charm shifts the one to the charm flag location, it creates the mask with negation, then it performs AND, is_charm_equipped will no longer have 1 at the charm number
 
+// if(charm_equipped_num < 0) charm_equipped_num = 0;
+if(has_charm(charm)){
+	charm_equipped_num--;
+	is_charm_equipped = is_charm_equipped & ~(1<<charm); // 1<<charm shifts the one to the charm flag location, it creates the mask with negation, then it performs AND, is_charm_equipped will no longer have 1 at the charm number
+	charm_equipped[charm_equipped_num] = -1;
+	
+	
+}
 #define add_charm(charm)
 
-// charm_equipped_num++;
+
 // if(charm_equipped_num > max_charms) charm_equipped_num = max_charms;
-if(has_charm(charm)) return;
+if(has_charm(charm) or charm_equipped_num >= charm_notches) return;
+charm_equipped_num++;
 is_charm_equipped = is_charm_equipped | (1<<charm); // 1<<charm shifts the one to the charm flag location, then it performs OR, is_charm_equipped will have 1 at the charm number
+charm_equipped[charm_equipped_num-1] = charm;
+sound_play(charm_click_in);
 
 #define isNailAttack()
 

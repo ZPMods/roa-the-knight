@@ -3,6 +3,7 @@ sprite_change_offset("Kirby_Knight",32,50);
 
 sprite_change_offset("knight_hurtbox_standing", 20, 56);
 sprite_change_offset("knight_hurtbox_crouching", 20, 50);
+sprite_change_offset("crouch_worm_hurtbox",     30, 32);
 
 sprite_change_offset("idle",                    18, 72);
 sprite_change_offset("hurt",                    18, 72);
@@ -58,6 +59,7 @@ sprite_change_offset("dspecial", 90, 86);
 sprite_change_offset("dspecial_boosted", 96, 110);
 sprite_change_offset("taunt", 20, 86);
 sprite_change_offset("bench", 46, 114);
+sprite_change_collision_mask("bench", false, 2, 0, 64, 93, 113, 1);
 
 sprite_change_offset("plat", 160, 190);
 
@@ -99,11 +101,15 @@ sprite_change_offset("feathers_falling_3", 100, 86);
 
 sprite_change_offset("dash_burst", 146, 192);
 sprite_change_offset("strong_aura", 31, 27);
+sprite_change_offset("charm_wheel", 96, 96);
+sprite_change_offset("charms_distributed", 96, 96);
+sprite_change_offset("charm_selector", 32, 32);
 sprite_change_offset("glubberfly_up_proj",      30, 28);
 sprite_change_offset("glubberfly_down_proj",    30, 28);
 sprite_change_offset("glubberfly_proj",         30, 28);
 sprite_change_offset("flukeling",               14, 12);
 sprite_change_offset("flukeling_void",          28, 20);
+sprite_change_offset("crouch_worm",            44, 72);
 
 set_victory_theme( sound_get("Hollow_Knight_Victory_Theme"));
 set_victory_bg( sprite_get( "victory_bg" ));

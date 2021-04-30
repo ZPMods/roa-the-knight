@@ -17,11 +17,11 @@ bench_phase = 0;
 bench = noone;
 colliding_bench = noone;
 sitting = false;
-sitting_id = noone;
 sitting_old_x = x;
 easing_enabled = true;
 do_easing = false;
 hop_off = false;
+can_sit = false;
 
 dash_fx = hit_fx_create(sprite_get("dash_burst"), 9);
 damage_sound = sound_get("damage");
@@ -232,13 +232,14 @@ nts_hit = hit_fx_create(sprite_get("normal_to_shade_effect"), 20)
 //Common Variables
 
 hurtbox_spr = sprite_get("knight_hurtbox_standing");
-crouchbox_spr = sprite_get("knight_hurtbox_crouching");
+base_crouchbox_spr = sprite_get("knight_hurtbox_crouching");
+crouchbox_spr = base_crouchbox_spr;
 air_hurtbox_spr = -1;
 hitstun_hurtbox_spr = -1;
 
 char_height = 52;
 idle_anim_speed = 0.2;
-crouch_anim_speed = .1;
+crouch_anim_speed = .2;
 walk_anim_speed = .125;
 dash_anim_speed = 0.35;
 pratfall_anim_speed = .25;
@@ -418,7 +419,7 @@ enum C{
     NAILMASTER,
     FURY_OF_THE_FALLEN,
     LIFEBLOOD_HEART,
-    MARK_OF_PRIDE,
+    SHAPE_OF_UNN,
     FLUKENEST,
     GLUBBERFLY,
     SPELL_TWISTER,
@@ -428,18 +429,32 @@ enum C{
 NAILMASTER = C.NAILMASTER; // coded
 FURY_OF_THE_FALLEN = C.FURY_OF_THE_FALLEN;// coded
 LIFEBLOOD_HEART = C.LIFEBLOOD_HEART;// coded
-MARK_OF_PRIDE = C.MARK_OF_PRIDE;// i need to dig the old knight normals
+SHAPE_OF_UNN = C.SHAPE_OF_UNN;// Planking + crawl. Neat.
 FLUKENEST = C.FLUKENEST;// coded
 GLUBBERFLY = C.GLUBBERFLY;// horrendous, I feel ashamed. this is broken
 SPELL_TWISTER = C.SPELL_TWISTER;// coded
 DASHMASTER = C.DASHMASTER;// coded
 
+charm_click_in = sound_get("charm_click_in");
 is_charm_equipped = 00000000; //flags for bitwise variable operations ---- 0000 0000 ---- first charm start on the right, the bit is 1 when equipped
 charm_equipped_num = 0;
-charm_equipped = [];
+charm_equipped= array_create(8, -1);
 charm_notches = 1;
 max_charms = 8;
 overcharmed = false;
+sleepy_time = -1;
+sitting_pos = -1;
+sitting_num = -1;
+
+charm_wheel_spr = sprite_get("charm_wheel");
+charms_in_wheel_spr = sprite_get("charms_distributed");
+charm_wheel_width = 192;
+sitting_bench = noone;
+charm_wheel_fade_value = 0;
+draw_wheel = false;
+charm_selector_y = 0;
+charm_selector_x = 60;
+charm_dir = 0;
 
 //nailarts
 nail_charging = false;
@@ -463,10 +478,20 @@ AG_NUM_HITBOXES = 5;
 can_refund = true;
 can_refund_nspecial = true;
 
+//shape of unn
+crouch_worm_spr = sprite_get("crouch_worm");
+crouch_wormbox_spr = sprite_get("crouch_worm_hurtbox");
+crouch_anim_index = 0;
+crouch_accel = 0.3;
+cr_hsp = 0;
+cr_window = 0;
+cr_window_timer = 0;
+slug_crawl = sound_get("charm_shape_of_unn_crawl");
+crawl_audio_playing = false;
+crawl_audio_cycle = 92;
+crawl_audio_time = 0;
 
-
-
-add_charm(FLUKENEST);
+// add_charm(SHAPE_OF_UNN);
 //USE add_charm([name of the charm]) TO EQUIP THE CHARM AND BEGIN TESTING IT
 
 
@@ -494,7 +519,7 @@ shade_mod = false;
 timer1 = get_game_timer();      //The initial game timer.
 timer2 = 0;                     //The game timer after a couple seconds pass.
 
-
+is_ai = false;
 #define has_charm(charm)
 
 // 1<<charm shifts the one to the charm flag location, example [1 << MARK_OF_PRIDE (mark of pride is 3)] === [0000 0100],

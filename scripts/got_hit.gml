@@ -6,14 +6,14 @@ if (move_cooldown[AT_FSPECIAL] > 0)
 
 if (attack == AT_TAUNT)
 {
-     if instance_exists(bench){
-         bench.end_anim = true;
-         bench.all_hop_off = true;
-     }
-     
-     sitting = false;
+	if instance_exists(bench){
+		bench.end_anim = true;
+		bench.all_hop_off = true;
+	}
+	
+	
 }
-
+sitting = false;
 if(has_charm(LIFEBLOOD_HEART) and lifeblood_pool > 0){
     if(enemy_hitboxID.damage > lifeblood_pool){
         take_damage(player, hit_player_obj.player, -lifeblood_pool);
@@ -26,11 +26,9 @@ sound_stop(nailart_loop_sound);
 
 #define has_charm(charm)
 
-// 1<<charm shifts the one to the charm flag location, example [1 << MARK_OF_PRIDE (mark of pride is 3)] === [0000 0100],
-var shift = (1<<charm);
-
+// is_charm_equipped >> charm shifts the charm flag location one to the most right flag
 // then it performs AND, if equipped then must be equal to the charm number
-return is_charm_equipped & shift == shift;
+return (is_charm_equipped >> charm) & 1;
 
 #define remove_charm(charm)
 
