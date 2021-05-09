@@ -4,15 +4,6 @@ if (move_cooldown[AT_FSPECIAL] > 0)
     move_cooldown[AT_FSPECIAL] = 0;
 }
 
-if (attack == AT_TAUNT)
-{
-	if instance_exists(bench){
-		bench.end_anim = true;
-		bench.all_hop_off = true;
-	}
-	
-	
-}
 sitting = false;
 if(has_charm(LIFEBLOOD_HEART) and lifeblood_pool > 0){
     if(enemy_hitboxID.damage > lifeblood_pool){
@@ -22,6 +13,7 @@ if(has_charm(LIFEBLOOD_HEART) and lifeblood_pool > 0){
     }
     lifeblood_pool -= enemy_hitboxID.damage;
 }
+nailart_triggered = false;
 sound_stop(nailart_loop_sound);
 
 #define has_charm(charm)
