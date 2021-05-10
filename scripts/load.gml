@@ -101,6 +101,7 @@ sprite_change_offset("feathers_falling_3", 100, 86);
 
 sprite_change_offset("dash_burst", 146, 192);
 sprite_change_offset("strong_aura", 31, 27);
+sprite_change_offset("charms", 32, 32);
 sprite_change_offset("charm_wheel", 96, 96);
 sprite_change_offset("charms_distributed", 96, 96);
 sprite_change_offset("charm_selector", 32, 32);

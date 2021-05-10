@@ -438,7 +438,7 @@ DASHMASTER = C.DASHMASTER;// coded
 charm_click_in = sound_get("charm_click_in");
 is_charm_equipped = 00000000; //flags for bitwise variable operations ---- 0000 0000 ---- first charm start on the right, the bit is 1 when equipped
 charm_equipped_num = 0;
-charm_equipped= array_create(8, -1);
+charm_equipped = array_create(8, -1);
 charm_notches = 1;
 max_charms = 8;
 overcharmed = false;
@@ -448,6 +448,7 @@ sitting_num = -1;
 
 charm_wheel_spr = sprite_get("charm_wheel");
 charms_in_wheel_spr = sprite_get("charms_distributed");
+charms_spr = sprite_get("charms");
 charm_wheel_width = 192;
 sitting_bench = noone;
 charm_wheel_fade_value = 0;

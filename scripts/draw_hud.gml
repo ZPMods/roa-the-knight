@@ -18,35 +18,44 @@ if(practice or strong_down){
     draw_debug_text( 10, 10 + 105, "7 (dashmaster): fspecial endlag cancel"  );
 }
 //Charms
-var text = "";
-switch(charm_equipped[0]){
-    case 0:
-        text = "nailmaster's glory";
-        break;
-    case 1:
-        text = "fury of the fallen";
-        break;
-    case 2:
-        text = "lifeblood heart";
-        break;
-    case 3:
-        text = "shape of unn";
-        break;
-    case 4:
-        text = "flukenest";
-        break;
-    case 5:
-        text = "glubberfly's elegy";
-        break;
-    case 6:
-        text = "spell twister";
-        break;
-    case 7:
-        text = "dashmaster";
-        break;
+// var text = "";
+// switch(charm_equipped[0]){
+//     case 0:
+//         text = "nailmaster's glory";
+        
+//         break;
+//     case 1:
+//         text = "fury of the fallen";
+//         break;
+//     case 2:
+//         text = "lifeblood heart";
+//         break;
+//     case 3:
+//         text = "shape of unn";
+//         break;
+//     case 4:
+//         text = "flukenest";
+//         break;
+//     case 5:
+//         text = "glubberfly's elegy";
+//         break;
+//     case 6:
+//         text = "spell twister";
+//         break;
+//     case 7:
+//         text = "dashmaster";
+//         break;
     
+// }
+// draw_debug_text( temp_x+60, temp_y-15, text);
+
+if(charm_equipped[0] != -1){
+    draw_sprite(charms_spr, charm_equipped[0], temp_x+75, temp_y-15);
+    draw_debug_text( temp_x+90, temp_y-15, `${charm_equipped[0]}`);
 }
-draw_debug_text( temp_x+60, temp_y-15, text);
+
+
+
 
 //Affiche le nombre de Soul Points sur le HUD
 //draw_debug_text( temp_x+150, temp_y-14, "Soul : " + string( soul_points ));
