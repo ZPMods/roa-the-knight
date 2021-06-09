@@ -36,6 +36,7 @@ if((attack == AT_FSTRONG) || (attack == AT_DSTRONG))
     }
     //Set nailart charge custom state
     if(has_charm(NAILMASTER) and window < 4 and strong_charge == 60 and !nailart_triggered){
+    	set_attack_value(attack, AG_CATEGORY, 2);
     	nail_charging = true;
     	nailart_triggered = 1;
     	old_max_djumps = max_djumps;
@@ -54,13 +55,12 @@ if((attack == AT_FSTRONG) || (attack == AT_DSTRONG))
     	if(!strong_down_func()){
     		nail_charging = false;
     		set_attack(attack);
-    		
-    		
     	}
     }
     if(window == 5){
     	nailart_triggered = 0;
     	can_move = false;
+    	reset_attack_value(attack, AG_CATEGORY);
     }
 }
 
@@ -525,15 +525,18 @@ if ((attack == AT_FSPECIAL_2 && hitpause) || attack == AT_FSPECIAL_2)
      }
      else if (!was_parried)
      {
+     	if(!was_parried){
+     		
           can_jump = true;
           
 
-          if (jump_pressed && djumps == 0 && !was_parried)
+          if (jump_pressed && djumps == 0)
           {
           		can_jump = true;
           		set_state(PS_FIRST_JUMP);
           		hsp = 10 * spr_dir;
           }
+     	}
      }
 }
 
@@ -768,7 +771,7 @@ if(!free){
 			}else{//idle
 				ground_friction = 0.5;
 			}
-			if(down_hard_pressed and ground_type == 2){
+			if(down_hard_pressed and ground_type == 2){//Plat drop
 				y = y + 5;
 				custom_state = "jump"
 				fall_through = true;
@@ -801,6 +804,7 @@ if(!free){
 					vsp = jump_down ? -jump_speed : -short_hop_speed;
 				
 				custom_state = "jump";
+				sound_play(jump_sound);
 			}
 		break;
 		case "jump":
@@ -809,6 +813,9 @@ if(!free){
 			
 		break;
 		case "landing":
+			if(custom_state_timer == 0){
+				sound_play(land_sound);
+			}
 			if(custom_state_timer >= land_time - 1){
 				custom_state = "walk";
 			}
@@ -820,8 +827,12 @@ if(!free){
 	switch(custom_state){
 		
 		case "jump":
+			
 			hsp = clamp(hsp, -3, 3);
 			if(down_down) fall_through = true;
+		break;
+		case "walk":
+			custom_state = "jump";
 		break;
 	}
 }

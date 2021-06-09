@@ -77,7 +77,8 @@ if(nail_charging){
             if(custom_state_timer > double_jump_time){
                 image_index = double_jump_time;
             }else{
-                image_index = ease_linear(0, image_number - 1, custom_state_timer, double_jump_time);
+
+                image_index = ease_linear(0, image_number - 1, vsp + max_fall < 0 ? 0 : floor(vsp + max_fall), floor(max_fall*2));
             }
         break;
         case "landing":

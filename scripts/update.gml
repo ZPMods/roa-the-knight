@@ -299,19 +299,23 @@ if(nail_charging){
 }
 
 //Outline lifeblood color
+outline_color = [0, 0, 0];
 if(has_charm(LIFEBLOOD_HEART)){
 	if(lifeblood_pool > 0){
 		outline_color = [24, 167, 244];
-		init_shader();
-	}else{
-		outline_color = [0, 0, 0];
-		init_shader();
 	}
-	
-}else{
-	outline_color = [0, 0, 0];
-	init_shader();
 }
+
+if(has_charm(FURY_OF_THE_FALLEN)){
+	var seno = (dsin(get_gameplay_time()*6) + 1)/2;
+	//Additive color operation
+	var red = max( outline_color[0], 234*seno );
+	var green = max( outline_color[1], 29*seno );
+	var blue = max( outline_color[2], 36*seno);
+	
+	outline_color = [red, green, blue];
+}
+init_shader();
 
 //refund spell twister reset
 if(!(state == PS_ATTACK_GROUND or state == PS_ATTACK_AIR)){
