@@ -433,7 +433,7 @@ if ((attack == AT_FSPECIAL_2 && hitpause) || attack == AT_FSPECIAL_2)
 {
      if (fspecial_boosted_player_hit != noone)
      {
-          if (hitpause)
+          if (hitpause && !was_parried)
           {
                can_jump = true;
 
@@ -448,18 +448,19 @@ if ((attack == AT_FSPECIAL_2 && hitpause) || attack == AT_FSPECIAL_2)
                can_jump = false;
           }
      }
-     else
+     else if (!was_parried)
      {
           can_jump = true;
+          
 
           if (jump_pressed && djumps == 0 && !was_parried)
           {
-               set_state(PS_FIRST_JUMP);
-               hsp = 10 * spr_dir;
+          		can_jump = true;
+          		set_state(PS_FIRST_JUMP);
+          		hsp = 10 * spr_dir;
           }
      }
 }
-
 
 
 //--------------------------------------------------------
