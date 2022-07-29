@@ -88,7 +88,7 @@ set_hitbox_value(AT_DAIR, 2, HG_ANGLE_FLIPPER, 0);
 #define _get_active_frame_start()
     return ACTIVE_FRAME_START
 
-#macro RECOVERY_FRAMES 4
+#macro RECOVERY_FRAMES 3
 #define _get_recovery_frames()
     return RECOVERY_FRAMES
 #macro RECOVERY_FRAME_START 3

@@ -5,23 +5,22 @@ sprite_change_offset("knight_hurtbox_standing", 20, 56);
 sprite_change_offset("knight_hurtbox_crouching", 20, 50);
 
 sprite_change_offset("idle",                    18, 72);
-sprite_change_offset("hurt",                    18, 72);
+sprite_change_offset("hurt",                    22, 72);
 sprite_change_offset("uphurt",                  22, 72);
-sprite_change_offset("hurtground",              18, 64);
-sprite_change_offset("crouch",                  18, 78);
-sprite_change_offset("walk",                    18, 72);
-sprite_change_offset("walk",                    18, 72);
+sprite_change_offset("hurtground",              22, 72);
+sprite_change_offset("crouch",                  18, 72);
+sprite_change_offset("walk",                    38, 72);
 sprite_change_offset("walkturn",                38, 70);
-sprite_change_offset("dash",                    18, 72);
-sprite_change_offset("dashstart",               18, 72);
-sprite_change_offset("dashstop",                18, 70);
-sprite_change_offset("dashturn",                30, 74);
+sprite_change_offset("dash",                    30, 72);
+sprite_change_offset("dashstart",               30, 72);
+sprite_change_offset("dashstop",                30, 72);
+sprite_change_offset("dashturn",                30, 72);
 
-sprite_change_offset("jumpstart",               20, 70);
-sprite_change_offset("jump",                    26, 72);
-sprite_change_offset("doublejump",              48, 76);
-sprite_change_offset("walljump",                28, 72);
-sprite_change_offset("pratfall", 48, 46);
+sprite_change_offset("jumpstart",               48, 72);
+sprite_change_offset("jump",                    48, 72);
+sprite_change_offset("doublejump",              48, 72);
+sprite_change_offset("walljump",                48, 72);
+sprite_change_offset("pratfall",                48, 46);
 sprite_change_offset("land",                    18, 66);
 sprite_change_offset("landinglag",              18, 66);
 
@@ -31,7 +30,7 @@ sprite_change_offset("rollforward_trail",       18, 72);
 sprite_change_offset("roll_backward",           18, 72);
 sprite_change_offset("rollbackward_trail",      18, 72);
 sprite_change_offset("airdodge",                18, 72);
-sprite_change_offset("airdodge_trail",        18, 72);
+sprite_change_offset("airdodge_trail",          18, 72);
 sprite_change_offset("waveland",                18, 66);
 sprite_change_offset("tech",                    18, 72);
 
