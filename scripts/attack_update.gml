@@ -376,7 +376,7 @@ if (attack == AT_FSPECIAL || attack == AT_FSPECIAL_2)
 
 /* if (attack == AT_FSPECIAL && window == 1 && window_timer == 8)
 {
-     spawn_hit_fx(x, y, dash_burst)
+     spawn_hit_fx(x, y, fx_dash_burst)
 } */
 
 //FORWARD SPECIAL BOOSTED MECHANICS ---------------------------------
@@ -574,7 +574,7 @@ if (attack == AT_USPECIAL)
      {
           if (window_timer == 1)
           {
-               spawn_hit_fx(x, y-30, feathers_burst_1);
+               spawn_hit_fx(x, y-30, fx_feathers_burst_1);
           }
 
           if (window_timer % 4 == 0)
@@ -595,29 +595,29 @@ if (attack == AT_USPECIAL_2 || attack == AT_FSPECIAL_2 || attack == AT_DSPECIAL_
 {
      if (state_timer % 4 == 0)
      {
-          shade_bubbles_play = 1;
-          shade_bubbles_x = x;
-          shade_bubbles_y = y - 35;
+          fx_shade_bubbles_play = 1;
+          fx_shade_bubbles_x = x;
+          fx_shade_bubbles_y = y - 35;
      }
 }
 
-if (shade_bubbles_play == 1)
+if (fx_shade_bubbles_play == 1)
 {
-    shade_bubbles_play = 0;
-	spawnShadeBubbles(shade_bubbles_x, shade_bubbles_y);
+    fx_shade_bubbles_play = 0;
+	spawnShadeBubbles(fx_shade_bubbles_x, fx_shade_bubbles_y);
 }
 
 #define spawnShadeBubbles
 var id = random_func(0, 5, true);
-var toSpawn = shade_bubbles_1;
+var toSpawn = fx_shade_bubbles_1;
 
 switch (id)
 {
-     case 0 : toSpawn = shade_bubbles_1; break;
-     case 1 : toSpawn = shade_bubbles_2; break;
-     case 2 : toSpawn = shade_bubbles_3; break;
-     case 3 : toSpawn = shade_bubbles_4; break;
-     case 4 : toSpawn = shade_bubbles_5; break;
+     case 0 : toSpawn = fx_shade_bubbles_1; break;
+     case 1 : toSpawn = fx_shade_bubbles_2; break;
+     case 2 : toSpawn = fx_shade_bubbles_3; break;
+     case 3 : toSpawn = fx_shade_bubbles_4; break;
+     case 4 : toSpawn = fx_shade_bubbles_5; break;
 }
 
 spawn_hit_fx(argument[0], argument[1], toSpawn);
@@ -625,13 +625,13 @@ spawn_hit_fx(argument[0], argument[1], toSpawn);
 
 #define spawnFeathersFalling
 var id = random_func(0, 3, true);
-var toSpawn = feathers_falling_1;
+var toSpawn = fx_feathers_falling_1;
 
 switch (id)
 {
-     case 0 : toSpawn = feathers_falling_1; break;
-     case 1 : toSpawn = feathers_falling_2; break;
-     case 2 : toSpawn = feathers_falling_3; break;
+     case 0 : toSpawn = fx_feathers_falling_1; break;
+     case 1 : toSpawn = fx_feathers_falling_2; break;
+     case 2 : toSpawn = fx_feathers_falling_3; break;
 }
 
 spawn_hit_fx(argument[0], argument[1], toSpawn);

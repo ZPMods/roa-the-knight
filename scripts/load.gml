@@ -65,38 +65,38 @@ sprite_change_offset("nspecial_boosted_proj",  52, 22);
 sprite_change_offset("nspecial_explosion", 64, 64);
 sprite_change_offset("nspecial_boosted_explosion", 128, 128);
 sprite_change_offset("dspecial_hiteffect", 128, 128);
-sprite_change_offset("shade_hit_weak", 64, 64);
-sprite_change_offset("shade_hit_weak_2", 64, 64);
-sprite_change_offset("soul_hit_weak", 64, 64);
-sprite_change_offset("soul_hit_heavy", 64, 64);
+sprite_change_offset("fx_shade_hit_weak", 64, 64);
+sprite_change_offset("fx_shade_hit_weak_2", 64, 64);
+sprite_change_offset("fx_soul_hit_weak", 64, 64);
+sprite_change_offset("fx_soul_hit_heavy", 64, 64);
 
 
-sprite_change_offset("soul_full_effect", 120, 120);
+sprite_change_offset("fx_soul_full", 120, 120);
 
-sprite_change_offset("soul_burst_1", 120, 120);
-sprite_change_offset("soul_burst_2", 120, 120);
-sprite_change_offset("soul_burst_3", 120, 120);
-sprite_change_offset("soul_burst_4", 120, 120);
-sprite_change_offset("soul_burst_5", 120, 120);
+sprite_change_offset("fx_soul_burst_1", 120, 120);
+sprite_change_offset("fx_soul_burst_2", 120, 120);
+sprite_change_offset("fx_soul_burst_3", 120, 120);
+sprite_change_offset("fx_soul_burst_4", 120, 120);
+sprite_change_offset("fx_soul_burst_5", 120, 120);
 
-sprite_change_offset("shade_burst_1", 120, 120);
-sprite_change_offset("shade_burst_2", 120, 120);
-sprite_change_offset("shade_burst_3", 120, 120);
-sprite_change_offset("shade_burst_4", 120, 120);
-sprite_change_offset("shade_burst_5", 120, 120);
+sprite_change_offset("fx_shade_burst_1", 120, 120);
+sprite_change_offset("fx_shade_burst_2", 120, 120);
+sprite_change_offset("fx_shade_burst_3", 120, 120);
+sprite_change_offset("fx_shade_burst_4", 120, 120);
+sprite_change_offset("fx_shade_burst_5", 120, 120);
 
-sprite_change_offset("shade_bubbles_1", 60, 60);
-sprite_change_offset("shade_bubbles_2", 60, 60);
-sprite_change_offset("shade_bubbles_3", 60, 60);
-sprite_change_offset("shade_bubbles_4", 60, 60);
-sprite_change_offset("shade_bubbles_5", 60, 60);
+sprite_change_offset("fx_shade_bubbles_1", 64, 64);
+sprite_change_offset("fx_shade_bubbles_2", 64, 64);
+sprite_change_offset("fx_shade_bubbles_3", 64, 64);
+sprite_change_offset("fx_shade_bubbles_4", 64, 64);
+sprite_change_offset("fx_shade_bubbles_5", 64, 64);
 
-sprite_change_offset("feathers_burst_1", 100, 86);
-sprite_change_offset("feathers_falling_1", 100, 86);
-sprite_change_offset("feathers_falling_2", 100, 86);
-sprite_change_offset("feathers_falling_3", 100, 86);
+sprite_change_offset("fx_feathers_burst_1", 100, 86);
+sprite_change_offset("fx_feathers_falling_1", 100, 86);
+sprite_change_offset("fx_feathers_falling_2", 100, 86);
+sprite_change_offset("fx_feathers_falling_3", 100, 86);
 
-sprite_change_offset("dash_burst", 146, 192);
+sprite_change_offset("fx_dash_burst", 132, 62);
 
 set_victory_theme( sound_get("Hollow_Knight_Victory_Theme"));
 set_victory_bg( sprite_get( "victory_bg" ));

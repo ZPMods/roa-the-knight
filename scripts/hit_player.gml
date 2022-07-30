@@ -213,43 +213,43 @@ if (vanillachar == 14)
 //Soul Burst
 if (my_hitboxID.attack == AT_NSPECIAL && my_hitboxID.hbox_num == 1)
 {
-     soul_burst_play = 1;
-     soul_burst_x = hit_player_obj.x;
-     soul_burst_y = hit_player_obj.y - 35;
+     fx_soul_burst_play = 1;
+     fx_soul_burst_x = hit_player_obj.x;
+     fx_soul_burst_y = hit_player_obj.y - 35;
 }
 
 if (my_hitboxID.attack == AT_DSPECIAL && (my_hitboxID.hbox_num == 1 || my_hitboxID.hbox_num == 2))
 {
-     soul_burst_play = 1;
-     soul_burst_x = hit_player_obj.x;
-     soul_burst_y = hit_player_obj.y - 35;
+     fx_soul_burst_play = 1;
+     fx_soul_burst_x = hit_player_obj.x;
+     fx_soul_burst_y = hit_player_obj.y - 35;
 }
 
 //Shade Burst
 if (my_hitboxID.attack == AT_NSPECIAL_2 && my_hitboxID.hbox_num == 2)
 {
-     shade_burst_play = 1;
-     shade_burst_x = hit_player_obj.x;
-     shade_burst_y = hit_player_obj.y - 35;
+     fx_shade_burst_play = 1;
+     fx_shade_burst_x = hit_player_obj.x;
+     fx_shade_burst_y = hit_player_obj.y - 35;
 }
 
 if (my_hitboxID.attack == AT_USPECIAL_2 && my_hitboxID.hbox_num == 7)
 {
-     shade_burst_play = 1;
-     shade_burst_x = hit_player_obj.x;
-     shade_burst_y = hit_player_obj.y - 35;
+     fx_shade_burst_play = 1;
+     fx_shade_burst_x = hit_player_obj.x;
+     fx_shade_burst_y = hit_player_obj.y - 35;
 }
 
 if (my_hitboxID.attack == AT_FSPECIAL_2 && my_hitboxID.hbox_num == 4)
 {
-     shade_burst_play = 1;
-     shade_burst_x = hit_player_obj.x;
-     shade_burst_y = hit_player_obj.y - 35;
+     fx_shade_burst_play = 1;
+     fx_shade_burst_x = hit_player_obj.x;
+     fx_shade_burst_y = hit_player_obj.y - 35;
 }
 
 if (my_hitboxID.attack == AT_DSPECIAL_2 && my_hitboxID.hbox_num == 10)
 {
-     shade_burst_play = 1;
-     shade_burst_x = hit_player_obj.x;
-     shade_burst_y = hit_player_obj.y - 35;
+     fx_shade_burst_play = 1;
+     fx_shade_burst_x = hit_player_obj.x;
+     fx_shade_burst_y = hit_player_obj.y - 35;
 }

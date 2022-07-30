@@ -12,7 +12,7 @@ if (nts_effect_show == true)
      }
 
      shader_start();
-     draw_sprite_ext(sprite_get("normal_to_shade_effect"), nts_effect_animation_frame, nts_effect_x, nts_effect_y, 1, 1, 0, c_white, 255);
+     draw_sprite_ext(sprite_get("fx_shade_transition"), nts_effect_animation_frame, nts_effect_x, nts_effect_y, 1, 1, 0, c_white, 255);
      shader_end();
 
      nts_effect_animation_timer += 1;
