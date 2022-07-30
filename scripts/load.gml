@@ -46,7 +46,7 @@ sprite_change_offset("uair", 46, 114);
 sprite_change_offset("dair", 42, 74);
 sprite_change_offset("fstrong", 40, 74);
 sprite_change_offset("ustrong", 66, 132);
-sprite_change_offset("dstrong", 74, 72);
+sprite_change_offset("dstrong", 72, 72);
 sprite_change_offset("nspecial", 22, 76);
 sprite_change_offset("nspecial_boosted", 24, 78);
 sprite_change_offset("fspecial", 40, 74);

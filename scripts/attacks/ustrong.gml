@@ -7,19 +7,19 @@ set_attack_value(AT_USTRONG, AG_HURTBOX_SPRITE, sprite_get("ustrong_hurt"));
 //Charge
 set_window_value(AT_USTRONG, 1, AG_WINDOW_TYPE, 1);
 set_window_value(AT_USTRONG, 1, AG_WINDOW_LENGTH, 13);
-set_window_value(AT_USTRONG, 1, AG_WINDOW_ANIM_FRAMES, 4);
+set_window_value(AT_USTRONG, 1, AG_WINDOW_ANIM_FRAMES, CHARGE_FRAMES);
 
 //Startup
 set_window_value(AT_USTRONG, 2, AG_WINDOW_TYPE, 1);
 set_window_value(AT_USTRONG, 2, AG_WINDOW_LENGTH, 8);
-set_window_value(AT_USTRONG, 2, AG_WINDOW_ANIM_FRAMES, 1);
-set_window_value(AT_USTRONG, 2, AG_WINDOW_ANIM_FRAME_START, 3);
+set_window_value(AT_USTRONG, 2, AG_WINDOW_ANIM_FRAMES, STARTUP_FRAMES);
+set_window_value(AT_USTRONG, 2, AG_WINDOW_ANIM_FRAME_START, STARTUP_FRAME_START);
 
 //Scoop
 set_window_value(AT_USTRONG, 3, AG_WINDOW_TYPE, 1);
 set_window_value(AT_USTRONG, 3, AG_WINDOW_LENGTH, 3);
-set_window_value(AT_USTRONG, 3, AG_WINDOW_ANIM_FRAMES, 1);
-set_window_value(AT_USTRONG, 3, AG_WINDOW_ANIM_FRAME_START, 4);
+set_window_value(AT_USTRONG, 3, AG_WINDOW_ANIM_FRAMES, SCOOP_FRAMES);
+set_window_value(AT_USTRONG, 3, AG_WINDOW_ANIM_FRAME_START, SCOOP_FRAME_START);
 
 set_window_value(AT_USTRONG, 3, AG_WINDOW_HAS_SFX, 1);
 set_window_value(AT_USTRONG, 3, AG_WINDOW_SFX, sound_get("knight_strong_up"));
@@ -28,20 +28,20 @@ set_window_value(AT_USTRONG, 3, AG_WINDOW_SFX_FRAME, 1);
 //Sweetspot
 set_window_value(AT_USTRONG, 4, AG_WINDOW_TYPE, 1);
 set_window_value(AT_USTRONG, 4, AG_WINDOW_LENGTH, 2);
-set_window_value(AT_USTRONG, 4, AG_WINDOW_ANIM_FRAMES, 1);
-set_window_value(AT_USTRONG, 4, AG_WINDOW_ANIM_FRAME_START, 5);
+set_window_value(AT_USTRONG, 4, AG_WINDOW_ANIM_FRAMES, SWEETSPOT_FRAMES);
+set_window_value(AT_USTRONG, 4, AG_WINDOW_ANIM_FRAME_START, SWEETSPOT_FRAME_START);
 
 //Sourspot
 set_window_value(AT_USTRONG, 5, AG_WINDOW_TYPE, 1);
 set_window_value(AT_USTRONG, 5, AG_WINDOW_LENGTH, 20);
-set_window_value(AT_USTRONG, 5, AG_WINDOW_ANIM_FRAMES, 6);
-set_window_value(AT_USTRONG, 5, AG_WINDOW_ANIM_FRAME_START, 6);
+set_window_value(AT_USTRONG, 5, AG_WINDOW_ANIM_FRAMES, SOURSPOT_FRAMES);
+set_window_value(AT_USTRONG, 5, AG_WINDOW_ANIM_FRAME_START, SOURSPOT_FRAME_START);
 
 //Endlag
 set_window_value(AT_USTRONG, 6, AG_WINDOW_TYPE, 1);
 set_window_value(AT_USTRONG, 6, AG_WINDOW_LENGTH, 15);
-set_window_value(AT_USTRONG, 6, AG_WINDOW_ANIM_FRAMES, 4);
-set_window_value(AT_USTRONG, 6, AG_WINDOW_ANIM_FRAME_START, 12);
+set_window_value(AT_USTRONG, 6, AG_WINDOW_ANIM_FRAMES, ENDLAG_FRAMES);
+set_window_value(AT_USTRONG, 6, AG_WINDOW_ANIM_FRAME_START, ENDLAG_FRAME_START);
 set_window_value(AT_USTRONG, 6, AG_WINDOW_HAS_WHIFFLAG, 1);
 
 set_num_hitboxes(AT_USTRONG, 3);
@@ -107,3 +107,50 @@ set_hitbox_value(AT_USTRONG, 3, HG_VISUAL_EFFECT, soul_hit_weak);
 set_hitbox_value(AT_USTRONG, 3, HG_HIT_SFX, asset_get("sfx_blow_weak1"));
 set_hitbox_value(AT_USTRONG, 3, HG_ANGLE_FLIPPER, 6);
 set_hitbox_value(AT_USTRONG, 3, HG_HITBOX_GROUP, 1);
+
+// #region vvv LIBRARY DEFINES AND MACROS vvv
+// DANGER File below this point will be overwritten! Generated defines and macros below.
+// Write NO-INJECT in a comment above this area to disable injection.
+#macro CHARGE_FRAMES 4
+#define _get_charge_frames()
+    return CHARGE_FRAMES
+#macro CHARGE_FRAME_START 0
+#define _get_charge_frame_start()
+    return CHARGE_FRAME_START
+
+#macro STARTUP_FRAMES 1
+#define _get_startup_frames()
+    return STARTUP_FRAMES
+#macro STARTUP_FRAME_START 3
+#define _get_startup_frame_start()
+    return STARTUP_FRAME_START
+
+#macro SCOOP_FRAMES 1
+#define _get_scoop_frames()
+    return SCOOP_FRAMES
+#macro SCOOP_FRAME_START 4
+#define _get_scoop_frame_start()
+    return SCOOP_FRAME_START
+
+#macro SWEETSPOT_FRAMES 1
+#define _get_sweetspot_frames()
+    return SWEETSPOT_FRAMES
+#macro SWEETSPOT_FRAME_START 5
+#define _get_sweetspot_frame_start()
+    return SWEETSPOT_FRAME_START
+
+#macro SOURSPOT_FRAMES 6
+#define _get_sourspot_frames()
+    return SOURSPOT_FRAMES
+#macro SOURSPOT_FRAME_START 6
+#define _get_sourspot_frame_start()
+    return SOURSPOT_FRAME_START
+
+#macro ENDLAG_FRAMES 4
+#define _get_endlag_frames()
+    return ENDLAG_FRAMES
+#macro ENDLAG_FRAME_START 12
+#define _get_endlag_frame_start()
+    return ENDLAG_FRAME_START
+// DANGER: Write your code ABOVE the LIBRARY DEFINES AND MACROS header or it will be overwritten!
+// #endregion
