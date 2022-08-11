@@ -11,14 +11,14 @@ set_window_value(AT_USPECIAL_2, 1, AG_WINDOW_TYPE, 1);
 set_window_value(AT_USPECIAL_2, 1, AG_WINDOW_LENGTH, 4);
 set_window_value(AT_USPECIAL_2, 1, AG_WINDOW_VSPEED_TYPE, 1);
 set_window_value(AT_USPECIAL_2, 1, AG_WINDOW_HSPEED_TYPE, 1);
-set_window_value(AT_USPECIAL_2, 1, AG_WINDOW_ANIM_FRAMES, 2);
+set_window_value(AT_USPECIAL_2, 1, AG_WINDOW_ANIM_FRAMES, STARTUP_FRAMES);
 set_window_value(AT_USPECIAL_2, 1, AG_WINDOW_HAS_SFX, 1);
 
 //Montée
 set_window_value(AT_USPECIAL_2, 2, AG_WINDOW_TYPE, 1);
 set_window_value(AT_USPECIAL_2, 2, AG_WINDOW_LENGTH, 15);
-set_window_value(AT_USPECIAL_2, 2, AG_WINDOW_ANIM_FRAMES, 7);
-set_window_value(AT_USPECIAL_2, 2, AG_WINDOW_ANIM_FRAME_START, 2);
+set_window_value(AT_USPECIAL_2, 2, AG_WINDOW_ANIM_FRAMES, RISE_FRAMES);
+set_window_value(AT_USPECIAL_2, 2, AG_WINDOW_ANIM_FRAME_START, RISE_FRAME_START);
 set_window_value(AT_USPECIAL_2, 2, AG_WINDOW_HAS_SFX, 1);
 set_window_value(AT_USPECIAL_2, 2, AG_WINDOW_SFX, asset_get("sfx_ice_uspecial_jump"));
 set_window_value(AT_USPECIAL_2, 2, AG_WINDOW_VSPEED_TYPE, 1);
@@ -32,18 +32,17 @@ set_window_value(AT_USPECIAL_2, 3, AG_WINDOW_TYPE, 1);
 set_window_value(AT_USPECIAL_2, 3, AG_WINDOW_HAS_SFX, 1);
 set_window_value(AT_USPECIAL_2, 3, AG_WINDOW_SFX, sound_get("knight_special_up_boosted"));
 set_window_value(AT_USPECIAL_2, 3, AG_WINDOW_SFX_FRAME, 1);
-set_window_value(AT_USPECIAL_2, 3, AG_WINDOW_ANIM_FRAME_START, 1);
 set_window_value(AT_USPECIAL_2, 3, AG_WINDOW_LENGTH, 16);
 set_window_value(AT_USPECIAL_2, 3, AG_WINDOW_VSPEED, 5);
-set_window_value(AT_USPECIAL_2, 3, AG_WINDOW_ANIM_FRAMES, 4);
-set_window_value(AT_USPECIAL_2, 3, AG_WINDOW_ANIM_FRAME_START, 9);
+set_window_value(AT_USPECIAL_2, 3, AG_WINDOW_ANIM_FRAMES, ACTIVE_FRAMES);
+set_window_value(AT_USPECIAL_2, 3, AG_WINDOW_ANIM_FRAME_START, ACTIVE_FRAME_START);
 
 
 //Endlag -> Pratfall
 set_window_value(AT_USPECIAL_2, 4, AG_WINDOW_TYPE, 7);
 set_window_value(AT_USPECIAL_2, 4, AG_WINDOW_LENGTH, 20);
-set_window_value(AT_USPECIAL_2, 4, AG_WINDOW_ANIM_FRAMES, 6);
-set_window_value(AT_USPECIAL_2, 4, AG_WINDOW_ANIM_FRAME_START, 13);
+set_window_value(AT_USPECIAL_2, 4, AG_WINDOW_ANIM_FRAMES, FLIP_FRAMES);
+set_window_value(AT_USPECIAL_2, 4, AG_WINDOW_ANIM_FRAME_START, FLIP_FRAME_START);
 
 set_num_hitboxes(AT_USPECIAL_2, 4);
 

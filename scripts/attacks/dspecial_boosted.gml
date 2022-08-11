@@ -6,8 +6,7 @@ set_attack_value(AT_DSPECIAL_2, AG_HURTBOX_SPRITE, sprite_get("dspecial_boosted_
 //Avant boost vertical
 set_window_value(AT_DSPECIAL_2, 1, AG_WINDOW_TYPE, 1);
 set_window_value(AT_DSPECIAL_2, 1, AG_WINDOW_LENGTH, 5);
-set_window_value(AT_DSPECIAL_2, 1, AG_WINDOW_ANIM_FRAMES, 1);
-set_window_value(AT_DSPECIAL_2, 1, AG_WINDOW_ANIM_FRAME_START, 0);
+set_window_value(AT_DSPECIAL_2, 1, AG_WINDOW_ANIM_FRAMES, STARTUP_FRAMES);
 set_window_value(AT_DSPECIAL_2, 1, AG_WINDOW_HAS_SFX, 1);
 set_window_value(AT_DSPECIAL_2, 1, AG_WINDOW_HSPEED_TYPE, 1);
 set_window_value(AT_DSPECIAL_2, 1, AG_WINDOW_HSPEED, 0);
@@ -17,16 +16,16 @@ set_window_value(AT_DSPECIAL_2, 2, AG_WINDOW_TYPE, 1);
 set_window_value(AT_DSPECIAL_2, 2, AG_WINDOW_LENGTH, 10);
 set_window_value(AT_DSPECIAL_2, 2, AG_WINDOW_HAS_SFX, 1);
 set_window_value(AT_DSPECIAL_2, 2, AG_WINDOW_SFX, asset_get("sfx_jumpground"));
-set_window_value(AT_DSPECIAL_2, 2, AG_WINDOW_ANIM_FRAMES, 4);
-set_window_value(AT_DSPECIAL_2, 2, AG_WINDOW_ANIM_FRAME_START, 1);
+set_window_value(AT_DSPECIAL_2, 2, AG_WINDOW_ANIM_FRAMES, JUMP_FRAMES);
+set_window_value(AT_DSPECIAL_2, 2, AG_WINDOW_ANIM_FRAME_START, JUMP_FRAME_START);
 set_window_value(AT_DSPECIAL_2, 2, AG_WINDOW_VSPEED_TYPE, 1);
 set_window_value(AT_DSPECIAL_2, 2, AG_WINDOW_VSPEED, -9);
 
 //Hover
 set_window_value(AT_DSPECIAL_2, 3, AG_WINDOW_TYPE, 1);
 set_window_value(AT_DSPECIAL_2, 3, AG_WINDOW_LENGTH, 15);
-set_window_value(AT_DSPECIAL_2, 3, AG_WINDOW_ANIM_FRAMES, 10);
-set_window_value(AT_DSPECIAL_2, 3, AG_WINDOW_ANIM_FRAME_START, 5);
+set_window_value(AT_DSPECIAL_2, 3, AG_WINDOW_ANIM_FRAMES, HOVER_FRAMES);
+set_window_value(AT_DSPECIAL_2, 3, AG_WINDOW_ANIM_FRAME_START, HOVER_FRAME_START);
 set_window_value(AT_DSPECIAL_2, 3, AG_WINDOW_VSPEED_TYPE, 1);
 set_window_value(AT_DSPECIAL_2, 3, AG_WINDOW_VSPEED, 0);
 set_window_value(AT_DSPECIAL_2, 3, AG_WINDOW_HSPEED_TYPE, 1);
@@ -39,8 +38,8 @@ set_window_value(AT_DSPECIAL_2, 3, AG_WINDOW_SFX_FRAME, 3);
 set_window_value(AT_DSPECIAL_2, 4, AG_WINDOW_TYPE, 9);
 set_window_value(AT_DSPECIAL_2, 4, AG_WINDOW_LENGTH, 16);
 set_window_value(AT_DSPECIAL_2, 4, AG_WINDOW_INVINCIBILITY, 2);
-set_window_value(AT_DSPECIAL_2, 4, AG_WINDOW_ANIM_FRAMES, 4);
-set_window_value(AT_DSPECIAL_2, 4, AG_WINDOW_ANIM_FRAME_START, 15);
+set_window_value(AT_DSPECIAL_2, 4, AG_WINDOW_ANIM_FRAMES, DIVE_FRAMES);
+set_window_value(AT_DSPECIAL_2, 4, AG_WINDOW_ANIM_FRAME_START, DIVE_FRAME_START);
 set_window_value(AT_DSPECIAL_2, 4, AG_WINDOW_VSPEED_TYPE, 1);
 set_window_value(AT_DSPECIAL_2, 4, AG_WINDOW_VSPEED, 15);
 set_window_value(AT_DSPECIAL_2, 4, AG_WINDOW_HSPEED_TYPE, 0);
@@ -49,8 +48,8 @@ set_window_value(AT_DSPECIAL_2, 4, AG_WINDOW_HSPEED, 0);
 //Hitboxes au sol - Phase 1
 set_window_value(AT_DSPECIAL_2, 5, AG_WINDOW_TYPE, 1);
 set_window_value(AT_DSPECIAL_2, 5, AG_WINDOW_LENGTH, 25);
-set_window_value(AT_DSPECIAL_2, 5, AG_WINDOW_ANIM_FRAMES, 11);
-set_window_value(AT_DSPECIAL_2, 5, AG_WINDOW_ANIM_FRAME_START, 19);
+set_window_value(AT_DSPECIAL_2, 5, AG_WINDOW_ANIM_FRAMES, LAND_FRAMES);
+set_window_value(AT_DSPECIAL_2, 5, AG_WINDOW_ANIM_FRAME_START, LAND_FRAME_START);
 set_window_value(AT_DSPECIAL_2, 5, AG_WINDOW_HAS_SFX, 1);
 set_window_value(AT_DSPECIAL_2, 5, AG_WINDOW_SFX, sound_get("knight_special_down_boosted_impact_2"));
 set_window_value(AT_DSPECIAL_2, 5, AG_WINDOW_HSPEED_TYPE, 1);
@@ -59,16 +58,16 @@ set_window_value(AT_DSPECIAL_2, 5, AG_WINDOW_HSPEED, 0);
 //Hitboxes au sol - Explosion
 set_window_value(AT_DSPECIAL_2, 6, AG_WINDOW_TYPE, 1);
 set_window_value(AT_DSPECIAL_2, 6, AG_WINDOW_LENGTH, 12);
-set_window_value(AT_DSPECIAL_2, 6, AG_WINDOW_ANIM_FRAMES, 5);
-set_window_value(AT_DSPECIAL_2, 6, AG_WINDOW_ANIM_FRAME_START, 30);
+set_window_value(AT_DSPECIAL_2, 6, AG_WINDOW_ANIM_FRAMES, LAND_EXPLOSION_FRAMES);
+set_window_value(AT_DSPECIAL_2, 6, AG_WINDOW_ANIM_FRAME_START, LAND_EXPLOSION_FRAME_START);
 set_window_value(AT_DSPECIAL_2, 6, AG_WINDOW_HSPEED_TYPE, 1);
 set_window_value(AT_DSPECIAL_2, 6, AG_WINDOW_HSPEED, 0);
 
 //Endlag
 set_window_value(AT_DSPECIAL_2, 7, AG_WINDOW_TYPE, 1);
 set_window_value(AT_DSPECIAL_2, 7, AG_WINDOW_LENGTH, 18);
-set_window_value(AT_DSPECIAL_2, 7, AG_WINDOW_ANIM_FRAMES, 7);
-set_window_value(AT_DSPECIAL_2, 7, AG_WINDOW_ANIM_FRAME_START, 35);
+set_window_value(AT_DSPECIAL_2, 7, AG_WINDOW_ANIM_FRAMES, RECOVERY_FRAMES);
+set_window_value(AT_DSPECIAL_2, 7, AG_WINDOW_ANIM_FRAME_START, RECOVERY_FRAME_START);
 
 set_num_hitboxes(AT_DSPECIAL_2, 15);
 
@@ -250,3 +249,57 @@ set_hitbox_value(AT_DSPECIAL_2, 10, HG_HITPAUSE_SCALING, .9);
 set_hitbox_value(AT_DSPECIAL_2, 10, HG_HIT_SFX, asset_get("sfx_blow_heavy1"));
 set_hitbox_value(AT_DSPECIAL_2, 10, HG_ANGLE_FLIPPER, 8);
 set_hitbox_value(AT_DSPECIAL_2, 10, HG_HITBOX_GROUP, -1);
+
+// #region vvv LIBRARY DEFINES AND MACROS vvv
+// DANGER File below this point will be overwritten! Generated defines and macros below.
+// Write NO-INJECT in a comment above this area to disable injection.
+#macro STARTUP_FRAMES 1
+#define _get_startup_frames()
+    return STARTUP_FRAMES
+#macro STARTUP_FRAME_START 0
+#define _get_startup_frame_start()
+    return STARTUP_FRAME_START
+
+#macro JUMP_FRAMES 4
+#define _get_jump_frames()
+    return JUMP_FRAMES
+#macro JUMP_FRAME_START 1
+#define _get_jump_frame_start()
+    return JUMP_FRAME_START
+
+#macro HOVER_FRAMES 10
+#define _get_hover_frames()
+    return HOVER_FRAMES
+#macro HOVER_FRAME_START 5
+#define _get_hover_frame_start()
+    return HOVER_FRAME_START
+
+#macro DIVE_FRAMES 4
+#define _get_dive_frames()
+    return DIVE_FRAMES
+#macro DIVE_FRAME_START 15
+#define _get_dive_frame_start()
+    return DIVE_FRAME_START
+
+#macro LAND_FRAMES 11
+#define _get_land_frames()
+    return LAND_FRAMES
+#macro LAND_FRAME_START 19
+#define _get_land_frame_start()
+    return LAND_FRAME_START
+
+#macro LAND_EXPLOSION_FRAMES 5
+#define _get_land_explosion_frames()
+    return LAND_EXPLOSION_FRAMES
+#macro LAND_EXPLOSION_FRAME_START 30
+#define _get_land_explosion_frame_start()
+    return LAND_EXPLOSION_FRAME_START
+
+#macro RECOVERY_FRAMES 7
+#define _get_recovery_frames()
+    return RECOVERY_FRAMES
+#macro RECOVERY_FRAME_START 35
+#define _get_recovery_frame_start()
+    return RECOVERY_FRAME_START
+// DANGER: Write your code ABOVE the LIBRARY DEFINES AND MACROS header or it will be overwritten!
+// #endregion

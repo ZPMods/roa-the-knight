@@ -173,8 +173,8 @@ nspecial_boosted_effect_dir = "right";
 
 //HIT EFFECTS
 
-nspecial_explosion = hit_fx_create(sprite_get("nspecial_explosion"), 30);
-nspecial_boosted_explosion = hit_fx_create(sprite_get("nspecial_boosted_explosion"), 30);
+fx_nspecial_explosion = hit_fx_create(sprite_get("fx_nspecial_explosion"), 30);
+fx_nspecial_boosted_explosion = hit_fx_create(sprite_get("fx_nspecial_boosted_explosion"), 30);
 
 fx_shade_hit_weak = hit_fx_create(sprite_get("fx_shade_hit_weak"), 20);
 fx_shade_hit_weak_2 = hit_fx_create(sprite_get("fx_shade_hit_weak_2"), 20);
