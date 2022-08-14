@@ -379,8 +379,8 @@ if swallowed {
     swallowed = 0;
     kirb_used = 0;
 
-    var ability_spr = sprite_get("Kirby_Knight");
-    var ability_air_spr = sprite_get("Kirby_Knight");
+    var ability_spr = sprite_get("extra_kirby_knight");
+    var ability_air_spr = sprite_get("extra_kirby_knight");
     var hurtbox_spr = sprite_get("Kirby_Knight_hurt");
     var ability_proj_spr = sprite_get("nspecial_proj");
 	var sound_nspecial = sound_get("knight_special_neutral_normal");
@@ -470,7 +470,7 @@ if enemykirby != undefined { //if kirby is in a match & swallowed
 if trummelcodecneeded{
     trummelcodec = 17;
     trummelcodecmax = 5;
-    trummelcodecsprite1 = sprite_get("smalltalk");
+    trummelcodecsprite1 = sprite_get("extra_smalltalk");
     trummelcodecsprite2 = sprite_get("charm_notch_on");
 
     //Page 0

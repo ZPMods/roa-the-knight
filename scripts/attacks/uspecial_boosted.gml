@@ -134,3 +134,36 @@ set_hitbox_value(AT_USPECIAL_2, 4, HG_HIT_SFX, asset_get("sfx_blow_heavy1"));
 set_hitbox_value(AT_USPECIAL_2, 4, HG_ANGLE_FLIPPER, 3);
 set_hitbox_value(AT_USPECIAL_2, 4, HG_DRIFT_MULTIPLIER, .5);
 set_hitbox_value(AT_USPECIAL_2, 4, HG_HITBOX_GROUP, -1);
+
+// #region vvv LIBRARY DEFINES AND MACROS vvv
+// DANGER File below this point will be overwritten! Generated defines and macros below.
+// Write NO-INJECT in a comment above this area to disable injection.
+#macro STARTUP_FRAMES 2
+#define _get_startup_frames()
+    return STARTUP_FRAMES
+#macro STARTUP_FRAME_START 0
+#define _get_startup_frame_start()
+    return STARTUP_FRAME_START
+
+#macro RISE_FRAMES 7
+#define _get_rise_frames()
+    return RISE_FRAMES
+#macro RISE_FRAME_START 2
+#define _get_rise_frame_start()
+    return RISE_FRAME_START
+
+#macro ACTIVE_FRAMES 4
+#define _get_active_frames()
+    return ACTIVE_FRAMES
+#macro ACTIVE_FRAME_START 9
+#define _get_active_frame_start()
+    return ACTIVE_FRAME_START
+
+#macro FLIP_FRAMES 6
+#define _get_flip_frames()
+    return FLIP_FRAMES
+#macro FLIP_FRAME_START 13
+#define _get_flip_frame_start()
+    return FLIP_FRAME_START
+// DANGER: Write your code ABOVE the LIBRARY DEFINES AND MACROS header or it will be overwritten!
+// #endregion

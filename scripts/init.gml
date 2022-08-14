@@ -227,8 +227,8 @@ nts_hit = hit_fx_create(sprite_get("fx_shade_transition"), 20)
 
 //Common Variables
 
-hurtbox_spr = sprite_get("knight_hurtbox_standing");
-crouchbox_spr = sprite_get("knight_hurtbox_crouching");
+hurtbox_spr = sprite_get("hurtbox_standing");
+crouchbox_spr = sprite_get("hurtbox_crouching");
 air_hurtbox_spr = -1;
 hitstun_hurtbox_spr = -1;
 

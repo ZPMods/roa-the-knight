@@ -11,7 +11,6 @@ set_window_value(AT_NSPECIAL, 1, AG_WINDOW_TYPE, 1);
 set_window_value(AT_NSPECIAL, 1, AG_WINDOW_LENGTH, 17);
 set_window_value(AT_NSPECIAL, 1, AG_WINDOW_ANIM_FRAMES, STARTUP_FRAMES);
 set_window_value(AT_NSPECIAL, 1, AG_WINDOW_ANIM_FRAME_START, STARTUP_FRAME_START);
-
 set_window_value(AT_NSPECIAL, 1, AG_WINDOW_HSPEED, 0);
 set_window_value(AT_NSPECIAL, 1, AG_WINDOW_VSPEED, 0);
 set_window_value(AT_NSPECIAL, 1, AG_WINDOW_HSPEED_TYPE, 1);
@@ -63,3 +62,29 @@ set_hitbox_value(AT_NSPECIAL, 1, HG_PROJECTILE_SPRITE, sprite_get("nspecial_proj
 set_hitbox_value(AT_NSPECIAL, 1, HG_PROJECTILE_MASK, sprite_get("nspecial_proj"));
 set_hitbox_value(AT_NSPECIAL, 1, HG_PROJECTILE_ANIM_SPEED, .2);
 set_hitbox_value(AT_NSPECIAL, 1, HG_PROJECTILE_HSPEED, 10);
+
+// #region vvv LIBRARY DEFINES AND MACROS vvv
+// DANGER File below this point will be overwritten! Generated defines and macros below.
+// Write NO-INJECT in a comment above this area to disable injection.
+#macro STARTUP_FRAMES 3
+#define _get_startup_frames()
+    return STARTUP_FRAMES
+#macro STARTUP_FRAME_START 0
+#define _get_startup_frame_start()
+    return STARTUP_FRAME_START
+
+#macro SHOOT_FRAMES 2
+#define _get_shoot_frames()
+    return SHOOT_FRAMES
+#macro SHOOT_FRAME_START 3
+#define _get_shoot_frame_start()
+    return SHOOT_FRAME_START
+
+#macro RECOVERY_FRAMES 3
+#define _get_recovery_frames()
+    return RECOVERY_FRAMES
+#macro RECOVERY_FRAME_START 5
+#define _get_recovery_frame_start()
+    return RECOVERY_FRAME_START
+// DANGER: Write your code ABOVE the LIBRARY DEFINES AND MACROS header or it will be overwritten!
+// #endregion

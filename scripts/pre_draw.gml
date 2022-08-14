@@ -31,7 +31,7 @@ if (state == PS_AIR_DODGE && window == 1)
 if (airdodge_trail_1_show)
 {
   shader_start();
-  draw_sprite_ext(sprite_get("airdodge_trail"), 0, airdodge_trail_1_x, airdodge_trail_1_y, 1, 1, 0, c_white, airdodge_trail_1_alpha);
+  draw_sprite_ext(sprite_get("fx_airdodge_trail"), 0, airdodge_trail_1_x, airdodge_trail_1_y, 1, 1, 0, c_white, airdodge_trail_1_alpha);
   shader_end();
 
   airdodge_trail_1_alpha -= .05;
@@ -46,7 +46,7 @@ if (airdodge_trail_1_show)
 if (airdodge_trail_2_show)
 {
   shader_start();
-  draw_sprite_ext(sprite_get("airdodge_trail"), 1, airdodge_trail_2_x, airdodge_trail_2_y, 1, 1, 0, c_white, airdodge_trail_2_alpha);
+  draw_sprite_ext(sprite_get("fx_airdodge_trail"), 1, airdodge_trail_2_x, airdodge_trail_2_y, 1, 1, 0, c_white, airdodge_trail_2_alpha);
   shader_end();
 
   airdodge_trail_2_alpha -= .05;
@@ -61,7 +61,7 @@ if (airdodge_trail_2_show)
 if (airdodge_trail_3_show)
 {
   shader_start();
-  draw_sprite_ext(sprite_get("airdodge_trail"), 2, airdodge_trail_3_x, airdodge_trail_3_y, 1, 1, 0, c_white, airdodge_trail_3_alpha);
+  draw_sprite_ext(sprite_get("fx_airdodge_trail"), 2, airdodge_trail_3_x, airdodge_trail_3_y, 1, 1, 0, c_white, airdodge_trail_3_alpha);
   shader_end();
 
   airdodge_trail_3_alpha -= .05;
@@ -114,7 +114,7 @@ if ((state == PS_ROLL_FORWARD || state == PS_TECH_FORWARD) && window == 1)
 if (rollforward_trail_1_show)
 {
   shader_start();
-  draw_sprite_ext(sprite_get("rollforward_trail"), 0, rollforward_trail_1_x, rollforward_trail_1_y, 1, 1, 0, c_white, rollforward_trail_1_alpha);
+  draw_sprite_ext(sprite_get("fx_rollforward_trail"), 0, rollforward_trail_1_x, rollforward_trail_1_y, 1, 1, 0, c_white, rollforward_trail_1_alpha);
   shader_end();
 
   rollforward_trail_1_alpha -= .05;
@@ -129,7 +129,7 @@ if (rollforward_trail_1_show)
 if (rollforward_trail_2_show)
 {
   shader_start();
-  draw_sprite_ext(sprite_get("rollforward_trail"), 1, rollforward_trail_2_x, rollforward_trail_2_y, 1, 1, 0, c_white, rollforward_trail_2_alpha);
+  draw_sprite_ext(sprite_get("fx_rollforward_trail"), 1, rollforward_trail_2_x, rollforward_trail_2_y, 1, 1, 0, c_white, rollforward_trail_2_alpha);
   shader_end();
 
   rollforward_trail_2_alpha -= .05;
@@ -144,7 +144,7 @@ if (rollforward_trail_2_show)
 if (rollforward_trail_3_show)
 {
   shader_start();
-  draw_sprite_ext(sprite_get("rollforward_trail"), 2, rollforward_trail_3_x, rollforward_trail_3_y, 1, 1, 0, c_white, rollforward_trail_3_alpha);
+  draw_sprite_ext(sprite_get("fx_rollforward_trail"), 2, rollforward_trail_3_x, rollforward_trail_3_y, 1, 1, 0, c_white, rollforward_trail_3_alpha);
   shader_end();
 
   rollforward_trail_3_alpha -= .05;
@@ -159,7 +159,7 @@ if (rollforward_trail_3_show)
 if (rollforward_trail_4_show)
 {
   shader_start();
-  draw_sprite_ext(sprite_get("rollforward_trail"), 3, rollforward_trail_4_x, rollforward_trail_4_y, 1, 1, 0, c_white, rollforward_trail_4_alpha);
+  draw_sprite_ext(sprite_get("fx_rollforward_trail"), 3, rollforward_trail_4_x, rollforward_trail_4_y, 1, 1, 0, c_white, rollforward_trail_4_alpha);
   shader_end();
 
   rollforward_trail_4_alpha -= .05;
@@ -212,7 +212,7 @@ if ((state == PS_ROLL_BACKWARD || state == PS_TECH_BACKWARD) && window == 1)
 if (rollbackward_trail_1_show)
 {
   shader_start();
-  draw_sprite_ext(sprite_get("rollbackward_trail"), 0, rollbackward_trail_1_x, rollbackward_trail_1_y, 1, 1, 0, c_white, rollbackward_trail_1_alpha);
+  draw_sprite_ext(sprite_get("fx_rollbackward_trail"), 0, rollbackward_trail_1_x, rollbackward_trail_1_y, 1, 1, 0, c_white, rollbackward_trail_1_alpha);
   shader_end();
 
   rollbackward_trail_1_alpha -= .05;
@@ -227,7 +227,7 @@ if (rollbackward_trail_1_show)
 if (rollbackward_trail_2_show)
 {
   shader_start();
-  draw_sprite_ext(sprite_get("rollbackward_trail"), 1, rollbackward_trail_2_x, rollbackward_trail_2_y, 1, 1, 0, c_white, rollbackward_trail_2_alpha);
+  draw_sprite_ext(sprite_get("fx_rollbackward_trail"), 1, rollbackward_trail_2_x, rollbackward_trail_2_y, 1, 1, 0, c_white, rollbackward_trail_2_alpha);
   shader_end();
 
   rollbackward_trail_2_alpha -= .05;
@@ -242,7 +242,7 @@ if (rollbackward_trail_2_show)
 if (rollbackward_trail_3_show)
 {
   shader_start();
-  draw_sprite_ext(sprite_get("rollbackward_trail"), 2, rollbackward_trail_3_x, rollbackward_trail_3_y, 1, 1, 0, c_white, rollbackward_trail_3_alpha);
+  draw_sprite_ext(sprite_get("fx_rollbackward_trail"), 2, rollbackward_trail_3_x, rollbackward_trail_3_y, 1, 1, 0, c_white, rollbackward_trail_3_alpha);
   shader_end();
 
   rollbackward_trail_3_alpha -= .05;
@@ -257,7 +257,7 @@ if (rollbackward_trail_3_show)
 if (rollbackward_trail_4_show)
 {
   shader_start();
-  draw_sprite_ext(sprite_get("rollbackward_trail"), 3, rollbackward_trail_4_x, rollbackward_trail_4_y, 1, 1, 0, c_white, rollbackward_trail_4_alpha);
+  draw_sprite_ext(sprite_get("fx_rollbackward_trail"), 3, rollbackward_trail_4_x, rollbackward_trail_4_y, 1, 1, 0, c_white, rollbackward_trail_4_alpha);
   shader_end();
 
   rollbackward_trail_4_alpha -= .05;

@@ -1,8 +1,8 @@
-sprite_change_offset("smalltalk",7,0);
-sprite_change_offset("Kirby_Knight",32,50);
+sprite_change_offset("extra_smalltalk",7,0);
+sprite_change_offset("extra_kirby_knight",32,50);
 
-sprite_change_offset("knight_hurtbox_standing", 20, 56);
-sprite_change_offset("knight_hurtbox_crouching", 20, 50);
+sprite_change_offset("hurtbox_standing", 20, 56);
+sprite_change_offset("hurtbox_crouching", 20, 50);
 
 sprite_change_offset("idle",                    18, 72);
 sprite_change_offset("hurt",                    22, 72);
@@ -26,11 +26,11 @@ sprite_change_offset("landinglag",              18, 66);
 
 sprite_change_offset("parry",                   50, 76);
 sprite_change_offset("roll_forward",            18, 72);
-sprite_change_offset("rollforward_trail",       18, 72);
+sprite_change_offset("fx_rollforward_trail",       18, 72);
 sprite_change_offset("roll_backward",           18, 72);
-sprite_change_offset("rollbackward_trail",      18, 72);
+sprite_change_offset("fx_rollbackward_trail",      18, 72);
 sprite_change_offset("airdodge",                18, 72);
-sprite_change_offset("airdodge_trail",          18, 72);
+sprite_change_offset("fx_airdodge_trail",          18, 72);
 sprite_change_offset("waveland",                18, 66);
 sprite_change_offset("tech",                    18, 72);
 
@@ -98,4 +98,4 @@ sprite_change_offset("fx_feathers_falling_3", 100, 86);
 sprite_change_offset("fx_dash_burst", 132, 62);
 
 set_victory_theme( sound_get("Hollow_Knight_Victory_Theme"));
-set_victory_bg( sprite_get( "victory_bg" ));
+set_victory_bg( sprite_get( "extra_victory_bg" ));
