@@ -54,15 +54,15 @@ if(attack == AT_NSPECIAL_2 and hbox_num == 3){
     
     if (bubbles_timer % 4 == 0)
     {
-         shade_bubbles_play = 1;
-         shade_bubbles_x = x;
-         shade_bubbles_y = y;
+         fx_shade_bubbles_play = 1;
+         fx_shade_bubbles_x = x;
+         fx_shade_bubbles_y = y;
     }
     
-    if (shade_bubbles_play == 1)
+    if (fx_shade_bubbles_play == 1)
     {
-    	shade_bubbles_play = 0;
-    	spawnShadeBubbles(shade_bubbles_x, shade_bubbles_y);
+    	fx_shade_bubbles_play = 0;
+    	spawnShadeBubbles(fx_shade_bubbles_x, fx_shade_bubbles_y);
     }
     
     if (x < stage_left-200 || x > stage_right+200) or instance_place(x, y, asset_get("par_block"))
@@ -70,7 +70,7 @@ if(attack == AT_NSPECIAL_2 and hbox_num == 3){
     	if (timer_boom == 14)
     	{
     		spawn_hit_fx(x - 20, y - 40, owner.nts_hit);
-    		spawn_hit_fx(x + 20, y, owner.shade_burst_1);
+    		spawn_hit_fx(x + 20, y, owner.fx_shade_burst_1);
     	}
     
          if timer_boom > 0{
@@ -116,15 +116,15 @@ if(attack == AT_NSPECIAL_2 and hbox_num == 3){
 }
 #define spawnShadeBubbles
 var id = random_func(0, 5, true);
-var toSpawn = owner.shade_bubbles_1;
+var toSpawn = owner.fx_shade_bubbles_1;
 
 switch (id)
 {
-	case 0 : toSpawn = owner.shade_bubbles_1; break;
-	case 1 : toSpawn = owner.shade_bubbles_1; break;
-	case 2 : toSpawn = owner.shade_bubbles_3; break;
-	case 3 : toSpawn = owner.shade_bubbles_4; break;
-	case 4 : toSpawn = owner.shade_bubbles_5; break;
+	case 0 : toSpawn = owner.fx_shade_bubbles_1; break;
+	case 1 : toSpawn = owner.fx_shade_bubbles_1; break;
+	case 2 : toSpawn = owner.fx_shade_bubbles_3; break;
+	case 3 : toSpawn = owner.fx_shade_bubbles_4; break;
+	case 4 : toSpawn = owner.fx_shade_bubbles_5; break;
 }
 
 spawn_hit_fx(argument[0], argument[1], toSpawn);

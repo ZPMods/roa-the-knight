@@ -222,7 +222,7 @@ if(state == PS_WALL_JUMP)
 if (soul_full_play == 0)
 {
 	sound_play(sound_get("soul_full"));
-	spawned_soul_effect = spawn_hit_fx(x, y-35, soul_full_effect);
+	spawned_soul_effect = spawn_hit_fx(x, y-35, fx_soul_full);
 }
 
 if (soul_full_play >= 0)
@@ -241,16 +241,16 @@ if (soul_full_play == 30)
 }
 
 //Particle effects triggers from other scripts, 'cause you can't call a function from other scripts for some godforsaken reason, @dan plz fix
-if (soul_burst_play = 1)
+if (fx_soul_burst_play = 1)
 {
-	soul_burst_play = 0;
-	spawnSoulBurst(soul_burst_x, soul_burst_y);
+	fx_soul_burst_play = 0;
+	spawnSoulBurst(fx_soul_burst_x, fx_soul_burst_y);
 }
 
-if (shade_burst_play = 1)
+if (fx_shade_burst_play = 1)
 {
-	shade_burst_play = 0;
-	spawnShadeBurst(shade_burst_x, shade_burst_y);
+	fx_shade_burst_play = 0;
+	spawnShadeBurst(fx_shade_burst_x, fx_shade_burst_y);
 }
 
 
@@ -379,12 +379,12 @@ if swallowed {
     swallowed = 0;
     kirb_used = 0;
 
-    var ability_spr = sprite_get("Kirby_Knight");
-    var ability_air_spr = sprite_get("Kirby_Knight");
+    var ability_spr = sprite_get("extra_kirby_knight");
+    var ability_air_spr = sprite_get("extra_kirby_knight");
     var hurtbox_spr = sprite_get("Kirby_Knight_hurt");
     var ability_proj_spr = sprite_get("nspecial_proj");
 	var sound_nspecial = sound_get("knight_special_neutral_normal");
-	var vfx = hit_fx_create(sprite_get("soul_hit_heavy"), 20);
+	var vfx = hit_fx_create(sprite_get("fx_soul_hit_heavy"), 20);
 
     with enemykirby {
 
@@ -470,7 +470,7 @@ if enemykirby != undefined { //if kirby is in a match & swallowed
 if trummelcodecneeded{
     trummelcodec = 17;
     trummelcodecmax = 5;
-    trummelcodecsprite1 = sprite_get("smalltalk");
+    trummelcodecsprite1 = sprite_get("extra_smalltalk");
     trummelcodecsprite2 = sprite_get("charm_notch_on");
 
     //Page 0
@@ -645,15 +645,15 @@ with obj_stage_article if num == 5 {
 //argument 0 = x
 //argument 1 = y
 var id = random_func(0, 5, true);
-var toSpawn = soul_burst_1;
+var toSpawn = fx_soul_burst_1;
 
 switch (id)
 {
-	case 0 : toSpawn = soul_burst_1; break;
-	case 1 : toSpawn = soul_burst_2; break;
-	case 2 : toSpawn = soul_burst_3; break;
-	case 3 : toSpawn = soul_burst_4; break;
-	case 4 : toSpawn = soul_burst_5; break;
+	case 0 : toSpawn = fx_soul_burst_1; break;
+	case 1 : toSpawn = fx_soul_burst_2; break;
+	case 2 : toSpawn = fx_soul_burst_3; break;
+	case 3 : toSpawn = fx_soul_burst_4; break;
+	case 4 : toSpawn = fx_soul_burst_5; break;
 }
 
 spawn_hit_fx(argument[0], argument[1], toSpawn);
@@ -664,15 +664,15 @@ spawn_hit_fx(argument[0], argument[1], toSpawn);
 //argument 0 = x
 //argument 1 = y
 var id = random_func(0, 5, true);
-var toSpawn = shade_burst_1;
+var toSpawn = fx_shade_burst_1;
 
 switch (id)
 {
-	case 0 : toSpawn = shade_burst_1; break;
-	case 1 : toSpawn = shade_burst_2; break;
-	case 2 : toSpawn = shade_burst_3; break;
-	case 3 : toSpawn = shade_burst_4; break;
-	case 4 : toSpawn = shade_burst_5; break;
+	case 0 : toSpawn = fx_shade_burst_1; break;
+	case 1 : toSpawn = fx_shade_burst_2; break;
+	case 2 : toSpawn = fx_shade_burst_3; break;
+	case 3 : toSpawn = fx_shade_burst_4; break;
+	case 4 : toSpawn = fx_shade_burst_5; break;
 }
 
 spawn_hit_fx(argument[0], argument[1], toSpawn);

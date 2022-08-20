@@ -23,7 +23,7 @@ easing_enabled = true;
 do_easing = false;
 hop_off = false;
 
-dash_fx = hit_fx_create(sprite_get("dash_burst"), 9);
+dash_fx = hit_fx_create(sprite_get("fx_dash_burst"), 9);
 
 // Kirby
 kirbyability = 16;
@@ -173,63 +173,62 @@ nspecial_boosted_effect_dir = "right";
 
 //HIT EFFECTS
 
-nspecial_explosion = hit_fx_create(sprite_get("nspecial_explosion"), 30);
-nspecial_boosted_explosion = hit_fx_create(sprite_get("nspecial_boosted_explosion"), 30);
+fx_nspecial_explosion = hit_fx_create(sprite_get("fx_nspecial_explosion"), 30);
+fx_nspecial_boosted_explosion = hit_fx_create(sprite_get("fx_nspecial_boosted_explosion"), 30);
 
-shade_hit_weak = hit_fx_create(sprite_get("shade_hit_weak"), 20);
-shade_hit_weak_2 = hit_fx_create(sprite_get("shade_hit_weak_2"), 20);
+fx_shade_hit_weak = hit_fx_create(sprite_get("fx_shade_hit_weak"), 20);
+fx_shade_hit_weak_2 = hit_fx_create(sprite_get("fx_shade_hit_weak_2"), 20);
 
-
-soul_hit_weak = hit_fx_create(sprite_get("soul_hit_weak"), 20);
-soul_hit_heavy = hit_fx_create(sprite_get("soul_hit_heavy"), 20);
+fx_soul_hit_weak = hit_fx_create(sprite_get("fx_soul_hit_weak"), 20);
+fx_soul_hit_heavy = hit_fx_create(sprite_get("fx_soul_hit_heavy"), 20);
 
 //PARTICLE EFFECTS
-soul_full_effect = hit_fx_create(sprite_get("soul_full_effect"), 30);
+fx_soul_full = hit_fx_create(sprite_get("fx_soul_full"), 30);
 soul_full_play = -1;
 
-soul_burst_1 = hit_fx_create(sprite_get("soul_burst_1"), 40);
-soul_burst_2 = hit_fx_create(sprite_get("soul_burst_2"), 40);
-soul_burst_3 = hit_fx_create(sprite_get("soul_burst_3"), 40);
-soul_burst_4 = hit_fx_create(sprite_get("soul_burst_4"), 40);
-soul_burst_5 = hit_fx_create(sprite_get("soul_burst_5"), 40);
-soul_burst_play = 0;
-soul_burst_x = 0;
-soul_burst_y = 0;
+fx_soul_burst_1 = hit_fx_create(sprite_get("fx_soul_burst_1"), 40);
+fx_soul_burst_2 = hit_fx_create(sprite_get("fx_soul_burst_2"), 40);
+fx_soul_burst_3 = hit_fx_create(sprite_get("fx_soul_burst_3"), 40);
+fx_soul_burst_4 = hit_fx_create(sprite_get("fx_soul_burst_4"), 40);
+fx_soul_burst_5 = hit_fx_create(sprite_get("fx_soul_burst_5"), 40);
+fx_soul_burst_play = 0;
+fx_soul_burst_x = 0;
+fx_soul_burst_y = 0;
 
-shade_burst_1 = hit_fx_create(sprite_get("shade_burst_1"), 50);
-shade_burst_2 = hit_fx_create(sprite_get("shade_burst_2"), 50);
-shade_burst_3 = hit_fx_create(sprite_get("shade_burst_3"), 50);
-shade_burst_4 = hit_fx_create(sprite_get("shade_burst_4"), 50);
-shade_burst_5 = hit_fx_create(sprite_get("shade_burst_5"), 50);
-shade_burst_play = 0;
-shade_burst_x = 0;
-shade_burst_y = 0;
+fx_shade_burst_1 = hit_fx_create(sprite_get("fx_shade_burst_1"), 50);
+fx_shade_burst_2 = hit_fx_create(sprite_get("fx_shade_burst_2"), 50);
+fx_shade_burst_3 = hit_fx_create(sprite_get("fx_shade_burst_3"), 50);
+fx_shade_burst_4 = hit_fx_create(sprite_get("fx_shade_burst_4"), 50);
+fx_shade_burst_5 = hit_fx_create(sprite_get("fx_shade_burst_5"), 50);
+fx_shade_burst_play = 0;
+fx_shade_burst_x = 0;
+fx_shade_burst_y = 0;
 
-shade_bubbles_1 = hit_fx_create(sprite_get("shade_bubbles_1"), 22);
-shade_bubbles_2 = hit_fx_create(sprite_get("shade_bubbles_2"), 22);
-shade_bubbles_3 = hit_fx_create(sprite_get("shade_bubbles_3"), 22);
-shade_bubbles_4 = hit_fx_create(sprite_get("shade_bubbles_4"), 22);
-shade_bubbles_5 = hit_fx_create(sprite_get("shade_bubbles_5"), 22);
-shade_bubbles_play = 0;
-shade_bubbles_x = 0;
-shade_bubbles_y = 0;
+fx_shade_bubbles_1 = hit_fx_create(sprite_get("fx_shade_bubbles_1"), 22);
+fx_shade_bubbles_2 = hit_fx_create(sprite_get("fx_shade_bubbles_2"), 22);
+fx_shade_bubbles_3 = hit_fx_create(sprite_get("fx_shade_bubbles_3"), 22);
+fx_shade_bubbles_4 = hit_fx_create(sprite_get("fx_shade_bubbles_4"), 22);
+fx_shade_bubbles_5 = hit_fx_create(sprite_get("fx_shade_bubbles_5"), 22);
+fx_shade_bubbles_play = 0;
+fx_shade_bubbles_x = 0;
+fx_shade_bubbles_y = 0;
 
-feathers_burst_1 = hit_fx_create(sprite_get("feathers_burst_1"), 40);
-feathers_falling_1 = hit_fx_create(sprite_get("feathers_falling_1"), 40);
-feathers_falling_2 = hit_fx_create(sprite_get("feathers_falling_2"), 40);
-feathers_falling_3 = hit_fx_create(sprite_get("feathers_falling_3"), 40);
+fx_feathers_burst_1 = hit_fx_create(sprite_get("fx_feathers_burst_1"), 40);
+fx_feathers_falling_1 = hit_fx_create(sprite_get("fx_feathers_falling_1"), 40);
+fx_feathers_falling_2 = hit_fx_create(sprite_get("fx_feathers_falling_2"), 40);
+fx_feathers_falling_3 = hit_fx_create(sprite_get("fx_feathers_falling_3"), 40);
 feathers_play = 0;
 
-dash_burst = hit_fx_create(sprite_get("dash_burst"), 13);
+fx_dash_burst = hit_fx_create(sprite_get("fx_dash_burst"), 13);
 
-nts_hit = hit_fx_create(sprite_get("normal_to_shade_effect"), 20)
+nts_hit = hit_fx_create(sprite_get("fx_shade_transition"), 20)
 
 //----------------------------------------------------------
 
 //Common Variables
 
-hurtbox_spr = sprite_get("knight_hurtbox_standing");
-crouchbox_spr = sprite_get("knight_hurtbox_crouching");
+hurtbox_spr = sprite_get("hurtbox_standing");
+crouchbox_spr = sprite_get("hurtbox_crouching");
 air_hurtbox_spr = -1;
 hitstun_hurtbox_spr = -1;
 

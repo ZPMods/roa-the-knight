@@ -16,7 +16,7 @@ if(attack == AT_NSPECIAL_2 and hbox_num == 3){
     shade_soul_player_hit = noone;
     newhit_vsp = 0;
     newhit_hsp = 0;
-    shade_bubbles_play = 0;
+    fx_shade_bubbles_play = 0;
     shade_soul_hit = false;
     shade_soul_first_hit = false;
     shade_hitbox = noone;
@@ -29,8 +29,8 @@ if(attack == AT_NSPECIAL_2 and hbox_num == 3){
     
     //Bubbles
     bubbles_timer = 0;
-    shade_bubbles_x = x;
-    shade_bubbles_y = y - 40;
+    fx_shade_bubbles_x = x;
+    fx_shade_bubbles_y = y - 40;
     
     audio = sound_get("knight_special_neutral_boosted_loop");
     sound_play(audio);

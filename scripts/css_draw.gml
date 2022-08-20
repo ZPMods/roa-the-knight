@@ -223,7 +223,7 @@ if (alt_cur == pride_alt)
           break;
      }
 	 
-     draw_sprite_ext(sprite_get("flags_outline"), 0, temp_x + 4, temp_y + 34, 1, 1, 0, c_white, 1);
+     draw_sprite_ext(sprite_get("extra_flags_outline"), 0, temp_x + 4, temp_y + 34, 1, 1, 0, c_white, 1);
 
      if (last_flag != current_flag)
      {
@@ -244,15 +244,15 @@ if (alt_cur == pride_alt)
           }
      }
 
-     //draw_sprite_ext(sprite_get("flags"), current_flag-1, temp_x + 4, temp_y + lerp(34, 0, lerp_val), 1, 1, 0, c_white, lerp(1, 0, lerp_val));
-     //draw_sprite_ext(sprite_get("flags"), current_flag, temp_x + lerp(10, 4, lerp_val), temp_y + lerp(68, 34, lerp_val), lerp(.75, 1, lerp_val), lerp(.75, 1, lerp_val), 0, c_white, 1);
-     //draw_sprite_ext(sprite_get("flags"), current_flag + 1, temp_x + lerp(17, 10, lerp_val), temp_y + lerp(93, 68, lerp_val), lerp(.5, .75, lerp_val), lerp(.5, .75, lerp_val), 0, c_white, 1);
-     //draw_sprite_ext(sprite_get("flags"), current_flag + 2, temp_x + 17,  temp_y + lerp(110, 93, lerp_val), .5, .5, 0, c_white, lerp(0, 1, lerp_val));
+     //draw_sprite_ext(sprite_get("extra_flags"), current_flag-1, temp_x + 4, temp_y + lerp(34, 0, lerp_val), 1, 1, 0, c_white, lerp(1, 0, lerp_val));
+     //draw_sprite_ext(sprite_get("extra_flags"), current_flag, temp_x + lerp(10, 4, lerp_val), temp_y + lerp(68, 34, lerp_val), lerp(.75, 1, lerp_val), lerp(.75, 1, lerp_val), 0, c_white, 1);
+     //draw_sprite_ext(sprite_get("extra_flags"), current_flag + 1, temp_x + lerp(17, 10, lerp_val), temp_y + lerp(93, 68, lerp_val), lerp(.5, .75, lerp_val), lerp(.5, .75, lerp_val), 0, c_white, 1);
+     //draw_sprite_ext(sprite_get("extra_flags"), current_flag + 2, temp_x + 17,  temp_y + lerp(110, 93, lerp_val), .5, .5, 0, c_white, lerp(0, 1, lerp_val));
      
-     draw_sprite_ext(sprite_get("flags"), lerp_floored, temp_x + 4, temp_y + lerp(34, 0, lerp_val), 1, 1, 0, c_white, lerp(1, 0, lerp_val));
-     draw_sprite_ext(sprite_get("flags"), lerp_floored + 1, temp_x + lerp(10, 4, lerp_val), temp_y + lerp(68, 34, lerp_val), lerp(.75, 1, lerp_val), lerp(.75, 1, lerp_val), 0, c_white, 1);
-     draw_sprite_ext(sprite_get("flags"), lerp_floored + 2, temp_x + lerp(17, 10, lerp_val), temp_y + lerp(93, 68, lerp_val), lerp(.5, .75, lerp_val), lerp(.5, .75, lerp_val), 0, c_white, 1);
-     draw_sprite_ext(sprite_get("flags"), lerp_floored + 3, temp_x + 17,  temp_y + lerp(110, 93, lerp_val), .5, .5, 0, c_white, lerp(0, 1, lerp_val));
+     draw_sprite_ext(sprite_get("extra_flags"), lerp_floored, temp_x + 4, temp_y + lerp(34, 0, lerp_val), 1, 1, 0, c_white, lerp(1, 0, lerp_val));
+     draw_sprite_ext(sprite_get("extra_flags"), lerp_floored + 1, temp_x + lerp(10, 4, lerp_val), temp_y + lerp(68, 34, lerp_val), lerp(.75, 1, lerp_val), lerp(.75, 1, lerp_val), 0, c_white, 1);
+     draw_sprite_ext(sprite_get("extra_flags"), lerp_floored + 2, temp_x + lerp(17, 10, lerp_val), temp_y + lerp(93, 68, lerp_val), lerp(.5, .75, lerp_val), lerp(.5, .75, lerp_val), 0, c_white, 1);
+     draw_sprite_ext(sprite_get("extra_flags"), lerp_floored + 3, temp_x + 17,  temp_y + lerp(110, 93, lerp_val), .5, .5, 0, c_white, lerp(0, 1, lerp_val));
 }
 else
 {
@@ -269,25 +269,25 @@ else
 // Seasonal
 /*
 if (alt_cur == 6){
-  draw_sprite_ext(sprite_get("cssextras"), 2, temp_x + 3, temp_y + 92, 1, 1, 0, c_white, 1);
+  draw_sprite_ext(sprite_get("extra_cssextras"), 2, temp_x + 3, temp_y + 92, 1, 1, 0, c_white, 1);
 }
 */
 // Abyss
 if (alt_cur == abyss_alt){
-  draw_sprite_ext(sprite_get("cssextras"), 1, temp_x + 3, temp_y + 92, 1, 1, 0, c_white, 1);
+  draw_sprite_ext(sprite_get("extra_cssextras"), 1, temp_x + 3, temp_y + 92, 1, 1, 0, c_white, 1);
 }
 // Early Access
 if (alt_cur == early_access_alt){
-  draw_sprite_ext(sprite_get("cssextras"), 3, temp_x + 3, temp_y + 92, 1, 1, 0, c_white, 1);
+  draw_sprite_ext(sprite_get("extra_cssextras"), 3, temp_x + 3, temp_y + 92, 1, 1, 0, c_white, 1);
 }
 
 // Little Star
 if (alt_cur == infamous_alt){
-  draw_sprite_ext(sprite_get("cssextras"), 0, temp_x + 3, temp_y + 92, 1, 1, 0, c_white, 1);
+  draw_sprite_ext(sprite_get("extra_cssextras"), 0, temp_x + 3, temp_y + 92, 1, 1, 0, c_white, 1);
 }
 /* // Show Nothing
 if (alt_cur != 6 and alt_cur != 7 and alt_cur != 8 and alt_cur != 15){
-  draw_sprite_ext(sprite_get("cssextras"), 2, temp_x + 3, temp_y + 92, 1, 1, 0, c_white, 0);
+  draw_sprite_ext(sprite_get("extra_cssextras"), 2, temp_x + 3, temp_y + 92, 1, 1, 0, c_white, 0);
 } */
 
 //Patch
